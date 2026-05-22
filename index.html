@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OpenClaw Memory Sync — 多Agent跨设备记忆池</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: #0d0d1a;
+      color: #e0e0f0;
+      min-height: 100vh;
+    }
+    .header {
+      background: linear-gradient(135deg, #1a1a3e 0%, #0d1b4e 100%);
+      padding: 40px 24px;
+      text-align: center;
+      border-bottom: 1px solid #2a2a5a;
+    }
+    .header h1 { font-size: 2rem; color: #7eb3ff; margin-bottom: 8px; }
+    .header p { color: #8888aa; font-size: 0.95rem; }
+    .badge { 
+      display: inline-block; background: #1e3a5f; color: #7eb3ff; 
+      border-radius: 12px; padding: 4px 12px; font-size: 0.75rem; 
+      margin: 8px 4px; border: 1px solid #2a5a9f;
+    }
+    .container { max-width: 900px; margin: 0 auto; padding: 32px 20px; }
+    .card {
+      background: #13132a;
+      border: 1px solid #2a2a5a;
+      border-radius: 12px;
+      padding: 24px;
+      margin-bottom: 20px;
+    }
+    .card h2 { color: #7eb3ff; font-size: 1.1rem; margin-bottom: 16px; }
+    .agent-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 12px; }
+    .agent-card {
+      background: #0d0d22;
+      border: 1px solid #3a3a6a;
+      border-radius: 8px;
+      padding: 16px;
+      position: relative;
+    }
+    .agent-name { font-weight: 600; color: #b0c8ff; margin-bottom: 4px; }
+    .agent-status { font-size: 0.8rem; color: #5a8a5a; }
+    .agent-status.offline { color: #8a5a5a; }
+    .dot {
+      display: inline-block; width: 8px; height: 8px;
+      border-radius: 50%; margin-right: 6px;
+      background: #5aaa5a;
+    }
+    .dot.offline { background: #aa5a5a; }
+    .memory-stream {
+      background: #080814;
+      border-radius: 8px;
+      padding: 16px;
+      font-family: 'Courier New', monospace;
+      font-size: 0.82rem;
+      max-height: 280px;
+      overflow-y: auto;
+    }
+    .log-line { margin-bottom: 6px; line-height: 1.5; }
+    .ts { color: #4a6a9a; }
+    .agent-tag { color: #7eb3ff; font-weight: 600; }
+    .mem-key { color: #aaffaa; }
+    .mem-val { color: #ffddaa; }
+    .stat-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+    .stat-box {
+      background: #0d0d22;
+      border: 1px solid #2a2a5a;
+      border-radius: 8px;
+      padding: 16px;
+      text-align: center;
+    }
+    .stat-num { font-size: 2rem; font-weight: 700; color: #7eb3ff; }
+    .stat-label { font-size: 0.8rem; color: #6666aa; margin-top: 4px; }
+    .how-it-works { 
+      display: flex; gap: 16px; flex-wrap: wrap;
+    }
+    .step {
+      flex: 1; min-width: 180px;
+      background: #0d0d22;
+      border: 1px solid #2a2a5a;
+      border-radius: 8px;
+      padding: 16px;
+    }
+    .step-num { 
+      width: 28px; height: 28px; border-radius: 50%; 
+      background: #1e3a6e; color: #7eb3ff;
+      display: flex; align-items: center; justify-content: center;
+      font-weight: 700; font-size: 0.9rem; margin-bottom: 10px;
+    }
+    .step h3 { font-size: 0.9rem; color: #b0c8ff; margin-bottom: 6px; }
+    .step p { font-size: 0.8rem; color: #6666aa; line-height: 1.5; }
+    .footer { text-align: center; padding: 32px; color: #3a3a6a; font-size: 0.8rem; }
+    .live-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: #0a2a0a; border: 1px solid #2a5a2a;
+      color: #5aaa5a; border-radius: 20px;
+      padding: 4px 12px; font-size: 0.78rem;
+    }
+    .pulse { animation: pulse 2s infinite; }
+    @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.4} }
+  </style>
+</head>
+<body>
+<div class="header">
+  <div style="font-size:2.5rem;margin-bottom:12px">🦐🧠</div>
+  <h1>OpenClaw Memory Sync</h1>
+  <p>多 Agent 跨设备记忆共享池 — 让你的每个 Agent 共享同一个大脑</p>
+  <div style="margin-top:14px">
+    <span class="badge">Multi-Agent</span>
+    <span class="badge">Memory Pool</span>
+    <span class="badge">Cross-Device</span>
+    <span class="badge">Open Source</span>
+    <div style="margin-top:12px">
+      <span class="live-badge"><span class="dot pulse"></span> LIVE DEMO</span>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+
+  <div class="card">
+    <h2>📊 记忆池统计</h2>
+    <div class="stat-grid">
+      <div class="stat-box">
+        <div class="stat-num" id="mem-count">0</div>
+        <div class="stat-label">共享记忆条数</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-num" id="agent-count">0</div>
+        <div class="stat-label">在线 Agent 数</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-num" id="sync-count">0</div>
+        <div class="stat-label">今日同步次数</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>🤖 Agent 状态</h2>
+    <div class="agent-list" id="agent-list">
+      <!-- filled by JS -->
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>🔄 实时记忆流</h2>
+    <div class="memory-stream" id="memory-stream">
+      <!-- filled by JS -->
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>🧩 工作原理</h2>
+    <div class="how-it-works">
+      <div class="step">
+        <div class="step-num">1</div>
+        <h3>写入记忆</h3>
+        <p>任意 Agent 调用 <code>memory.set(key, value)</code>，写入共享池</p>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <h3>广播同步</h3>
+        <p>MemOS 服务通过 WebSocket 向所有注册 Agent 推送变更</p>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <h3>跨设备读取</h3>
+        <p>不同机器上的 Agent 读取时获得完全一致的记忆状态</p>
+      </div>
+      <div class="step">
+        <div class="step-num">4</div>
+        <h3>隔离模式</h3>
+        <p>MULTI_AGENT_MODE 下，不同 agentId 数据隔离，互不干扰</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>📦 快速接入（3分钟跑通）</h2>
+    <pre style="background:#080814;padding:16px;border-radius:8px;font-size:0.82rem;overflow-x:auto;color:#aaffaa;line-height:1.7">
+# 1. 安装 Cloud Plugin（OpenClaw 内执行）
+# openclaw skill install memos-cloud
+
+# 2. 配置环境变量（~/.openclaw/openclaw.json 或 .env）
+MEMOS_API_URL=https://your-memos-server.com
+MEMOS_TOKEN=your_token_here
+MEMOS_USER_ID=shared_pool_user
+MEMOS_MULTI_AGENT_MODE=true
+
+# 3. 在任意 Agent 中写入记忆
+# 小蓝虾（设备A）写入：
+memory.set("last_stock_scan", { ticker: "NVDA", signal: "buy", ts: 1716300000 })
+
+# 小红虾（设备B）读取：
+memory.get("last_stock_scan")
+# → { ticker: "NVDA", signal: "buy", ts: 1716300000 }
+
+# 4. 跨 Agent 协作示例
+# Agent A 扫描，Agent B 执行，Agent C 汇报
+# 全程无需人工干预，共享同一状态机</pre>
+  </div>
+
+</div>
+
+<div class="footer">
+  🦐 小蓝虾出品 · 基于 V2EX @v2ex.com/t/1200100 案例复刻 · 2026-05-22
+</div>
+
+<script>
+  // Simulated live data
+  const agents = [
+    { name: "小蓝虾 (主力)", device: "sandbox-ide", status: "online", tasks: 47 },
+    { name: "Agent-Beta", device: "MacBook Pro", status: "online", tasks: 12 },
+    { name: "Agent-Gamma", device: "树莓派 Pi5", status: "online", tasks: 8 },
+    { name: "Agent-Delta", device: "云服务器 HK", status: "offline", tasks: 0 },
+  ];
+
+  const memoryLogs = [
+    { ts: "17:03:41", agent: "小蓝虾", key: "twitter_scan_ts", val: "1716372221" },
+    { ts: "17:02:15", agent: "Agent-Beta", key: "stock_signal.NVDA", val: '"strong_buy"' },
+    { ts: "17:01:08", agent: "小蓝虾", key: "cron.last_push", val: '"17:00 OpenClaw精选"' },
+    { ts: "16:58:33", agent: "Agent-Gamma", key: "pi_sensors.temp", val: "42.1" },
+    { ts: "16:55:00", agent: "Agent-Beta", key: "market.btc_price", val: "108430" },
+    { ts: "16:52:17", agent: "小蓝虾", key: "memory.daily_summary", val: '"5条精选推送完成"' },
+    { ts: "16:50:44", agent: "Agent-Gamma", key: "home.motion_detect", val: '"none"' },
+    { ts: "16:48:09", agent: "Agent-Beta", key: "stock_signal.AAPL", val: '"hold"' },
+  ];
+
+  // Render agents
+  const agentList = document.getElementById('agent-list');
+  agents.forEach(a => {
+    agentList.innerHTML += `
+      <div class="agent-card">
+        <div class="agent-name">${a.name}</div>
+        <div style="font-size:0.78rem;color:#4a4a7a;margin:4px 0">${a.device}</div>
+        <div class="agent-status ${a.status === 'offline' ? 'offline' : ''}">
+          <span class="dot ${a.status === 'offline' ? 'offline' : ''}"></span>
+          ${a.status === 'online' ? '在线' : '离线'} · ${a.tasks} 次同步
+        </div>
+      </div>`;
+  });
+
+  // Render memory stream
+  const stream = document.getElementById('memory-stream');
+  memoryLogs.forEach(l => {
+    stream.innerHTML += `<div class="log-line">
+      <span class="ts">[${l.ts}]</span> 
+      <span class="agent-tag">[${l.agent}]</span> 
+      SET <span class="mem-key">${l.key}</span> = <span class="mem-val">${l.val}</span>
+    </div>`;
+  });
+
+  // Animate counters
+  function animateCount(id, target, duration=1200) {
+    let start = 0;
+    const el = document.getElementById(id);
+    const step = target / (duration / 16);
+    const timer = setInterval(() => {
+      start = Math.min(start + step, target);
+      el.textContent = Math.round(start);
+      if (start >= target) clearInterval(timer);
+    }, 16);
+  }
+  animateCount('mem-count', 1847);
+  animateCount('agent-count', 3);
+  animateCount('sync-count', 284);
+
+  // Live: add new log every 5s
+  const liveKeys = [
+    ["小蓝虾", "cron.next_push", '"18:00"'],
+    ["Agent-Beta", "stock_signal.TSLA", '"watch"'],
+    ["Agent-Gamma", "pi.cpu_load", "0.42"],
+  ];
+  let liveIdx = 0;
+  setInterval(() => {
+    const now = new Date();
+    const ts = `${now.getHours().toString().padStart(2,'0')}:${now.getMinutes().toString().padStart(2,'0')}:${now.getSeconds().toString().padStart(2,'0')}`;
+    const [agent, key, val] = liveKeys[liveIdx % liveKeys.length];
+    liveIdx++;
+    const line = document.createElement('div');
+    line.className = 'log-line';
+    line.style.color = '#7eb3ff';
+    line.innerHTML = `<span class="ts">[${ts}]</span> <span class="agent-tag">[${agent}]</span> SET <span class="mem-key">${key}</span> = <span class="mem-val">${val}</span>`;
+    stream.insertBefore(line, stream.firstChild);
+  }, 5000);
+</script>
+</body>
+</html>
