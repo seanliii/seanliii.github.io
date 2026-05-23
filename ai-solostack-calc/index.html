@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Solo Stack Calculator 2026</title>
+<style>
+  :root {
+    --bg: #0d0d1a;
+    --card: #13132b;
+    --border: #2a2a4a;
+    --accent: #6c63ff;
+    --accent2: #ff6584;
+    --green: #00c896;
+    --text: #e8e8ff;
+    --muted: #8888aa;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    min-height: 100vh;
+    padding: 20px;
+  }
+  .header {
+    text-align: center;
+    padding: 40px 20px 30px;
+  }
+  .header h1 {
+    font-size: 2rem;
+    background: linear-gradient(135deg, #6c63ff, #ff6584);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 8px;
+  }
+  .header p { color: var(--muted); font-size: 0.95rem; }
+  .container { max-width: 900px; margin: 0 auto; }
+  .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 24px; }
+  @media(max-width:640px){ .grid { grid-template-columns: 1fr; } }
+  .card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 20px;
+  }
+  .card h3 {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--muted);
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .tool-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+  }
+  .tool-row label {
+    flex: 1;
+    font-size: 0.9rem;
+    color: var(--text);
+    cursor: pointer;
+  }
+  .tool-row label span { color: var(--muted); font-size: 0.78rem; display: block; }
+  .tool-row input[type="number"] {
+    width: 80px;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    color: var(--text);
+    padding: 5px 8px;
+    font-size: 0.88rem;
+    text-align: right;
+  }
+  .tool-row input[type="number"]:focus {
+    outline: none;
+    border-color: var(--accent);
+  }
+  .tool-row .price-label {
+    width: 55px;
+    text-align: right;
+    color: var(--muted);
+    font-size: 0.82rem;
+  }
+  .summary-card {
+    background: linear-gradient(135deg, rgba(108,99,255,0.15), rgba(255,101,132,0.1));
+    border: 1px solid rgba(108,99,255,0.4);
+    border-radius: 16px;
+    padding: 28px;
+    margin-bottom: 24px;
+  }
+  .summary-card h2 { font-size: 1.1rem; margin-bottom: 20px; color: var(--accent); }
+  .summary-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.07);
+  }
+  .summary-row:last-child { border-bottom: none; }
+  .summary-row .val {
+    font-size: 1.2rem;
+    font-weight: 700;
+  }
+  .summary-row .val.green { color: var(--green); }
+  .summary-row .val.red { color: var(--accent2); }
+  .summary-row .val.blue { color: var(--accent); }
+  .recommendation {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 24px;
+  }
+  .recommendation h3 {
+    color: var(--green);
+    margin-bottom: 14px;
+    font-size: 1rem;
+  }
+  .rec-item {
+    display: flex;
+    gap: 10px;
+    padding: 8px 0;
+    font-size: 0.88rem;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+  }
+  .rec-item:last-child { border-bottom: none; }
+  .rec-tag {
+    background: rgba(0,200,150,0.15);
+    color: var(--green);
+    border-radius: 4px;
+    padding: 1px 7px;
+    font-size: 0.75rem;
+    height: fit-content;
+    white-space: nowrap;
+    margin-top: 1px;
+  }
+  .badge {
+    display: inline-block;
+    background: rgba(108,99,255,0.2);
+    color: var(--accent);
+    border-radius: 6px;
+    padding: 2px 8px;
+    font-size: 0.75rem;
+    margin-left: 6px;
+    vertical-align: middle;
+  }
+  .footer {
+    text-align: center;
+    color: var(--muted);
+    font-size: 0.78rem;
+    padding: 20px 0;
+  }
+  .footer a { color: var(--accent); text-decoration: none; }
+  .progress-bar {
+    height: 6px;
+    background: rgba(255,255,255,0.08);
+    border-radius: 3px;
+    margin-top: 6px;
+    overflow: hidden;
+  }
+  .progress-fill {
+    height: 100%;
+    border-radius: 3px;
+    background: linear-gradient(90deg, #6c63ff, #ff6584);
+    transition: width 0.3s ease;
+  }
+  .tier-badge {
+    display: inline-block;
+    padding: 3px 12px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+  }
+  .tier-bootstrap { background: rgba(0,200,150,0.2); color: #00c896; }
+  .tier-lean { background: rgba(108,99,255,0.2); color: #6c63ff; }
+  .tier-growth { background: rgba(255,200,0,0.2); color: #ffc800; }
+  .tier-scale { background: rgba(255,101,132,0.2); color: #ff6584; }
+</style>
+</head>
+<body>
+<div class="container">
+  <div class="header">
+    <h1>🦐 AI Solo Stack Calculator</h1>
+    <p>Calculate your monthly AI costs & find optimization opportunities · 2026 Edition</p>
+  </div>
+
+  <div class="summary-card" id="summaryCard">
+    <h2>📊 Your Stack Summary</h2>
+    <div class="summary-row">
+      <span>Monthly Total</span>
+      <span class="val blue" id="totalMonthly">$0</span>
+    </div>
+    <div class="summary-row">
+      <span>Annual Cost</span>
+      <span class="val red" id="totalAnnual">$0</span>
+    </div>
+    <div class="summary-row">
+      <span>vs. Hiring Equivalent Team</span>
+      <span class="val green" id="savings">Save $0/yr</span>
+    </div>
+    <div class="summary-row">
+      <span>Tier</span>
+      <span id="tierBadge"><span class="tier-badge tier-bootstrap">Bootstrap</span></span>
+    </div>
+    <div class="summary-row">
+      <span>Stack Efficiency</span>
+      <span style="flex:1; padding: 0 16px;">
+        <div class="progress-bar"><div class="progress-fill" id="effBar" style="width:0%"></div></div>
+      </span>
+      <span class="val" id="effScore" style="font-size:0.95rem">0%</span>
+    </div>
+  </div>
+
+  <div class="grid">
+    <div class="card">
+      <h3>🤖 AI / LLM</h3>
+      <div class="tool-row">
+        <label>Claude Pro / Max <span>Anthropic claude.ai</span></label>
+        <input type="number" id="claude" value="0" min="0" step="1" oninput="calc()">
+        <span class="price-label">/mo</span>
+      </div>
+      <div class="tool-row">
+        <label>ChatGPT Plus/Pro <span>OpenAI</span></label>
+        <input type="number" id="chatgpt" value="0" min="0" step="1" oninput="calc()">
+        <span class="price-label">/mo</span>
+      </div>
+      <div class="tool-row">
+        <label>Gemini Advanced <span>Google</span></label>
+        <input type="number" id="gemini" value="0" min="0" step="1" oninput="calc()">
+        <span class="price-label">/mo</span>
+      </div>
+      <div class="tool-row">
+        <label>API Credits (custom) <span>OpenAI/Anthropic API</span></label>
+        <input type="number" id="api" value="0" min="0" step="1" oninput="calc()">
+        <span class="price-label">/mo</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>💻 Coding Agents</h3>
+      <div class="tool-row">
+        <label>Claude Code <span>Terminal coding agent</span></label>
+        <input type="number" id="claudecode" value="0" min="0" step="1" oninput="calc()">
+        <span class="price-label">/mo</span>
+      </div>
+      <div class="tool-row">
+        <label>Cursor Pro <span>AI-powered IDE</span></label>
+        <input type="number" id="cursor" value="0" min="0" step="1" oninput="calc()">
+        <span class="price-label">/mo</span>
+      </div>
+      <div class="tool-row">
+        <label>GitHub Copilot <span>Code completion</span></label>
+        <input type="number" id="copilot" value="0" min="0" step="1" oninput="calc()">
+        <span class="price-label">/mo</span>
+      </div>
+      <div class="tool-row">
+        <label>Windsurf / Other <span>Coding assistant</span></label>
+        <input type="number" id="windsurf" value="0" min="0" step="1" oninput="calc()">
+        <span class="price-label">/mo</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>🎨 Design & Content</h3>
+      <div class="tool-row">
+        <label>Midjourney <span>Image generation</span></label>
+        <input type="number" id="midjourney" value="0" min="0" step="1" oninput="calc()">
+        <span class="price-label">/mo</span>
+      </div>
+      <div class="tool-row">
+        <label>Figma + AI <span>Design platform</span></label>
+        <input type="number" id="figma" value="0" min="0" step="1" oninput="calc()">
+        <span class="price-label">/mo</span>
+      </div>
+      <div class="tool-row">
+        <label>ElevenLabs <span>Voice / TTS</span></label>
+        <input type="number" id="eleven" value="0" min="0" step="1" oninput="calc()">
+        <span class="price-label">/mo</span>
+      </div>
+      <div class="tool-row">
+        <label>Runway / Sora <span>Video generation</span></label>
+        <input type="number" id="runway" value="0" min="0" step="1" oninput="calc()">
+        <span class="price-label">/mo</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>⚙️ Automation & Infra</h3>
+      <div class="tool-row">
+        <label>n8n / Make / Zapier <span>Workflow automation</span></label>
+        <input type="number" id="n8n" value="0" min="0" step="1" oninput="calc()">
+        <span class="price-label">/mo</span>
+      </div>
+      <div class="tool-row">
+        <label>Vercel / Netlify <span>Hosting & deployment</span></label>
+        <input type="number" id="vercel" value="0" min="0" step="1" oninput="calc()">
+        <span class="price-label">/mo</span>
+      </div>
+      <div class="tool-row">
+        <label>Supabase / DB <span>Database & backend</span></label>
+        <input type="number" id="supabase" value="0" min="0" step="1" oninput="calc()">
+        <span class="price-label">/mo</span>
+      </div>
+      <div class="tool-row">
+        <label>Other tools <span>Any other subscriptions</span></label>
+        <input type="number" id="other" value="0" min="0" step="1" oninput="calc()">
+        <span class="price-label">/mo</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="recommendation" id="recBox">
+    <h3>💡 Smart Recommendations</h3>
+    <div id="recList">
+      <div class="rec-item">
+        <span class="rec-tag">TIP</span>
+        <span>Enter your costs above to get personalized recommendations for your solo AI stack.</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">
+    Built by 🦐 小蓝虾 · <a href="https://seanliii.github.io/ai-solostack-calc/" target="_blank">seanliii.github.io/ai-solostack-calc</a>
+    <br>Data: Grey Journal / Superframeworks / creem.io · May 2026
+  </div>
+</div>
+
+<script>
+function calc() {
+  const vals = {
+    claude: +document.getElementById('claude').value||0,
+    chatgpt: +document.getElementById('chatgpt').value||0,
+    gemini: +document.getElementById('gemini').value||0,
+    api: +document.getElementById('api').value||0,
+    claudecode: +document.getElementById('claudecode').value||0,
+    cursor: +document.getElementById('cursor').value||0,
+    copilot: +document.getElementById('copilot').value||0,
+    windsurf: +document.getElementById('windsurf').value||0,
+    midjourney: +document.getElementById('midjourney').value||0,
+    figma: +document.getElementById('figma').value||0,
+    eleven: +document.getElementById('eleven').value||0,
+    runway: +document.getElementById('runway').value||0,
+    n8n: +document.getElementById('n8n').value||0,
+    vercel: +document.getElementById('vercel').value||0,
+    supabase: +document.getElementById('supabase').value||0,
+    other: +document.getElementById('other').value||0,
+  };
+  
+  const monthly = Object.values(vals).reduce((a,b)=>a+b,0);
+  const annual = monthly * 12;
+  
+  // Team equivalent: junior dev $60k + designer $55k + marketer $50k + ops $45k = $210k/yr
+  const teamCost = 210000;
+  const savings = teamCost - annual;
+  
+  // Tier
+  let tier, tierClass;
+  if(monthly < 50){ tier='Bootstrap'; tierClass='tier-bootstrap'; }
+  else if(monthly < 200){ tier='Lean'; tierClass='tier-lean'; }
+  else if(monthly < 500){ tier='Growth'; tierClass='tier-growth'; }
+  else { tier='Scale'; tierClass='tier-scale'; }
+  
+  // Efficiency: 0-100 based on 200/mo being optimal sweet spot
+  const eff = monthly===0 ? 0 : Math.min(100, Math.round(100 - Math.abs(monthly-200)/200*40));
+  
+  document.getElementById('totalMonthly').textContent = '$' + monthly.toFixed(0);
+  document.getElementById('totalAnnual').textContent = '$' + annual.toLocaleString();
+  document.getElementById('savings').textContent = savings > 0 
+    ? 'Save $' + savings.toLocaleString() + '/yr vs team'
+    : 'Over-invested by $' + Math.abs(savings).toLocaleString();
+  document.getElementById('tierBadge').innerHTML = `<span class="tier-badge ${tierClass}">${tier}</span>`;
+  document.getElementById('effBar').style.width = eff + '%';
+  document.getElementById('effScore').textContent = eff + '%';
+  
+  // Recommendations
+  const recs = [];
+  const llmTotal = vals.claude + vals.chatgpt + vals.gemini + vals.api;
+  const codingTotal = vals.claudecode + vals.cursor + vals.copilot + vals.windsurf;
+  
+  if(llmTotal > 100){
+    recs.push({ tag:'SAVE', text:`You're spending $${llmTotal}/mo on LLMs. Pick ONE primary (Claude or GPT) and cancel the rest — save $${Math.round(llmTotal*0.6)}/mo.` });
+  }
+  if(codingTotal > 40 && vals.claudecode > 0 && vals.cursor > 0){
+    recs.push({ tag:'SAVE', text:`Claude Code + Cursor overlap heavily. Claude Code handles terminal & repo-wide tasks; Cursor handles in-IDE. Consider dropping one ($${Math.min(vals.claudecode,vals.cursor)}/mo saved).` });
+  }
+  if(vals.copilot > 0 && vals.claudecode > 0){
+    recs.push({ tag:'TIP', text:`GitHub Copilot ($${vals.copilot}/mo) becomes redundant once you're on Claude Code. Claude Code does everything Copilot does + agentic tasks.` });
+  }
+  if(monthly > 0 && monthly < 73){
+    recs.push({ tag:'INSIGHT', text:`At $${monthly}/mo you're in the Bootstrap tier. Data shows solo founders at $73-$205/mo outperform significantly. Consider adding an automation tool (n8n ~$20).` });
+  }
+  if(vals.n8n===0 && monthly>50){
+    recs.push({ tag:'ADD', text:`No automation tool detected! n8n Cloud starts at $20/mo and can save 10+ hours/week by automating lead capture, content scheduling, and data pipelines.` });
+  }
+  if(vals.vercel===0 && vals.supabase>0){
+    recs.push({ tag:'TIP', text:`Supabase + Vercel is the ideal 2026 solo stack combo. Vercel Pro ($20/mo) + Supabase Free can host multiple SaaS products simultaneously.` });
+  }
+  if(annual > 2400){
+    recs.push({ tag:'✅', text:`Annual cost $${annual.toLocaleString()} vs estimated team cost of $210k/yr. You're achieving ${Math.round(savings/210000*100)}% cost efficiency. Great solo stack!` });
+  }
+  if(recs.length===0){
+    recs.push({ tag:'TIP', text:'Start entering your monthly tool costs above. The sweet spot for solo founders is $73-$205/month — data from 41M+ solopreneurs.' });
+    recs.push({ tag:'INSIGHT', text:'2026 benchmark: AI Stack ($73-$205/mo) replaces: 1 developer, 1 designer, 1 marketer — saving $150k+/yr vs equivalent hires.' });
+  }
+  
+  const recHtml = recs.map(r=>`
+    <div class="rec-item">
+      <span class="rec-tag">${r.tag}</span>
+      <span>${r.text}</span>
+    </div>`).join('');
+  document.getElementById('recList').innerHTML = recHtml;
+}
+
+// Initialize
+calc();
+</script>
+</body>
+</html>
