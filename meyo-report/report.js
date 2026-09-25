@@ -87,11 +87,11 @@
   // 只标当前访问位置；不拿这个标签推断服务器健康或模型质量。
   const location = window.location;
   if (location && location.protocol === 'file:') {
-    setText('publication-mode', '你正在看本地副本 · 作品补全版');
+    setText('publication-mode', '你正在看本地副本 · 思路与作品融合版');
     setText('publication-description', '这不是线上网址。可在本地看已有文件；转发给别人请使用右侧的正式网页链接。');
   } else if (location && location.hostname === 'seanliii.github.io') {
-    setText('publication-mode', '个人主页正式展示页 · 作品补全版');
-    setText('publication-description', '你正在访问可转发的HTTPS页面。行星、对战实录、图解和视频已设独立展示位；公司测试站和学城仍需原有权限。');
+    setText('publication-mode', '个人主页正式展示页 · 思路与作品融合版');
+    setText('publication-description', '你正在访问可转发的HTTPS页面。思路演变、四段完整解释与全部作品在同一页；历史读取范围逐项标明，公司测试站和学城仍需原有权限。');
   }
 
   const form = byId('budget-form');
@@ -180,7 +180,7 @@
   window.addEventListener('hashchange', () => revealAnswer(window.location && window.location.hash));
   revealAnswer(window.location && window.location.hash);
   if ('IntersectionObserver' in window) {
-    const chapters = document.querySelectorAll('#value, #works, #validation, #investment');
+    const chapters = document.querySelectorAll('#thinking-evolution, #value, #works, #validation, #investment');
     const navigation = document.querySelectorAll('.main-nav a');
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {

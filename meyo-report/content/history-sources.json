@@ -1,0 +1,515 @@
+{
+  "rootId": "2765940918",
+  "capturedAt": "2026-09-25T17:18:27.657489+00:00",
+  "sourceReceiptUpdatedAt": "2026-09-25T17:14:49.947041+00:00",
+  "rawPrivateContentPublished": false,
+  "coverage": {
+    "knownDocuments": 67,
+    "readDocuments": 23,
+    "pendingDocuments": 44,
+    "treeComplete": false
+  },
+  "readingBoundary": "按用户指定《个人周报》的目录关系递归读取可访问子文档，并核正文落盘；当前覆盖数和目录穷尽状态以coverage为准。text_read仅表示文字正文已取得，不等于每张图、嵌入附件或所有外链都已展开验证。目录页也计入文档数，同周重复记录不算独立成果。历史目标、模板、访谈假设与作者自述不升级为当前实证。公开索引使用不含个人信息的短标题和正文文件哈希，原周报全文、私有日志及个人细节不公开。",
+  "documents": [
+    {
+      "id": "2765940918",
+      "title": "个人周报（用户指定根目录）",
+      "status": "text_read",
+      "parentId": null,
+      "capturedAt": "2026-09-25T12:15:47.547Z",
+      "sourceModifiedAt": null,
+      "contentSha256": "14cfd348fc4c7754a1a152f4e8cdb1dcd09838a70e69b0750b0e8f1e49e53e4c",
+      "bytes": 340,
+      "nontextNodeTypes": {},
+      "hashScope": "UTF-8本地提取正文文件；不是整页HTML或所有附件的哈希"
+    },
+    {
+      "id": "2783435868",
+      "title": "周报 · 8.29—9.7",
+      "status": "text_read",
+      "parentId": "2765940918",
+      "capturedAt": "2026-09-25T14:25:45.774Z",
+      "sourceModifiedAt": "2026-09-04T09:07:25+00:00",
+      "contentSha256": "4af64747fe29563728866e6f355e29ef212fa1d73b37cc2ec6eddcc16b9120b6",
+      "bytes": 37282,
+      "nontextNodeTypes": {},
+      "hashScope": "UTF-8本地提取正文文件；不是整页HTML或所有附件的哈希"
+    },
+    {
+      "id": "2786241806",
+      "title": "周报 · 9.6—9.11",
+      "status": "text_read",
+      "parentId": "2765940918",
+      "capturedAt": "2026-09-25T16:28:16.041Z",
+      "sourceModifiedAt": "2026-09-11T09:23:47+00:00",
+      "contentSha256": "3078b7951f5343e23d211dd70ed188f32069d4a565aa32ce72929ee20eefdec4",
+      "bytes": 33161,
+      "nontextNodeTypes": {},
+      "hashScope": "UTF-8本地提取正文文件；不是整页HTML或所有附件的哈希"
+    },
+    {
+      "id": "2787091847",
+      "title": "9.14—9.19 周报更新版（正文周期9.14—9.18）",
+      "status": "text_read",
+      "parentId": "2765940918",
+      "capturedAt": "2026-09-25T16:28:16.903Z",
+      "sourceModifiedAt": "2026-09-18T08:48:42+00:00",
+      "contentSha256": "8ef3390dc7e493228d8c74ce7067665756df11265d08647d955deb21c39ae50e",
+      "bytes": 9023,
+      "nontextNodeTypes": {},
+      "hashScope": "UTF-8本地提取正文文件；不是整页HTML或所有附件的哈希"
+    },
+    {
+      "id": "2786723173",
+      "title": "9月前周报（目录页）",
+      "status": "text_read",
+      "parentId": "2765940918",
+      "capturedAt": "2026-09-25T12:32:50.628Z",
+      "sourceModifiedAt": null,
+      "contentSha256": "476771780458e9433596c2665a1b30cbba5785e862524b082960db98cd590caf",
+      "bytes": 14,
+      "nontextNodeTypes": {},
+      "hashScope": "UTF-8本地提取正文文件；不是整页HTML或所有附件的哈希"
+    },
+    {
+      "id": "2780834005",
+      "title": "周报 · 8.15—8.21",
+      "status": "text_read",
+      "parentId": "2786723173",
+      "capturedAt": "2026-09-25T14:25:44.347Z",
+      "sourceModifiedAt": "2026-08-21T11:44:23+00:00",
+      "contentSha256": "015a735872b07855db233c932df73e1c0627c44f353550c03c28a4238e2ce12b",
+      "bytes": 39801,
+      "nontextNodeTypes": {},
+      "hashScope": "UTF-8本地提取正文文件；不是整页HTML或所有附件的哈希"
+    },
+    {
+      "id": "2782703397",
+      "title": "周报 · 8.22—8.28",
+      "status": "text_read",
+      "parentId": "2786723173",
+      "capturedAt": "2026-09-25T14:25:45.075Z",
+      "sourceModifiedAt": "2026-08-28T14:04:23+00:00",
+      "contentSha256": "643551f42685644a2b5447dfb891e0b0fc21d96abe23cce9e11cd647bbcff83f",
+      "bytes": 72405,
+      "nontextNodeTypes": {},
+      "hashScope": "UTF-8本地提取正文文件；不是整页HTML或所有附件的哈希"
+    },
+    {
+      "id": "2764138230",
+      "title": "W21 周报",
+      "status": "text_read",
+      "parentId": "2786723173",
+      "capturedAt": "2026-09-25T16:55:07.956Z",
+      "sourceModifiedAt": "2026-05-25T04:29:01+00:00",
+      "contentSha256": "6f735efa47f788f7e247f7c8716051f141330fdca583d9d08ef0f463cf6a534e",
+      "bytes": 7135,
+      "nontextNodeTypes": {},
+      "hashScope": "UTF-8本地提取正文文件；不是整页HTML或所有附件的哈希"
+    },
+    {
+      "id": "2765810711",
+      "title": "W22 周报",
+      "status": "text_read",
+      "parentId": "2786723173",
+      "capturedAt": "2026-09-25T16:55:08.254Z",
+      "sourceModifiedAt": "2026-05-29T07:14:48+00:00",
+      "contentSha256": "1df0e6f15c481672bb053754451ae90ecc869b5e97bf04b45f3df9e4e2a6ee8b",
+      "bytes": 6677,
+      "nontextNodeTypes": {},
+      "hashScope": "UTF-8本地提取正文文件；不是整页HTML或所有附件的哈希"
+    },
+    {
+      "id": "2766927431",
+      "title": "W23 · 6.1—6.5",
+      "status": "text_read",
+      "parentId": "2786723173",
+      "capturedAt": "2026-09-25T13:55:25.935Z",
+      "sourceModifiedAt": "2026-06-05T08:27:24+00:00",
+      "contentSha256": "56b5a2e838ce0521753d77a598829c62a8edeb3a1df2dc3af3f96dceb6cd0ee1",
+      "bytes": 6830,
+      "nontextNodeTypes": {},
+      "hashScope": "UTF-8本地提取正文文件；不是整页HTML或所有附件的哈希"
+    },
+    {
+      "id": "2771200567",
+      "title": "W26 · 6.22—6.26",
+      "status": "text_read",
+      "parentId": "2786723173",
+      "capturedAt": "2026-09-25T13:55:26.225Z",
+      "sourceModifiedAt": "2026-06-26T07:24:35+00:00",
+      "contentSha256": "205a00f96f668aa8f3639d04a767dafdb7c389f2b5845c267cafba07dd899fb3",
+      "bytes": 6401,
+      "nontextNodeTypes": {},
+      "hashScope": "UTF-8本地提取正文文件；不是整页HTML或所有附件的哈希"
+    },
+    {
+      "id": "2770699971",
+      "title": "W26 同周另一份记录",
+      "status": "text_read",
+      "parentId": "2786723173",
+      "capturedAt": "2026-09-25T13:55:26.559Z",
+      "sourceModifiedAt": "2026-06-26T07:06:42+00:00",
+      "contentSha256": "b0ee6617e07d39b71c2153410628296474e9329ce887eb0ad0a0f2310f1e75a8",
+      "bytes": 7332,
+      "nontextNodeTypes": {},
+      "hashScope": "UTF-8本地提取正文文件；不是整页HTML或所有附件的哈希"
+    },
+    {
+      "id": "2772912531",
+      "title": "W27 · 6.29—7.3",
+      "status": "text_read",
+      "parentId": "2786723173",
+      "capturedAt": "2026-09-25T17:12:50.634Z",
+      "sourceModifiedAt": "2026-07-03T11:37:57+00:00",
+      "contentSha256": "a913b08654e100f81225a311760a1dbafce3ea357ee06a6fb3fcb377bb012359",
+      "bytes": 5166,
+      "nontextNodeTypes": {},
+      "hashScope": "UTF-8本地提取正文文件；不是整页HTML或所有附件的哈希"
+    },
+    {
+      "id": "2776539163",
+      "title": "W30 周报（原文未明确起止日）",
+      "status": "text_read",
+      "parentId": "2786723173",
+      "capturedAt": "2026-09-25T13:55:26.883Z",
+      "sourceModifiedAt": "2026-07-24T08:39:03+00:00",
+      "contentSha256": "395ef4899ad107cd94148c7f605ff727b5e11f0944dea93f754411dd32efd2a4",
+      "bytes": 8205,
+      "nontextNodeTypes": {},
+      "hashScope": "UTF-8本地提取正文文件；不是整页HTML或所有附件的哈希"
+    },
+    {
+      "id": "2778223057",
+      "title": "W31 周报 · 7.31",
+      "status": "text_read",
+      "parentId": "2786723173",
+      "capturedAt": "2026-09-25T17:12:50.900Z",
+      "sourceModifiedAt": "2026-07-31T11:12:36+00:00",
+      "contentSha256": "fd0a85c08cc57fb55e0db6c3a03ed35838b61c10dd51f0be01da1c579a946b6c",
+      "bytes": 8035,
+      "nontextNodeTypes": {},
+      "hashScope": "UTF-8本地提取正文文件；不是整页HTML或所有附件的哈希"
+    },
+    {
+      "id": "2759601204",
+      "title": "W17 · 4.21—4.24",
+      "status": "text_read",
+      "parentId": "2786723173",
+      "capturedAt": "2026-09-25T13:05:44.509Z",
+      "sourceModifiedAt": null,
+      "contentSha256": "fdac77b25b8aea82f3a16e5f1df7f9830fa0aa3fee5bd86e2ac38d6f0f05f6e6",
+      "bytes": 4403,
+      "nontextNodeTypes": {
+        "horizontal_rule": 3
+      },
+      "hashScope": "UTF-8本地提取正文文件；不是整页HTML或所有附件的哈希"
+    },
+    {
+      "id": "2760670106",
+      "title": "W18 · 4.27—4.30",
+      "status": "text_read",
+      "parentId": "2786723173",
+      "capturedAt": "2026-09-25T16:55:07.420Z",
+      "sourceModifiedAt": "2026-04-30T07:23:47+00:00",
+      "contentSha256": "442c6772faae2fca429e0c4dc245df1393b10c126d2043972888e68f23cbf049",
+      "bytes": 6485,
+      "nontextNodeTypes": {},
+      "hashScope": "UTF-8本地提取正文文件；不是整页HTML或所有附件的哈希"
+    },
+    {
+      "id": "2761465280",
+      "title": "W19 · 5.6—5.9",
+      "status": "text_read",
+      "parentId": "2786723173",
+      "capturedAt": "2026-09-25T16:55:07.693Z",
+      "sourceModifiedAt": "2026-05-09T08:03:38+00:00",
+      "contentSha256": "f812cb44ea2885b0238dac083678a25fd3f0fb181ad24c4bd47aad890c39e778",
+      "bytes": 2213,
+      "nontextNodeTypes": {},
+      "hashScope": "UTF-8本地提取正文文件；不是整页HTML或所有附件的哈希"
+    },
+    {
+      "id": "2762379653",
+      "title": "W20 · 5.11—5.15",
+      "status": "text_read",
+      "parentId": "2786723173",
+      "capturedAt": "2026-09-25T13:55:25.574Z",
+      "sourceModifiedAt": "2026-05-15T09:07:27+00:00",
+      "contentSha256": "be37f443ad12aa1e41ce55fab9e7202cc6ae5e60d7ee308395952baabd6f4fb7",
+      "bytes": 8147,
+      "nontextNodeTypes": {},
+      "hashScope": "UTF-8本地提取正文文件；不是整页HTML或所有附件的哈希"
+    },
+    {
+      "id": "2773699028",
+      "title": "W28 · 7.6—7.10",
+      "status": "text_read",
+      "parentId": "2786723173",
+      "capturedAt": "2026-09-25T17:12:51.148Z",
+      "sourceModifiedAt": "2026-07-17T09:32:56+00:00",
+      "contentSha256": "cb93a784e82326b4a23e7dfca401ca45ad56ea7f145cd479d314623024ba134b",
+      "bytes": 8531,
+      "nontextNodeTypes": {},
+      "hashScope": "UTF-8本地提取正文文件；不是整页HTML或所有附件的哈希"
+    },
+    {
+      "id": "2775375671",
+      "title": "W29 · 7.13—7.17",
+      "status": "text_read",
+      "parentId": "2786723173",
+      "capturedAt": "2026-09-25T17:12:51.469Z",
+      "sourceModifiedAt": "2026-07-17T09:48:28+00:00",
+      "contentSha256": "ac1c8436859676ed8827ea8908cc4d2e54364e813c63dd1d3162525d4dffc396",
+      "bytes": 27783,
+      "nontextNodeTypes": {},
+      "hashScope": "UTF-8本地提取正文文件；不是整页HTML或所有附件的哈希"
+    },
+    {
+      "id": "2779630806",
+      "title": "周报 · 8.8—8.14",
+      "status": "text_read",
+      "parentId": "2786723173",
+      "capturedAt": "2026-09-25T17:12:51.803Z",
+      "sourceModifiedAt": "2026-08-14T07:53:08+00:00",
+      "contentSha256": "d09908ee8efe1600f339b19b077c9b2ede0fedcf8b8e2659b48ca2e65090aad6",
+      "bytes": 56514,
+      "nontextNodeTypes": {},
+      "hashScope": "UTF-8本地提取正文文件；不是整页HTML或所有附件的哈希"
+    },
+    {
+      "id": "2778375484",
+      "title": "周报 · 8.3—8.8",
+      "status": "text_read",
+      "parentId": "2786723173",
+      "capturedAt": "2026-09-25T17:12:52.427Z",
+      "sourceModifiedAt": "2026-08-17T02:50:41+00:00",
+      "contentSha256": "cdefecb46d1229e7c4821c9fa5ed82d9a909863a7ef555067a47914839dd89d4",
+      "bytes": 13176,
+      "nontextNodeTypes": {},
+      "hashScope": "UTF-8本地提取正文文件；不是整页HTML或所有附件的哈希"
+    }
+  ],
+  "pendingDocuments": [
+    {
+      "id": "2759084564",
+      "title": "子文档 · 2759084564",
+      "status": "pending"
+    },
+    {
+      "id": "2781541708",
+      "title": "子文档 · 2781541708",
+      "status": "pending"
+    },
+    {
+      "id": "2781652082",
+      "title": "子文档 · 2781652082",
+      "status": "pending"
+    },
+    {
+      "id": "2781224380",
+      "title": "子文档 · 2781224380",
+      "status": "pending"
+    },
+    {
+      "id": "2780966867",
+      "title": "子文档 · 2780966867",
+      "status": "pending"
+    },
+    {
+      "id": "2781308369",
+      "title": "子文档 · 2781308369",
+      "status": "pending"
+    },
+    {
+      "id": "2782520048",
+      "title": "子文档 · 2782520048",
+      "status": "pending"
+    },
+    {
+      "id": "2782562318",
+      "title": "子文档 · 2782562318",
+      "status": "pending"
+    },
+    {
+      "id": "2781947413",
+      "title": "子文档 · 2781947413",
+      "status": "pending"
+    },
+    {
+      "id": "2783763567",
+      "title": "子文档 · 2783763567",
+      "status": "pending"
+    },
+    {
+      "id": "2782403980",
+      "title": "子文档 · 2782403980",
+      "status": "pending"
+    },
+    {
+      "id": "2782055912",
+      "title": "子文档 · 2782055912",
+      "status": "pending"
+    },
+    {
+      "id": "2781947123",
+      "title": "子文档 · 2781947123",
+      "status": "pending"
+    },
+    {
+      "id": "2782517659",
+      "title": "子文档 · 2782517659",
+      "status": "pending"
+    },
+    {
+      "id": "2782188234",
+      "title": "子文档 · 2782188234",
+      "status": "pending"
+    },
+    {
+      "id": "2783033958",
+      "title": "子文档 · 2783033958",
+      "status": "pending"
+    },
+    {
+      "id": "2782315749",
+      "title": "子文档 · 2782315749",
+      "status": "pending"
+    },
+    {
+      "id": "2783565570",
+      "title": "子文档 · 2783565570",
+      "status": "pending"
+    },
+    {
+      "id": "2784063014",
+      "title": "子文档 · 2784063014",
+      "status": "pending"
+    },
+    {
+      "id": "2784082570",
+      "title": "子文档 · 2784082570",
+      "status": "pending"
+    },
+    {
+      "id": "2783427325",
+      "title": "子文档 · 2783427325",
+      "status": "pending"
+    },
+    {
+      "id": "2784775555",
+      "title": "子文档 · 2784775555",
+      "status": "pending"
+    },
+    {
+      "id": "2783607085",
+      "title": "子文档 · 2783607085",
+      "status": "pending"
+    },
+    {
+      "id": "2784748589",
+      "title": "子文档 · 2784748589",
+      "status": "pending"
+    },
+    {
+      "id": "2785467380",
+      "title": "子文档 · 2785467380",
+      "status": "pending"
+    },
+    {
+      "id": "2787195633",
+      "title": "子文档 · 2787195633",
+      "status": "pending"
+    },
+    {
+      "id": "2787071859",
+      "title": "子文档 · 2787071859",
+      "status": "pending"
+    },
+    {
+      "id": "2779179981",
+      "title": "子文档 · 2779179981",
+      "status": "pending"
+    },
+    {
+      "id": "2779592255",
+      "title": "子文档 · 2779592255",
+      "status": "pending"
+    },
+    {
+      "id": "2779509284",
+      "title": "子文档 · 2779509284",
+      "status": "pending"
+    },
+    {
+      "id": "2779654563",
+      "title": "子文档 · 2779654563",
+      "status": "pending"
+    },
+    {
+      "id": "2779796709",
+      "title": "子文档 · 2779796709",
+      "status": "pending"
+    },
+    {
+      "id": "2780098126",
+      "title": "子文档 · 2780098126",
+      "status": "pending"
+    },
+    {
+      "id": "2780792619",
+      "title": "子文档 · 2780792619",
+      "status": "pending"
+    },
+    {
+      "id": "2778504943",
+      "title": "子文档 · 2778504943",
+      "status": "pending"
+    },
+    {
+      "id": "2778076151",
+      "title": "子文档 · 2778076151",
+      "status": "pending"
+    },
+    {
+      "id": "2778028751",
+      "title": "子文档 · 2778028751",
+      "status": "pending"
+    },
+    {
+      "id": "2779220481",
+      "title": "子文档 · 2779220481",
+      "status": "pending"
+    },
+    {
+      "id": "2778674400",
+      "title": "子文档 · 2778674400",
+      "status": "pending"
+    },
+    {
+      "id": "2779235897",
+      "title": "子文档 · 2779235897",
+      "status": "pending"
+    },
+    {
+      "id": "2779525639",
+      "title": "子文档 · 2779525639",
+      "status": "pending"
+    },
+    {
+      "id": "2780541942",
+      "title": "子文档 · 2780541942",
+      "status": "pending"
+    },
+    {
+      "id": "2778435427",
+      "title": "子文档 · 2778435427",
+      "status": "pending"
+    },
+    {
+      "id": "2777906816",
+      "title": "子文档 · 2777906816",
+      "status": "pending"
+    }
+  ]
+}
