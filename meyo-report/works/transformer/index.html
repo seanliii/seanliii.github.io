@@ -1,0 +1,1013 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Transformer 注意力机制 · 外行图解</title>
+<style>
+  :root{
+    --paper:#faf6ee;
+    --ink:#3b3226;
+    --ink-soft:#6f6353;
+    --accent:#e0592a;
+    --accent-soft:#f4c7ad;
+    --blue:#2a6db3;
+    --blue-soft:#cfe0f2;
+    --green:#3a8a5c;
+    --green-soft:#d5e9dc;
+    --gold:#c98a1b;
+    --gold-soft:#f6e3b8;
+    --purple:#7a4fb3;
+    --purple-soft:#e6d8f4;
+    --card:#fffdf7;
+    --line:#d8cdb8;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:"Noto Serif SC","Noto Serif CJK SC","Source Han Serif SC","Songti SC",STSong,SimSun,serif;
+    background:var(--paper);
+    color:var(--ink);
+    line-height:1.9;
+    font-size:17px;
+  }
+  .wrap{max-width:880px;margin:0 auto;padding:34px 22px 90px;}
+  /* 手绘卡片 */
+  .card{
+    background:var(--card);
+    border:2px solid var(--ink);
+    border-radius:14px 18px 15px 19px / 18px 14px 19px 15px;
+    box-shadow:4px 5px 0 rgba(59,50,38,.14);
+    padding:26px 28px;
+    margin:26px 0;
+    position:relative;
+  }
+  .card.tight{padding:20px 22px;}
+  h1{
+    font-size:34px;letter-spacing:1px;line-height:1.4;
+    text-align:center;margin-bottom:6px;
+  }
+  .subtitle{text-align:center;color:var(--ink-soft);font-size:15px;margin-bottom:26px;}
+  h2{
+    font-size:23px;margin-bottom:14px;display:flex;align-items:center;gap:10px;
+  }
+  h2 .num{
+    display:inline-flex;align-items:center;justify-content:center;
+    width:34px;height:34px;border:2px solid var(--ink);border-radius:50% 46% 52% 48%/48% 52% 46% 54%;
+    background:var(--gold-soft);font-size:17px;flex:none;
+    box-shadow:2px 2px 0 rgba(59,50,38,.15);
+  }
+  h3{font-size:18px;margin:16px 0 8px;}
+  p{margin:10px 0;}
+  .lead{font-size:18.5px;}
+  strong{background:linear-gradient(transparent 62%, #f6e3b8 62%);}
+  .term{
+    color:var(--accent);font-weight:700;cursor:help;
+    border-bottom:2px dashed var(--accent);
+  }
+  .metaph{color:var(--blue);font-weight:700;}
+  .say{
+    background:#f3ecd9;border-left:4px solid var(--gold);
+    padding:10px 16px;border-radius:0 10px 10px 0;margin:12px 0;
+    color:#5a4c33;
+  }
+  .say::before{content:"🗣 ";filter:grayscale(1);}
+  .analogy-tag{
+    display:inline-block;background:var(--blue-soft);color:#1d4f85;
+    border:1.5px solid #1d4f85;border-radius:999px;
+    font-size:12.5px;padding:1px 12px;margin:14px 0 6px;font-family:"Noto Sans SC","Noto Sans CJK SC",sans-serif;
+  }
+  .fig-label{
+    text-align:center;color:var(--ink-soft);font-size:13.5px;margin-top:10px;
+    font-family:"Noto Sans SC","Noto Sans CJK SC",sans-serif;
+  }
+  .svgwrap{overflow-x:auto;}
+  svg{display:block;margin:0 auto;max-width:100%;height:auto;}
+  svg text{font-family:"Noto Sans SC","Noto Sans CJK SC","PingFang SC","Microsoft YaHei",sans-serif;}
+  .hand{font-family:"Noto Serif SC","Noto Serif CJK SC",serif;}
+  /* 交互区 */
+  .sent-row{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin:10px 0 4px;}
+  .wchip{
+    font-family:"Noto Sans SC","Noto Sans CJK SC","PingFang SC","Microsoft YaHei",sans-serif;
+    border:2px solid var(--ink);border-radius:10px 14px 11px 15px/13px 11px 15px 10px;
+    background:#fff;padding:7px 16px;font-size:18px;cursor:pointer;
+    box-shadow:2.5px 2.5px 0 rgba(59,50,38,.18);
+    transition:transform .12s, box-shadow .12s, background .12s;
+    user-select:none;position:relative;
+  }
+  .wchip:hover{transform:translate(-1px,-1px);box-shadow:3.5px 3.5px 0 rgba(59,50,38,.22);}
+  .wchip.active{background:var(--gold-soft);transform:translate(1px,1px);box-shadow:1px 1px 0 rgba(59,50,38,.2);}
+  .wchip .dot{
+    position:absolute;top:-7px;right:-7px;width:14px;height:14px;border-radius:50%;
+    border:2px solid var(--ink);background:var(--gold);display:none;
+  }
+  .wchip.active .dot{display:block;}
+  .hint{ text-align:center;color:var(--ink-soft);font-size:14px;font-family:"Noto Sans SC","Noto Sans CJK SC",sans-serif;}
+  .legend{display:flex;gap:18px;justify-content:center;flex-wrap:wrap;font-size:13px;color:var(--ink-soft);margin-top:4px;font-family:"Noto Sans SC","Noto Sans CJK SC",sans-serif;}
+  .legend span{display:inline-flex;align-items:center;gap:6px;}
+  .sw{width:22px;height:12px;border-radius:6px;display:inline-block;border:1px solid rgba(0,0,0,.2);}
+  .focus-pane{
+    border:2px dashed var(--ink);border-radius:12px;padding:16px 18px;margin-top:16px;
+    background:#fffef9;min-height:64px;
+  }
+  .focus-pane .q-line{font-size:16.5px;}
+  .kv-badge{
+    display:inline-block;padding:0 10px;border-radius:8px;color:#fff;font-size:14px;margin:0 3px;
+    font-family:"Noto Sans SC","Noto Sans CJK SC",sans-serif;
+  }
+  .b-q{background:var(--blue);}
+  .b-k{background:var(--green);}
+  .b-v{background:var(--gold);}
+  .focus-sum{margin-top:10px;font-size:15.5px;color:var(--ink-soft);}
+  .focus-sum b{color:var(--ink);}
+  .arrows-line{margin:14px 0 4px;}
+  .arrow-row{display:flex;align-items:center;gap:4px;flex-wrap:wrap;}
+  .arrow-seg{flex:1;min-width:40px;height:4px;position:relative;}
+  .arrow-seg::after{content:"";position:absolute;right:-1px;top:-5px;border:7px solid transparent;}
+  .a-or{background:var(--accent);} .a-or::after{border-left:11px solid var(--accent);}
+  .a-bl{background:var(--blue);} .a-bl::after{border-left:11px solid var(--blue);}
+  .a-gr{background:var(--green);} .a-gr::after{border-left:11px solid var(--green);}
+  .a-gd{background:var(--gold);} .a-gd::after{border-left:11px solid var(--gold);}
+  .a-pu{background:var(--purple);} .a-pu::after{border-left:11px solid var(--purple);}
+  .w-arrow{display:inline-block;width:24px;height:4px;background:var(--ink);position:relative;vertical-align:middle;margin:0 2px;}
+  .w-arrow::after{content:"";position:absolute;right:-1px;top:-4.5px;border:6.5px solid transparent;border-left:9px solid var(--ink);}
+  .arrow-lbl{font-size:12px;color:var(--ink-soft);font-family:"Noto Sans SC","Noto Sans CJK SC",sans-serif;flex:none;}
+  .result-line{
+    margin-top:14px;padding:10px 14px;border:2px solid var(--ink);border-radius:10px;
+    background:var(--gold-soft);font-size:15.5px;
+  }
+  .result-line .newword{font-size:19px;font-weight:700;color:#8a4a12;}
+  .mixbar-wrap{margin:8px 0 2px;}
+  .mixbar{display:flex;height:26px;border:2px solid var(--ink);border-radius:8px;overflow:hidden;font-family:"Noto Sans SC","Noto Sans CJK SC",sans-serif;}
+  .mixbar div{
+    display:flex;align-items:center;justify-content:center;font-size:12px;color:#2c2418;
+    white-space:nowrap;overflow:hidden;transition:width .45s cubic-bezier(.2,.8,.2,1);
+  }
+  .mb-or{background:#f4b48e;} .mb-bl{background:#bcd7ef;} .mb-gr{background:#bfe0cc;} .mb-gd{background:#f0d9a0;}
+  .pct-note{font-size:13px;color:var(--ink-soft);margin-top:4px;font-family:"Noto Sans SC","Noto Sans CJK SC",sans-serif;}
+  /* 混合表格 */
+  table.mix{width:100%;border-collapse:collapse;margin:8px 0 2px;font-size:15px;}
+  table.mix th, table.mix td{border:1.5px solid var(--line);padding:6px 10px;text-align:center;}
+  table.mix th{background:#f3ecd9;font-family:"Noto Sans SC","Noto Sans CJK SC",sans-serif;font-weight:600;}
+  table.mix td.w{font-weight:700;}
+  .sumrow{background:#faf1da;font-weight:700;}
+  /* 多头 */
+  .heads{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;margin-top:8px;}
+  .head-card{
+    border:2px solid var(--ink);border-radius:10px 13px 11px 14px/12px 10px 14px 11px;
+    padding:10px 12px;background:#fff;font-size:13.5px;line-height:1.65;
+    font-family:"Noto Sans SC","Noto Sans CJK SC",sans-serif;
+    box-shadow:2px 2.5px 0 rgba(59,50,38,.12);
+  }
+  .head-card b{display:block;font-size:14.5px;margin-bottom:3px;}
+  .hc1 b{color:var(--blue);} .hc2 b{color:var(--green);} .hc3 b{color:var(--purple);} .hc4 b{color:var(--gold);}
+  .head-card .mini{margin-top:6px;display:flex;flex-wrap:wrap;gap:4px;}
+  .mini span{border:1px solid rgba(0,0,0,.25);border-radius:6px;padding:0 6px;background:#f7f3e8;}
+  /* quiz */
+  .quiz-q{font-size:16.5px;margin:6px 0 10px;}
+  .opts{display:grid;gap:8px;}
+  .opt{
+    text-align:left;border:2px solid var(--ink);border-radius:10px;background:#fff;
+    padding:9px 14px;font-size:15.5px;cursor:pointer;font-family:inherit;line-height:1.7;
+    box-shadow:2px 2px 0 rgba(59,50,38,.15);transition:transform .1s;
+  }
+  .opt:hover{transform:translate(-1px,-1px);}
+  .opt.correct{background:var(--green-soft);border-color:var(--green);}
+  .opt.wrong{background:#f6d5d5;border-color:#b34848;}
+  .quiz-fb{margin-top:10px;font-size:15px;display:none;padding:10px 14px;border-radius:10px;}
+  .quiz-fb.show{display:block;}
+  .fb-ok{background:var(--green-soft);border:1.5px solid var(--green);}
+  .fb-no{background:#f6d5d5;border:1.5px solid #b34848;}
+  .qa{list-style:none;}
+  .qa li{margin:12px 0;padding-left:4px;}
+  .qa .q{font-weight:700;}
+  .qa .a{color:#4c4234;}
+  .foot-note{font-size:13px;color:var(--ink-soft);text-align:center;margin-top:34px;font-family:"Noto Sans SC","Noto Sans CJK SC",sans-serif;}
+  .toc{
+    display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin:18px 0 4px;
+    font-family:"Noto Sans SC","Noto Sans CJK SC",sans-serif;font-size:13.5px;
+  }
+  .toc a{
+    color:var(--ink);text-decoration:none;border:1.5px solid var(--ink);
+    border-radius:999px;padding:2px 13px;background:#fff;
+    box-shadow:2px 2px 0 rgba(59,50,38,.12);
+  }
+  .toc a:hover{background:var(--gold-soft);}
+  /* ===== 苹果场景切换（连体分段控件样式，与词牌明显区分） ===== */
+  .scene-tabs{
+    display:flex;justify-content:center;margin:16px auto 8px;
+    width:max-content;max-width:100%;
+    border:2px solid var(--ink);border-radius:12px;overflow:hidden;
+    background:#fff;box-shadow:2.5px 2.5px 0 rgba(59,50,38,.18);
+    font-family:"Noto Sans SC","Noto Sans CJK SC","PingFang SC","Microsoft YaHei",sans-serif;
+  }
+  .scene-tab{
+    border:none;background:transparent;color:var(--ink);
+    font-size:15px;font-weight:700;padding:8px 20px;cursor:pointer;
+    transition:background .12s;
+  }
+  .scene-tab + .scene-tab{border-left:2px solid var(--ink);}
+  .scene-tab:hover{background:#f3ecd9;}
+  .scene-tab.active{background:var(--blue);color:#fff;}
+  .scene-sent{
+    text-align:center;font-size:17px;margin:4px 0 2px;color:#4c4234;
+  }
+  .scene-sent .sc-b{font-weight:700;color:#1d4f85;}
+  /* ===== 窄屏可读性（重点修复） ===== */
+  @media (max-width:640px){
+    body{font-size:15.5px;}
+    .wrap{padding:20px 13px 70px;}
+    .card{padding:18px 15px;}
+    h1{font-size:26px;}
+    .wchip{font-size:16px;padding:6px 12px;}
+    /* SVG 图在窄屏按接近原始尺寸渲染（可左右滑动），词牌/百分比/注释都放大到可读 */
+    .svgwrap svg{width:100%;min-width:780px;}
+    .svgwrap::after{
+      content:"↔ 图较宽，左右滑动可看全";
+      display:block;text-align:center;font-size:12.5px;color:#6f6353;margin-top:4px;
+      font-family:"Noto Sans SC","Noto Sans CJK SC",sans-serif;
+    }
+    /* 配比条：加高、加大字号，标签放不下就折行成清单 */
+    .mixbar{height:30px;}
+    .mixbar div{font-size:13px;}
+    /* 第3节静态配比条：窄屏同样改为"条内只留数字 + 下方图例" */
+    #staticBar + .pct-note{display:none;}
+    .staticbar-labels{
+      list-style:none;margin:10px 0 2px;padding:0;
+      font-family:"Noto Sans SC","Noto Sans CJK SC",sans-serif;
+    }
+    .staticbar-labels li{
+      display:flex;align-items:center;gap:8px;font-size:14.5px;line-height:1.7;color:var(--ink);
+    }
+    .staticbar-labels .sw{width:20px;height:14px;flex:none;}
+    .staticbar-labels b{min-width:64px;}
+    .mixbar-labels{
+      list-style:none;margin:8px 0 2px;padding:0;
+      font-family:"Noto Sans SC","Noto Sans CJK SC",sans-serif;
+    }
+    .mixbar-labels li{
+      display:flex;align-items:center;gap:8px;font-size:14.5px;line-height:1.7;color:var(--ink);
+    }
+    .mixbar-labels .sw{width:20px;height:14px;flex:none;}
+    .mixbar-labels b{min-width:52px;}
+    .scene-tab{font-size:14px;padding:6px 14px;}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<h1>Transformer 注意力机制<br>—— 给完全外行的图解</h1>
+<div class="subtitle">一篇不需要任何数学基础的文章 · 边读边玩，读完你能讲给别人听</div>
+
+<div class="toc">
+  <a href="#why">① 为什么需要注意力</a>
+  <a href="#qkv">② Q/K/V 是什么</a>
+  <a href="#mix">③ 加权混合</a>
+  <a href="#play">④ 动手玩一玩</a>
+  <a href="#heads">⑤ 多头注意力</a>
+  <a href="#quiz">⑥ 自测</a>
+</div>
+
+<!-- ============ 0 开场 ============ -->
+<div class="card">
+  <p class="lead">先说结论：<strong>注意力机制，就是让模型在读到每个词的时候，回头把整句话重新扫一遍，决定"我现在最该关心谁"，然后把这些相关的信息按比例掺在一起，帮自己理解这个词。</strong></p>
+  <p>听起来还是有点抽象？没关系。整篇文章只用一个比喻——<span class="metaph">一群人围桌开会</span>。开完全场会，你就懂了 Transformer 里最核心的那个东西。文中的彩色示意图可以直接点、可以玩，你亲眼看着"注意力"被分配出去。</p>
+  <div class="say">阅读约定：遇到<span class="term" title="术语第一次出现时，都会紧跟一个生活化解释">橙色虚线圈住的词</span>，表示它是个"术语"，但别怕——每次它出现，旁边都配了白话解释。全文不出现任何公式。</div>
+</div>
+
+<!-- ============ 1 为什么需要注意力 ============ -->
+<div class="card" id="why">
+  <h2><span class="num">1</span>为什么需要"注意力"？—— 从一句话说起</h2>
+
+  <p>看这句话：</p>
+  <p style="text-align:center;font-size:20px;"><b>"小猫追着球跑，因为<u>它</u>很好玩。"</b></p>
+  <p>"它"指的是谁？你脱口而出：<b>球</b>。因为好玩的是球，不是猫。</p>
+  <p>再看一句：</p>
+  <p style="text-align:center;font-size:20px;"><b>"小猫追着球跑，因为<u>它</u>饿了。"</b></p>
+  <p>这回"它"是<b>小猫</b>。饿了的是猫。</p>
+  <p>注意到了吗？<strong>同样是"它"这个字，含义完全取决于句子里的其他词。</strong>你人类做这件事毫不费力，是因为你读"它"的时候，脑子里自动把整句话扫了一遍，把"好玩/饿"这些线索捞了出来。</p>
+  <p>但如果一个模型是"一个词一个词按顺序读、读到哪算哪、从不回头看"，它读完"它"就往下走了，根本不知道"它"该连着谁。早期的翻译模型真是这么干的，所以经常犯这种错：</p>
+  <div class="say">把"动物没过马路，因为<b>它</b>太累了"翻成法语时，"它"该是阳性（指动物）；而"……因为<b>它</b>太宽了"里"它"指马路，该是阴性。老模型分不清，翻错过无数次——这是注意力机制诞生时的经典案例。</div>
+
+  <span class="analogy-tag">开会比喻 · 第一幕</span>
+  <p>想象一场圆桌会议，桌上每个人手里<strong>举着一块写着词的牌子</strong>："小猫""追着""球""跑""因为""它""很好玩"。现在轮到"它"发言了。</p>
+  <p><span class="metaph">"它"的做法是：站起来，把桌上每个人挨个看一遍，心里给每人打个"跟你有关吗"的分数——球 8 分、好玩 9 分、小猫 7 分、跑 2 分……然后它把分数最高的人的话，重点记进自己的笔记本。这就是"注意力"：谁跟我相关，我就多看谁几眼。</span></p>
+
+  <!-- 图1 静态总览 SVG -->
+  <div class="svgwrap">
+  <svg viewBox="0 0 820 320" role="img" aria-label="一句话里每个词举着牌子围坐，它把注意力投向相关的词">
+    <!-- 桌子 -->
+    <ellipse cx="410" cy="178" rx="330" ry="86" fill="#f3ecd9" stroke="#3b3226" stroke-width="2.5"/>
+    <text x="410" y="186" text-anchor="middle" font-size="15" fill="#8a7c62">会议桌（一句话）</text>
+    <!-- 词牌 -->
+    <g font-size="17" font-weight="700">
+      <g><rect x="52" y="132" width="66" height="38" rx="8" fill="#bcd7ef" stroke="#2a6db3" stroke-width="2"/><text x="85" y="157" text-anchor="middle" fill="#1d4f85">小猫</text></g>
+      <g><rect x="152" y="96" width="66" height="38" rx="8" fill="#bfe0cc" stroke="#3a8a5c" stroke-width="2"/><text x="185" y="121" text-anchor="middle" fill="#245f40">追着</text></g>
+      <g><rect x="268" y="76" width="66" height="38" rx="8" fill="#bcd7ef" stroke="#2a6db3" stroke-width="2"/><text x="301" y="101" text-anchor="middle" fill="#1d4f85">球</text></g>
+      <g><rect x="392" y="70" width="66" height="38" rx="8" fill="#bfe0cc" stroke="#3a8a5c" stroke-width="2"/><text x="425" y="95" text-anchor="middle" fill="#245f40">跑</text></g>
+      <g><rect x="512" y="82" width="66" height="38" rx="8" fill="#e6d8f4" stroke="#7a4fb3" stroke-width="2"/><text x="545" y="107" text-anchor="middle" fill="#5b368a">因为</text></g>
+      <g><rect x="620" y="112" width="66" height="38" rx="8" fill="#f0d9a0" stroke="#c98a1b" stroke-width="2.5"/><text x="653" y="137" text-anchor="middle" fill="#8a5a08">它</text></g>
+      <g><rect x="706" y="152" width="80" height="38" rx="8" fill="#bcd7ef" stroke="#2a6db3" stroke-width="2"/><text x="746" y="177" text-anchor="middle" fill="#1d4f85">很好玩</text></g>
+    </g>
+    <!-- 注意力弧线：它 -> 各词，粗细代表强弱，带箭头 -->
+    <defs>
+      <marker id="arr1" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" fill="#e0592a"/></marker>
+    </defs>
+    <g fill="none" stroke-linecap="round">
+      <path d="M 622 118 C 560 40, 400 26, 318 64" stroke="#e0592a" stroke-width="9" opacity=".92" marker-end="url(#arr1)"/>
+      <path d="M 626 122 C 580 60, 480 48, 408 68" stroke="#e0592a" stroke-width="5" opacity=".85" marker-end="url(#arr1)"/>
+      <path d="M 628 128 C 590 80, 260 40, 193 90" stroke="#e0592a" stroke-width="6.5" opacity=".88" marker-end="url(#arr1)"/>
+      <path d="M 632 138 C 600 110, 560 96, 548 114" stroke="#e0592a" stroke-width="2" opacity=".5" marker-end="url(#arr1)"/>
+      <path d="M 636 148 C 620 132, 600 128, 582 130" stroke="#e0592a" stroke-width="1.5" opacity=".4" marker-end="url(#arr1)"/>
+    </g>
+    <!-- 高亮圈：只圈 Top1 -->
+    <ellipse cx="301" cy="95" rx="46" ry="30" fill="none" stroke="#e0592a" stroke-width="2.5" stroke-dasharray="6 5"/>
+    <!-- 标注 -->
+    <g font-size="15" fill="#b3451a">
+      <rect x="250" y="12" width="210" height="26" rx="13" fill="#fde8db" stroke="#e0592a" stroke-width="1.5"/>
+      <text x="355" y="30" text-anchor="middle">「它」的视线 → 谁相关就看谁</text>
+    </g>
+    <g font-size="14.5" fill="#6f6353">
+      <text x="430" y="258">箭头方向 = 视线去向 ｜ 线越粗 = 注意力越多</text>
+      <text x="430" y="278">虚线圈 = 它最关心的词（Top 1）</text>
+    </g>
+    <g font-size="15.5" fill="#1d4f85">
+      <text x="85" y="196" text-anchor="middle">· 被瞟了一眼</text>
+      <text x="301" y="50" text-anchor="middle" font-weight="700">★ 盯住</text>
+    </g>
+  </svg>
+  </div>
+  <div class="fig-label">图 1 ｜ "它"发言时，把注意力按"相关程度"分给全句的每个词（线越粗分得越多）</div>
+
+  <p>这一步就是注意力机制的<strong>灵魂</strong>：<span class="term" title="注意力权重：每个词分到的关注比例，全部加起来正好是 100%">注意力权重</span>——每个词分到的"关注份额"，全部加起来正好 100%。剩下的，只是把这个"扫视 + 打分 + 按比例取信息"的过程，讲得更细一点。</p>
+</div>
+
+<!-- ============ 2 QKV ============ -->
+<div class="card" id="qkv">
+  <h2><span class="num">2</span>Query / Key / Value —— 检索的三件套</h2>
+
+  <p>刚才说"它"要给每个人打"相关分"。可问题来了：<b>分数是怎么打出来的？信息又是怎么取回来的？</b>这就要请出三个听起来吓人、其实你天天在用的词了。</p>
+
+  <span class="analogy-tag">先换一个你熟悉的场景 · 图书馆</span>
+  <p>你去图书馆找书，其实同时用到了三样东西：</p>
+  <table class="mix" style="margin-top:12px;">
+    <tr><th style="width:16%;">角色</th><th style="width:42%;">在图书馆</th><th>在一句话里</th></tr>
+    <tr><td class="w" style="color:#2a6db3;">Q 查询</td><td>你心里的问题："我想找讲做菜的书"</td><td>"它"想问全场：<b>谁能帮我搞清楚我是谁？</b></td></tr>
+    <tr><td class="w" style="color:#3a8a5c;">K 标签</td><td>每本书书脊上的分类标签</td><td>每个词挂在身上的牌子，写着"我是管什么信息的"</td></tr>
+    <tr><td class="w" style="color:#c98a1b;">V 内容</td><td>书里真正的内容</td><td>每个词真正携带的信息本体（含义、情绪、单复数……）</td></tr>
+  </table>
+
+  <p><strong>打分 = 拿你的 Q（问题）去挨个对每个词的 K（标签）</strong>：问题跟标签对得越拢，分数越高。"我想知道我是谁"对上"球·我是一个物体、可以被玩"的标签——很配，高分；对上"跑·我是个动作"——不太配，低分。</p>
+  <p><strong>取信息 = 按分数比例，把每个词的 V（内容）掺回来。</strong>注意：标签只用来打分，真正被取走的是内容。</p>
+
+  <div class="say">生活里最像的一次：你在音乐 App 搜索框输入"周杰伦"（这是 Q），每首歌有标题、歌手、标签（这些是 K），搜出来以后你真正听的是歌本身（这才是 V）。搜索词从没变成歌，它只是帮你"按匹配度"把歌排了个序、按比例端给你。</div>
+
+  <span class="analogy-tag">回到开会比喻 · 第二幕：每人发三张卡</span>
+  <p>Transformer 给会上每个人发三张卡片，人人都有，一张不落：</p>
+  <ul style="margin:8px 0 8px 22px;">
+    <li><span class="kv-badge b-q">Q 我想知道</span>—— 我此刻想从别人那里打听什么</li>
+    <li><span class="kv-badge b-k">K 我能提供</span>—— 我身上挂着什么信息，可供别人匹配</li>
+    <li><span class="kv-badge b-v">V 我的干货</span>—— 匹配上之后，我真正递给你的东西</li>
+  </ul>
+  <p>关键来了，也是最妙的一点：<strong>这三张卡是从同一个词身上"长"出来的。</strong>"球"这个词，既举着自己的 Q（我还要打听点啥），也举着 K（我能提供什么），还揣着 V（我的干货）。<span class="term" title="自注意力 self-attention：一句话内部的词互相开会、互相取信息，所以叫'自'——自己人跟自己人开会">自己人跟自己人开会</span>，因此这套做法的名字叫<b>自注意力</b>——那个著名的说法"Attention is All You Need（有了开会就够了）"，指的就是它。</p>
+
+  <!-- 图2 三张卡 -->
+  <div class="svgwrap">
+  <svg viewBox="0 0 820 330" role="img" aria-label="每个词长出 Q K V 三张卡片">
+    <g font-size="16">
+      <!-- 词 -->
+      <g>
+        <rect x="355" y="18" width="110" height="44" rx="10" fill="#f0d9a0" stroke="#3b3226" stroke-width="2.5"/>
+        <text x="410" y="47" text-anchor="middle" font-size="21" font-weight="700" fill="#3b3226">词："球"</text>
+      </g>
+      <!-- 三条线 -->
+      <g stroke="#3b3226" stroke-width="2" fill="none">
+        <path d="M 385 66 C 340 92, 300 100, 250 112" />
+        <path d="M 410 66 C 410 92, 410 100, 410 112" />
+        <path d="M 435 66 C 480 92, 520 100, 570 112" />
+      </g>
+      <!-- Q 卡 -->
+      <g>
+        <rect x="140" y="116" width="220" height="88" rx="12" fill="#cfe0f2" stroke="#2a6db3" stroke-width="2.5"/>
+        <rect x="152" y="104" width="76" height="28" rx="13" fill="#2a6db3"/>
+        <text x="190" y="124" text-anchor="middle" fill="#fff" font-size="16" font-weight="700">Q 想知道</text>
+        <text x="250" y="154" text-anchor="middle" font-size="15" fill="#1d4f85">"谁跟我有关？谁玩我？"</text>
+        <text x="250" y="180" text-anchor="middle" font-size="14" fill="#4c4234">提问时用</text>
+      </g>
+      <!-- K 卡 -->
+      <g>
+        <rect x="300" y="216" width="220" height="88" rx="12" fill="#d5e9dc" stroke="#3a8a5c" stroke-width="2.5"/>
+        <rect x="312" y="204" width="76" height="28" rx="13" fill="#3a8a5c"/>
+        <text x="350" y="224" text-anchor="middle" fill="#fff" font-size="16" font-weight="700">K 能提供</text>
+        <text x="410" y="254" text-anchor="middle" font-size="15" fill="#245f40">"我是个能玩的物体"</text>
+        <text x="410" y="280" text-anchor="middle" font-size="14" fill="#4c4234">挂在门口供人配对的标签</text>
+      </g>
+      <!-- V 卡 -->
+      <g>
+        <rect x="460" y="116" width="220" height="88" rx="12" fill="#f6e3b8" stroke="#c98a1b" stroke-width="2.5"/>
+        <rect x="472" y="104" width="76" height="28" rx="13" fill="#c98a1b"/>
+        <text x="510" y="124" text-anchor="middle" fill="#fff" font-size="16" font-weight="700">V 干货</text>
+        <text x="570" y="154" text-anchor="middle" font-size="15" fill="#8a5a08">"物体·圆形·能被追着玩"</text>
+        <text x="570" y="180" text-anchor="middle" font-size="14" fill="#4c4234">配对成功后真正递出的内容</text>
+      </g>
+    </g>
+    <g font-size="13" fill="#6f6353">
+      <text x="410" y="322" text-anchor="middle">句子里每个词都这样，长出自己的三张卡（"它"也一样，人人有份）</text>
+    </g>
+  </svg>
+  </div>
+  <div class="fig-label">图 2 ｜ 每个词都会"长"出三张卡：Q 提问、K 挂标签、V 给干货</div>
+
+  <h3>那……开完一次会，词会变成什么样？</h3>
+  <p>这是整篇文章最重要的一句话，值得读两遍：</p>
+  <p class="lead" style="text-align:center;"><strong>开完会后，"它"这个位置上的新词义 = 全场每个词的"干货"，按注意力比例混合出的新含义。</strong></p>
+  <p>比如混合的结果里，"球"的干货占大头（因为"它"最该指球），"很好玩"占一部分，"小猫"也掺了一点。混合出来的这个新"它"，就不再只是一个干巴巴的代词，而是<strong>一个吸收了全句上下文的、饱满的"它"</strong>。接下来模型无论要翻译、要接着写、要回答问题，用的都是这个"混好了"的词。</p>
+  <p>Transformer 干的事，就是把这样的一场会，<strong>开很多层、反复开</strong>：第一层开完，每个词都吸收了一轮上下文；第二层在这些"更饱满的词"之间再开一场，理解就再深一层……层层叠下来，模型对整句话的把握越来越立体。这就是"注意力就是全部所需"的意思——不需要别的花哨机关，靠开会就能堆出深刻的理解。</p>
+</div>
+
+<!-- ============ 3 加权混合 ============ -->
+<div class="card" id="mix">
+  <h2><span class="num">3</span>打分 → 变成百分比 → 按比例混合</h2>
+
+  <p>现在把中间那两步补全。第一小步：<strong>分数怎么变成"份额"？</strong></p>
+  <p>开会打分时，"它"给全场打的原始分数可能是 3 分、1 分、7 分……这些数有好有坏：可正可负、加起来也不整齐。所以模型会做一次"换算"——</p>
+  <div class="say" style="border-left-color:#e0592a;">把原始分数统一换算成<b>百分比</b>：全部加起来必须正好 100%，而且不许有负数。<br>
+  比如原始分「小猫 7 分 · 追着 3 分 · 球 8 分 · 跑 2 分 · 因为 0 分 · 它 2 分 · 很好玩 7 分」<br>
+  换算后 ➜ 「小猫 22% · 追着 9% · 球 28% · 跑 7% · 因为 5% · 它 7% · 很好玩 22%」</div>
+  <p>这个换算器有个名字，叫 <span class="term" title="softmax：把一堆可正可负的原始分数，统一换算成加和为 100% 的非负百分比——好让它们能当'份额'用">softmax</span>。你不用记这个名字，只要记住它的两个保证：<b>① 全是正数或零；② 加起来恰好 100%。</b>为什么必须这样？因为接下来要用这些数当"配比"去混合干货——配比当然得是非负的、加起来满打满算的。</p>
+  <p>有个细节顺带一提：换算用的是"倍数关系"放大——原始分高一点，换算后占比会高出不少，于是模型的目光会明显集中在少数几个词上，而不是雨露均沾。这正是我们想要的效果：<b>该盯住的盯牢，不相干的几乎不看。</b></p>
+
+  <p style="margin-top:16px;">第二小步：<strong>按配比混合干货</strong>。这一步像调一杯饮料：</p>
+
+  <table class="mix">
+    <tr><th>词</th><th>注意力配比</th><th>每个词递出的干货 V</th><th>掺进"它"的新含义里…</th></tr>
+    <tr><td class="w">球</td><td><b style="color:#b3451a;">28%</b></td><td>物体·能被玩</td><td><b style="color:#b3451a;">28% 的"球味"信息</b></td></tr>
+    <tr><td class="w">小猫</td><td>22%</td><td>动物·毛茸茸·会饿</td><td>22% 的"猫味"信息</td></tr>
+    <tr><td class="w">很好玩</td><td>22%</td><td>有趣的性质</td><td>22% 的"好玩"气息</td></tr>
+    <tr><td class="w">追着 / 跑 / 它 / 因为</td><td>28%（合计）</td><td>各自的动作、连接信息</td><td>少量掺入</td></tr>
+    <tr class="sumrow"><td colspan="2">配比合计 100%</td><td colspan="2">➜ 混出新的"它"：一个大概率指"球"、带着"好玩"气息的它</td></tr>
+  </table>
+
+  <div class="fig-label" style="margin-top:14px;">图 3 ｜ 配比条：颜色块越宽，这个词的干货被掺得越多（下一节可以点词，亲眼看它变化）</div>
+  <div class="mixbar-wrap" style="max-width:640px;margin:6px auto 0;">
+    <div class="mixbar" id="staticBar">
+      <div class="mb-bl" style="width:28%;">球 28%</div>
+      <div class="mb-or" style="width:22%;">猫 22%</div>
+      <div class="mb-gd" style="width:22%;">好玩 22%</div>
+      <div class="mb-gr" style="width:28%;">其余四词 28%</div>
+    </div>
+    <ul class="staticbar-labels" id="staticLegend" aria-hidden="true"></ul>
+    <div class="pct-note" style="text-align:center;">新的"它" = 28%球 + 22%猫 + 22%好玩 + 28%其余</div>
+  </div>
+
+  <p style="margin-top:14px;">这一步的学名叫<span class="term" title="加权求和：按配比把各方的干货混合在一起，配比高的多放，配比低的少放">加权求和</span>——"加权"就是"按配比"，"求和"就是"合在一起"。说白了：<b>按配方调一杯混合饮料。</b>注意力机制的全部核心，到这就讲完了。真的，没有藏步骤。</p>
+  <p>下面，轮到你亲手玩它。</p>
+</div>
+
+<!-- ============ 4 交互 ============ -->
+<div class="card" id="play">
+  <h2><span class="num">4</span>动手玩：点击一个词，看它把注意力分给谁</h2>
+  <p class="hint" style="text-align:left;">下面这句话就是会议桌。点任何一个词，它就会站起来"扫视全场"：弧线连到它正在关注的词，粗细就是注意力多少，右下是它按配比混出来的新含义。</p>
+
+  <div class="legend">
+    <span><span class="sw" style="background:#bcd7ef;"></span>名词类</span>
+    <span><span class="sw" style="background:#bfe0cc;"></span>动词类</span>
+    <span><span class="sw" style="background:#f0d9a0;"></span>被点中的词</span>
+    <span><span class="sw" style="background:#e6d8f4;"></span>功能词</span>
+  </div>
+
+  <div class="sent-row" id="chips"></div>
+  <div class="hint">👆 点我 👆 （试试先点"它"，再点"追"，感受差别）</div>
+
+  <div class="svgwrap" style="margin-top:6px;">
+    <svg id="attSvg" viewBox="0 0 820 300"></svg>
+  </div>
+  <div class="fig-label">图 4 ｜ 互动版：点谁，谁开会。弧线粗细 = 注意力多少</div>
+
+  <div class="focus-pane" id="focusPane" style="display:none;">
+    <div class="q-line" id="fpQ"></div>
+    <div class="arrows-line" id="fpArrows"></div>
+    <div class="focus-sum" id="fpSum"></div>
+    <div class="result-line" id="fpResult"></div>
+  </div>
+
+  <h3>换了场景，注意力立刻跟着变</h3>
+  <p>注意力最迷人的一点：<strong>配比不是写死的，是当场算出来的。</strong>同一批词，换到另一句话里，配比马上变。下面给你一个"场景切换"：同样都有"苹果"，一句在说水果，一句在说公司。</p>
+
+  <div class="scene-tabs" role="tablist" aria-label="苹果的两种场景">
+    <button class="scene-tab active" data-sent="A" role="tab" aria-selected="true">🍎 水果摊</button>
+    <button class="scene-tab" data-sent="B" role="tab" aria-selected="false">📱 发布会</button>
+  </div>
+  <div class="scene-sent" id="sceneSentence">「苹果」泡在果汁里，和<span class="sc-b">橙子</span>挤在一起，<span class="sc-b">很甜</span>。</div>
+
+  <div class="sent-row" id="chips2" style="margin-top:6px;"></div>
+  <div class="hint">👆 在这句里点"苹果"，看看它关心谁</div>
+  <div class="svgwrap" style="margin-top:6px;">
+    <svg id="attSvg2" viewBox="0 0 820 300"></svg>
+  </div>
+  <div class="focus-pane" id="focusPane2" style="display:none;">
+    <div class="q-line" id="fpQ2"></div>
+    <div class="arrows-line" id="fpArrows2"></div>
+    <div class="focus-sum" id="fpSum2"></div>
+    <div class="result-line" id="fpResult2"></div>
+  </div>
+  <div class="fig-label" id="fig5Label">图 5 ｜ 同一个"苹果"，在水果摊和在发布会，开出的会完全不同</div>
+
+  <p style="margin-top:14px;">顺带说穿一个常见误会：很多人以为大模型是"一个词一个词往后查词典"背下来的。不是。<strong>它是每读一个词，就当场开一次会、当场算一次配比。</strong>所以同一句话换个词，全场的注意力会瞬间重新分配——你刚才亲眼看到了（用上面的"水果摊 / 发布会"按钮多切几次，盯着"苹果"的配比条看）。</p>
+</div>
+
+<!-- ============ 5 多头 ============ -->
+<div class="card" id="heads">
+  <h2><span class="num">5</span>多头注意力：同时开好几场会</h2>
+
+  <p>到目前为止我们只开了一场会。但一个词跟别人的关系，往往不止一种："它"既要搞清<b>指代</b>（我是谁），句子里的另一些词要顾<b>语法</b>（谁修饰谁），还要看<b>情绪</b>（这句是抱怨还是夸）……一场会只有一套配比，顾不过来。</p>
+  <p>Transformer 的解法豪横又简单：<strong>多开几场，每场专职一件事。</strong>这就是<span class="term" title="多头注意力 multi-head：并行开多场会，每场关注一种不同的关系，最后把各场的收获拼起来">多头注意力</span>。</p>
+
+  <span class="analogy-tag">开会比喻 · 第三幕：圆桌旁另开三张小桌</span>
+  <p>还是这批举词牌的人，但会议室里摆了四张小桌，每张桌只聊一个话题。每个人都同时"分身"参加所有桌——每张桌上，他重新打分、重新分配注意力，互不干扰：</p>
+
+  <div class="heads">
+    <div class="head-card hc1"><b>① 指代桌</b>"它"最该指谁？重点看"球""猫"这类名词。<div class="mini"><span>它→球</span><span>它→猫</span></div></div>
+    <div class="head-card hc2"><b>② 语法桌</b>谁修饰谁？"追"该配"跑"，副词贴动词。<div class="mini"><span>追→跑</span><span>很→好玩</span></div></div>
+    <div class="head-card hc3"><b>③ 情绪桌</b>这句是开心玩闹还是抱怨？盯"好玩""饿"这类情绪词。<div class="mini"><span>它→好玩</span><span>猫→饿</span></div></div>
+    <div class="head-card hc4"><b>④ 场景桌</b>这是在哪里发生？留意时间、地点类线索。<div class="mini"><span>跑→房间</span><span>追→院子</span></div></div>
+  </div>
+  <div class="fig-label">图 6 ｜ 四张小桌同时开：每张桌一套自己的注意力（示意，真实模型常开 8～96 场）</div>
+
+  <p style="margin-top:12px;">每张桌开完，各交一份"会议纪要"（各自混出的新含义），最后把所有纪要<b>拼在一起</b>，交给下一层继续加工。<strong>拼起来的信息，比任何单独一场会都全面</strong>：既有"它=球"的判断，又有语法搭对、情绪色彩、场景氛围。</p>
+  <div class="say">生活对照：读一份合同时你会同时用好几种眼光——法务眼光盯条款、财务眼光盯金额、业务眼光盯交付时间。你不是把合同读三遍，而是<b>同时戴几副眼镜</b>读一遍。多头注意力就是给模型同时戴上好几副眼镜。</div>
+  <p>补一句实话，免得神化：每张小桌的人手（相当于每场的"信息容量"）比单开大会时少一些——总的算力差不多，只是切成了几份、各管一摊。这是"分工换深度"的买卖，实践证明很划算。</p>
+</div>
+
+<!-- ============ 6 总结+测验 ============ -->
+<div class="card" id="quiz">
+  <h2><span class="num">6</span>一分钟总结 & 自测</h2>
+  <p>整篇东西压缩成一段话，你能复述出来就算学会了：</p>
+  <div class="say" style="font-size:16.5px;">
+  读到每个词时，模型让它站起来<b>提问（Q）</b>，去匹配场上每个词的<b>标签（K）</b>，匹配度换算成<b>加起来正好 100% 的百分比</b>；然后按这个百分比，把每个词的<b>干货（V）</b>混合成一杯新饮料——这就是这个词吸收了上下文之后的新含义。这场会<b>每层都开、多头并行</b>，理解因此一层层立体起来。
+  </div>
+
+  <h3>三道小题，验一验</h3>
+  <div id="quizArea">
+    <div class="quiz-q" data-quiz="1">1️⃣ 在"小猫追球因为<strong>它</strong>很好玩"里，"它"的注意力大头应该分给谁？</div>
+    <div class="opts" data-opts="1">
+      <button class="opt" data-ok="0">A. 追</button>
+      <button class="opt" data-ok="1">B. 球 —— 好玩的是球，"它"大概率指球</button>
+      <button class="opt" data-ok="0">C. 平均分给每个词</button>
+    </div>
+    <div class="quiz-fb" data-fb="1"></div>
+
+    <div class="quiz-q" data-quiz="2" style="margin-top:18px;">2️⃣ Q、K、V 三张卡里，最后真正被"混合"进新词义的是哪张？</div>
+    <div class="opts" data-opts="2">
+      <button class="opt" data-ok="0">A. Q 卡（问题）</button>
+      <button class="opt" data-ok="0">B. K 卡（标签）</button>
+      <button class="opt" data-ok="1">C. V 卡（干货）—— Q 只负责问，K 只负责配对打分</button>
+    </div>
+    <div class="quiz-fb" data-fb="2"></div>
+
+    <div class="quiz-q" data-quiz="3" style="margin-top:18px;">3️⃣ 为什么需要"多头"（多开几场会）？</div>
+    <div class="opts" data-opts="3">
+      <button class="opt" data-ok="0">A. 为了让模型算得更慢</button>
+      <button class="opt" data-ok="1">B. 因为词与词之间有好几种关系（指代、语法、情绪…），一场会盯不过来</button>
+      <button class="opt" data-ok="0">C. 为了把句子读很多遍</button>
+    </div>
+    <div class="quiz-fb" data-fb="3"></div>
+  </div>
+
+  <h3 style="margin-top:22px;">常见疑问快答</h3>
+  <ul class="qa">
+    <li><span class="q">Q：开这么多会，不会乱套吗？</span><br><span class="a">不会散架，因为有"残差留底"——每场会开完，都会把"原来的自己"也一并带走（新含义 = 原信息 + 会议收获），保底不丢；另有一道"门禁"（正规化）管着每位与会者的音量，防止谁嗓门过大盖过全场。这两位幕后工作人员不在本篇主角名单里，知道有他们兜底即可。</span></li>
+    <li><span class="q">Q：词的顺序重要吗？我看开会好像不管谁坐哪。</span><br><span class="a">问得好——纯开会确实不记座位。所以 Transformer 在入场前给每个词发一张"座位号牌"（位置信息），跟词义一起揣着。这样即使全场围坐，每个人也知道彼此在句中的先后。</span></li>
+    <li><span class="q">Q：Q、K、V 这三张卡是人工写好给它的吗？</span><br><span class="a">不是。模型在训练中自己学会"怎么提问、怎么挂牌、给什么干货"——从海量文本里反复试错磨出来的。我们给的只是这套"开会流程"，卡片的写法它自学成才。</span></li>
+    <li><span class="q">Q：那著名的 ChatGPT 也是这么干的？</span><br><span class="a">骨架正是它——一层层注意力会议叠起来，规模大到千亿参数、会议开到近百层，但每一场会的核心玩法，就是你今天玩过的这个：提问、配对、按比例混合。</span></li>
+  </ul>
+</div>
+
+<div class="foot-note">
+本页所有分数均为示意值，用来展示机制的行为方式；真实模型在训练中自己学出这些配比。<br>
+比喻为求直观做了简化，但机制骨架（Q/K/V 配对打分 → softmax 百分比 → 加权混合 → 多头并行）与真实 Transformer 一致。
+</div>
+
+</div>
+
+<script>
+/* ================= 数据 ================= */
+var SENT1 = {
+  words: [
+    {t:"小猫", cls:"noun", note:"动物·毛茸茸·会饿会闹", why:"「它」在找'谁可能是主人公'，猫是头号候选"},
+    {t:"追着", cls:"verb", note:"动作·持续进行", why:"动作信息，对解词帮助中等"},
+    {t:"球",   cls:"noun", note:"物体·圆圆的·能被玩", why:"跟'好玩'强相关——「它」的最强候选"},
+    {t:"跑",   cls:"verb", note:"动作·快速移动", why:"和'追'搭伙的动作，帮助一般"},
+    {t:"因为", cls:"func", note:"逻辑连接词", why:"只管逻辑，不带画面信息，几乎不分注意力"},
+    {t:"它",   cls:"pron", note:"代词·身份待定", why:"正在开会的就是它自己，留一点点自恋份额"},
+    {t:"很好玩", cls:"adj", note:"性质·愉快体验", why:"'好玩'是解出'它=球'的关键证据"}
+  ],
+  att: {
+    "小猫":   [ -1, 3, 5, 2, 0, 7, 4],
+    "追着":   [ 7, -1, 5, 8, 2, 4, 5],
+    "球":     [ 7, 5, -1, 4, 1, 8, 6],
+    "跑":     [ 6, 8, 4, -1, 2, 4, 4],
+    "因为":   [ 4, 3, 4, 3, -1, 4, 5],
+    "它":     [ 7, 3, 8, 2, 0, 2, 7],
+    "很好玩": [ 6, 3, 8, 3, 1, 5, -1]
+  },
+  mixes: {
+    "小猫":  "新的「小猫」≈ 就是那只正在追球的猫（'跑''球'的味道混进来，猫有了'追'的姿态）",
+    "追着":  "新的「追着」≈ 一个猫追球的动态画面（'猫''跑'的成分被吸进来了）",
+    "球":    "新的「球」≈ 就是那只被猫追的球，还知道有个'它'在指自己",
+    "跑":    "新的「跑」≈ 追逐场景中的奔跑，不再是随便跑",
+    "因为":  "新的「因为」≈ 连接'玩闹'与'原因'的胶水",
+    "它":    "新的「它」≈ 一个大概率指'球'、带着'好玩'气息的它",
+    "很好玩": "新的「很好玩」≈ 在说'球很好玩'这件事本身"
+  },
+  qs: {
+    "小猫":  "「小猫」在问：谁跟我关系最近？谁在动我？",
+    "追着":  "「追着」在问：谁在追？追的是什么？",
+    "球":    "「球」在问：谁在玩我？我在什么场景里？",
+    "跑":    "「跑」在问：这是什么样的跑？谁在跑？",
+    "因为":  "「因为」在问：我连接的是哪两件事？",
+    "它":    "「它」在问：我到底是谁？谁能帮我搞清楚身份？",
+    "很好玩": "「很好玩」在问：好玩的是谁？我修饰谁？"
+  }
+};
+
+var SENT2 = {
+  A: {
+    title: "🍎 场景A：水果摊",
+    sentence: "「苹果」泡在果汁里，和<b>橙子</b>挤在一起，<b>很甜</b>。",
+    words: [
+      {t:"苹果", cls:"noun", note:"？水果还是公司，待定", why:"身份成谜，全靠开会"},
+      {t:"泡在", cls:"verb", note:"动作·浸在液体里", why:"厨房/饮品场景的强信号"},
+      {t:"果汁", cls:"noun", note:"液体·饮品", why:"水果语境的关键证据"},
+      {t:"里",   cls:"func", note:"方位小尾巴", why:"几乎不带信息"},
+      {t:"橙子", cls:"noun", note:"水果·柑橘类", why:"跟'苹果=水果'强相关"},
+      {t:"挤",   cls:"verb", note:"动作·贴在一起", why:"画面感动作"},
+      {t:"很甜", cls:"adj", note:"味道·甜", why:"决定'苹果'该带'甜水果'味"}
+    ],
+    att: {
+      "苹果": [ -1, 5, 8, 2, 7, 4, 6],
+      "泡在": [ 7, -1, 6, 2, 4, 5, 3],
+      "果汁": [ 8, 6, -1, 3, 6, 4, 4],
+      "里":   [ 5, 5, 6, -1, 4, 4, 3],
+      "橙子": [ 8, 4, 6, 2, -1, 5, 4],
+      "挤":   [ 6, 5, 5, 2, 6, -1, 3],
+      "很甜": [ 7, 4, 6, 2, 6, 4, -1]
+    },
+    mixes: {
+      "苹果":  "新的「苹果」≈ 一种泡在果汁里、和橙子挤在一起的水果，跟公司没关系",
+      "泡在":  "新的「泡在」≈ 水果泡进果汁的浸泡动作",
+      "果汁":  "新的「果汁」≈ 装着苹果和橙子的果汁",
+      "里":    "新的「里」≈ 果汁杯子里的'里'",
+      "橙子":  "新的「橙子」≈ 和苹果挤在一起的那种水果",
+      "挤":    "新的「挤」≈ 水果在果汁里挤在一起的画面",
+      "很甜":  "新的「很甜」≈ 这杯果汁（和水果）的甜味"
+    },
+    qs: {
+      "苹果":  "「苹果」在问：我这句里到底是水果还是公司？",
+      "泡在":  "「泡在」在问：谁泡？泡在什么里？",
+      "果汁":  "「果汁」在问：我是哪种果汁？谁泡在我里面？",
+      "里":    "「里」在问：我在哪个容器里面？",
+      "橙子":  "「橙子」在问：我和谁是同类？谁挨着我？",
+      "挤":    "「挤」在问：谁在挤？挤着谁？",
+      "很甜":  "「很甜」在问：我在说谁甜？"
+    }
+  },
+  B: {
+    title: "📱 场景B：发布会",
+    sentence: "「苹果」发布了新款<b>手机</b>，<b>价格</b>不便宜。",
+    words: [
+      {t:"苹果", cls:"noun", note:"？水果还是公司，待定", why:"身份成谜，全靠开会"},
+      {t:"发布", cls:"verb", note:"动作·官方推出", why:"'发布会'语境的强信号"},
+      {t:"了",   cls:"func", note:"时态小尾巴", why:"几乎不带信息"},
+      {t:"新款", cls:"adj", note:"产品属性", why:"指向科技产品"},
+      {t:"手机", cls:"noun", note:"科技产品", why:"跟'苹果=公司'强相关"},
+      {t:"价格", cls:"noun", note:"钱的属性", why:"科技公司语境常客"},
+      {t:"很贵", cls:"adj", note:"贵·吐槽向", why:"决定'苹果'该带'昂贵电子产品'味"}
+    ],
+    att: {
+      "苹果": [ -1, 7, 2, 6, 8, 4, 5],
+      "发布": [ 7, -1, 2, 6, 8, 4, 4],
+      "了":   [ 4, 5, -1, 3, 5, 3, 3],
+      "新款": [ 5, 7, 2, -1, 8, 5, 5],
+      "手机": [ 8, 6, 2, 6, -1, 4, 5],
+      "价格": [ 6, 4, 2, 5, 7, -1, 7],
+      "很贵": [ 6, 3, 2, 4, 7, 7, -1]
+    },
+    mixes: {
+      "苹果":  "新的「苹果」≈ 一家发布新款手机、价格不便宜的公司，跟水果没关系",
+      "发布":  "新的「发布」≈ 一场科技产品发布会",
+      "了":    "新的「了」≈ 记录'发布'已完成的小尾巴",
+      "新款":  "新的「新款」≈ 新款手机的产品属性",
+      "手机":  "新的「手机」≈ 苹果公司的新款手机",
+      "价格":  "新的「价格」≈ 这款手机的价格（且偏贵）",
+      "很贵":  "新的「很贵」≈ 对苹果手机价格的吐槽"
+    },
+    qs: {
+      "苹果":  "「苹果」在问：我这句里到底是水果还是公司？",
+      "发布":  "「发布」在问：谁发布？发布了什么？",
+      "了":    "「了」在问：我跟着的动作是什么？",
+      "新款":  "「新款」在问：我修饰的是什么产品？",
+      "手机":  "「手机」在问：谁家的手机？什么状态？",
+      "价格":  "「价格」在问：什么东西的价格？贵不贵？",
+      "很贵":  "「很贵」在问：我在说谁贵？"
+    }
+  }
+};
+var sceneNow = "A";   /* 当前展示的场景 */
+var sceneWord = "苹果"; /* 场景内当前选中的词（切场景时尽量保持） */
+
+var CLS_FILL = {noun:"#bcd7ef", verb:"#bfe0cc", adj:"#bcd7ef", func:"#e6d8f4", pron:"#f0d9a0"};
+var CLS_STROKE = {noun:"#2a6db3", verb:"#3a8a5c", adj:"#2a6db3", func:"#7a4fb3", pron:"#c98a1b"};
+
+/* ================= 渲染 ================= */
+function softmax(arr, temp){
+  /* 原始分 → 百分比：先减去最高分（稳定数值），除以"锐度"t：
+     t 越大，分数差距被压得越平（雨露均沾）；t 越小越尖锐。
+     这里取 t=4.5：既有明显的聚焦，又不至于只盯一个词。 */
+  var t = temp || 4.5;
+  var mx = Math.max.apply(null, arr);
+  var exps = arr.map(function(v){ return Math.exp((v-mx)/t); });
+  var s = exps.reduce(function(a,b){return a+b;},0);
+  return exps.map(function(e){ return e/s; });
+}
+
+function buildChips(containerId, sent, svgId, panePrefix){
+  var box = document.getElementById(containerId);
+  sent.words.forEach(function(w, i){
+    var c = document.createElement('div');
+    c.className = 'wchip';
+    c.style.background = CLS_FILL[w.cls];
+    c.style.borderColor = CLS_STROKE[w.cls];
+    c.textContent = w.t;
+    c.setAttribute('data-i', i);
+    c.innerHTML = w.t + '<span class="dot"></span>';
+    c.addEventListener('click', function(){
+      Array.prototype.forEach.call(box.children, function(x){ x.classList.remove('active'); });
+      c.classList.add('active');
+      showFocus(sent, i, svgId, panePrefix);
+    });
+    box.appendChild(c);
+  });
+}
+
+function chipW(sent, i){
+  return sent.words[i].t;
+}
+
+/* SVG 交互绘制 */
+function drawAtt(sent, focusI, svgId){
+  var svg = document.getElementById(svgId);
+  var W = 820, H = 300;
+  var n = sent.words.length;
+  var svgNS = "http://www.w3.org/2000/svg";
+  svg.innerHTML = "";
+  var cx = [], cy = [];
+  for (var i=0;i<n;i++){
+    var t = (i+0.5)/n;
+    var ang = Math.PI * (1 - t);
+    cx[i] = W/2 + Math.cos(ang) * 350;
+    cy[i] = 170 - Math.sin(ang) * 108;
+  }
+  var probs = softmax(sent.att[chipW(sent, focusI)], 4.5);
+  var maxP = Math.max.apply(null, probs);
+  var focusW = chipW(sent, focusI);
+  // defs: arrowhead marker
+  var defs = document.createElementNS(svgNS,'defs');
+  defs.innerHTML = '<marker id="arrhead-' + svgId + '" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="5.5" markerHeight="5.5" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#e0592a"/></marker>';
+  svg.appendChild(defs);
+  // arcs (draw beneath), end short of target plate so arrowhead is visible
+  for (i=0;i<n;i++){
+    if (i===focusI) continue;
+    var w = sent.words[i];
+    var p = probs[i];
+    if (p < 0.02) continue;
+    var mx = (cx[i]+cx[focusI])/2;
+    var my = Math.min(cy[i], cy[focusI]) - 30 - (p/maxP)*95;
+    // shrink endpoints toward the middle of the arc so lines don't bury the plates
+    var sx = cx[focusI], sy = cy[focusI], ex = cx[i], ey = cy[i];
+    var dx = ex - sx, dy = ey - sy;
+    var len = Math.sqrt(dx*dx + dy*dy) || 1;
+    var inset0 = 34, inset1 = 40;
+    var ux = dx/len, uy = dy/len;
+    sx += ux * inset0; sy += uy * inset0;
+    ex -= ux * inset1; ey -= uy * inset1;
+    var mx2 = (sx+ex)/2, my2 = (sy+ey)/2 - (my - Math.min(cy[i],cy[focusI])) * -1 - 0; // keep apex
+    var apexY = my + Math.min(sy, ey) - Math.min(cy[i], cy[focusI]);
+    var path = document.createElementNS(svgNS,'path');
+    path.setAttribute('d', 'M ' + sx + ' ' + sy + ' Q ' + mx2 + ' ' + apexY + ' ' + ex + ' ' + ey);
+    path.setAttribute('stroke', '#e0592a');
+    path.setAttribute('stroke-width', String(1.6 + (p/maxP)*9.5));
+    path.setAttribute('fill','none');
+    path.setAttribute('opacity', String(0.3 + (p/maxP)*0.6));
+    path.setAttribute('stroke-linecap','round');
+    path.setAttribute('marker-end', 'url(#arrhead-' + svgId + ')');
+    svg.appendChild(path);
+  }
+  // word plates on top（字号调大：词牌 17.5→21，"正在开会" 13.5→16，百分比 14→17）
+  for (i=0;i<n;i++){
+    var w2 = sent.words[i];
+    var g = document.createElementNS(svgNS,'g');
+    var isF = (i===focusI);
+    var bw = Math.max(64, w2.t.length*23 + 20);
+    var rect = document.createElementNS(svgNS,'rect');
+    rect.setAttribute('x', String(cx[i]-bw/2)); rect.setAttribute('y', String(cy[i]-26));
+    rect.setAttribute('width', String(bw)); rect.setAttribute('height', '52');
+    rect.setAttribute('rx','10');
+    rect.setAttribute('fill', isF ? '#f0d9a0' : CLS_FILL[w2.cls]);
+    rect.setAttribute('stroke', isF ? '#e0592a' : CLS_STROKE[w2.cls]);
+    rect.setAttribute('stroke-width', isF ? '3.5' : '2.5');
+    g.appendChild(rect);
+    var tx2 = document.createElementNS(svgNS,'text');
+    tx2.setAttribute('x', String(cx[i])); tx2.setAttribute('y', String(cy[i]+8));
+    tx2.setAttribute('text-anchor','middle');
+    tx2.setAttribute('font-size','21');
+    tx2.setAttribute('font-weight','700');
+    tx2.setAttribute('fill', isF ? '#8a4a12' : '#3b3226');
+    tx2.textContent = w2.t;
+    g.appendChild(tx2);
+    if (isF){
+      var badge = document.createElementNS(svgNS,'text');
+      badge.setAttribute('x', String(cx[i])); badge.setAttribute('y', String(cy[i]-34));
+      badge.setAttribute('text-anchor','middle');
+      badge.setAttribute('font-size','16');
+      badge.setAttribute('fill','#1d4f85');
+      badge.setAttribute('font-weight','700');
+      badge.textContent = '▼ 正在开会';
+      svg.appendChild(g);
+      svg.appendChild(badge);
+    } else {
+      svg.appendChild(g);
+      // percentage badge under each target plate (attention received)
+      var pRec = probs[i];
+      if (pRec >= 0.05){
+        var pb = document.createElementNS(svgNS,'text');
+        pb.setAttribute('x', String(cx[i])); pb.setAttribute('y', String(cy[i]+46));
+        pb.setAttribute('text-anchor','middle');
+        pb.setAttribute('font-size','17');
+        pb.setAttribute('fill','#b3451a');
+        pb.setAttribute('font-weight','700');
+        pb.setAttribute('stroke','#fffdf7');
+        pb.setAttribute('stroke-width','3');
+        pb.setAttribute('paint-order','stroke');
+        pb.setAttribute('stroke-linejoin','round');
+        pb.textContent = Math.round(pRec*100) + '%';
+        svg.appendChild(pb);
+      }
+    }
+  }
+  return probs;
+}
+
+function showFocus(sent, focusI, svgId, panePrefix){
+  var probs = drawAtt(sent, focusI, svgId);
+  var fw = chipW(sent, focusI);
+  var pane = document.getElementById(panePrefix==='fp' ? 'focusPane' : 'focusPane2');
+  pane.style.display = 'block';
+  // Q line
+  document.getElementById(panePrefix === 'fp' ? 'fpQ' : 'fpQ2').innerHTML =
+    '被点中的词：<b style="font-size:19px;">「' + fw + '」</b> &nbsp;站起来提问（这就是它的 Q）—— ' + sent.qs[fw] +
+    '<span style="display:block;font-size:13px;color:#8a7c62;margin-top:2px;">（百分比 = 注意力权重的直观翻译，四舍五入后总和约 100%）</span>';
+  // arrows
+  var arr = document.getElementById(panePrefix === 'fp' ? 'fpArrows' : 'fpArrows2');
+  arr.innerHTML = '';
+  var row = document.createElement('div'); row.className = 'arrow-row';
+  row.innerHTML = '<span class="kv-badge b-q">① Q 我想知道</span><span class="arrow-seg a-bl"></span>' +
+                  '<span class="kv-badge b-k">② K 逐个配对</span><span class="arrow-seg a-or"></span>' +
+                  '<span class="arrow-seg a-or"></span><span class="arrow-seg a-gd"></span>' +
+                  '<span class="kv-badge b-v">③ V 按配比混合</span>';
+  arr.appendChild(row);
+  // mix bar + 可读图例（窄屏下条内不放文字，靠这份图例看清单）
+  var items = [];
+  for (var i=0;i<sent.words.length;i++){
+    var p = probs[i];
+    if (p >= 0.03) items.push({w: sent.words[i].t, p: p, cls: 'mb-' + ['bl','gr','bl','bl','pu','gd','gd'][Math.min(i,6)], i: i});
+  }
+  items.sort(function(a,b){return b.p-a.p;});
+  var narrow = window.matchMedia('(max-width: 640px)').matches;
+  var barHtml = '', legendHtml = '<ul class="mixbar-labels">';
+  items.forEach(function(it){
+    var seg = '<div class="' + it.cls + '" style="width:' + (it.p*100).toFixed(1) + '%;">';
+    if (narrow){
+      /* 窄屏：条内只放百分比数字（段太窄就留空，数字看下方图例），词名也放进图例 */
+      if (it.p >= 0.14) seg += Math.round(it.p*100) + '%';
+    } else {
+      if (it.p >= 0.09) seg += it.w + ' ' + Math.round(it.p*100) + '%';
+      else if (it.p >= 0.05) seg += it.w;
+    }
+    barHtml += seg + '</div>';
+    legendHtml += '<li><span class="sw ' + it.cls + '"></span><b>' + it.w + '</b> 分到 ' +
+      Math.round(it.p*100) + '% 的注意力</li>';
+  });
+  legendHtml += '</ul>';
+  var sumEl = document.getElementById(panePrefix === 'fp' ? 'fpSum' : 'fpSum2');
+  sumEl.innerHTML = '<div class="mixbar">' + barHtml + '</div>' +
+    (narrow ? legendHtml : '') +
+    '<div class="pct-note">各词配比加起来 = 100%（原始分经"百分比换算" softmax 处理）</div>';
+  // result
+  var top = items.slice(0,2).map(function(it){ return it.w + ' ' + Math.round(it.p*100) + '%'; }).join(' + ');
+  document.getElementById(panePrefix === 'fp' ? 'fpResult' : 'fpResult2').innerHTML =
+    '混合结果 ➜ <span class="newword">' + sent.mixes[fw] + '</span>' +
+    '<div class="pct-note" style="margin-top:4px;">主要配方：' + top + ' …</div>';
+}
+
+buildChips('chips', SENT1, 'attSvg', 'fp');
+buildChips('chips2', SENT2[sceneNow], 'attSvg2', 'fp2');
+
+/* 第3节静态配比条：窄屏下生成图例（条内只保留百分比数字） */
+(function(){
+  var bar = document.getElementById('staticBar');
+  var leg = document.getElementById('staticLegend');
+  if (!bar || !leg) return;
+  function render(){
+    var narrow = window.matchMedia('(max-width: 640px)').matches;
+    leg.innerHTML = '';
+    if (!narrow){
+      /* 宽屏：恢复条内完整标签 */
+      var wide = [['球 28%','mb-bl',28],['猫 22%','mb-or',22],['好玩 22%','mb-gd',22],['其余四词 28%','mb-gr',28]];
+      bar.innerHTML = wide.map(function(x){ return '<div class="' + x[1] + '" style="width:' + x[2] + '%;">' + x[0] + '</div>'; }).join('');
+      return;
+    }
+    var items = [['球','mb-bl',28],['小猫','mb-or',22],['很好玩','mb-gd',22],['追着/跑/它/因为','mb-gr',28]];
+    bar.innerHTML = items.map(function(x){ return '<div class="' + x[1] + '" style="width:' + x[2] + '%;">' + x[2] + '%</div>'; }).join('');
+    items.forEach(function(x){
+      var li = document.createElement('li');
+      li.innerHTML = '<span class="sw ' + x[1] + '"></span><b>' + x[0] + '</b> 分到 ' + x[2] + '% 的注意力';
+      leg.appendChild(li);
+    });
+  }
+  render();
+  window.addEventListener('resize', function(){ if(window.__resizeT) clearTimeout(window.__resizeT); window.__resizeT = setTimeout(render, 150); });
+})();
+
+/* ===== 苹果场景切换 ===== */
+function switchScene(s){
+  sceneNow = s;
+  var data = SENT2[s];
+  /* 按钮状态 */
+  document.querySelectorAll('.scene-tab').forEach(function(btn){
+    var on = btn.getAttribute('data-sent') === s;
+    btn.classList.toggle('active', on);
+    btn.setAttribute('aria-selected', on ? 'true' : 'false');
+  });
+  /* 例句 */
+  document.getElementById('sceneSentence').innerHTML = data.sentence;
+  /* 重建词块 */
+  var box = document.getElementById('chips2');
+  box.innerHTML = '';
+  buildChips('chips2', data, 'attSvg2', 'fp2');
+  /* 切场景后保持演示连贯：优先还点上一次选中的词（若新句里也有），否则点"苹果" */
+  var again = 0;
+  for (var k=0;k<data.words.length;k++){
+    if (data.words[k].t === sceneWord){ again = k; break; }
+  }
+  box.children[again].click();
+}
+document.querySelectorAll('.scene-tab').forEach(function(btn){
+  btn.addEventListener('click', function(){
+    var s = btn.getAttribute('data-sent');
+    if (s !== sceneNow) switchScene(s);
+  });
+});
+/* 记住场景内在看的词，切换场景后尽量还点它（不在新句里则回到"苹果"） */
+(function(){
+  var box = document.getElementById('chips2');
+  box.addEventListener('click', function(ev){
+    var c = ev.target.closest('.wchip');
+    if (c) sceneWord = c.textContent.replace('●','').trim();
+  });
+})();
+
+/* 自动演示：载入后先点「它」 */
+setTimeout(function(){
+  var chips = document.querySelectorAll('#chips .wchip');
+  var itChip = null;
+  chips.forEach || (chips.forEach = Array.prototype.forEach);
+  Array.prototype.forEach.call(chips, function(c){ if(c.textContent.replace('●','')==='它') itChip = c; });
+  if (itChip) itChip.click();
+}, 600);
+
+/* ================= 测验 ================= */
+document.querySelectorAll('.opt').forEach(function(btn){
+  btn.addEventListener('click', function(){
+    var group = btn.parentElement;
+    var qid = group.getAttribute('data-opts');
+    var fb = document.querySelector('[data-fb="' + qid + '"]');
+    Array.prototype.forEach.call(group.children, function(b){
+      b.classList.remove('correct','wrong');
+      if (b.getAttribute('data-ok')==='1') b.classList.add('correct');
+    });
+    if (btn.getAttribute('data-ok')==='1'){
+      btn.classList.add('correct');
+      fb.className = 'quiz-fb show fb-ok';
+      fb.innerHTML = '✅ 没错！' + ({'1':'"好玩"把"它"的注意力大量吸到了"球"那边——指代就是这么解出来的。','2':'Q 和 K 只是"问"和"配对"的工具，配对完成后真正被掺进新词义的是 V 的内容。','3':'一种配比盯一种关系：指代、语法、情绪各开各的会，最后拼起来，理解才全面。'})[qid];
+    } else {
+      btn.classList.add('wrong');
+      fb.className = 'quiz-fb show fb-no';
+      fb.innerHTML = '❌ 再想想～提示：回去看看第 ' + ({'1':'1','2':'2','3':'5'})[qid] + ' 节的图。';
+    }
+  });
+});
+</script>
+</body>
+</html>
