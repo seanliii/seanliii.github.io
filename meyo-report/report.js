@@ -83,19 +83,16 @@
     if (event.clientX < rect.left || event.clientX > rect.right || event.clientY < rect.top || event.clientY > rect.bottom) dialog.close();
   });
 
-  const diagramButton = byId('load-diagram');
-  diagramButton.addEventListener('click', () => {
-    const host = byId('diagram-frame-host');
-    if (host.firstChild) return;
-    const frame = document.createElement('iframe');
-    frame.title = '已保存的Transformer注意力机制交互图解';
-    frame.setAttribute('sandbox', 'allow-scripts');
-    frame.setAttribute('referrerpolicy', 'no-referrer');
-    frame.src = 'works/transformer/index.html';
-    host.appendChild(frame);
-    host.hidden = false;
-    byId('diagram-invitation').hidden = true;
-  });
+  // 图解作为原生iframe直接在HTML里显示，不再让用户点击一张说明占位后才载入。
+  // 只标当前访问位置；不拿这个标签推断服务器健康或模型质量。
+  const location = window.location;
+  if (location && location.protocol === 'file:') {
+    setText('publication-mode', '你正在看本地副本 · 作品补全版');
+    setText('publication-description', '这不是线上网址。可在本地看已有文件；转发给别人请使用右侧的正式网页链接。');
+  } else if (location && location.hostname === 'seanliii.github.io') {
+    setText('publication-mode', '个人主页正式展示页 · 作品补全版');
+    setText('publication-description', '你正在访问可转发的HTTPS页面。行星、对战实录、图解和视频已设独立展示位；公司测试站和学城仍需原有权限。');
+  }
 
   const form = byId('budget-form');
   const updateBudget = () => {
