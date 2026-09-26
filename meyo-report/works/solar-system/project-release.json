@@ -1,0 +1,28 @@
+{
+  "projectId": "solar-system",
+  "stablePath": "works/solar-system/index.html",
+  "currentRelease": "helios-particles-20260907",
+  "updatedAt": "2026-09-26T21:45:25.993183+00:00",
+  "comparisonBoundary": "增强版与其HELIOS前版为同一订单续改；另留的八行星轨道档案不是同一订单，不能拼成严格同条件A/B。",
+  "newBrowserValidation": false,
+  "releases": [
+    {
+      "id": "helios-particles-20260907",
+      "label": "当前｜HELIOS 星尘粒子增强版",
+      "entry": "versions/helios-particles-20260907/index.html",
+      "originalSession": "4f0989eee47c",
+      "sourceHash": "5a7177d5b39213123f95f055140433aa7f36648eb5d0e731e092f10e1e70f4da",
+      "originalQuery": "在上一轮太阳系模拟器项目的基础上迭代，保留拖拽旋转缩放和点击信息卡，增加更多天体、小行星带、银河系背景与星云，科学数据要真实。",
+      "evidenceNote": "原验收记录22个天体标签与粒子带；银河与星云可见度不足、软件WebGL性能有风险。不是本轮新试玩。"
+    },
+    {
+      "id": "orbital-archive-20260907",
+      "label": "历史｜八行星轨道档案",
+      "entry": "versions/orbital-archive-20260907/index.html",
+      "originalSession": "7bd6a9a519b6",
+      "sourceHash": "cc9925fea8fd892f1fb44d7c42b73abd9269ca92223130e99b727744faa976db",
+      "originalQuery": "做一个交互式太阳系模拟器，八大行星按真实相对速度公转自转，可拖拽旋转缩放、点击信息卡，整体有电影感。",
+      "evidenceNote": "之前公开的八星原工程，原样保留。不是HELIOS的同单前版，不因排序而声称视觉更好。"
+    }
+  ]
+}

@@ -10,9 +10,9 @@
   <link rel="canonical" href="https://seanliii.github.io/meyo-report/">
   <title>Meyo｜让想法变成作品</title>
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="styles.css?v=652b1d31209c">
+  <link rel="stylesheet" href="styles.css?v=305ac5818c04">
   <script src="budget-core.js?v=ff8bb161bfe7" defer></script>
-  <script src="report.js?v=7bf0fb4eb5b8" defer></script>
+  <script src="report.js?v=1fdc3941d5e0" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#main">跳到正文</a>
@@ -22,22 +22,23 @@
         <span class="brand-symbol" aria-hidden="true">m</span>
         <span>Meyo<span class="brand-dot">.</span></span>
       </a>
-      <nav class="main-nav" aria-label="汇报章节">
+      <nav class="main-nav" aria-label="分享章节">
         <a href="#thinking-evolution">思路演变</a>
         <a href="#value">为什么做</a>
+        <a href="#mechanism-evidence">机制实证</a>
         <a href="#works">看作品</a>
         <a href="#validation">下一步</a>
         <a href="#investment">算投入</a>
       </nav>
-      <span class="edition">完整汇报 <span>／</span> 思路与作品融合版</span>
+      <span class="edition">项目分享 <span>／</span> 思路、机制与作品</span>
     </div>
     <div class="reading-progress" aria-hidden="true"><span id="reading-progress"></span></div>
   </header>
 
   <main id="main">
     <aside class="publication-notice wrap" id="publication-notice" aria-label="当前版本与正式网址">
-      <div><strong id="publication-mode">交付物直达＋Auto技术主线 · 2026.09.26</strong><p id="publication-description">此文件是本地副本。正式展示页已发布到个人主页；修改后以线上版本和发布回执为准。</p></div>
-      <a class="button primary" href="https://seanliii.github.io/meyo-report/?v=20260926-auto-works" target="_blank" rel="noopener noreferrer">查看线上最新版 <span aria-hidden="true">↗</span></a>
+      <div><strong id="publication-mode">项目分享 · 机制、实证与作品</strong><p id="publication-description">本地副本与公开版分别保留。作品使用固定入口，当前版本、历史变化与仍未完成的部分都放在同一页。</p></div>
+      <a class="button primary" href="https://seanliii.github.io/meyo-report/" target="_blank" rel="noopener noreferrer">打开公开分享页 <span aria-hidden="true">↗</span></a>
     </aside>
     <div id="top" class="wrap">
       <section class="hero" aria-labelledby="hero-title">
@@ -68,13 +69,13 @@
 
 <!-- INTEGRATED GUIDE START -->
 <aside class="integration-guide wrap" id="boss-logic" aria-label="融合版阅读导航">
-<div><strong>完整解释默认展开，不再藏在折叠后面。</strong><p>四段全文、作品与具体因果都在本页。需要快速汇报可先读上方六个结论；需要追问就在对应段落继续读。</p></div>
+<div><strong>先体验作品，再看它是怎么做出来的。</strong><p>从用户价值、机制和真实结果开始，继续了解我们的探索、反例与下一步。正文可完整阅读，也可按主题跳转。</p></div>
 <div class="integration-guide-actions"><button class="button secondary" id="expand-report" type="button" aria-expanded="true">展开全部完整正文</button><button class="text-link" id="collapse-report" type="button">收起正文</button><a class="text-link" href="#requirement-coverage">逐项查有没有漏答 ↗</a><a class="text-link" href="content/integrated-report.txt" download>下载融合正文 ↓</a></div>
 </aside>
 <!-- INTEGRATED GUIDE END -->
 <!-- INTEGRATED MESSAGE START -->
 <section class="core-message wrap" id="core-message" aria-labelledby="core-message-title">
-<h2 id="core-message-title">你真正要向老板讲的，是这六件事。</h2>
+<h2 id="core-message-title">从这六个问题，认识 Meyo。</h2>
 <div class="core-message-grid">
 <article><span>01 · 为什么是军团</span><h3>不是多叫几家，而是原工作台能借到整个生态的能力。</h3><p>保留人的习惯和已有工程，缺工具就借工具，遇到边界再找同伴。简单任务单家直做，不给用户增加管理。</p><a href="#ecosystem-adaptation">生态、插件与迁移怎么接 ↗</a></article>
 <article><span>02 · 两个核心目标</span><h3>同一句意图，做得更好；同等质量，花得更少。</h3><p>先把单家做强，再验证协作。小模型可以借工具与方法，但是否追平、是否省钱，要把全部重试和工具费用算进去。</p><a href="#dual-objectives">质量和成本分别如何证明 ↗</a></article>
@@ -92,7 +93,7 @@
 <div class="prose history-prose"><p>**先纠正技术起点：最早做的是我们自己的 auto，不是军团。**前稿把“内容、接活和社区”的产品背景放到了最前面，却没有把 auto 这条技术主线讲透。两条线应分开看：产品上一直追问“人有没有得到可用结果”；技术上则是“固定流水线 → 自研 auto 自主用工具 → 学习和连接成熟 Harness → 围绕作品持续协作”。</p>
 <p>**我的归纳：auto 想让一个自主执行者真正把事情做成；军团把这个目标扩大到开放的工作台与工具生态，社区再让成果、有效方法和真实贡献被下一位用户采用。**不是先把 auto 否定，再找一个“多 Agent”概念替代它。</p>
 <p>这不是一段“从第一天就想对了”的成功史。中间有方向扩散、评价口径修正、流程过重，也有功能已经写好但用户仍没拿到成果的挫折。下面按原周报讲清楚：当时在解决什么，为什么又往前走了一步。<strong>当时的计划、判断和自述，不等于今天已经得到验证的能力。</strong></p>
-<h3>先给老板的 90 秒版本</h3>
+<h3>90 秒，先讲清这条主线</h3>
 <blockquote>
 <p>这几个月，我们一直在追同一个问题：普通人能不能借助 AI，把自己本来做不好的事情真正做成。</p>
 <p>业务上，我们从接活、内容和经验供给发现，用户需要能真正用上的成果。技术上，最早自己做 auto，让模型自主找资料、选工具、看结果、再解题，而不是照固定流水线跑。后来发现，值得保留的是 auto 的自主思路与真实工具，不一定要由这一套自研引擎承包所有领域。这些问题不是按月解决一层再进入下一层：上下文缺失和结果没被用上很早就反复出现，复杂执行又带来成本与消费断链，至今尚未全部闭环。</p>
@@ -275,7 +276,7 @@
         <p class="community-detail">看见 → 体验 → 拥有自己的版本 → 持续改进。<br>版本、来源和有效方法随作品保留。完整社区循环仍待验证。</p>
       </div>
       <!-- INTEGRATED CHAPTER1 START -->
-<section class="integration-panel" id="six-delivery-goals" aria-labelledby="six-delivery-goals-title"><div class="integration-panel-heading"><h3 id="six-delivery-goals-title">六项目标，一张诚实的进度表。</h3><p>原四纲领是方法，六项是质量维度，四段是汇报结构；不能互相替代，也不同时开六条研发线。</p></div><div class="integration-panel-body"><div class="integration-table-scroll" tabindex="0" aria-label="表格，可横向滚动"><table><thead><tr><th scope="col">方向</th><th scope="col">要交什么</th><th scope="col">当前证据</th></tr></thead><tbody><tr><td>游戏</td><td>完整可玩、画面/操作/恢复协调，带源码</td><td>赛车有真实改善；手感、音效、手机与耗时仍有差距</td></tr><tr><td>视频</td><td>叙事、节奏、声音、字幕与可编辑来源</td><td>找回35.2秒修订概念片与56.3秒独立口播；文件完整不等于世界级</td></tr><tr><td>网站</td><td>真正完成用途，必要状态能保存</td><td>交互图解、导入续改有证；通用生产全链未证</td></tr><tr><td>报告分析</td><td>来源可追、计算可复核、取舍清楚</td><td>本页完成融合与算账；跨行业专业水平未证</td></tr><tr><td>搜索质量与全面</td><td>关键问题、原始来源与反证覆盖</td><td>有来源与研究积累；跨真实任务全面性未证</td></tr><tr><td>速度</td><td>首有用内容、首成品、续改都快</td><td>有局部快例，也有数小时超时；不拿圈时充数</td></tr></tbody></table></div></div></section><section class="integration-panel" id="operating-framework" aria-labelledby="operating-framework-title"><div class="integration-panel-heading"><h3 id="operating-framework-title">这层壳怎么做：接现场，不代替原生助手思考。</h3><p>原工作台保留。平台管连接、权限、版本与恢复，负责人自主研究、组织和返工。</p></div><div class="integration-panel-body"><ol class="framework-layers"><li><span>入口</span><strong>社区</strong><p>发现、体验、加入或派生真实作品</p></li><li><span>对象</span><strong>作品空间</strong><p>同一工程、版本、来源与采用关系</p></li><li><span>执行</span><strong>原生负责人</strong><p>理解目标、选参照、设计、实现、求助</p></li><li><span>能力</span><strong>开放生态</strong><p>按需借Harness、搜索、媒体和设备</p></li><li><span>基础</span><strong>运行底座</strong><p>身份、隔离、状态、取消、恢复、真文件</p></li><li><span>积累</span><strong>经验复用</strong><p>有条件、有出处，下次采用有效才算学会</p></li></ol><p class="integration-footnote">通用质量自治改造已获批准，但B仍有未提交WIP；此框架不是“全能力已经上线”的证明。</p></div></section><section class="integration-panel" id="competitive-landscape" aria-labelledby="competitive-landscape-title"><div class="integration-panel-heading"><h3 id="competitive-landscape-title">与Manus、Codex、CC、Muse比较，不能只比名单。</h3><p>官方功能不等于独立质量排名；ChatGPT Sites单列为托管产品面，不混成Codex CLI命令。完整来源和差异判断在本章展开区。</p></div><div class="integration-panel-body"><div class="integration-table-scroll" tabindex="0" aria-label="表格，可横向滚动"><table><thead><tr><th scope="col">产品</th><th scope="col">用户已能获得</th><th scope="col">我们的机会与边界</th></tr></thead><tbody><tr><td>Manus</td><td>网站、研究、文档与并行Wide Research</td><td>连续改原工程、跨工作台协作和成果社区是否更顺手</td></tr><tr><td>Codex</td><td>成熟编码Harness，原生工具、多代理及开放平台</td><td>开放与嵌入能力也已有竞争；复用成熟底座，不能只转发模型</td></tr><tr><td>Claude Code / CC</td><td>工程、Skills/MCP、子代理及实验性团队</td><td>完整保留其能力作对照，不声称它不会合作</td></tr><tr><td>Meta Muse</td><td>个人长期代理、云电脑、记忆与跨应用</td><td>不把小白/云电脑当独创；围绕真实创作成果关系</td></tr><tr><td>Meyo目标</td><td>同一成果持续改、授权派生与贡献、按需补位</td><td>局部案例可查，稳定净胜、低成本与网络效应尚未证明</td></tr></tbody></table></div><p class="integration-footnote">如果熟练用户用单家已顺手完成，同结果又更省，Meyo就可能没有优势。<a href="#competitor-detail">查看逐家依据与风险 ↗</a></p></div></section>
+<section class="integration-panel" id="six-delivery-goals" aria-labelledby="six-delivery-goals-title"><div class="integration-panel-heading"><h3 id="six-delivery-goals-title">六项目标，一张诚实的进度表。</h3><p>原四纲领是方法，六项是质量维度，四段是阅读结构；不能互相替代，也不同时开六条研发线。</p></div><div class="integration-panel-body"><div class="integration-table-scroll" tabindex="0" aria-label="表格，可横向滚动"><table><thead><tr><th scope="col">方向</th><th scope="col">要交什么</th><th scope="col">当前证据</th></tr></thead><tbody><tr><td>游戏</td><td>完整可玩、画面/操作/恢复协调，带源码</td><td>赛车有真实改善；手感、音效、手机与耗时仍有差距</td></tr><tr><td>视频</td><td>叙事、节奏、声音、字幕与可编辑来源</td><td>找回35.2秒修订概念片与56.3秒独立口播；文件完整不等于世界级</td></tr><tr><td>网站</td><td>真正完成用途，必要状态能保存</td><td>交互图解、导入续改有证；通用生产全链未证</td></tr><tr><td>报告分析</td><td>来源可追、计算可复核、取舍清楚</td><td>本页完成融合与算账；跨行业专业水平未证</td></tr><tr><td>搜索质量与全面</td><td>关键问题、原始来源与反证覆盖</td><td>有来源与研究积累；跨真实任务全面性未证</td></tr><tr><td>速度</td><td>首有用内容、首成品、续改都快</td><td>有局部快例，也有数小时超时；不拿圈时充数</td></tr></tbody></table></div></div></section><section class="integration-panel" id="operating-framework" aria-labelledby="operating-framework-title"><div class="integration-panel-heading"><h3 id="operating-framework-title">这层壳怎么做：接现场，不代替原生助手思考。</h3><p>原工作台保留。平台管连接、权限、版本与恢复，负责人自主研究、组织和返工。</p></div><div class="integration-panel-body"><ol class="framework-layers"><li><span>入口</span><strong>社区</strong><p>发现、体验、加入或派生真实作品</p></li><li><span>对象</span><strong>作品空间</strong><p>同一工程、版本、来源与采用关系</p></li><li><span>执行</span><strong>原生负责人</strong><p>理解目标、选参照、设计、实现、求助</p></li><li><span>能力</span><strong>开放生态</strong><p>按需借Harness、搜索、媒体和设备</p></li><li><span>基础</span><strong>运行底座</strong><p>身份、隔离、状态、取消、恢复、真文件</p></li><li><span>积累</span><strong>经验复用</strong><p>有条件、有出处，下次采用有效才算学会</p></li></ol><p class="integration-footnote">通用质量自治改造已获批准，但B仍有未提交WIP；此框架不是“全能力已经上线”的证明。</p></div></section><section class="integration-panel" id="competitive-landscape" aria-labelledby="competitive-landscape-title"><div class="integration-panel-heading"><h3 id="competitive-landscape-title">与Manus、Codex、CC、Muse比较，不能只比名单。</h3><p>官方功能不等于独立质量排名；ChatGPT Sites单列为托管产品面，不混成Codex CLI命令。完整来源和差异判断在本章展开区。</p></div><div class="integration-panel-body"><div class="integration-table-scroll" tabindex="0" aria-label="表格，可横向滚动"><table><thead><tr><th scope="col">产品</th><th scope="col">用户已能获得</th><th scope="col">我们的机会与边界</th></tr></thead><tbody><tr><td>Manus</td><td>网站、研究、文档与并行Wide Research</td><td>连续改原工程、跨工作台协作和成果社区是否更顺手</td></tr><tr><td>Codex</td><td>成熟编码Harness，原生工具、多代理及开放平台</td><td>开放与嵌入能力也已有竞争；复用成熟底座，不能只转发模型</td></tr><tr><td>Claude Code / CC</td><td>工程、Skills/MCP、子代理及实验性团队</td><td>完整保留其能力作对照，不声称它不会合作</td></tr><tr><td>Meta Muse</td><td>个人长期代理、云电脑、记忆与跨应用</td><td>不把小白/云电脑当独创；围绕真实创作成果关系</td></tr><tr><td>Meyo目标</td><td>同一成果持续改、授权派生与贡献、按需补位</td><td>局部案例可查，稳定净胜、低成本与网络效应尚未证明</td></tr></tbody></table></div><p class="integration-footnote">如果熟练用户用单家已顺手完成，同结果又更省，Meyo就可能没有优势。<a href="#competitor-detail">查看逐家依据与风险 ↗</a></p></div></section>
 <!-- INTEGRATED CHAPTER1 END -->
 <details class="reading-detail" open>
         <summary>完整阅读：定位、愿景、六项目标、原工作台、框架与竞品 <span aria-hidden="true">+</span></summary>
@@ -354,7 +355,7 @@
 <tr>
 <td>报告分析</td>
 <td>来源可追溯、计算可复核、取舍清楚的可编辑决策材料</td>
-<td>本汇报完成资料与计算整合，旧PDF仅文件证据；不能代表跨行业专业水平</td>
+<td>本页完成资料与计算整合，旧PDF仅文件证据；不能代表跨行业专业水平</td>
 </tr>
 <tr>
 <td>搜索质量与全面</td>
@@ -369,7 +370,7 @@
 </tbody>
 </table>
 <p>六项是共同质量尺，不代表同时开六条研发线。一次打穿一个真实结果，缩减的是横向功能，不削用户所需的核心体验。</p>
-<p>此前四个纲领继续成立：<strong>看世界级参照与真实意图；用低耗验证找平庸和错误并回原作返工；证明动态协作的实际净收益；只把经验证的好机制固化、不给开发增加无效流程。</strong> 这四条是工作原则，六项是交付维度，下面四段是老板汇报结构，三者不能互相替代。</p>
+<p>此前四个纲领继续成立：<strong>看世界级参照与真实意图；用低耗验证找平庸和错误并回原作返工；证明动态协作的实际净收益；只把经验证的好机制固化、不给开发增加无效流程。</strong> 这四条是工作原则，六项是交付维度，下面四段是阅读结构，三者不能互相替代。</p>
 <h3 id="single-vs-legion">为什么要组织Harness，单家到底有没有局限</h3>
 <p>Harness可以理解为<strong>AI的工作台</strong>：模型之外，还有工具、文件、执行环境、上下文、可观察现场和失败恢复。相同模型放在不同工作台里，能看见什么、能调用什么可能不同；这解释了同用Astra的两家为什么可能补位，但不证明合作必然更好。</p>
 <p>我们不把“单家一定做不好”作为立项前提。<strong>先给最强单家完整的原生工具、资料、时间和机会；同样好且更省就选单家。</strong> 编排层如果只让简单问题多排几次队，就应该被削减。</p>
@@ -489,6 +490,314 @@
       </details>
     </section>
 
+<!-- INTEGRATED MECHANISM START -->
+<section class="chapter wrap mechanism-story" id="mechanism-evidence" aria-labelledby="mechanism-evidence-title">
+<div class="chapter-heading"><span class="chapter-number">↳</span><span>从机制、动作到用户实际拿到的结果</span></div>
+<h2 id="mechanism-evidence-title">一项机制，究竟怎样改变一次交付？</h2>
+<div class="prose mechanism-prose"><p>我们不想把搜索、工具、评测和作品分成几份互不相干的介绍。更有用的看法是：<strong>一个真实问题原来卡在哪里，我们改了什么，模型随后做了什么，最后交付物发生了什么变化。</strong></p>
+<p>这一节把 Auto 的能力、重要评测节点和作品迭代放回同一条线。源码能说明机制存在，运行记录能说明动作发生，前后成果才能说明用户是否得到改善；三者不互相代替。</p>
+<h3 id="same-context">Same context：不是大家共用一段长提示词，而是接着同一件事做</h3>
+<p>对一次任务，我们希望下一位成员接手时仍能看到六件事：**原需求、当前工程、已经做过的动作、真实结果与失败、用户新增反馈、下一步最大的缺口。**这些信息属于同一个获准访问的项目，不是把所有用户的聊天和记忆混在一起。</p>
+<ul>
+<li>**同一任务背景：**用户说“加星尘”，指的是给正在使用的太阳系增加效果，不是另画一张星空图。</li>
+<li>**同一工程：**修改发生在已有文件和状态上，而不是换个成员就从空目录重新做一份。</li>
+<li>**同一证据链：**知道哪些动作真的发生、哪些意见实际收到、哪个版本被采用，不把“发了消息”当“对方已使用”。</li>
+<li>**同一体验入口：**分享一个固定地址；更新后仍从这里看到当前版本，旧版本保留在版本列表里，不让读者追一串新链接。</li>
+</ul>
+<p>不同工作台可以保留自己的原生会话、工具和思考方式。要互通的是完成这件事所必需的现场，而不是用一套固定思考步骤把它们压成同一种 Agent。<strong>展示的同一背景，不代表实验条件完全相同；同订单续改和不同订单对比也必须分开。</strong></p>
+<h3 id="auto-capability-detail">Auto 的搜索、工具与召回，分别解决哪一类问题？</h3>
+<p>多源搜索解决“哪里有资料”，搜索蜂群补“有没有漏掉另一种解释”，多跳解决“关系链缺哪一环”，工具解决“能不能读原件、真的算出来”，召回解决“已有经验能不能帮这次少重做”。最后都要回到同一个问题：<strong>这些信息有没有进入正确行动，并改善最终结果？</strong></p>
+<p>下面逐项列出具体机制、源码、旧动作证据和边界。数量是能力目录的声明口径，不是在线可用性或效果排名。</p>
+<aside class="source-inventory" aria-label="多源搜索的数量口径">
+<div><strong>34 个声明入口 ＋ 1 个条件入口</strong><p>这是源码注册名计数，不是35个独立引擎都在线。部分入口受开关、授权、网络和配额影响；聚合器内部子源不能重复相加。</p></div>
+<ul><li><strong>基础搜索</strong><span>ddgs、brave_free、wikipedia、sonar、sonar_pro、tavily、aisa_smart、aisa_verity、anysearch</span></li><li><strong>社区与内容</strong><span>xiaohongshu、reddit、twitter、baidu、hackernews</span></li><li><strong>学术与专业资料</strong><span>pubchem、openalex、arxiv、crossref、pubmed、courtlistener、gdelt</span></li><li><strong>知识与关系</strong><span>wikipedia_links、wikidata、musicbrainz</span></li><li><strong>历史资料</strong><span>wayback_cdx、wayback_cdx_date、archive_today、blogspot_feed</span></li><li><strong>授权现场与聚合入口</strong><span>browser_history、panel_search、sh_web、sh_smart、sh_scholar、sh_verity</span></li></ul><p>另有条件入口 browser_bing。旧样本里“Tavily结果来自27个网站”指网址域名数，不是调用了27个搜索引擎。这里只查了源码与旧记录，没有实际调用这些来源或读取用户浏览历史。</p></aside><div class="mechanism-grid"><article class="mechanism-card" id="capability-C1">
+<div class="mechanism-card-heading"><span>C1</span><h4>多源并行检索</h4></div>
+<dl class="mechanism-facts">
+<div><dt>原问题</dt><dd>单一检索入口覆盖不全，一条慢通道拖住后续工作。</dd></div>
+<div><dt>具体机制</dt><dd>SearchFabric按源描述/可用预算选子集并发；保留部分结果、URL去重，缓存与错误标记分开；Auto薄路径优先执行模型原查询，不自动改写成更多查询。</dd></div>
+<div><dt>旧动作证据</dt><dd>T1/T2证明旧Auto多次调用检索；T3是跨Harness共享CLI结果，不能冒充Auto所有源实测。</dd></div>
+<div><dt>为什么有价值</dt><dd>机制上增加找到贴题资料的机会，减少重复检索与单源故障影响。 <em>机制解释，非质量提升幅度实证。</em></dd></div>
+<div><dt>现在接到哪里</dt><dd>legion_tool已有共享web_search及SearchFabric调用代码；没有在本轮验证线上源可用性，也不保证各入口自动加载同一整套注册项。</dd></div>
+<div class="mechanism-caution"><dt>代价与边界</dt><dd>34个注册入口声明＋1个条件入口不等于实际可用数；聚合器内子源不能重复相加；基础映射中4个AISA相关入口默认受开关关闭；依赖、配额、许可与网络另证；缓存/并发减少重复等待的可能性不等于固定时延保证，慢源与噪声也会抬成本</dd></div>
+</dl><details class="evidence-detail"><summary>查看源码位置与证据口径</summary><ul><li><code>seed-users-system/qa_system/agent/qa_tool_impls.py:383–628</code></li><li><code>seed-users-system/v11/evolution/search_fabric.py:58–182, 949–966</code></li><li><code>seed-users-system/v11/evolution/search_fabric_verticals.py:1722–2224, 2442–2480</code></li><li><code>seed-users-system/v11/evolution/search_fabric.py:979–1041, 1186–1365, 1367–1508</code></li></ul>
+<p>对应旧记录：T1、T2、T3。来源指纹与统计方法见本节可下载索引；不公开原始私人上下文。</p></details></article><article class="mechanism-card" id="capability-C2">
+<div class="mechanism-card-heading"><span>C2</span><h4>搜索蜂群：分职责，不是五家投票</h4></div>
+<dl class="mechanism-facts">
+<div><dt>原问题</dt><dd>一次检索容易只收集支持第一猜测的材料，遗漏原文和反例。</dd></div>
+<div><dt>具体机制</dt><dd>旧模块固定Planner、Scout、Evidence、Skeptic、Judge职责；真正并发的是三条检索线。已有种子证据时首跳可只跑反例线，避免重复。证据线可对候选URL深读。</dd></div>
+<div><dt>旧动作证据</dt><dd>这两份旧Auto轨迹中没有run_deep_research_swarm工具记录；本轮确认源码分工，未找到足以确认此蜂群运行及增益的独立旧回执。</dd></div>
+<div><dt>为什么有价值</dt><dd>机制上把发现线索、核原始来源与主动反证互补，减少单一视角。 <em>机制解释，蜂群效果待验证。</em></dd></div>
+<div><dt>现在接到哪里</dt><dd>原工具可由目录发现，capstack通用桥受模块/依赖/绑定就绪限制；未证明当前全军团可直接运行蜂群。Auto仍不接成员单。</dd></div>
+<div class="mechanism-caution"><dt>代价与边界</dt><dd>五角色不等于五个不同模型/品牌Harness；旧封装有委托预算和固定职责；多路查询及深读可放大耗时、调用费用、重复信息；多数同意不等于事实正确，不能变成所有任务的必经质量门</dd></div>
+</dl><details class="evidence-detail"><summary>查看源码位置与证据口径</summary><ul><li><code>seed-users-system/v11/evolution/deep_research_swarm.py:229–254, 291–415, 1074–1268, 1285–1364</code></li><li><code>seed-users-system/qa_system/agent/qa_tool_impls.py:631–729</code></li></ul>
+<p>对应旧记录：T1、T2。来源指纹与统计方法见本节可下载索引；不公开原始私人上下文。</p></details></article><article class="mechanism-card" id="capability-C3">
+<div class="mechanism-card-heading"><span>C3</span><h4>多跳：让新线索决定下一问</h4></div>
+<dl class="mechanism-facts">
+<div><dt>原问题</dt><dd>答案跨资料分散，单次搜索结果只包含关系的一段。</dd></div>
+<div><dt>具体机制</dt><dd>_hop_judge读取累计支持与反证，返回gap_summary和next_queries；下一跳执行这些查询，记录queries/new_hits/stop_reason。证据充分、无后续查询、连续零新增或达到上限可结束。</dd></div>
+<div><dt>旧动作证据</dt><dd>T1的13次run_parallel_search只是调用数，没有可绑定的蜂群hops回执，不能写成13跳。</dd></div>
+<div><dt>为什么有价值</dt><dd>机制上追踪尚缺的关系与约束，而非反复换同义词。 <em>源码已证机制；真实多跳是否提高交付需按原trace核验。</em></dd></div>
+<div><dt>现在接到哪里</dt><dd>与蜂群同属依赖条件下可复用的旧工具实现，非当前默认任务流程；无本轮共享运行证明。</dd></div>
+<div class="mechanism-caution"><dt>代价与边界</dt><dd>旧入口为一般3/重型5跳上限，不是每题必须跑满，也不是无限智能深挖；HopJudge调用失败的fallback可能sufficient=true；停了不等于证据真的充分；旧代码仍有规则分支与模板，不能包装为完全无控制的通用机制</dd></div>
+</dl><details class="evidence-detail"><summary>查看源码位置与证据口径</summary><ul><li><code>seed-users-system/v11/evolution/deep_research_swarm.py:229–254, 291–415, 1074–1268, 1285–1364</code></li><li><code>seed-users-system/qa_system/agent/qa_tool_impls.py:631–729</code></li></ul>
+<p>对应旧记录：T1、T2。来源指纹与统计方法见本节可下载索引；不公开原始私人上下文。</p></details></article><article class="mechanism-card" id="capability-C4">
+<div class="mechanism-card-heading"><span>C4</span><h4>用工具回到原件、把结果算出来</h4></div>
+<dl class="mechanism-facts">
+<div><dt>原问题</dt><dd>搜索摘要无法替代看原图、读文件、程序计算与执行验证。</dd></div>
+<div><dt>具体机制</dt><dd>统一工具注册后由模型发tool_calls，结果回到消息与证据；可调脚本、符号计算、抓取、图像/OCR等。</dd></div>
+<div><dt>旧动作证据</dt><dd>T1有17次shell、5次抓取、1次sympy；T2有8次图像读取与2次OCR记录，只证调用/回执，不证全部成功或正确。</dd></div>
+<div><dt>为什么有价值</dt><dd>让推导可复查，降低仅凭语言猜原始数据的风险。 <em>旧调用事实＋机制解释，非本轮效果实验。</em></dd></div>
+<div><dt>现在接到哪里</dt><dd>部分抓取工具直接映射legion_tool，能力工具走capstack；未适配项只返回源码/不可运行，不再派给已退役Auto。</dd></div>
+<div class="mechanism-caution"><dt>代价与边界</dt><dd>工具也可能读错、算错、依赖未就绪，输出必须回到原任务核对；注册、runnable标记及文件存在不等于已经正确执行；权限边界不可绕</dd></div>
+</dl><details class="evidence-detail"><summary>查看源码位置与证据口径</summary><ul><li><code>seed-users-system/qa_system/agent/native_agent_loop.py:719–733, 4300–4312, 4432–4442</code></li><li><code>seed-users-system/qa_system/agent/qa_tools_registry.py:38–65, 81–107</code></li><li><code>release/legion-service/legion_tool.py:156–190, 577–648, 1368–1425</code></li><li><code>release/legion-service/toolbox.py:278–294, 340–380, 937–944</code></li><li><code>release/legion-service/capstack_bridge.py:77–139</code></li></ul>
+<p>对应旧记录：T1、T2。来源指纹与统计方法见本节可下载索引；不公开原始私人上下文。</p></details></article><article class="mechanism-card" id="capability-C5">
+<div class="mechanism-card-heading"><span>C5</span><h4>画像与本轮意图：找对背景而不覆盖原题</h4></div>
+<dl class="mechanism-facts">
+<div><dt>原问题</dt><dd>同一句话在不同用户处境下所需结果不同，机械通用回答容易错配。</dd></div>
+<div><dt>具体机制</dt><dd>历史profile按标识取角色/痛点/关注；_build_user_context把它与当前意图组成辅助块；run_auto_agent在原问题之后注入，再交给引擎。</dd></div>
+<div><dt>旧动作证据</dt><dd>两份所读checkpoint没有足以确认本次画像命中/注入/影响决策的标志；这不证明所有历史任务都没画像。</dd></div>
+<div><dt>为什么有价值</dt><dd>机制上减少重复解释、避免忽略已有处境；画像只是辅助假设。 <em>历史/现存拼接源码已证，个性化收益待验证。</em></dd></div>
+<div><dt>现在接到哪里</dt><dd>不将旧Auto画像实现说成当前军团共享画像服务；本轮未验证替代链或线上个性化。</dd></div>
+<div class="mechanism-caution"><dt>代价与边界</dt><dd>角色推测可能错、过时或标识不匹配，原题与授权范围优先；有role_guess或user_profile_hit字段并不证明识别正确；旧user_profile_store源码从Git读取，当前B对应文件不在，不能说旧链仍在线</dd></div>
+</dl><details class="evidence-detail"><summary>查看源码位置与证据口径</summary><ul><li><code>seed-users-system/qa_system/agent/qa_auto_agent.py:1380–1409, 1657–1731, 2137–2154, 9404–9468</code></li><li><code>seed-users-system/v11/evolution/user_profile_store.py:130–152</code></li></ul>
+<p>对应旧记录：T1、T2。来源指纹与统计方法见本节可下载索引；不公开原始私人上下文。</p></details></article><article class="mechanism-card" id="capability-C6">
+<div class="mechanism-card-heading"><span>C6</span><h4>相关经验召回：提炼后的记忆不等于向量搜索</h4></div>
+<dl class="mechanism-facts">
+<div><dt>原问题</dt><dd>每次从长日志重新理解任务，容易重复犯错或套用不适用经验。</dd></div>
+<div><dt>具体机制</dt><dd>历史memory_layers.recall查全局＋本人层，按词/标签重叠、依赖条件与时间排序，另有默认关闭的模型复筛；当前legion_memory按词和中文二元片段匹配，再用新鲜度/采用信号微调并按类型/归属过滤。</dd></div>
+<div><dt>旧动作证据</dt><dd>本轮未找到可绑定的经验实际采用与结果改善证据；0条显式recall工具记录不排除前置注入未记在该checkpoint。</dd></div>
+<div><dt>为什么有价值</dt><dd>把相关方法交给当前执行者，减少重复整理；不是自动把旧答案当真。 <em>源码路径已证，实际收益待验证。</em></dd></div>
+<div><dt>现在接到哪里</dt><dd>legion_core已有历史经验搜索→参考文本注入的实际代码；效果与隐私治理仍须具体记录，未验证当前在线命中。</dd></div>
+<div class="mechanism-caution"><dt>代价与边界</dt><dd>旧模块名叫语义记忆，基础实现实际是关键词召回，不是embedding；旧memory_layers文件当前B不存在；现军团legion_memory是另一实现，不能混称同一条已生效链；共享类型与归属过滤不是所有历史资料都自动可分享的许可</dd></div>
+</dl><details class="evidence-detail"><summary>查看源码位置与证据口径</summary><ul><li><code>seed-users-system/qa_system/agent/qa_auto_agent.py:1380–1409, 1657–1731, 2137–2154, 9404–9468</code></li><li><code>seed-users-system/v11/evolution/memory_layers.py:185–279</code></li><li><code>release/legion-service/legion_memory.py:154–249, 272–288</code></li><li><code>release/legion-service/legion_core.py:4151–4168, 8956–8990</code></li></ul>
+<p>对应旧记录：T1、T2。来源指纹与统计方法见本节可下载索引；不公开原始私人上下文。</p></details></article><article class="mechanism-card" id="capability-C7">
+<div class="mechanism-card-heading"><span>C7</span><h4>找工具也要召回：词项、可选语义与可执行性分开</h4></div>
+<dl class="mechanism-facts">
+<div><dt>原问题</dt><dd>工具名字很多，用户说法又可能与函数名不同，相关能力会被埋没。</dd></div>
+<div><dt>具体机制</dt><dd>legion_tool对描述/名称做BM25排序；tool_semantic_index可在明确开关与完整本地模型/缓存满足时给多语言向量分。默认不开本地向量；字符n-gram回退不当跨语言语义，当前混排给该回退零语义权重。</dd></div>
+<div><dt>旧动作证据</dt><dd>未执行scores/search或加载模型；这里只核当前源码路径，不冒称当前语义索引已在线。</dd></div>
+<div><dt>为什么有价值</dt><dd>先把可相关、可执行的候选展示出来，由原生执行者决定用哪个，避免全清单挤占上下文。 <em>机制解释，不是检索准确率实测。</em></dd></div>
+<div><dt>现在接到哪里</dt><dd>属于当前共享工具发现代码，不依赖Auto作为答题者；实际后端必须读取本次返回的semantic_backend与调用回执。</dd></div>
+<div class="mechanism-caution"><dt>代价与边界</dt><dd>词项匹配有同义词盲区；向量也可能召回不适用工具，加载/计算有成本；不因名字含semantic就称智能匹配已生效，也不能把找到工具当成功执行</dd></div>
+</dl><details class="evidence-detail"><summary>查看源码位置与证据口径</summary><ul><li><code>release/legion-service/tool_semantic_index.py:29–55, 58–77, 114–119</code></li><li><code>release/legion-service/legion_tool.py:156–190, 577–648, 1368–1425</code></li><li><code>release/legion-service/toolbox.py:278–294, 340–380, 937–944</code></li></ul>
+<p>对应旧记录：。来源指纹与统计方法见本节可下载索引；不公开原始私人上下文。</p></details></article><article class="mechanism-card" id="capability-C8">
+<div class="mechanism-card-heading"><span>C8</span><h4>最后一环是消费：搜到、注入、采用、改善各算各的</h4></div>
+<dl class="mechanism-facts">
+<div><dt>原问题</dt><dd>资料与经验已经落盘，却没有进入下一步，或被错误总结/收尾丢掉。</dd></div>
+<div><dt>具体机制</dt><dd>搜索命中按URL去重后写证据/事件与checkpoint；蜂群完整结果保留于session，并将带来源结论和缺口传给后续；ToolMessage及经验prelude交给执行者；反例检索另返回冲突/不足。</dd></div>
+<div><dt>旧动作证据</dt><dd>T1/T2有工具/证据/交卷回执，但不能据字段存在证明资料已用于正确交付。</dd></div>
+<div><dt>为什么有价值</dt><dd>让准备工作成为下一步可用事实，而非只积累资料；错误与不确定性保留下来可继续处理。 <em>部分旧回执事实＋机制解释，净收益未测。</em></dd></div>
+<div><dt>现在接到哪里</dt><dd>当前有参考注入与采用上报入口；旧Auto验证器未证已独立共享。必须区分每一次是否被消费与是否让结果更好。</dd></div>
+<div class="mechanism-caution"><dt>代价与边界</dt><dd>recalled计数只说明检索，注入只说明交给模型；mark_adopted仍是采用上报，不替代实际成果差异；反例工具含模板和阈值，不能上升为所有工作台统一裁判；模型可能忽略或误用背景，资料多也可能增加噪声和耗时</dd></div>
+</dl><details class="evidence-detail"><summary>查看源码位置与证据口径</summary><ul><li><code>seed-users-system/qa_system/agent/qa_tool_impls.py:383–628</code></li><li><code>seed-users-system/qa_system/agent/qa_tool_impls.py:631–729</code></li><li><code>seed-users-system/qa_system/agent/native_agent_loop.py:719–733, 4300–4312, 4432–4442</code></li><li><code>seed-users-system/qa_system/agent/qa_auto_agent.py:1380–1409, 1657–1731, 2137–2154, 9404–9468</code></li><li><code>release/legion-service/legion_memory.py:154–249, 272–288</code></li><li><code>release/legion-service/legion_core.py:4151–4168, 8956–8990</code></li><li><code>seed-users-system/qa_system/agent/verify_as_search.py:103–188, 198–218</code></li></ul>
+<p>对应旧记录：T1、T2。来源指纹与统计方法见本节可下载索引；不公开原始私人上下文。</p></details></article></div>
+<h3 id="evaluation-lineage">评测每次怎么变，必须和当时的动作放在一起</h3>
+<p>这不是一条可以从39%直接画到99%的单发提分曲线。历史材料混有旧流水线、错题救回、累计曾经答对、定向返工、不同预算以及记账更正。下面不回避数字，但把每个数字的分母和能支持的结论一起写出来。</p>
+<p><strong>三个阅读标识：</strong>“历史自述”表示当时文档的说法；“旧结果可重计”表示本轮重新数了已有结构化记录；“原动作可查”表示能够读到相关工具过程。它们都不是这次重新执行全套评测，也不自动证明一项机制独立造成了提升。</p>
+<p>当前源码与历史运行记录分开标示：现在能读到这段实现，不等于当年的那次实验已经用上了完全相同的代码。</p>
+<div class="evaluation-timeline"><article class="evaluation-step" id="eval-gaia-pipeline65">
+<div class="evaluation-heading"><div><span class="evaluation-dataset">GAIA 历史165题</span><h4>先把旧基线的分母说清楚</h4><p>2026-08-09 原文汇总；具体首轮执行日期未绑定</p></div>
+<span class="evidence-kind">历史自述</span></div>
+<p class="evaluation-result">旧 pipeline 65/165 ≈39.4%</p>
+<dl class="mechanism-facts">
+<div><dt>原问题</dt><dd>旧报告把不同执行路径放在同一能力结论下。</dd></div>
+<div><dt>对应动作</dt><dd>核对旧 pipeline 65 与重跑100的账本关系，不把它改写成新版单发基线。</dd></div>
+<div><dt>样本与口径</dt><dd>旧 pipeline 全题单；错题100进入后续重跑。旧基线自述。</dd></div>
+<div class="mechanism-caution"><dt>不能这样推断</dt><dd>39%是取整的旧路径成绩；不能视作相同模型、工具、时间预算下的受控基线。</dd></div>
+</dl><details class="evidence-detail"><summary>原记录、版本条件和缺口</summary>
+<p><a href="https://km.sankuai.com/collabpage/2780280477" target="_blank" rel="noopener noreferrer">原记录 2780280477</a> · <a href="https://km.sankuai.com/collabpage/2779881874" target="_blank" rel="noopener noreferrer">原记录 2779881874</a></p>
+<p>模型：实际模型及逐题路由未由该报告绑定；版本／改动：pipeline；确切代码版本未恢复。</p>
+<p>当前源码（非历史版本回放）：本轮未绑定。历史运行记录：本轮未恢复完整绑定记录。</p>
+
+<p>仍缺：原始165题首轮结果文件与实际模型清单未在本轮恢复。</p></details></article><article class="evaluation-step" id="eval-gaia-auto36">
+<div class="evaluation-heading"><div><span class="evaluation-dataset">GAIA 旧100错题；总账165题</span><h4>给 Auto 真正的工具执行入口</h4><p>2026-08-09（正文）；两篇报告创建于2026-08-10</p></div>
+<span class="evidence-kind">历史自述</span></div>
+<p class="evaluation-result">65＋36＝101/165，61.2%；36/70＝51.4%是非附件错题救回率</p>
+<dl class="mechanism-facts">
+<div><dt>原问题</dt><dd>pipeline 缺少 shell/API/脚本执行；异常兜底还曾读错 tool_log 字段。</dd></div>
+<div><dt>对应动作</dt><dd>切到 Auto 工具执行；summary/result 字段修复；归档每题 trace。视频工具引导减少错误抓取路线，但4题仍未答对。</dd></div>
+<div><dt>样本与口径</dt><dd>错题100：非附件70，附件跳过30；最终36救回、26答错、8超时。错题救回与旧基线并集。</dd></div>
+<div class="mechanism-caution"><dt>不能这样推断</dt><dd>不是 Auto 同版本一次独立重跑165题；11/25=44%是37题处理进度中的阶段样本，不与36/70并排当版本提升。；工程失败分类不证明移除失败后一定答对。F3工具路线改善不能说成视频正确率提高。</dd></div>
+</dl><details class="evidence-detail"><summary>原记录、版本条件和缺口</summary>
+<p><a href="https://km.sankuai.com/collabpage/2780280477" target="_blank" rel="noopener noreferrer">原记录 2780280477</a> · <a href="https://km.sankuai.com/collabpage/2780533291" target="_blank" rel="noopener noreferrer">原记录 2780533291</a> · <a href="https://km.sankuai.com/collabpage/2779881874" target="_blank" rel="noopener noreferrer">原记录 2779881874</a></p>
+<p>模型：原报告未绑定实际模型；不读取旧配置代替运行事实；版本／改动：auto重型档；报告引用1499e130、18f4da0a、e4de9f62、d4482756，未恢复其历史源码。</p>
+<p>当前源码（非历史版本回放）：本轮未绑定。历史运行记录：本轮未恢复完整绑定记录。</p>
+
+<p>仍缺：完整 .gaia_auto_100miss_rerun.jsonl 未找到。现存同名trace目录的两份checkpoint是8月25–26日native记录，不能顶替8月9日的36次救回证据。</p></details></article><article class="evaluation-step" id="eval-gaia-118">
+<div class="evaluation-heading"><div><span class="evaluation-dataset">GAIA 历史165题</span><h4>附件先从“拿不到”变成“能读取”</h4><p>8月上旬阶段值；原文“今日”未绑定日期，快照修改至2026-08-17</p></div>
+<span class="evidence-kind">历史自述</span></div>
+<p class="evaluation-result">118/165＝71.5%；同文称附件已提升12题</p>
+<dl class="mechanism-facts">
+<div><dt>原问题</dt><dd>题面只有附件名，受限数据集访问与本地资料缺失使附件题被跳过。</dd></div>
+<div><dt>对应动作</dt><dd>补齐附件访问与下载入口；把文件交给表格、PDF、图像与音频工具。</dd></div>
+<div><dt>样本与口径</dt><dd>旧101题累计基础上继续救回；逐题增量名单未恢复。累计阶段自述。</dd></div>
+<div class="mechanism-caution"><dt>不能这样推断</dt><dd>101→118共17题，但原文只明确附件贡献12题；余下5题不能臆造归因。；该文还混入更晚92.7%自报表；标题日期不能充当118的精确跑批日。</dd></div>
+</dl><details class="evidence-detail"><summary>原记录、版本条件和缺口</summary>
+<p><a href="https://km.sankuai.com/collabpage/2778375484" target="_blank" rel="noopener noreferrer">原记录 2778375484</a> · <a href="https://km.sankuai.com/collabpage/2781947413" target="_blank" rel="noopener noreferrer">原记录 2781947413</a></p>
+<p>模型：未知；版本／改动：fetch_gaia_file / 附件本地化；具体提交未绑定。</p>
+<p>当前源码（非历史版本回放）：本轮未绑定。历史运行记录：本轮未恢复完整绑定记录。</p>
+
+<p>仍缺：118名单、12道附件题逐题前后trace、实际模型及预算均未恢复。</p></details></article><article class="evaluation-step" id="eval-gaia-130-correction">
+<div class="evaluation-heading"><div><span class="evaluation-dataset">GAIA 历史165题</span><h4>先修“曾经答对”的记账资格</h4><p>2026-08-10（周报正文）；另段落把清账并入8月9日，保留日期冲突</p></div>
+<span class="evidence-kind">历史自述</span></div>
+<p class="evaluation-result">152→130是清账；101→130是另一个累计救回描述</p>
+<dl class="mechanism-facts">
+<div><dt>原问题</dt><dd>旧 ever_correct 会把不可信来源计为正确；缺附件与递归上限同时影响交卷。</dd></div>
+<div><dt>对应动作</dt><dd>只承认可信结果来源，按题去重；补附件入口并提高深题递归预算。</dd></div>
+<div><dt>样本与口径</dt><dd>pipeline OR auto 去重；曾报152，收紧可信来源后130。记账更正＋累计救回，不能合并为纯能力Δ。</dd></div>
+<div class="mechanism-caution"><dt>不能这样推断</dt><dd>下降22题是纠错，不是模型退化；“新增29题”不能都归给附件或某一预算改动。；该周报151/153/130的日期排序和概述存在交错，不拼成连续单发成绩线。</dd></div>
+</dl><details class="evidence-detail"><summary>原记录、版本条件和缺口</summary>
+<p><a href="https://km.sankuai.com/collabpage/2779630806" target="_blank" rel="noopener noreferrer">原记录 2779630806</a></p>
+<p>模型：未知；旧各轮可能混用；版本／改动：ever_correct来源收紧；附件包38份、recursion_limit 70→130。</p>
+<p>当前源码（非历史版本回放）：本轮未绑定。历史运行记录：本轮未恢复完整绑定记录。</p>
+
+<p>仍缺：152污染项列表与130可信项全量账本缺失；各动作净贡献未隔离。</p></details></article><article class="evaluation-step" id="eval-gaia-154">
+<div class="evaluation-heading"><div><span class="evaluation-dataset">GAIA 历史165题</span><h4>视觉题从粗读走向可计算的结构</h4><p>2026-08-13（周报）</p></div>
+<span class="evidence-kind">历史自述 · 原动作可查</span></div>
+<p class="evaluation-result">154/165＝93.3%；同期11错题的自进化尝试仍报告0题救回</p>
+<dl class="mechanism-facts">
+<div><dt>原问题</dt><dd>图像数字漏读、几何结构不闭合；机制能运转仍不等于能解剩余题。</dd></div>
+<div><dt>对应动作</dt><dd>让图像输出可检查的边/顶点，利用闭合约束与精确计算；接通进化和回测。</dd></div>
+<div><dt>样本与口径</dt><dd>长期错题定向返工；非随机新样本。累计最好成绩自述。</dd></div>
+<div class="mechanism-caution"><dt>不能这样推断</dt><dd>现存几何成功trace在8月14日，证明该工具后来真实使用，不单独证明8月13日154的每个增量。；不采纳“只剩11题就是能力上限”的永久结论；后续记录已推翻。</dd></div>
+</dl><details class="evidence-detail"><summary>原记录、版本条件和缺口</summary>
+<p><a href="https://km.sankuai.com/collabpage/2779630806" target="_blank" rel="noopener noreferrer">原记录 2779630806</a></p>
+<p>模型：周报泛称Claude/GPT/Gemini多模型；逐题实际模型未知；版本／改动：多空间访问、几何闭合、视觉局部读取；当前实现见CODE-GEOMETRY。</p>
+<p>当前源码（非历史版本回放）：CODE-GEOMETRY。历史运行记录：T-GEOMETRY。</p>
+<p>源码指当前快照，只证明机制存在，未证明当年该次运行使用了这些字节；历史记录只证明对应动作发生，完整前后配对仍以本卡缺口为准。</p>
+<p>仍缺：完整154题版本绑定及前一轮逐题成绩缺失。</p></details></article><article class="evaluation-step" id="eval-gaia-157">
+<div class="evaluation-heading"><div><span class="evaluation-dataset">GAIA 历史165题；定向4错题</span><h4>拆小视觉读数，并让深多跳有时间走完</h4><p>2026-08-14（周报及几何/多跳trace）；分数图存档为8月15日</p></div>
+<span class="evidence-kind">历史自述 · 原动作可查</span></div>
+<p class="evaluation-result">154→157；定向4题救回3题，非泛化75%</p>
+<dl class="mechanism-facts">
+<div><dt>原问题</dt><dd>分数图整图读取漏样本；几何视觉误读；多跳链在700s内走不完。</dd></div>
+<div><dt>对应动作</dt><dd>分数图先按像素切格再逐格读取，Fraction精算；几何闭合＋鞋带公式；意图自检输出造工具/换路线建议；多跳增加到1200s。</dd></div>
+<div><dt>样本与口径</dt><dd>4道定向返工报告3救回：分数图9318445、多边形6359、多跳872bfbb；NatGeo在该小实验中未过，后续再过。累计3题增量＋定向复测。</dd></div>
+<div class="mechanism-caution"><dt>不能这样推断</dt><dd>多跳同时换策略和加500s预算，不是同预算算法单因果。；几何存档含9条工具记录：闭合与面积39、独立计算、最终交付均在；只能确认此局过程。；分数图“3次1对→5/5”及4题3救回是报告所述；未找到五份独立对应运行，不能升级为本轮复现。</dd></div>
+</dl><details class="evidence-detail"><summary>原记录、版本条件和缺口</summary>
+<p><a href="https://km.sankuai.com/collabpage/2779630806" target="_blank" rel="noopener noreferrer">原记录 2779630806</a></p>
+<p>模型：实际逐题模型未知；视觉调用含VLM/异构读取；版本／改动：v99r意图补救、v99t中途模态纠偏；多跳预算700→1200s。</p>
+<p>当前源码（非历史版本回放）：CODE-AUTO, CODE-GEOMETRY。历史运行记录：T-GEOMETRY, T-FRACTION, T-MULTIHOP。</p>
+<p>源码指当前快照，只证明机制存在，未证明当年该次运行使用了这些字节；历史记录只证明对应动作发生，完整前后配对仍以本卡缺口为准。</p>
+<p>仍缺：多数旧失败trace缺失，完整逐题前后配对不足；当前源码不等于v99r/v99t历史字节。</p></details></article><article class="evaluation-step" id="eval-gaia-video">
+<div class="evaluation-heading"><div><span class="evaluation-dataset">GAIA 定向多模态难题</span><h4>先纠正“该看视频却只搜文字”，再谈答对</h4><p>2026-08-14及8月24回顾；各成功记录不同步</p></div>
+<span class="evidence-kind">历史自述 · 原动作可查</span></div>
+<p class="evaluation-result">NatGeo后续记录命中；Cheater先从0次视频调用变为真实调用，但当次仍可能超时/答错</p>
+<dl class="mechanism-facts">
+<div><dt>原问题</dt><dd>开局被判为text后无法转向视频；取得帧也可能读数错误或过早放弃。</dd></div>
+<div><dt>对应动作</dt><dd>把模态纠偏写回共享现场，使后续真正调用视频帧/转录；局部放大、换来源、多模态核验。</dd></div>
+<div><dt>样本与口径</dt><dd>NatGeo、视频读数、模糊墓碑等定向案例。行为改善与后续个案成功。</dd></div>
+<div class="mechanism-caution"><dt>不能这样推断</dt><dd>NatGeo现存8月14日trace有85条工具记录，含7次取帧、3次转录；这不能证明所有视频题稳定正确。；周报“8次”与括号列7+1+1不完全一致；本报告不用该数作为精确计数。；同一周报先称信息墙、后写新通过，说明是不同时间点，不可挑最乐观段落覆盖失败。</dd></div>
+</dl><details class="evidence-detail"><summary>原记录、版本条件和缺口</summary>
+<p><a href="https://km.sankuai.com/collabpage/2779630806" target="_blank" rel="noopener noreferrer">原记录 2779630806</a> · <a href="https://km.sankuai.com/collabpage/2781947413" target="_blank" rel="noopener noreferrer">原记录 2781947413</a></p>
+<p>模型：逐题实际视觉模型未绑定；版本／改动：v99s/v99t；modality_recorrect 更新session.modality_needs。</p>
+<p>当前源码（非历史版本回放）：CODE-AUTO。历史运行记录：T-NATGEO。</p>
+<p>源码指当前快照，只证明机制存在，未证明当年该次运行使用了这些字节；历史记录只证明对应动作发生，完整前后配对仍以本卡缺口为准。</p>
+<p>仍缺：0次→后续调用的同配置成对原trace未完整恢复。</p></details></article><article class="evaluation-step" id="eval-gaia-164-161">
+<div class="evaluation-heading"><div><span class="evaluation-dataset">GAIA 历史165题</span><h4>高分之后，反查成功记录有没有被污染</h4><p>2026-08-15报告峰值；2026-08-24周报回顾更正</p></div>
+<span class="evidence-kind">历史自述 · 旧结果可重计</span></div>
+<p class="evaluation-result">曾报164/165＝99.4%；后文明确撤回3道泄漏假胜，改报161/165＝97.6%</p>
+<dl class="mechanism-facts">
+<div><dt>原问题</dt><dd>答案泄漏、空gold的降级回答误写正确、双键与后写覆盖会污染成功账。</dd></div>
+<div><dt>对应动作</dt><dd>保存首胜现场并核验成功来源；隔离标准答案，清掉被污染胜局；修复记忆身份与评分口径。</dd></div>
+<div><dt>样本与口径</dt><dd>累计曾对；不是一次性独立165题测试。峰值自述后更正。</dd></div>
+<div class="mechanism-caution"><dt>不能这样推断</dt><dd>164不能作为当前无污染单发准确率；161也仍是当时的累计自述，不是本轮重新判题。；本地gaia_correct_ledger实际164行、163个独立qid，NatGeo重复；不能拿行数替164题通过。；另有162/165、163/166等历史快照，分母与去重范围不一，不认定哪份代表“最新真实分”。</dd></div>
+</dl><details class="evidence-detail"><summary>原记录、版本条件和缺口</summary>
+<p><a href="https://km.sankuai.com/collabpage/2780834005" target="_blank" rel="noopener noreferrer">原记录 2780834005</a> · <a href="https://km.sankuai.com/collabpage/2781947413" target="_blank" rel="noopener noreferrer">原记录 2781947413</a></p>
+<p>模型：多轮模型/预算混用，未逐题恢复；版本／改动：首胜快照win_ckpt、来源/泄漏清理、评分器修复。</p>
+<p>当前源码（非历史版本回放）：本轮未绑定。历史运行记录：本轮未恢复完整绑定记录。</p>
+
+<p>仍缺：三个被撤回胜局的完整原始污染/清理/干净复跑链未恢复；主gaia_ledger.jsonl在本工作区未找到。</p></details></article><article class="evaluation-step" id="eval-bc-delivery">
+<div class="evaluation-heading"><div><span class="evaluation-dataset">BrowseComp 小样本</span><h4>找到了答案，交卷时却被换掉或丢掉</h4><p>2026-08-18至2026-08-19</p></div>
+<span class="evidence-kind">历史自述 · 旧结果可重计</span></div>
+<p class="evaluation-result">交付修复有同题回正记录；不能说一次修复后整集30%或38%</p>
+<dl class="mechanism-facts">
+<div><dt>原问题</dt><dd>正确候选因覆盖率0.10被换错；done-final为空；工具请求400；撞墙时只剩元评论。</dd></div>
+<div><dt>对应动作</dt><dd>补done-final、工具消息兼容；保留已有候选、低覆盖继续补证；收尾读取候选。</dd></div>
+<div><dt>样本与口径</dt><dd>Russell同题多轮与20题累计台账，不是全部BrowseComp。机制个案＋累计最好成绩。</dd></div>
+<div class="mechanism-caution"><dt>不能这样推断</dt><dd>Q1 v165c错→v165d对在现存账中都标polluted，不能包装成干净受控因果。；同题longcat的bc_vault失败、bc_allfix成功，之后bc_arch又失败，说明仍有波动。；400消失或非空交卷只是运行改善，不等于推理正确率提升。</dd></div>
+</dl><details class="evidence-detail"><summary>原记录、版本条件和缺口</summary>
+<p><a href="https://km.sankuai.com/collabpage/2781326969" target="_blank" rel="noopener noreferrer">原记录 2781326969</a> · <a href="https://km.sankuai.com/collabpage/2781448048" target="_blank" rel="noopener noreferrer">原记录 2781448048</a></p>
+<p>模型：longcat-2.0及Opus；旧号称longcat的若干run后来标为Opus/polluted；版本／改动：42d56208、de77e2e5、da95c92d、d646232c（报告引用，历史提交未回放）。</p>
+<p>当前源码（非历史版本回放）：本轮未绑定。历史运行记录：本轮未恢复完整绑定记录。</p>
+
+<p>仍缺：该阶段所有原tool_log与模型请求回执未完整重绑；周报38%不能与6/20作为单一同口径序列。</p></details></article><article class="evaluation-step" id="eval-bc-ledger-audit">
+<div class="evaluation-heading"><div><span class="evaluation-dataset">BrowseComp 历史小样本</span><h4>把“跑对次数”和“曾经跑对的题数”分开</h4><p>账本last_updated对应2026-08-21；本轮只读重计</p></div>
+<span class="evidence-kind">旧结果可重计</span></div>
+<p class="evaluation-result">现存账9/21曾经答对，110条记录中33条标正确；不是单发42.9%</p>
+<dl class="mechanism-facts">
+<div><dt>原问题</dt><dd>README、周报和现存账本并非同一快照。</dd></div>
+<div><dt>对应动作</dt><dd>按题计ever_correct，并与attempt数量分列；保留污染标记，不把择优档案视为单发测试。</dd></div>
+<div><dt>样本与口径</dt><dd>当前账21题，110条attempt；含polluted及可能重复登记。旧账本累计重计。</dd></div>
+<div class="mechanism-caution"><dt>不能这样推断</dt><dd>README称8题、2164次等数字与现存JSON结构/计数不符，不能照搬。；同题不同run甚至同elapsed的记录可能重复，110不声称110次独立实验。；被保存的成功trace是挑过的，不能据此估计成功率。</dd></div>
+</dl><details class="evidence-detail"><summary>原记录、版本条件和缺口</summary>
+<p>本地原结果的指纹与字段位置见可下载索引。</p>
+<p>模型：混合longcat/Opus/native标签，不是一配置；版本／改动：多轮历史run_id合集。</p>
+<p>当前源码（非历史版本回放）：本轮未绑定。历史运行记录：本轮未恢复完整绑定记录。</p>
+
+<p>仍缺：</p></details></article><article class="evaluation-step" id="eval-gaia-fair40">
+<div class="evaluation-heading"><div><span class="evaluation-dataset">GAIA 定向最难40题</span><h4>难题单发低分，先查评分与实验条件</h4><p>2026-08-25</p></div>
+<span class="evidence-kind">历史自述 · 旧结果可重计</span></div>
+<p class="evaluation-result">Auto 22/40＝55%；旧分析可重计，其中18 exact、4 semantic</p>
+<dl class="mechanism-facts">
+<div><dt>原问题</dt><dd>粗糙匹配漏判格式/拼写等价；搜索写到备用账被误判零搜索；中途模型配置变化。</dd></div>
+<div><dt>对应动作</dt><dd>合并搜索证据来源，修复判分；对GAIA允许合法零搜索；明确模型不一致。</dd></div>
+<div><dt>样本与口径</dt><dd>从Auto单发错题中按反复重跑次数挑40，不是随机抽样；指纹91ae647b770935e4。定向40题单发旧结果重计＋评分更正。</dd></div>
+<div class="mechanism-caution"><dt>不能这样推断</dt><dd>22/40不是从GAIA98%退化到55%，前者为专挑难题单发，后者曾对累计。；修判分带来的涨分不是解题能力新增；非同模型不能归因哪家Harness本体更强。；报告163/166、65/166与历史165分母冲突，且65/166不等于其写出的39.4%；不静默归一化。</dd></div>
+</dl><details class="evidence-detail"><summary>原记录、版本条件和缺口</summary>
+<p>本地原结果的指纹与字段位置见可下载索引。</p>
+<p>模型：报告：Auto opus-4.8；其他多家gpt-5.6-sol；CC混合，非同模型；版本／改动：fact_hit/语义规范化、搜索落账修复；报告称墙钟1200s/格。</p>
+<p>当前源码（非历史版本回放）：本轮未绑定。历史运行记录：本轮未恢复完整绑定记录。</p>
+
+<p>仍缺：</p></details></article><article class="evaluation-step" id="eval-bc-fair40">
+<div class="evaluation-heading"><div><span class="evaluation-dataset">BrowseComp 公平40题（与GAIA40不同）</span><h4>拆掉丢答案的环节，再核对改后记录</h4><p>2026-08-25基线；2026-08-26修复报告</p></div>
+<span class="evidence-kind">历史自述 · 旧结果可重计</span></div>
+<p class="evaluation-result">2/40→6/40有旧报告及6条hit可重计，但不是已证同模型同预算提升3倍</p>
+<dl class="mechanism-facts">
+<div><dt>原问题</dt><dd>交卷门反复阻断，双导入分裂_SESSIONS，旧状态重新注入失效指令，收尾拿工具噪音当答案。</dd></div>
+<div><dt>对应动作</dt><dd>清理上述信息/交付链；将收敛做提示而非强制替模型答题。</dd></div>
+<div><dt>样本与口径</dt><dd>同一BC40题单；指纹dec773637bb11267；两条命中案例可追旧包装记录。前后旧结果＋配置不一致的修复报告。</dd></div>
+<div class="mechanism-caution"><dt>不能这样推断</dt><dd>XML与电影题的before/after包装hit由false变true；包装不含完整tool_log，“271→20工具”仍只是报告自述。；after包装finished-start不等于elapsed_wall_s，搜索计数也与search_requests长度不一致；不得假装其是完整干净运行收据。；原文把先验正确和泄漏混为一谈；先验知识本身不是作弊，只能把证据充分性另列。；失败分类97%工程问题不等于修完将有97%准确率，也不证明剩余已无bug。</dd></div>
+</dl><details class="evidence-detail"><summary>原记录、版本条件和缺口</summary>
+<p><a href="https://km.sankuai.com/collabpage/2782569511" target="_blank" rel="noopener noreferrer">原记录 2782569511</a></p>
+<p>模型：基线报告称gpt-5.6-sol/1200s；clean汇总写opus-4.8/300s；latest包装又多写gpt-5.6-sol/1200s；版本／改动：移除交卷阻断、模块单例、fresh session、干净收尾、软收敛提示、query去重。</p>
+<p>当前源码（非历史版本回放）：本轮未绑定。历史运行记录：BC-XML-BEFORE, BC-XML-AFTER, BC-FILM-BEFORE, BC-FILM-AFTER。</p>
+
+<p>仍缺：</p></details></article><article class="evaluation-step" id="eval-looparena-type-i">
+<div class="evaluation-heading"><div><span class="evaluation-dataset">LoopArena Type I</span><h4>用另一种题检验调度决策，不冒充Auto交付能力</h4><p>2026-09-07（本地提交a2a15843）</p></div>
+<span class="evidence-kind">历史自述 · 旧结果可重计</span></div>
+<p class="evaluation-result">79/90＝87.8%可重计；这是模型Controller题，不是Auto或军团作品完成率</p>
+<dl class="mechanism-facts">
+<div><dt>原问题</dt><dd>需要分清“控制器判断下一步”与“系统真的完成工程任务”。</dd></div>
+<div><dt>对应动作</dt><dd>跑既有Type I题单检验Controller决策；本轮只重计correct字段，不执行任何题。</dd></div>
+<div><dt>样本与口径</dt><dd>现存90条、90个独立id；逐项预测是否正确。固定题单分类决策旧结果重计。</dd></div>
+<div class="mechanism-caution"><dt>不能这样推断</dt><dd>没有本地前版本对照，不能写成Auto升级带来的提升。；不等于Type II/III真实工程完成率；不继承提交文案中的“世界第一”外部排名。</dd></div>
+</dl><details class="evidence-detail"><summary>原记录、版本条件和缺口</summary>
+<p>本地原结果的指纹与字段位置见可下载索引。</p>
+<p>模型：文件名与提交自述为gpt-5.6-sol；结果未逐项携带可核实际模型身份；版本／改动：本地提交a2a15843；网关接入适配，非Auto引擎版本A/B。</p>
+<p>当前源码（非历史版本回放）：本轮未绑定。历史运行记录：本轮未恢复完整绑定记录。</p>
+
+<p>仍缺：完整运行命令、预算、实际请求模型回执未在本轮材料中恢复。</p></details></article><article class="evaluation-step" id="eval-other-benchmarks">
+<div class="evaluation-heading"><div><span class="evaluation-dataset">HLE及外部榜单调研</span><h4>计划、调研和实际评测分开</h4><p>截至本轮所选历史材料</p></div>
+<span class="evidence-kind">历史自述</span></div>
+<p class="evaluation-result">HLE仅见计划文字；外部榜单数字不当作本项目实测</p>
+<dl class="mechanism-facts">
+<div><dt>原问题</dt><dd>方案里提到第二评测集，不代表已执行。</dd></div>
+<div><dt>对应动作</dt><dd>只列已读到本地结果的GAIA、BrowseComp与LoopArena；其它列缺口。</dd></div>
+<div><dt>样本与口径</dt><dd>未发现足以列入提升链的本地结果与机制配对。不列成绩。</dd></div>
+<div class="mechanism-caution"><dt>不能这样推断</dt><dd>未对445篇做全量正文审读；“未列”不等于仓库绝不存在。</dd></div>
+</dl><details class="evidence-detail"><summary>原记录、版本条件和缺口</summary>
+<p><a href="https://km.sankuai.com/collabpage/2778375484" target="_blank" rel="noopener noreferrer">原记录 2778375484</a></p>
+<p>模型：不适用；版本／改动：不适用。</p>
+<p>当前源码（非历史版本回放）：本轮未绑定。历史运行记录：本轮未恢复完整绑定记录。</p>
+
+<p>仍缺：</p></details></article></div>
+<h3 id="from-evaluation-to-artifact">为什么评测不错，作品还是可能不好用？</h3>
+<p>答对一道问题、把文件写出来、作品达到专业水平，是三种不同的结果。评测让我们发现资料、工具、记账和收尾的问题；真实作品又会暴露画面、交互、玩法、声音、持续修改和协作的缺口。</p>
+<p>所以不能把 GAIA 分数搬到赛车上，声称赛车也世界级；也不能用一个很好看的截图证明所有机制有效。下一段把同一太阳系与赛车订单的原问题、成员动作、截图和剩余缺口放在一起，让变化可以直接看到。</p>
+</div>
+<div class="history-downloads"><a class="text-link" href="content/auto-capabilities.json" download>下载Auto能力与源码索引 ↓</a><a class="text-link" href="content/evaluation-lineage.json" download>下载评测动作与口径 ↓</a><a class="text-link" href="#solar-evolution">把这些问题放回真实作品 ↗</a></div></section>
+<!-- INTEGRATED MECHANISM END -->
     <section class="works-band" id="works" aria-labelledby="works-title">
       <div class="wrap">
         <div class="chapter-heading"><span class="chapter-number">02</span><span>真实作品与变化</span></div>
@@ -500,32 +809,184 @@
 <section class="delivery-hub" id="delivery-hub" aria-labelledby="delivery-hub-title">
 <h3 id="delivery-hub-title">交付物在这里，点开就能看。</h3>
 <p class="delivery-intro">先选“在线体验／观看”，或把成品、源码下载带走。下方再看截图、前后变化与原因。<strong>这些是个人主页上的独立作品地址，不是公司内测登录页。</strong>在本地打开这份报告时，相对链接也会打开随包文件。</p>
-<div class="delivery-grid"><article class="delivery-card" data-deliverable="solar-system"><span class="delivery-kind">3D交互网页</span><h4>太阳系 · 轨道档案</h4><div class="delivery-actions"><a class="button primary" href="works/solar-system/index.html" target="_blank" rel="noopener noreferrer">太阳系：在线体验 <span aria-hidden="true">↗</span></a><a class="text-link" href="downloads/solar-system-source.zip" download>下载原工程与源码 <span aria-hidden="true">↓</span></a></div><a class="delivery-permalink" href="https://seanliii.github.io/meyo-report/works/solar-system/index.html" target="_blank" rel="noopener noreferrer">https://seanliii.github.io/meyo-report/works/solar-system/index.html</a><p>拖动、缩放、点行星；需浏览器支持WebGL。9月7日原工程，非精密星历。</p><div class="delivery-more"><a class="text-link" href="assets/solar-system.png" target="_blank" rel="noopener noreferrer">查看原截图 <span aria-hidden="true">↗</span></a></div></article><article class="delivery-card" data-deliverable="tideline"><span class="delivery-kind">3D游戏网页</span><h4>TIDELINE 海岛赛车</h4><div class="delivery-actions"><a class="button secondary" href="works/tideline/index.html" target="_blank" rel="noopener noreferrer">赛车：在线体验 <span aria-hidden="true">↗</span></a><a class="text-link" href="downloads/tideline-source.zip" download>下载源码与素材许可 <span aria-hidden="true">↓</span></a></div><p>打开后使用键盘。9月22日保存版；不是最新业务任务全程成功或世界级证明。</p><div class="delivery-more"><a class="text-link" href="#racing-work">看真实前后变化 <span aria-hidden="true">↗</span></a></div></article><article class="delivery-card" data-deliverable="2048"><span class="delivery-kind">原项目AI续改</span><h4>2048 · 新增撤销</h4><div class="delivery-actions"><a class="button secondary" href="works/2048/index.html" target="_blank" rel="noopener noreferrer">2048：在线体验 <span aria-hidden="true">↗</span></a><a class="text-link" href="downloads/2048-undo-source.zip" download>下载撤销版源码 <span aria-hidden="true">↓</span></a></div><p>可看原工程新增的撤销能力；不是任意GitHub项目都已可托管。</p><div class="delivery-more"></div></article><article class="delivery-card" data-deliverable="transformer"><span class="delivery-kind">可操作讲解网页</span><h4>Transformer 互动图解</h4><div class="delivery-actions"><a class="button secondary" href="works/transformer/index.html#play" target="_blank" rel="noopener noreferrer">打开完整互动图解 <span aria-hidden="true">↗</span></a><a class="text-link" href="downloads/transformer.zip" download>下载原HTML文件包 <span aria-hidden="true">↓</span></a></div><p>可点词语与切换场景；原解释已做具体修正，全文科学性未全面复验。</p><div class="delivery-more"><a class="text-link" href="#transformer-work">在本页查看 <span aria-hidden="true">↗</span></a></div></article><article class="delivery-card" data-deliverable="pong"><span class="delivery-kind">对战实录，不是在线PVP</span><h4>AI 对 AI Pong</h4><div class="delivery-actions"><a class="button secondary" href="media/pong-replay.mp4" target="_blank" rel="noopener noreferrer">观看原对战实录 <span aria-hidden="true">↗</span></a><a class="text-link" href="media/pong-original.gif" download>下载原GIF交付物 <span aria-hidden="true">↓</span></a></div><p>原请求的交付是GIF比赛录像。提供原脚本，不冒充现在能联机对战。</p><div class="delivery-more"><a class="text-link" href="downloads/pong_ai.py" download>下载原Python脚本 <span aria-hidden="true">↓</span></a></div></article><article class="delivery-card" data-deliverable="bilibili"><span class="delivery-kind">修订成片＋原片＋字幕</span><h4>35.2秒概念先导片</h4><div class="delivery-actions"><a class="button secondary" href="media/bilibili-revised.mp4" target="_blank" rel="noopener noreferrer">观看修订成片 <span aria-hidden="true">↗</span></a><a class="text-link" href="media/bilibili-revised.mp4" download>下载MP4成片 <span aria-hidden="true">↓</span></a></div><p>概念演示不是正式产品实测；目前公开MP4与字幕，不宣称已有完整可重建剪辑工程。</p><div class="delivery-more"><a class="text-link" href="media/bilibili-original.mp4" target="_blank" rel="noopener noreferrer">观看同单原片 <span aria-hidden="true">↗</span></a><a class="text-link" href="downloads/bilibili-revised.srt" download>下载原字幕 <span aria-hidden="true">↓</span></a></div></article><article class="delivery-card" data-deliverable="narration"><span class="delivery-kind">另一订单的成片</span><h4>56.3秒独立口播</h4><div class="delivery-actions"><a class="button secondary" href="media/systemic-narration.mp4" target="_blank" rel="noopener noreferrer">观看口播成片 <span aria-hidden="true">↗</span></a><a class="text-link" href="media/systemic-narration.mp4" download>下载口播MP4 <span aria-hidden="true">↓</span></a></div><p>与概念先导片不是同一单，不能拼成同一任务的一条成功曲线。</p><div class="delivery-more"></div></article><article class="delivery-card" data-deliverable="elephant"><span class="delivery-kind">1024×1024原始图像</span><h4>赛博大象</h4><div class="delivery-actions"><a class="button secondary" href="assets/elephant.png" target="_blank" rel="noopener noreferrer">打开原始PNG <span aria-hidden="true">↗</span></a><a class="text-link" href="assets/elephant.png" download>下载原始图像 <span aria-hidden="true">↓</span></a></div><p>真实生成的单件图片，不是本次新画，也不是全家审美水平证明。</p><div class="delivery-more"></div></article><article class="delivery-card" data-deliverable="report"><span class="delivery-kind">这份网页就是报告成品</span><h4>完整汇报与思路说明</h4><div class="delivery-actions"><a class="button secondary" href="#value">阅读四段完整汇报 <span aria-hidden="true">↗</span></a><a class="text-link" href="content/integrated-report.txt" download>下载四段正文 <span aria-hidden="true">↓</span></a></div><p>原作、证据、假设与未完成项分开。历史PDF仍作旧资料，不当现行业务或专业结论。</p><div class="delivery-more"><a class="text-link" href="#auto-to-legion">读Auto到军团 <span aria-hidden="true">↗</span></a><a class="text-link" href="content/history-thinking.txt" download>下载数月思路正文 <span aria-hidden="true">↓</span></a></div></article></div>
+<div class="delivery-grid"><article class="delivery-card" data-deliverable="solar-system"><span class="delivery-kind">固定地址 · 粒子增强版</span><h4>HELIOS · 星尘太阳系</h4><div class="delivery-actions"><a class="button primary" href="works/solar-system/index.html" target="_blank" rel="noopener noreferrer">太阳系：在线体验 <span aria-hidden="true">↗</span></a><a class="text-link" href="downloads/solar-system-helios-source.zip" download>下载当前原构建与代码 <span aria-hidden="true">↓</span></a></div><a class="delivery-permalink" href="https://seanliii.github.io/meyo-report/works/solar-system/index.html" target="_blank" rel="noopener noreferrer">https://seanliii.github.io/meyo-report/works/solar-system/index.html</a><p>当前是有矮行星、卫星、小行星/柯伊伯粒子的HELIOS原版；旧八星可从版本列表回看。星云可见度和性能仍有差距。</p><div class="delivery-more"><a class="text-link" href="#solar-evolution">同单机制与前后截图 <span aria-hidden="true">↗</span></a><a class="text-link" href="downloads/solar-system-source.zip" download>历史八行星源码 <span aria-hidden="true">↓</span></a></div></article><article class="delivery-card" data-deliverable="combat"><span class="delivery-kind">固定地址 · 公开分发副本</span><h4>RIFT LAB · 3D对战实验</h4><div class="delivery-actions"><a class="button secondary" href="works/combat/index.html" target="_blank" rel="noopener noreferrer">3D对战：打开当前演示 <span aria-hidden="true">↗</span></a><a class="text-link" href="downloads/combat-visible-6f2381e8-public.zip" download>下载公开演示代码 <span aria-hidden="true">↓</span></a></div><a class="delivery-permalink" href="https://seanliii.github.io/meyo-report/works/combat/index.html" target="_blank" rel="noopener noreferrer">https://seanliii.github.io/meyo-report/works/combat/index.html</a><p>原作RIFT OF LEGENDS的分发副本；肖像、命名和徽记已单独替换，原源未改。出生/攻击有旧记录，复活显示仍有缺陷，不冒充完整稳定版。</p><div class="delivery-more"><a class="text-link" href="#combat-evolution">同一订单的动作与前后截图 <span aria-hidden="true">↗</span></a></div></article><article class="delivery-card" data-deliverable="tideline"><span class="delivery-kind">3D游戏网页</span><h4>TIDELINE 海岛赛车</h4><div class="delivery-actions"><a class="button secondary" href="works/tideline/index.html" target="_blank" rel="noopener noreferrer">赛车：在线体验 <span aria-hidden="true">↗</span></a><a class="text-link" href="downloads/tideline-source.zip" download>下载源码与素材许可 <span aria-hidden="true">↓</span></a></div><p>打开后使用键盘。9月22日保存版；不是最新业务任务全程成功或世界级证明。</p><div class="delivery-more"><a class="text-link" href="#racing-work">看真实前后变化 <span aria-hidden="true">↗</span></a></div></article><article class="delivery-card" data-deliverable="2048"><span class="delivery-kind">原项目AI续改</span><h4>2048 · 新增撤销</h4><div class="delivery-actions"><a class="button secondary" href="works/2048/index.html" target="_blank" rel="noopener noreferrer">2048：在线体验 <span aria-hidden="true">↗</span></a><a class="text-link" href="downloads/2048-undo-source.zip" download>下载撤销版源码 <span aria-hidden="true">↓</span></a></div><p>可看原工程新增的撤销能力；不是任意GitHub项目都已可托管。</p><div class="delivery-more"></div></article><article class="delivery-card" data-deliverable="transformer"><span class="delivery-kind">可操作讲解网页</span><h4>Transformer 互动图解</h4><div class="delivery-actions"><a class="button secondary" href="works/transformer/index.html#play" target="_blank" rel="noopener noreferrer">打开完整互动图解 <span aria-hidden="true">↗</span></a><a class="text-link" href="downloads/transformer.zip" download>下载原HTML文件包 <span aria-hidden="true">↓</span></a></div><p>可点词语与切换场景；原解释已做具体修正，全文科学性未全面复验。</p><div class="delivery-more"><a class="text-link" href="#transformer-work">在本页查看 <span aria-hidden="true">↗</span></a></div></article><article class="delivery-card" data-deliverable="pong"><span class="delivery-kind">对战实录，不是在线PVP</span><h4>AI 对 AI Pong</h4><div class="delivery-actions"><a class="button secondary" href="media/pong-replay.mp4" target="_blank" rel="noopener noreferrer">观看原对战实录 <span aria-hidden="true">↗</span></a><a class="text-link" href="media/pong-original.gif" download>下载原GIF交付物 <span aria-hidden="true">↓</span></a></div><p>这是另一条旧GIF比赛录像任务，不再拿它代替上面的3D对战。提供原脚本，不冒充现在能联机。</p><div class="delivery-more"><a class="text-link" href="downloads/pong_ai.py" download>下载原Python脚本 <span aria-hidden="true">↓</span></a></div></article><article class="delivery-card" data-deliverable="bilibili"><span class="delivery-kind">修订成片＋原片＋字幕</span><h4>35.2秒概念先导片</h4><div class="delivery-actions"><a class="button secondary" href="media/bilibili-revised.mp4" target="_blank" rel="noopener noreferrer">观看修订成片 <span aria-hidden="true">↗</span></a><a class="text-link" href="media/bilibili-revised.mp4" download>下载MP4成片 <span aria-hidden="true">↓</span></a></div><p>概念演示不是正式产品实测；目前公开MP4与字幕，不宣称已有完整可重建剪辑工程。</p><div class="delivery-more"><a class="text-link" href="media/bilibili-original.mp4" target="_blank" rel="noopener noreferrer">观看同单原片 <span aria-hidden="true">↗</span></a><a class="text-link" href="downloads/bilibili-revised.srt" download>下载原字幕 <span aria-hidden="true">↓</span></a></div></article><article class="delivery-card" data-deliverable="narration"><span class="delivery-kind">另一订单的成片</span><h4>56.3秒独立口播</h4><div class="delivery-actions"><a class="button secondary" href="media/systemic-narration.mp4" target="_blank" rel="noopener noreferrer">观看口播成片 <span aria-hidden="true">↗</span></a><a class="text-link" href="media/systemic-narration.mp4" download>下载口播MP4 <span aria-hidden="true">↓</span></a></div><p>与概念先导片不是同一单，不能拼成同一任务的一条成功曲线。</p><div class="delivery-more"></div></article><article class="delivery-card" data-deliverable="elephant"><span class="delivery-kind">1024×1024原始图像</span><h4>赛博大象</h4><div class="delivery-actions"><a class="button secondary" href="assets/elephant.png" target="_blank" rel="noopener noreferrer">打开原始PNG <span aria-hidden="true">↗</span></a><a class="text-link" href="assets/elephant.png" download>下载原始图像 <span aria-hidden="true">↓</span></a></div><p>真实生成的单件图片，不是本次新画，也不是全家审美水平证明。</p><div class="delivery-more"></div></article><article class="delivery-card" data-deliverable="report"><span class="delivery-kind">从想法、实验到真实作品</span><h4>项目分享与思路说明</h4><div class="delivery-actions"><a class="button secondary" href="#value">阅读完整项目分享 <span aria-hidden="true">↗</span></a><a class="text-link" href="content/integrated-report.txt" download>下载四段正文 <span aria-hidden="true">↓</span></a></div><p>原作、证据、假设与未完成项分开。历史PDF仍作旧资料，不当现行业务或专业结论。</p><div class="delivery-more"><a class="text-link" href="#auto-to-legion">读Auto到军团 <span aria-hidden="true">↗</span></a><a class="text-link" href="content/history-thinking.txt" download>下载数月思路正文 <span aria-hidden="true">↓</span></a></div></article></div>
 <p class="delivery-boundary">本次核对入口与文件，不把HTTP可达、旧录像或源码下载当作新一轮试玩通过。交互作品只在你点击后打开；不同时在报告后台运行多个3D场景。</p>
 </section>
 <!-- INTEGRATED DELIVERIES END -->
         <nav class="work-directory" aria-label="全部作品直达">
-          <a href="#planet-work">行星模拟器</a><a href="#combat-work">AI对战</a><a href="#racing-work">海岛赛车</a><a href="#transformer-work">Transformer图解</a><a href="#video-work">视频与修订对比</a><a href="#image-work">图像成品</a>
+          <a href="#planet-work">星尘太阳系</a><a href="#combat-work">3D对战</a><a href="#pong-work">Pong旧实录</a><a href="#racing-work">海岛赛车</a><a href="#transformer-work">Transformer图解</a><a href="#video-work">视频与修订对比</a><a href="#image-work">图像成品</a>
         </nav>
         <p class="retrieval-correction"><strong>补全与更正：</strong>以前检索范围太窄，漏掉了已经做过的太阳系、AI对战与较完整视频。这次找回原工程、原截图和原视频，直接展示；“找回文件”不冒充新做出作品，也不把旧验证替代今天的品质验收。</p>
 
+<!-- INTEGRATED WORK_STORY START -->
+<section class="work-mechanism-story" aria-label="作品与机制的同一上下文"><div class="prose"><h3 id="combat-evolution">3D对战：同一份工程，有改善，也有真实退化</h3>
+<p>这款原作是 <strong>RIFT OF LEGENDS</strong>，同一产品订单从原Hermes会话恢复，之后有CC与JCode接力。目标是带英雄、小兵、防御塔、地图与游戏内UI的完整对战，而不是 Pong 录像。原始英文意图要求与既有MOBA相当的地图和画面，后续反馈明确了3D方向。</p>
+<p>**公开体验副本使用中性名称 RIFT LAB。**为不把来源权利尚未核定的角色肖像和专有命名直接带入公开游戏，分发副本替换了五幅人物图、展示名称与指名徽记；保留原战斗逻辑、地图和操作，原工程未改。下面都是原版的历史截图，不是该分发副本的新运行截图，也不把这项分发调整算成画质优化。</p>
+<article class="combat-demo" id="combat-work" aria-labelledby="combat-demo-title">
+<div><span class="delivery-kind">固定体验地址 · 公开分发副本</span><h4 id="combat-demo-title">RIFT LAB · 3D对战实验</h4>
+<p>当前默认基于6f2381e8原版：出生与攻击有旧证据，自然复活仍有显示问题。保留前版；最新8406只作为失败证据，不因文件较新就自动替换。</p>
+<div class="story-actions"><a class="button primary" href="works/combat/index.html" target="_blank" rel="noopener noreferrer">打开固定3D对战体验地址 ↗</a><a class="text-link" href="downloads/combat-visible-6f2381e8-public.zip" download>下载公开演示代码 ↓</a></div>
+<a class="delivery-permalink" href="https://seanliii.github.io/meyo-report/works/combat/index.html" target="_blank" rel="noopener noreferrer">https://seanliii.github.io/meyo-report/works/combat/index.html</a></div>
+<figure><img src="assets/combat-current-jungle.jpg" loading="lazy" alt="原3D对战6f版本的既有打野操作截图"><figcaption>原版的真实操作记录；不是换名分发副本的新截图，也不是全部玩法已验收。</figcaption></figure></article>
+<table>
+<thead>
+<tr>
+<th>同一订单的阶段</th>
+<th>机制／现场变化与成员实际动作</th>
+<th>作品结果与不能混淆的部分</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>原现场接回，<code>0569</code></td>
+<td>恢复已有文件和原生历史，让原Hermes继续，不从空目录重做。</td>
+<td>有3D版本和局部操作记录；平台收尾还出现回执问题，不能说全流程顺利完成。</td>
+</tr>
+<tr>
+<td>原作者连续修画面，<code>0569 → db407 → f9a4 → 926</code></td>
+<td>真截图回到原作者，随后修曲线、HUD、缺字、地表和塔的细节。</td>
+<td>是原作品上的局部提升；不能给每次美术改动虚构一个“平台机制升级”原因。</td>
+</tr>
+<tr>
+<td>接力成功但画面变差，<code>926 → 8d41</code></td>
+<td>私有调用方补齐现有网关和原生工具接线，CC接到同一工程。</td>
+<td>能运行不等于更好看：真图出现明显泛白。换了原生工作台，也不是原Hermes同一native SID。</td>
+</tr>
+<tr>
+<td>真反例反馈后修回，<code>8d41 → b97</code></td>
+<td>泛白原图返给同CC，作者自己回退／重调渲染与配色。</td>
+<td>道路和玩家可读性恢复；图能证明视觉变化，不能单凭两图认定唯一底层根因或整局胜负通过。</td>
+</tr>
+<tr>
+<td>运行机制减少拦路因素</td>
+<td>后续修复真实反馈送达、任务ID与角色混用、研究默认墙钟、资料索引误判等；相关原单有后续工具动作。</td>
+<td>这些是源码与记录支持的运行改善，不倒写成此前截图变好的原因，也没有证明每次协作都更快。</td>
+</tr>
+<tr>
+<td>正常开局发现实现bug，<code>d427 → 6f23</code></td>
+<td>两次初始化曾让24只怪挤到12个坐标；JCode在同一工程修初始化。</td>
+<td>旧记录显示12怪／12位置，玩家攻击让目标生命值下降；同版自然复活后身体仍不可见。这个bug不能归类为上下文问题。</td>
+</tr>
+<tr>
+<td>最新资产实验又退化，<code>6f23 → 8406</code></td>
+<td>尝试引入新GLB、解析和动画绑定。</td>
+<td>旧实测中出生／复活实体没画出；软件预览的“飞跃”说法被实际截图限制。新素材来源未在本次完全核清，不把这版作为默认公开二进制。</td>
+</tr>
+</tbody>
+</table>
+<div class="story-comparison combat-proof-grid" aria-label="同一3D对战工程的真实变化与退化">
+<figure><img src="assets/combat-early.png" loading="lazy" alt="同一原3D对战较早版本的既有画面"><figcaption>0569 · 原工程恢复后的3D画面；早期UI与地表较粗糙。</figcaption></figure>
+<figure><img src="assets/combat-original-readable.png" loading="lazy" alt="原3D对战926版本的既有可读画面"><figcaption>926 · 原作者持续返工后的画面，不是多个答案拼接。</figcaption></figure>
+<figure><img src="assets/combat-overexposed.png" loading="lazy" alt="CC接力8d版本出现明显泛白的真实失败截图"><figcaption>8d41 · 接力能运行，但画面泛白；真实退化保留。</figcaption></figure>
+<figure><img src="assets/combat-recovered.png" loading="lazy" alt="泛白反馈后b97版本恢复可读性的真实截图"><figcaption>b97 · 真失败图回作者后修回可读性；不等于整局通过。</figcaption></figure>
+<figure><img src="assets/combat-visible-spawn.png" loading="lazy" alt="6f版本出生时英雄可见的旧截图"><figcaption>6f23 · 出生可见、攻击有记录；自然复活仍缺身体显示。</figcaption></figure>
+<figure><img src="assets/combat-latest-missing.png" loading="lazy" alt="840最新资产实验中实体未正常显示的旧截图"><figcaption>8406 · 最新不等于最好；新资产实验中的实体缺失。</figcaption></figure>
+</div>
+<p>**同一订单不等于同一模型、同一原生会话或相同预算。**当前固定地址默认打开最近有出生与攻击证据的演示分发副本，可回看早一版；更新时只更换当前版本指向，不换分享网址。原任务还在迭代时，不把“新请求已启动”说成“又一轮修好了”。完整自然胜负、胜后重开、五英雄全部准确机制与顶尖品质仍有缺口。</p>
+<h3 id="solar-evolution">太阳系：一次“加星尘”，为什么曾经变成一张静态图？</h3>
+<p>**原需求没有变：**用户要的是可拖拽、可缩放、可点击查看天体信息的太阳系。后续只是希望增加更多天体、银河和星云，保留原来的交互效果。</p>
+<table>
+<thead>
+<tr>
+<th>同一 HELIOS 订单的阶段</th>
+<th>系统与军团实际发生的动作</th>
+<th>用户拿到什么、还缺什么</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>原交互工程</td>
+<td>CC完成研究、样片与实现；后续检查原场景的拖拽、缩放、卡片。原任务的交付要求明确是网页与源码。</td>
+<td>有可交互的3D太阳系。下面左图是这个订单增强前的真实截图，不拿另一个八星订单冒充它的前版。</td>
+</tr>
+<tr>
+<td>用户说“增加银河与星云”</td>
+<td>同一会话的下一轮却把交付要求改成图片；任务之间又出现循环依赖，多个节点未执行。Codex补救交出了PNG。</td>
+<td>得到宇宙静态图，但原来的交互没有继承。这个失败首先说明续作现场与交付形态被误解，不能归因为“模型不会做星云”。</td>
+</tr>
+<tr>
+<td>用户指出“我是说原来的交互效果”</td>
+<td>后续问题重新带入“在上一轮工程上迭代、保留拖拽缩放和信息卡”。CC修改原工程，DeepSeek补科学资料说明，Prime检查运行。</td>
+<td>恢复交互并加入矮行星、卫星、小行星带、柯伊伯粒子、银河和星云层。旧记录中22个标签可打开卡片。</td>
+</tr>
+<tr>
+<td>仍然需要继续改</td>
+<td>Prime的旧截图验收指出银河和星云几乎不可辨认，软件WebGL压力测试也偏慢。</td>
+<td>粒子带真实可见，不等于“星云品质已顶尖”。这次恢复发布的是这个增强原构建，没有另造一张更漂亮的效果图，也没有重跑新验收。</td>
+</tr>
+</tbody>
+</table>
+<p><strong>机制上得到的教训：</strong>“加一个效果”必须连着原作品、已有操作和新增意图一起理解；阶段失败、补救产物与真正恢复都要送回原负责人。**但这份旧记录没有证明之后所有订单都已自动继承现场。**不能把用户重新解释和人工保全的工作，包装成一次无干预的机制成功。</p>
+<p>下面前后图来自同一 HELIOS 订单的原验收。页面曾经默认展示的“八行星·轨道档案”是另一个订单，仍可从版本列表打开，但不把两个订单拼成严格A/B。</p>
+<div class="story-comparison" aria-label="同一HELIOS订单的前后原截图">
+<figure><img src="assets/helios-before.png" loading="lazy" alt="同一HELIOS订单增强前的原太阳系全景截图"><figcaption>增强前 · 原交互工程，未加入后续小天体与粒子带。</figcaption></figure>
+<figure><img src="assets/helios-particles.png" loading="lazy" alt="同一HELIOS订单增强后的原截图，可见小行星带与更多天体标签"><figcaption>增强后 · 22天体标签与粒子层；原验收仍指出星云不明显。</figcaption></figure>
+</div><div class="story-actions"><a class="button primary" href="works/solar-system/index.html" target="_blank" rel="noopener noreferrer">打开固定太阳系体验地址 ↗</a><a class="text-link" href="downloads/solar-system-helios-source.zip" download>当前原构建与代码 ↓</a></div>
+<h3 id="racing-mechanism-story">赛车：不是让两家各做一份，而是让补位真正改到原工程</h3>
+<p>同一 TIDELINE 订单的原作者已经有驾驶基础，但道路与车体支撑、模型落实、比赛循环、招牌与维修区仍有问题。直接的作品修复和军团协作机制应该分两层讲。</p>
+<table>
+<thead>
+<tr>
+<th>阶段</th>
+<th>具体问题与对应动作</th>
+<th>实际变化与证据边界</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>把作品本身做好</td>
+<td>原作者处理道路与车体支撑、实际车模和比赛闭环。</td>
+<td>这是原工程上的实现改进，不能把所有视觉问题都叫“Context问题”。</td>
+</tr>
+<tr>
+<td>求助后反馈没回来</td>
+<td>既有协作路径曾丢失拒绝/失败回执，恢复状态也有断点；修复的目标是把真实结果送回原负责人，让它决定下一步。</td>
+<td>收到失败信息之后可以重新选择帮手；这与在外层投票拼答案不同。不是每种失败都已修好。</td>
+</tr>
+<tr>
+<td>同伴意见被采用</td>
+<td>同伴指出招牌背面、维修区辨识、阴影与焦点等具体问题，原作者在同一工程返工。</td>
+<td>本页同角度前后截图展示招牌与维修区的实际变化；相关成员使用同一Astra模型，不能说异构模型协作已被证明更优。</td>
+</tr>
+<tr>
+<td>后续完整度继续提升</td>
+<td>9月22日保存版有日落赛道、比赛信息及影子车等；旧操作记录完成一圈。</td>
+<td>44.058秒是测试圈时，不是生成速度；整轮仍有约4小时28分超时，不能称世界级或零人工。</td>
+</tr>
+</tbody>
+</table>
+<p>另有较早的受控恢复实验，原链352.95秒完成、候选370.33秒部分完成，是必须保留的负例；另一对原链236.20秒未完成、候选158.58秒完成三项，是限定正例。<strong>这些不是 TIDELINE 截图的同一场实验</strong>，不能把“恢复有效”的数字贴到另一幅更好看的画面上，拼出不存在的因果。</p>
+<div class="story-comparison" aria-label="同一赛车订单的真实返工前后">
+<figure><img src="assets/racing-before.png" loading="lazy" alt="同一赛车视角的改进前截图，左侧招牌朝向与维修区辨识有问题"><figcaption>原作者收到具体问题前 · 同角度原截图。</figcaption></figure>
+<figure><img src="assets/racing-after.png" loading="lazy" alt="同一赛车视角的改进后截图，招牌与维修区更清楚"><figcaption>意见被采用并改回原工程后 · 不是重新生成的效果图。</figcaption></figure>
+</div><div class="story-actions"><a class="text-link" href="#racing-work">看详细变化和原游戏 ↗</a><a class="text-link" href="works/tideline/index.html" target="_blank" rel="noopener noreferrer">打开当前赛车 ↗</a></div>
+<h3 id="other-work-evidence">其它交付物，也要按原物说明变化</h3>
+<ul>
+<li>**Transformer图解：**角色解释、两种语境对照和手机阅读分别修正；本页直接嵌入真实修正版。旧截图临时路径已经失效，不伪造一张“改前”图。</li>
+<li>**2048：**从真实原仓库导入，在同一工程增加单步撤销，再检查棋盘和分数是否恢复。源码和实际页面都能带走，不只看按钮截图。</li>
+<li>**视频：**35.2秒原片与修订版可以直接比较，56.3秒口播属于另一单；音轨和字幕、视觉节奏、完整工程可重建是不同要求，不能跨订单合并成一个成功故事。</li>
+<li>**AI对AI Pong：**保留原任务要求的GIF、实录与脚本；它是独立的历史录像任务，不再用来顶替上面的3D对战。</li>
+</ul>
+<p>**证据缺失就写缺失。**新图可以解释想法，不能伪装成旧运行截图；文件在线可取，也不能替代真实试玩和完整体验验收。</p>
+</div></section>
+<!-- INTEGRATED WORK_STORY END -->
         <div class="restored-works">
           <article class="restored-project" id="planet-work" aria-labelledby="planet-title">
-            <div class="work-title-row"><div><span class="work-index">恢复的原作品 / 3D交互</span><h3 id="planet-title">太阳系 · 轨道档案</h3></div><span class="evidence-state"><i></i> 9月7日保存的原工程</span></div>
-            <button class="image-button" data-zoom="assets/solar-system.png" data-caption="原太阳系3D作品桌面截图，来自2026年9月7日的原验收材料；不是本次生成或重新渲染。" aria-label="放大太阳系原截图">
-              <img src="assets/solar-system.png" width="1440" height="900" alt="原太阳系作品：太阳、八大行星轨道与海王星资料卡" loading="lazy">
+            <div class="work-title-row"><div><span class="work-index">恢复的原作品 / 3D交互</span><h3 id="planet-title">HELIOS · 星尘太阳系</h3></div><span class="evidence-state"><i></i> 固定体验地址 · 原增强版</span></div>
+            <button class="image-button" data-zoom="assets/helios-particles.png" data-caption="HELIOS粒子增强版的原浏览器截图；小行星带与更多天体标签可见，旧审查仍指出星云不够明显。本次没有重新生成画面。" aria-label="放大HELIOS星尘太阳系原截图">
+              <img src="assets/helios-particles.png" width="1440" height="900" alt="HELIOS增强版真实截图，可见小行星带、外侧粒子与更多天体标签" loading="lazy">
               <span class="image-expand" aria-hidden="true">↗</span>
             </button>
-            <dl class="case-answer"><div><dt>原来要什么</dt><dd>八大行星公转自转、拖拽缩放、点击信息卡，以及电影感星空。</dd></div><div><dt>实际有什么</dt><dd>已找回原Three.js离线工程、桌面／移动截图及旧终审记录；不是只有一段太阳系描述。</dd></div><div><dt>真正的教训</dt><dd>另一轮加银河星云时曾把互动作品退成静态PNG，用户追问后才恢复交互。好看的图不能替代原来的使用能力。</dd></div><div><dt>仍未证明</dt><dd>比例为视觉压缩、不是精密星历；顶层旧final为空，局部终审不等于全流程收尾或世界级。</dd></div></dl>
-            <div class="work-actions"><a class="button primary" href="works/solar-system/index.html" target="_blank" rel="noopener noreferrer" data-work-link>在线体验太阳系 ↗</a><a class="text-link" href="downloads/solar-system-source.zip" download>下载原工程与源码 ↓</a><button class="text-link" type="button" data-zoom="assets/solar-system-mobile.png" data-caption="太阳系旧移动端截图，来自同一原工程的历史验收；本次没有重新运行。" aria-label="查看太阳系移动端原截图">移动端原图 ↗</button></div>
-            <p class="small-note">点击按钮才运行WebGL，不在报告后台自动启动。源码包已补入原复验脚本、依赖锁与历史截图；旧验证记录的公开副本移除了一处本机路径，本轮没有重跑游戏。</p>
+            <dl class="case-answer"><div><dt>原来要什么</dt><dd>保留太阳系拖拽、缩放和信息卡，继续增加更多天体、银河和星云。</dd></div><div><dt>实际有什么</dt><dd>5颗矮行星、9颗代表性卫星、主小行星带与柯伊伯粒子，以及银河/星云层；旧记录中22个标签可开卡片。</dd></div><div><dt>真正的教训</dt><dd>同一订单加效果时曾误交静态PNG，用户纠偏后才恢复交互。原需求和原工程必须一同带到下一轮。</dd></div><div><dt>仍未证明</dt><dd>星云旧实拍不明显，软件WebGL性能有风险；比例压缩、非精密星历。不是“时间最新就质量最好”。</dd></div></dl>
+            <div class="work-actions"><a class="button primary" href="works/solar-system/index.html" target="_blank" rel="noopener noreferrer" data-work-link>在线体验星尘太阳系 ↗</a><a class="text-link" href="downloads/solar-system-helios-source.zip" download>下载当前原构建 ↓</a><button class="text-link" type="button" data-zoom="assets/helios-mobile.png" data-caption="同一HELIOS增强版的旧移动端截图；不是本次新验收。" aria-label="查看HELIOS移动端原截图">移动端原图 ↗</button></div>
+            <p class="small-note">原太阳系链接不变，内容更新时仍从这里打开。版本列表可回看旧八行星原作。当前增强bundle是原运行代码，原app.js未同步，不能称完整源码重建已验证。</p>
           </article>
-          <article class="restored-project" id="combat-work" aria-labelledby="combat-title">
+          <article class="restored-project" id="pong-work" aria-labelledby="combat-title">
             <div class="work-title-row"><div><span class="work-index">恢复的原作品 / AI对战实录</span><h3 id="combat-title">AI对AI Pong</h3></div><span class="evidence-state"><i></i> 原任务比赛录像</span></div>
             <video class="restored-video" controls preload="metadata" poster="assets/pong-final.png" playsinline aria-label="两个AI挡板对战到5分的原比赛实录">
               <source src="media/pong-replay.mp4" type="video/mp4">当前浏览器无法播放，可下载原GIF。
             </video>
-            <dl class="case-answer"><div><dt>原来要什么</dt><dd>左右两个AI挡板打一场到5分的比赛，交付GIF。</dd></div><div><dt>实际结果</dt><dd>FOLLOW AI 5:2 CHAOS AI。原GIF为611帧、38.25秒；这里仅把原GIF转成方便播放的MP4。</dd></div><div><dt>合作证据</dt><dd>旧记录中CC路由失败后由Hermes继续。这说明特定任务能补位，不证明多家普遍更强。</dd></div><div><dt>边界</dt><dd>这是历史AI比赛录像，不是双人在线游戏。它是当前原Query最明确的“对战”候选，不能擅自认定就是你指的另一款。</dd></div></dl>
+            <dl class="case-answer"><div><dt>原来要什么</dt><dd>左右两个AI挡板打一场到5分的比赛，交付GIF。</dd></div><div><dt>实际结果</dt><dd>FOLLOW AI 5:2 CHAOS AI。原GIF为611帧、38.25秒；这里仅把原GIF转成方便播放的MP4。</dd></div><div><dt>合作证据</dt><dd>旧记录中CC路由失败后由Hermes继续。这说明特定任务能补位，不证明多家普遍更强。</dd></div><div><dt>边界</dt><dd>这是独立的历史AI比赛录像，不是双人在线游戏，也不是上面的RIFT 3D对战。两条订单分别保留。</dd></div></dl>
             <div class="work-actions"><a class="text-link" href="media/pong-original.gif" target="_blank" rel="noopener noreferrer">打开原GIF ↗</a><a class="text-link" href="downloads/pong_ai.py" download>下载原脚本 ↓</a></div>
             <p class="small-note">没有重跑对战、没有新模型生成。旧比分JSON写765帧，与GIF优化后的帧数口径不同，保留差异不编补过程。</p>
           </article>
@@ -693,9 +1154,10 @@
 <p>这证明一个图像交付链可用，不证明全成员生图、顶尖审美或协作增益。没有已核前后版本，不为讲故事补造“原来差、后来好”的对比。</p>
 <h3 id="solar-video-evidence">行星、对战和视频：找回原物，也纠正之前的漏检</h3>
 <p><strong>之前不是这些作品都没有，而是检索只停在局部证据摘要，没有把相关原输出目录找全。</strong> 9月25日按原Query、会话与文件指纹找回后，必须更新原结论，而不是继续重复“缺资料”的旧说法。</p>
-<p><strong>行星主作品</strong>：<a href="works/solar-system/index.html">太阳系·轨道档案</a>是9月7日保存的Three.js八行星交互工程，原请求包含相对周期公转自转、拖拽缩放、点击信息卡和电影感星空。本次恢复完整HTML、本地bundle、源码、桌面与移动截图。原verify_1_prime终审记录了Chromium file://检查、八星注册、拖拽缩放和信息卡；其中部分卡片内容由测试接口调用，不冒充逐星像素点击。本轮没重跑原游戏；顶层final_result仍为空，节点通过不等于整个收尾链正常。</p>
-<p>另一个HELIOS历史订单里，用户要求增加银河与星云后曾只收到静态PNG，追问“我是说原来的交互效果”后才恢复交互。<strong>这件事解释了真实失败：把视觉补充当成最终成果，丢了用户原本需要的交互。</strong> 后续原交互及22对象卡片有旧验收，但银河星云可见度和软件WebGL性能仍有缺口。不同原会话不能拼成同题同预算A/B；本页主入口用完整八星工程，科学数据为平均参数、尺度压缩，不能当实时精密星历。</p>
-<p><strong>对战原任务</strong>：目前最明确候选是9月2日“两个AI挡板打到5分并交GIF”，原结果FOLLOW AI 5:2 CHAOS AI。<a href="media/pong-original.gif">原GIF</a>、终局图、原比分记录与脚本已保全；页面MP4仅由原GIF格式转换，实测38.25秒。GIF为611帧，旧比分JSON写765帧，可能使用不同计数口径，保留差异不猜断言。它是AI对AI比赛录像，<strong>不是双人在线PvP游戏</strong>；尚不能确定用户是否另指一款对战，不凭关键词造新游戏顶替。</p>
+<p><strong>原八行星作品</strong>：<a href="works/solar-system/versions/orbital-archive-20260907/index.html">太阳系·轨道档案历史版</a>是9月7日保存的Three.js八行星交互工程，原请求包含相对周期公转自转、拖拽缩放、点击信息卡和电影感星空。完整HTML、本地bundle、源码、桌面与移动截图均保留。原verify_1_prime终审记录了Chromium file://检查、八星注册、拖拽缩放和信息卡；其中部分卡片内容由测试接口调用，不冒充逐星像素点击。本轮没重跑原游戏；顶层final_result仍为空，节点通过不等于整个收尾链正常。</p>
+<p>另一个HELIOS历史订单里，用户要求增加银河与星云后曾只收到静态PNG，追问“我是说原来的交互效果”后才恢复交互。<strong>这件事解释了真实失败：把视觉补充当成最终成果，丢了用户原本需要的交互。</strong> 后续原交互及22对象卡片有旧验收，但银河星云可见度和软件WebGL性能仍有缺口。现在<a href="works/solar-system/index.html">固定太阳系入口</a>默认显示这份粒子增强原构建，旧八星可从版本列表回看。不同原会话不拼成同题同预算A/B；科学数据为平均参数、尺度压缩，不是实时精密星历。</p>
+<p><strong>3D对战已找回</strong>：原任务是同一RIFT订单，原Hermes继续后又经历CC与JCode接力；恢复、泛白退化、反馈修回、重复初始化以及新GLB显示失败都有对应原记录。<a href="#combat-evolution">同单动作与前后截图</a>和<a href="works/combat/index.html">固定体验入口</a>已放在本页。公开演示是移除未核肖像与专名后的分发副本，不是未经修改的原版，也没有重新继承整局验收结论。</p>
+<p><strong>另一条Pong录像任务</strong>：9月2日“两个AI挡板打到5分并交GIF”，原结果FOLLOW AI 5:2 CHAOS AI。<a href="media/pong-original.gif">原GIF</a>、终局图、原比分记录与脚本已保全；页面MP4仅由原GIF格式转换，实测38.25秒。GIF为611帧，旧比分JSON写765帧，保留口径差异。它是独立的AI比赛录像，<strong>不是上面的3D对战，更不是双人在线PvP游戏</strong>。</p>
 <p><strong>kb-final-v2视频</strong>：先前两轮空结果与“没有未解决问题”的错误呈现依然是反例，但原输出目录实际上还有<a href="media/bilibili-original.mp4">35.248秒原概念片</a>与<a href="media/bilibili-revised.mp4">35.2秒修订片</a>。原修订说明记载：将静态信息卡改为连续动作—反馈—结果、加音乐和事件音、修字幕末尾超时、修封面安全区及“40秒”错误描述。已恢复两版MP4和原字幕并核完整解码；视频自己标明“概念先导片／非实测”，不能用其虚拟流程画面证明产品已经如此协作。</p>
 <p><strong>独立口播成片</strong>：<a href="media/systemic-narration.mp4">56.3秒systemic-proof作品</a>是另一条任务，1080p、有音轨。制作说明称由8段原生动态MP4、神经配音和字幕剪辑，且明确首屏像编辑中、中段并行不直观、结尾像幕后片场，未达世界级参照。本次只核原文件、元信息、完整解码和原帧，不把“能解码”说成听审、字幕语义或审美全过，也不拿它替kb-final-v2补同单最终成绩。</p>
 <p><strong>旧测试单独保留</strong>：9月4日<a href="media/legacy-opener.mp4">8秒无音轨开场测试</a>原结果仍partial；8月平移缩放兜底是另一个历史任务。旧<a href="downloads/legacy-guide.pdf">家庭停电指南PDF</a>仍只有文件级证据，未逐页或专业审核，不作现实应急依据。</p>
@@ -881,7 +1343,7 @@
 <tr>
 <td><a target="_blank" rel="noopener noreferrer" href="https://km.sankuai.com/collabpage/2787800041">正式接口交接</a></td>
 <td>查已记录的生产版本与访问条件</td>
-<td>技术交接不是免登录产品体验；不拿IP、localhost或含令牌链接给老板</td>
+<td>技术交接不是免登录产品体验；不把IP、localhost或含令牌链接当作公开体验地址</td>
 </tr>
 </tbody>
 </table>
@@ -1299,7 +1761,7 @@
 <p>它是<strong>交付方式、系统集成和社区产品创新</strong>，不是基础模型突破。单独的模型转发、工具适配、记忆或多代理并不新；把它们组织成普通人能体验、续改、传播的完整成果路径，可能有价值，但必须用用户行为证明。</p>
 <p><strong>建议投下一段可验证结果，不投“大军团名单”。</strong> 30天验证稳定少管理的完整交付，60天验证有效回访、作品派生与单位成本。协作无净收益就保留单家；技术成立但留存不成立就缩场景；反复只能精修一个样板，就不宣称通用。达到这些条件再扩大生态与投放，而不是先锁定50万元必须花完。</p>
 <p>能做到哪一步就报到哪一步：原作继续、真实补位已有依据；稳定世界级、更便宜模型和可持续业务尚未证明。首要交付是让用户实际多拿一件可使用作品，或把原失败旅程真正修好；“又多了一份报告”不是军团产品的长期进展。</p>
-<p>这页现在给老板一条完整逻辑：<strong>先看真实作品→理解为何需要这层→核已证和反例→看下一步如何证明→按证据决定钱和人。</strong> 所有要求在本页映射，未完成也就地回答，不再让读者自己拼三个版本。</p>
+<p>这次分享的主线是：<strong>先看真实作品→理解为何需要这层→核已证和反例→看下一步如何证明→按证据决定投入。</strong> 方法、结果和仍未解决的问题放在同一处，方便大家体验、讨论和继续改进。</p>
 </div>
         </details>
       </div>
@@ -1307,11 +1769,10 @@
 
 <!-- INTEGRATED COVERAGE START -->
 <section class="integration-appendix wrap" id="requirement-coverage" aria-labelledby="coverage-title">
-<div class="chapter-heading"><span class="chapter-number">↳</span><span>同一网页内的完整性对照</span></div>
+<div class="chapter-heading"><span class="chapter-number">↳</span><span>主题索引与证据范围</span></div>
 <h2 id="coverage-title">每个问题，都有本页回答。</h2>
-<p class="section-deck">下面68条是原话的具体问题拆分。<strong>“已说明”不是“已实现”；“尚未证明”不是漏答。</strong>点击问题会展开对应正文。原话另逐字保留，语音重复和不明确词不擅自删改。</p>
-<details class="coverage-group"><summary>第1段 · 定位／生态／目标／框架／竞品<span>26项 <span aria-hidden="true">+</span></span></summary><ol><li><div><a href="#boss-logic">R01 · 这些没有融合啊</a><span class="coverage-status">已说明</span></div><p>完整版、精简提纲与作品展示现已按四段整合到本页，外部文档只作出处，不再代替本页回答。</p></li><li><div><a href="#product-soul">R02 · 所有新升级的目标</a><span class="coverage-status">已说明</span></div><p>从回答到作品、接入到按需协作、单次生成到持续改作、文章到成果社区、记录经验到实际复用，均逐项解释。</p></li><li><div><a href="#product-soul">R03 · 愿景</a><span class="coverage-status">已说明</span></div><p>愿景是强工作台共同为用户完成目标、真实补位与进化；群体超越单家仍是待验证目标，不是已实现成绩。</p></li><li><div><a href="#framework-detail">R06 · 框架</a><span class="coverage-status">已说明</span></div><p>六层框架说明社区、作品空间、原生负责人、开放能力、运行底座与经验复用，质量方法不由平台写死。</p></li><li><div><a href="#community-journeys">R07 · 用户视角</a><span class="coverage-status">已说明</span></div><p>从体验他人作品、带入自己的材料、加入原项目三条入口讲用户旅程，私人派生与贡献原作分别处理。</p></li><li><div><a href="#competitor-detail">R08 · 市场mnuas，codex，cc，muse不同的地方</a><span class="coverage-status">已说明</span></div><p>本页直接对照Manus、Codex、Claude Code、Muse，并单列ChatGPT Sites，承认竞品已有强工具和协作能力。</p></li><li><div><a href="#framework-detail">R13 · 整体思路</a><span class="coverage-status">已说明</span></div><p>同一作品与原生负责人是主线，工具按需借用，运行底座保现场与权限，经验经再次采用后才计收益。</p></li><li><div><a href="#boss-logic">R14 · 我要跟老板汇报</a><span class="coverage-status">已说明</span></div><p>首页先看用户价值、真作品和投入结论，再按四段展开完整依据；读者不用在三个文档间自行拼接逻辑。</p></li><li><div><a href="#boss-logic">R15 · 人话讲逻辑，通俗易懂，高效沟通</a><span class="coverage-status">已说明</span></div><p>用工作台和工作室解释技术，逐段回答为什么、证据是什么、差距在哪、如何决策，同时保留完整细节。</p></li><li><div><a href="#single-vs-legion">R16 · 为什么要做这个军团</a><span class="coverage-status">已说明</span></div><p>只有跨工作台补位与成果连续性确能少管理、提高质量或降低费用才值得加这一层；单家足够就选单家。</p></li><li><div><a href="#positioning">R24 · 服务谁、解决什么问题</a><span class="coverage-status">已说明</span></div><p>普通创作者、小团队拿到能使用与反复修改的成果；已有工作台的熟练创作者保留习惯并借新能力。</p></li><li><div><a href="#ecosystem-adaptation">R25 · 开放出来更多的工具</a><span class="coverage-status">已说明</span></div><p>开放的是可发现和获准调用的工具、资源与现场；是否少重做、交得更好比工具数量更重要。</p></li><li><div><a href="#ecosystem-adaptation">R26 · harness之间互相打通他们的工具创造和生态</a><span class="coverage-status">待验证</span></div><p>允许按任务创建工具或Skill、验证后再复用；不自动热改同伴、不绕权限，跨新任务有净收益才算生态进化。</p></li><li><div><a href="#single-vs-legion">R27 · 很难一家会把一个东西做的足够的好</a><span class="coverage-status">待验证</span></div><p>不能预设单家不行；先排除工具、上下文与恢复bug，再用完整原生能力的最强单家作同条件对照。</p></li><li><div><a href="#competitor-detail">R28 · 他们其实都有各自所长的领域</a><span class="coverage-status">已说明</span></div><p>按官方可证能力比较不同工作台，不编未测试的品牌强弱排行榜；同模型也可能因工具环境差异补位。</p></li><li><div><a href="#ecosystem-adaptation">R29 · jav</a><span class="coverage-status">待验证</span></div><p>jav尚不能唯一对应产品，因此不擅自给它指定优势；其余语音名称按已知上下文解释并保留原话。</p></li><li><div><a href="#ecosystem-adaptation">R30 · 每个人都在自己的工作平台上去做</a><span class="coverage-status">已说明</span></div><p>插件接入以保留原工作台、项目与习惯为目标，Meyo负责现场连接而不是强迫所有人搬到新平台。</p></li><li><div><a href="#ecosystem-adaptation">R31 · 原有的能力快速迁移</a><span class="coverage-status">待验证</span></div><p>可迁移获准文件、事实、方法和资源索引；所有内部记忆、原生历史和账号权限无损互通尚未证明。</p></li><li><div><a href="#dual-objectives">R32 · 更便宜的模型</a><span class="coverage-status">待验证</span></div><p>小模型加更好工具可能划算，也可能因重试更贵；当前Astra-only不变，低成本模型需受控比较而非口号。</p></li><li><div><a href="#dual-objectives">R33 · 更小的模型能实现更好的效果</a><span class="coverage-status">待验证</span></div><p>比较相同合格成果的全部尝试成本、正确性和耗时，不用单次模型价格推断最终质量和经济收益。</p></li><li><div><a href="#single-vs-legion">R36 · 一句话</a><span class="coverage-status">已说明</span></div><p>一句话约束用户管理负担，不强求模型一次输出完美；内部多轮允许，但外层救场和所有成本要如实计算。</p></li><li><div><a href="#framework-detail">R37 · 把harness这种系统当成工具</a><span class="coverage-status">已说明</span></div><p>原生负责人可把完整工作台当可调用帮手，底座提供权限、现场和回执，不在上层另造固定答题器。</p></li><li><div><a href="#dual-objectives">R38 · 量大管饱</a><span class="coverage-status">待验证</span></div><p>目标是同质量可负担地多用，不等于无限免费；并发、推理、存储、第三方工具和支持费用必须完整核算。</p></li><li><div><a href="#community-journeys">R50 · 类似于GitHub，但又完全不一样</a><span class="coverage-status">已说明</span></div><p>借GitHub的版本和协作，普通人从可体验成果而非读代码开始；自己的派生版本与贡献原作分别支持。</p></li><li><div><a href="#community-journeys">R53 · 找到类似行业的交付</a><span class="coverage-status">已说明</span></div><p>以Lovable的授权Remix等官方功能作为相似形态，承认分享复制再改不是独有，而不是把市场机会讲成空白。</p></li><li><div><a href="#ecosystem-adaptation">R54 · 挂上AI的使用经验</a><span class="coverage-status">待验证</span></div><p>方法应有来源、适用条件和失败反例，并由下一真实任务实际采用后评估净收益，不把一份Skill记录当学会。</p></li></ol></details><details class="coverage-group"><summary>第2段 · 案例／功能／因果／体验／历史证据<span>21项 <span aria-hidden="true">+</span></span></summary><ol><li><div><a href="#evidence-rule">R04 · 你已经做的案例变化</a><span class="coverage-status">个案已证</span></div><p>赛车、2048、图解、大象与相邻协作案例按原缺陷、改动、结果、边界回答，保留失败和不同版本。</p></li><li><div><a href="#feature-status-detail">R05 · 功能</a><span class="coverage-status">已说明</span></div><p>功能矩阵区分导入、候选、采用恢复、贡献、工具与运行等限定实证，以及通用自治和正式社区未完成项。</p></li><li><div><a href="#current-entrances">R10 · 写个学城</a><span class="coverage-status">已说明</span></div><p>原学城主稿与完整版保存记录和链接保留；本次修改的是综合网页，不能声称学城也已自动同步或媒体已上传。</p></li><li><div><a href="#feature-status-detail">R11 · 已经实现的案例效果和功能</a><span class="coverage-status">个案已证</span></div><p>给出已有作品和功能的真实验证范围；本地可用、候选已提交、正式部署和完整用户旅程不互相冒充。</p></li><li><div><a href="#current-entrances">R12 · 体验地址</a><span class="coverage-status">已说明</span></div><p>个人主页已有公开展示网址，原作品和下载逐项提供；公司测试站仍需身份，展示发布不代表军团后台全链已通。</p></li><li><div><a href="#proven-refuted">R17 · 有啥实际效果验证了</a><span class="coverage-status">个案已证</span></div><p>已有原工程续改、真实意见采用和特定失败恢复；正反A/B都列出，未把同模型组合干预包装成普遍优势。</p></li><li><div><a href="#evidence-library">R23 · 过去我们全部的文档和对话里面找</a><span class="coverage-status">已说明</span></div><p>复用31份核心材料索引与相关A/B部署对话证据，标清读取范围；不声称穷尽所有私有对话或补造缺失原件。</p></li><li><div><a href="#proven-refuted">R39 · 证实了什么、证伪了什么</a><span class="coverage-status">已说明</span></div><p>分别列出局部实证、更多成员必然更好等反例、以及小模型经济性和持续进化等未验证假设。</p></li><li><div><a href="#prompt-context-root">R40 · 拿着开源框架</a><span class="coverage-status">已说明</span></div><p>复用已有项目、引擎和工具，但许可、资产实际加载、核心功能与真实结果要验证；接入开源不等于品质提升。</p></li><li><div><a href="#prompt-context-root">R42 · 我们为什么做的不好</a><span class="coverage-status">已说明</span></div><p>把作品实现、上下文观测、执行恢复、协作组织和固定控制分别分析，不把所有失败都归给模型或Prompt。</p></li><li><div><a href="#solar-video-evidence">R43 · 星球的展示</a><span class="coverage-status">个案已证</span></div><p>9月25日找回八行星原工程、真实截图与旧终审，纠正此前漏检；顶层收尾、银河星云可见度与世界级仍有缺口。</p></li><li><div><a href="#transformer-evidence">R44 · transformation</a><span class="coverage-status">个案已证</span></div><p>按已有Transformer案例说明小猫角色、场景对照和窄屏修复；保留新会话、约44分钟和截图原路径失效边界。</p></li><li><div><a href="#race-evidence">R45 · 赛车的各类的游戏</a><span class="coverage-status">个案已证</span></div><p>赛车有实际几何、物理、资产与后续体验改进；原版已有驾驶，不能用截图抹掉旧能力或把圈时当生成速度。</p></li><li><div><a href="#solar-video-evidence">R46 · 视频生成</a><span class="coverage-status">个案已证</span></div><p>已找回同kb-final-v2原片与35.2秒修订、另一56.3秒口播；有原物和具体修订，世界级未证，不跨订单拼成功链。</p></li><li><div><a href="#prompt-context-root">R47 · prompt写死了</a><span class="coverage-status">已说明</span></div><p>固定质量工序有源码但不等于所有失败的根因；需当单trace绑定，已批准自治改造仍是未完成WIP。</p></li><li><div><a href="#race-recovery">R48 · 多军团协作失败的问题</a><span class="coverage-status">个案已证</span></div><p>拒信没回原作者和错误恢复曾打断任务；修回执与代次后原负责人自行换帮手，仍不掩盖原作者超时。</p></li><li><div><a href="#proven-refuted">R49 · 失败是什么原因？成功什么原因？具体是因为什么</a><span class="coverage-status">已说明</span></div><p>用具体原因、实际改动和采用结果连起来，并保留旧链赢、新链输的反例；组合干预不冒充单因素因果。</p></li><li><div><a href="#current-entrances">R51 · 点开即用</a><span class="coverage-status">交付未完</span></div><p>公开展示页提供原作品、视频和下载，正式社区全链仍待验证；公开静态作品不等于原任务端到端或世界级完成。</p></li><li><div><a href="#github-continuity">R52 · 说出自己的想法，并且持续优化交付</a><span class="coverage-status">个案已证</span></div><p>已有同工程AI修改、候选、采用恢复和源码取回旅程，可让改动继续；任意仓库和全部状态持久化不保证。</p></li><li><div><a href="#works">R55 · 截图也好，试玩也好</a><span class="coverage-status">个案已证</span></div><p>真实截图、行星与游戏原件、图解和视频在作品区直接展示；公开文件逐项核对，原作品品质与新视觉验收不混报。</p></li><li><div><a href="#feature-status-detail">R56 · 你现在到底啥水平让我看一下</a><span class="coverage-status">已说明</span></div><p>通过本地实物、功能分级、反例与顶级差距说明当前水平，不以报告数、测试数或成员数代替用户拿到好作品。</p></li></ol></details><details class="coverage-group"><summary>第3段 · 质量／实验／时间／能否做到<span>6项 <span aria-hidden="true">+</span></span></summary><ol><li><div><a href="#worldclass-definition">R21 · 与顶级的差距到底在哪</a><span class="coverage-status">待验证</span></div><p>差距在完整核心体验、专业质量、可靠速度与可重复结果；需具名参照与独立同题证据，不能靠自评分数。</p></li><li><div><a href="#can-we-do-it">R22 · 我们能不能做到</a><span class="coverage-status">待验证</span></div><p>局部续改与补位已可行，高品质有路线；所有题所有预算世界级、小模型更省、商业成立均不能保证。</p></li><li><div><a href="#next-experiments">R34 · 多循环协作</a><span class="coverage-status">待验证</span></div><p>允许研究、实现、反馈、返工与补位，但不无限循环；每单先交作品，必要时最多一个同题影子对照。</p></li><li><div><a href="#worldclass-definition">R35 · 单harness这种效果下怎么能够做到世界顶尖</a><span class="coverage-status">待验证</span></div><p>先用真实需求、世界参照、可用资源和实际错误反馈提升单家，再检验它的边界与协作是否带来增益。</p></li><li><div><a href="#worldclass-definition">R41 · 更理解用户的需求</a><span class="coverage-status">已说明</span></div><p>以原始目标和用户最终用途反推核心体验，从真实使用与最大差距返工，避免为炫技或固定流程偏离结果。</p></li><li><div><a href="#next-experiments">R57 · 具体数值、判断阈值、时间点</a><span class="coverage-status">已说明</span></div><p>给20单交付、10对质量、成本、速度、经验复用和留存的建议线，配日期、分母及不过线动作，不伪称已实现。</p></li></ol></details><details class="coverage-group"><summary>第4段 · 机会／预算／增长／人员／风险<span>15项 <span aria-hidden="true">+</span></span></summary><ol><li><div><a href="#market-detail">R09 · 市场机会</a><span class="coverage-status">待验证</span></div><p>机会是成果生成前后的使用、续改、恢复和复用障碍；人群、使用行为与可替代风险写清，但不编市场规模。</p></li><li><div><a href="#why-invest">R18 · 为什么我们要投入这个</a><span class="coverage-status">待验证</span></div><p>可复用已有工程、版本、恢复与社区基础，用有限投入验证产品收益；不因沉没成本或成员数量而扩张。</p></li><li><div><a href="#risk-detail">R19 · 风险是什么</a><span class="coverage-status">已说明</span></div><p>质量、可靠性、协作开销、泛化、入口、经营、巨头替代、安全许可和组织效率的风险及判断办法均列出。</p></li><li><div><a href="#risk-detail">R20 · 哪里没做好</a><span class="coverage-status">已说明</span></div><p>明确赛车品质和耗时、视频报告证据、稳定小白入口、媒体发布、跨任务复用与商业留存等尚未完成。</p></li><li><div><a href="#organization-detail">R58 · 现在的资源卡点</a><span class="coverage-status">已说明</span></div><p>卡在可靠完整路径、可比质量与费用账、真实持续使用和责任承接，不是再缺更多Harness或更多平台。</p></li><li><div><a href="#budget-detail">R59 · 投放30-50万</a><span class="coverage-status">已说明</span></div><p>按30—50万元推广另计，列14/30/45/60/90天全期间预算；若这是总预算，必须扣基础费用后重新安排。</p></li><li><div><a href="#budget-detail">R60 · 每天3000-5000元</a><span class="coverage-status">已说明</span></div><p>AI每日3000—5000元与工资每日3000元按自然日复算，用户增长额外费用不视为零或永不变化。</p></li><li><div><a href="#budget-detail">R61 · 人员工资成本按每天3000元</a><span class="coverage-status">已说明</span></div><p>工资按项目日总包3000元计算，不推断人数或行情，也不把继续支付的工资当可避免现金。</p></li><li><div><a href="#acceleration-math">R62 · 减少整体投入多少预算合适</a><span class="coverage-status">已说明</span></div><p>少30天毛成本少18—24万，额外推广30—50万可能仍多花6—32万；项目成本和实际现金抵消分别计算。</p></li><li><div><a href="#growth-plan">R63 · koc少量kol也可以自己写内容</a><span class="coverage-status">已说明</span></div><p>建议KOC65%、KOL10%、自营25%的小试验，按增量激活核算，不买声量；自营不重复算已有工资AI。</p></li><li><div><a href="#users-retention">R64 · 5000-1万用户左右验证产品留存</a><span class="coverage-status">待验证</span></div><p>注册、激活、成熟D7/D30人数与推广单价分开；5000—10000注册仅早期信号，需真实回访和收益才能谈成立。</p></li><li><div><a href="#organization-detail">R65 · 用ai就不需要研发了</a><span class="coverage-status">已说明</span></div><p>AI能承担大量代码与验证，产品可更直接做原型；但生产数据、隔离、账单和发布回退仍必须有人负责。</p></li><li><div><a href="#growth-plan">R66 · 人力投入和预算增长投入</a><span class="coverage-status">已说明</span></div><p>先批10万额度分3万与7万，余20万待D30与交付费用证据；责任可兼任，不因预算假设擅自招人或付款。</p></li><li><div><a href="#innovation-and-decision">R67 · 产品周期，是创新还是</a><span class="coverage-status">已说明</span></div><p>30天看交付、60天看使用和成本；这是交付方式、系统集成和社区产品创新，不是基础模型突破或无条件独创。</p></li><li><div><a href="#requirement-coverage">R68 · 每一个字都不许遗漏，不许不回答</a><span class="coverage-status">已说明</span></div><p>本轮完整原话以原文保留，逐个原意有本页答案与状态；没有证据就明确未证，不能为了全答而编造结论。</p></li></ol></details>
-<details class="request-original"><summary>原话逐字存档 · 本次用户请求 <span aria-hidden="true">+</span></summary><pre id="request-verbatim">这些没有融合啊，给我把所有新升级的目标，愿景，你已经做的案例变化，功能，框架，还有用户视角与市场mnuas，codex，cc，muse不同的地方，市场机会说一下，写个学城，还有已经实现的案例效果和功能，还有体验地址，还有整体思路，我要跟老板汇报，所以说人话讲逻辑，通俗易懂，高效沟通，别掉链子，还有为什么要做这个军团，有啥实际效果验证了，为什么我们要投入这个，风险是什么，哪里没做好，与顶级的差距到底在哪，我们能不能做到，你从过去我们全部的文档和对话里面找一样深度分析，优先级极高。我给你一个大概的提纲，用这个骨架展开1.军团（+社区）现状一句话：服务谁、解决什么问题。你可以围绕关于这个问题，你可以围绕嗯军团的现在这个模式，嗯，为什么它的本质其实是开放出来更多的工具，因为未来harness工具可能会越来越多，所以我们希望能让harness之间互相打通他们的工具创造和生态，呃，同时，嗯，同时harness其实嗯，很难一家会把一个东西做的足够的好，所以我们需要把这些harness能组织起来，因为每一个harness最终呃，如果说想要一个人把一个问题解决好的话，呃，其实各家都有所长，就像我们看到说jav或者呃codex或者cc他们其实都有各自所长的领域，那么这个是一方面吧，然后我们也需要讲出来验证的东西，同时的话其实像是嗯，我们也会发现每个同的工作习惯，那么这些不同的工作习惯，其实本章我们在做的是一个插件的适配的一个工作，类似于呃每个人都在自己的工作平台上去做，但同时他们有需求是说希望能尝试一些更新的这种harness的东西，所以这个需求下的话，一个更灵活多样，且能让大家体验到更多，全新能力的东西，并且，能够让他原有的能力快速迁移，其实是一个很重要的一个啊技术生态。那么同时我们也要说就是在同时我们要说就是在这种实际的这种军团呃合作效果上，我们探索出来什么是不是能足以验证说一个harness其实本身确实是有局限性的，但同时你要解决的问题是说如何让更我们说两个更大挑战一个是更便宜的模型，都可以更大挑战是呃让更便宜的模型可以通过更鲜的，更新鲜的东西这种一键出错的方式呃尝试更强的能力，然后以及说在多循环协作的这种方式下，能够把一个任务通过模型的这种对harness的理解能力和开放的生态能力，能够让它用更便宜的方式去或者说更小的模型能实现更好的效果，那么第二个事情是说如何让一个模型本身在单harness，当然这个是否存在局限性，需要你去验证，但是单harness这种效果下怎么能够做到世界顶尖？是否呃去完成一个更像是一句话，然后把harness这种系统当成工具的这种能力？去让模型实现真正对用户来说最top的效果，这将是两个最重要的目标吧，我们所谓的世界级的交付啊，或者说更便宜，量大管饱的这种啊体验效果 2.目前验证过的假设：证实了什么、证伪了什么 。那么关于这一点，他其实想问的是说我们已经做过的案例需要拿出来呃，给他看，最好是有链接，然后当我们去展示的时候，我们会看到说在单一的，当然可能我们存在bug，但是在单一的模型的这种系统下怎么样去看到说哎他持续的在被我们当然我们拿着开源框架，那么他怎么持？去的被我们一步一步的去，对，去呃把把这个作品推到更好啊，以及说更理解用户的需求，这个是我们需要拿到的东西，当然我们也可以说我们在里面做了什么，优化了什么，呃，怎么实现的这种呃，开源框架的使用啊，以及说我们未来想做成什么样子，那这里面政委的东西曾经有什么？嗯，包括说我们做过各类游戏啊什么的，那么我们为什么做的不好？这里面核心点是在于上下文还是context？还是这个bug还是在于我们的这种呃组织的问题，那这些都是我们要去写出来的东西，对吗？就是我们之前做过像呃星球的展示，像transformation的这种东西，以及说像这种呃赛车的各类的游戏，对吗？我们一开始做的很烂，那这个烂到底是因为什么这个？一定要分析出来当时的原因，呃，当然我们还做过视频生成，对吧？那我们为什么一开始做的差，后来做的好，那我们到底在改什么什么东西是真正影响是一个世界级交付的事情的点是我们的prompt写死了，还是说我们的机制问题还是到底是什么问题？那这里面多军团的协作又存在多少结果？那因为我们之前也，因为我们之前也存在过这种啊多军团协作失败的问题嘛，那么这个失败的问题到底在哪呢？对吧？我们需要真正的分析出来，呃，失败是什么原因？成功什么原因？具体是因为什么？只有这样才能够证实以及说政委的这个点去说清楚，呃，以及说当然我们的目标其实是一个偏向于一个呃普通人能够传播和共享的，AI结果的一个社区它类似于GitHub，但又完全不一样，因为GitHub本质上还是代码嘛，那么我们其实是一个所见即所得的一个呃交付物分享的社区，对吗？那么对于这种交付物分享的社区来说，呃，每个人都可以基于这件事情点开即用，且可以通过AI的方式去在这个系统下说出自己的想法，并且持续优化交付，你找到类似行业的交付，对吗？然后让人们基于这件事情分享，且能够挂上AI的使用经验，我不知道这句话怎么来说，但是你需要把这件事情说的特别简单，呃，特别逻辑自洽且通俗易懂，符合常识以及说符合未来的整个趋势，特别常识以及说符合当下的和未来的你对于这种普通用户的趋势以及说快速要验证的点，那么老板不喜欢听，瞎白活，对吧？老板喜欢听的是事实证据，你现在到底啥水平让我看一下，所以这些里面的像截图也好，试玩也好，都需要你去呈现出来，以及说它为什么这样子，我们优化到底的本质是什么bug在哪，那么才能看到真正的驱动力，是的，一。3.下一个验证目标：具体数值、判断阈值、时间点 。那么关于这个4.现在的资源卡点：人和事各是什么，比如投放30-50万一个产品，核算ai使用成本按每天3000-5000元你自己实际算一下，人员工资成本按每天3000元，投入投放获取用户加快迭代可以减少整体投入多少预算合适，什么增长方式合适，尽量koc少量kol也可以自己写内容等等，换算5000-1万用户左右验证产品留存还有是否需要研发还是什么组织方式像我就是产品感觉用ai就不需要研发了，人力投入和预算增长投入，还有产品周期，是创新还是每一个字都不许遗漏，不许不回答，必须变成整体的网页里面</pre></details>
+<p class="section-deck">下面68个问题串起项目定位、作品、机制与投入。<strong>“已说明”不是“已实现”；“尚未证明”的部分也保留在这里。</strong>点击主题即可跳到对应正文。原始需求另作本地记录，不混入面向大家的分享。</p>
+<details class="coverage-group"><summary>第1段 · 定位／生态／目标／框架／竞品<span>26项 <span aria-hidden="true">+</span></span></summary><ol><li><div><a href="#boss-logic">R01 · 这些没有融合啊</a><span class="coverage-status">已说明</span></div><p>完整版、精简提纲与作品展示现已按四段整合到本页，外部文档只作出处，不再代替本页回答。</p></li><li><div><a href="#product-soul">R02 · 所有新升级的目标</a><span class="coverage-status">已说明</span></div><p>从回答到作品、接入到按需协作、单次生成到持续改作、文章到成果社区、记录经验到实际复用，均逐项解释。</p></li><li><div><a href="#product-soul">R03 · 愿景</a><span class="coverage-status">已说明</span></div><p>愿景是强工作台共同为用户完成目标、真实补位与进化；群体超越单家仍是待验证目标，不是已实现成绩。</p></li><li><div><a href="#framework-detail">R06 · 框架</a><span class="coverage-status">已说明</span></div><p>六层框架说明社区、作品空间、原生负责人、开放能力、运行底座与经验复用，质量方法不由平台写死。</p></li><li><div><a href="#community-journeys">R07 · 用户视角</a><span class="coverage-status">已说明</span></div><p>从体验他人作品、带入自己的材料、加入原项目三条入口讲用户旅程，私人派生与贡献原作分别处理。</p></li><li><div><a href="#competitor-detail">R08 · 市场mnuas，codex，cc，muse不同的地方</a><span class="coverage-status">已说明</span></div><p>本页直接对照Manus、Codex、Claude Code、Muse，并单列ChatGPT Sites，承认竞品已有强工具和协作能力。</p></li><li><div><a href="#framework-detail">R13 · 整体思路</a><span class="coverage-status">已说明</span></div><p>同一作品与原生负责人是主线，工具按需借用，运行底座保现场与权限，经验经再次采用后才计收益。</p></li><li><div><a href="#boss-logic">R14 · 项目分享与阅读方式</a><span class="coverage-status">已说明</span></div><p>首页先看用户价值、真作品和投入结论，再按四段展开完整依据；读者不用在三个文档间自行拼接逻辑。</p></li><li><div><a href="#boss-logic">R15 · 人话讲逻辑，通俗易懂，高效沟通</a><span class="coverage-status">已说明</span></div><p>用工作台和工作室解释技术，逐段回答为什么、证据是什么、差距在哪、如何决策，同时保留完整细节。</p></li><li><div><a href="#single-vs-legion">R16 · 为什么要做这个军团</a><span class="coverage-status">已说明</span></div><p>只有跨工作台补位与成果连续性确能少管理、提高质量或降低费用才值得加这一层；单家足够就选单家。</p></li><li><div><a href="#positioning">R24 · 服务谁、解决什么问题</a><span class="coverage-status">已说明</span></div><p>普通创作者、小团队拿到能使用与反复修改的成果；已有工作台的熟练创作者保留习惯并借新能力。</p></li><li><div><a href="#ecosystem-adaptation">R25 · 开放出来更多的工具</a><span class="coverage-status">已说明</span></div><p>开放的是可发现和获准调用的工具、资源与现场；是否少重做、交得更好比工具数量更重要。</p></li><li><div><a href="#ecosystem-adaptation">R26 · harness之间互相打通他们的工具创造和生态</a><span class="coverage-status">待验证</span></div><p>允许按任务创建工具或Skill、验证后再复用；不自动热改同伴、不绕权限，跨新任务有净收益才算生态进化。</p></li><li><div><a href="#single-vs-legion">R27 · 很难一家会把一个东西做的足够的好</a><span class="coverage-status">待验证</span></div><p>不能预设单家不行；先排除工具、上下文与恢复bug，再用完整原生能力的最强单家作同条件对照。</p></li><li><div><a href="#competitor-detail">R28 · 他们其实都有各自所长的领域</a><span class="coverage-status">已说明</span></div><p>按官方可证能力比较不同工作台，不编未测试的品牌强弱排行榜；同模型也可能因工具环境差异补位。</p></li><li><div><a href="#ecosystem-adaptation">R29 · jav</a><span class="coverage-status">待验证</span></div><p>jav尚不能唯一对应产品，因此不擅自给它指定优势；其余语音名称按已知上下文解释并保留原话。</p></li><li><div><a href="#ecosystem-adaptation">R30 · 每个人都在自己的工作平台上去做</a><span class="coverage-status">已说明</span></div><p>插件接入以保留原工作台、项目与习惯为目标，Meyo负责现场连接而不是强迫所有人搬到新平台。</p></li><li><div><a href="#ecosystem-adaptation">R31 · 原有的能力快速迁移</a><span class="coverage-status">待验证</span></div><p>可迁移获准文件、事实、方法和资源索引；所有内部记忆、原生历史和账号权限无损互通尚未证明。</p></li><li><div><a href="#dual-objectives">R32 · 更便宜的模型</a><span class="coverage-status">待验证</span></div><p>小模型加更好工具可能划算，也可能因重试更贵；当前Astra-only不变，低成本模型需受控比较而非口号。</p></li><li><div><a href="#dual-objectives">R33 · 更小的模型能实现更好的效果</a><span class="coverage-status">待验证</span></div><p>比较相同合格成果的全部尝试成本、正确性和耗时，不用单次模型价格推断最终质量和经济收益。</p></li><li><div><a href="#single-vs-legion">R36 · 一句话</a><span class="coverage-status">已说明</span></div><p>一句话约束用户管理负担，不强求模型一次输出完美；内部多轮允许，但外层救场和所有成本要如实计算。</p></li><li><div><a href="#framework-detail">R37 · 把harness这种系统当成工具</a><span class="coverage-status">已说明</span></div><p>原生负责人可把完整工作台当可调用帮手，底座提供权限、现场和回执，不在上层另造固定答题器。</p></li><li><div><a href="#dual-objectives">R38 · 量大管饱</a><span class="coverage-status">待验证</span></div><p>目标是同质量可负担地多用，不等于无限免费；并发、推理、存储、第三方工具和支持费用必须完整核算。</p></li><li><div><a href="#community-journeys">R50 · 类似于GitHub，但又完全不一样</a><span class="coverage-status">已说明</span></div><p>借GitHub的版本和协作，普通人从可体验成果而非读代码开始；自己的派生版本与贡献原作分别支持。</p></li><li><div><a href="#community-journeys">R53 · 找到类似行业的交付</a><span class="coverage-status">已说明</span></div><p>以Lovable的授权Remix等官方功能作为相似形态，承认分享复制再改不是独有，而不是把市场机会讲成空白。</p></li><li><div><a href="#ecosystem-adaptation">R54 · 挂上AI的使用经验</a><span class="coverage-status">待验证</span></div><p>方法应有来源、适用条件和失败反例，并由下一真实任务实际采用后评估净收益，不把一份Skill记录当学会。</p></li></ol></details><details class="coverage-group"><summary>第2段 · 案例／功能／因果／体验／历史证据<span>21项 <span aria-hidden="true">+</span></span></summary><ol><li><div><a href="#evidence-rule">R04 · 你已经做的案例变化</a><span class="coverage-status">个案已证</span></div><p>赛车、2048、图解、大象与相邻协作案例按原缺陷、改动、结果、边界回答，保留失败和不同版本。</p></li><li><div><a href="#feature-status-detail">R05 · 功能</a><span class="coverage-status">已说明</span></div><p>功能矩阵区分导入、候选、采用恢复、贡献、工具与运行等限定实证，以及通用自治和正式社区未完成项。</p></li><li><div><a href="#current-entrances">R10 · 写个学城</a><span class="coverage-status">已说明</span></div><p>原学城主稿与完整版保存记录和链接保留；本次修改的是综合网页，不能声称学城也已自动同步或媒体已上传。</p></li><li><div><a href="#feature-status-detail">R11 · 已经实现的案例效果和功能</a><span class="coverage-status">个案已证</span></div><p>给出已有作品和功能的真实验证范围；本地可用、候选已提交、正式部署和完整用户旅程不互相冒充。</p></li><li><div><a href="#current-entrances">R12 · 体验地址</a><span class="coverage-status">已说明</span></div><p>个人主页已有公开展示网址，原作品和下载逐项提供；公司测试站仍需身份，展示发布不代表军团后台全链已通。</p></li><li><div><a href="#proven-refuted">R17 · 有啥实际效果验证了</a><span class="coverage-status">个案已证</span></div><p>已有原工程续改、真实意见采用和特定失败恢复；正反A/B都列出，未把同模型组合干预包装成普遍优势。</p></li><li><div><a href="#evidence-library">R23 · 过去我们全部的文档和对话里面找</a><span class="coverage-status">已说明</span></div><p>复用31份核心材料索引与相关A/B部署对话证据，标清读取范围；不声称穷尽所有私有对话或补造缺失原件。</p></li><li><div><a href="#proven-refuted">R39 · 证实了什么、证伪了什么</a><span class="coverage-status">已说明</span></div><p>分别列出局部实证、更多成员必然更好等反例、以及小模型经济性和持续进化等未验证假设。</p></li><li><div><a href="#prompt-context-root">R40 · 拿着开源框架</a><span class="coverage-status">已说明</span></div><p>复用已有项目、引擎和工具，但许可、资产实际加载、核心功能与真实结果要验证；接入开源不等于品质提升。</p></li><li><div><a href="#prompt-context-root">R42 · 我们为什么做的不好</a><span class="coverage-status">已说明</span></div><p>把作品实现、上下文观测、执行恢复、协作组织和固定控制分别分析，不把所有失败都归给模型或Prompt。</p></li><li><div><a href="#solar-video-evidence">R43 · 星球的展示</a><span class="coverage-status">个案已证</span></div><p>9月25日找回八行星原工程、真实截图与旧终审，纠正此前漏检；顶层收尾、银河星云可见度与世界级仍有缺口。</p></li><li><div><a href="#transformer-evidence">R44 · transformation</a><span class="coverage-status">个案已证</span></div><p>按已有Transformer案例说明小猫角色、场景对照和窄屏修复；保留新会话、约44分钟和截图原路径失效边界。</p></li><li><div><a href="#race-evidence">R45 · 赛车的各类的游戏</a><span class="coverage-status">个案已证</span></div><p>赛车有实际几何、物理、资产与后续体验改进；原版已有驾驶，不能用截图抹掉旧能力或把圈时当生成速度。</p></li><li><div><a href="#solar-video-evidence">R46 · 视频生成</a><span class="coverage-status">个案已证</span></div><p>已找回同kb-final-v2原片与35.2秒修订、另一56.3秒口播；有原物和具体修订，世界级未证，不跨订单拼成功链。</p></li><li><div><a href="#prompt-context-root">R47 · prompt写死了</a><span class="coverage-status">已说明</span></div><p>固定质量工序有源码但不等于所有失败的根因；需当单trace绑定，已批准自治改造仍是未完成WIP。</p></li><li><div><a href="#race-recovery">R48 · 多军团协作失败的问题</a><span class="coverage-status">个案已证</span></div><p>拒信没回原作者和错误恢复曾打断任务；修回执与代次后原负责人自行换帮手，仍不掩盖原作者超时。</p></li><li><div><a href="#proven-refuted">R49 · 失败是什么原因？成功什么原因？具体是因为什么</a><span class="coverage-status">已说明</span></div><p>用具体原因、实际改动和采用结果连起来，并保留旧链赢、新链输的反例；组合干预不冒充单因素因果。</p></li><li><div><a href="#current-entrances">R51 · 点开即用</a><span class="coverage-status">交付未完</span></div><p>公开展示页提供原作品、视频和下载，正式社区全链仍待验证；公开静态作品不等于原任务端到端或世界级完成。</p></li><li><div><a href="#github-continuity">R52 · 说出自己的想法，并且持续优化交付</a><span class="coverage-status">个案已证</span></div><p>已有同工程AI修改、候选、采用恢复和源码取回旅程，可让改动继续；任意仓库和全部状态持久化不保证。</p></li><li><div><a href="#works">R55 · 截图也好，试玩也好</a><span class="coverage-status">个案已证</span></div><p>真实截图、行星与游戏原件、图解和视频在作品区直接展示；公开文件逐项核对，原作品品质与新视觉验收不混报。</p></li><li><div><a href="#feature-status-detail">R56 · 你现在到底啥水平让我看一下</a><span class="coverage-status">已说明</span></div><p>通过本地实物、功能分级、反例与顶级差距说明当前水平，不以报告数、测试数或成员数代替用户拿到好作品。</p></li></ol></details><details class="coverage-group"><summary>第3段 · 质量／实验／时间／能否做到<span>6项 <span aria-hidden="true">+</span></span></summary><ol><li><div><a href="#worldclass-definition">R21 · 与顶级的差距到底在哪</a><span class="coverage-status">待验证</span></div><p>差距在完整核心体验、专业质量、可靠速度与可重复结果；需具名参照与独立同题证据，不能靠自评分数。</p></li><li><div><a href="#can-we-do-it">R22 · 我们能不能做到</a><span class="coverage-status">待验证</span></div><p>局部续改与补位已可行，高品质有路线；所有题所有预算世界级、小模型更省、商业成立均不能保证。</p></li><li><div><a href="#next-experiments">R34 · 多循环协作</a><span class="coverage-status">待验证</span></div><p>允许研究、实现、反馈、返工与补位，但不无限循环；每单先交作品，必要时最多一个同题影子对照。</p></li><li><div><a href="#worldclass-definition">R35 · 单harness这种效果下怎么能够做到世界顶尖</a><span class="coverage-status">待验证</span></div><p>先用真实需求、世界参照、可用资源和实际错误反馈提升单家，再检验它的边界与协作是否带来增益。</p></li><li><div><a href="#worldclass-definition">R41 · 更理解用户的需求</a><span class="coverage-status">已说明</span></div><p>以原始目标和用户最终用途反推核心体验，从真实使用与最大差距返工，避免为炫技或固定流程偏离结果。</p></li><li><div><a href="#next-experiments">R57 · 具体数值、判断阈值、时间点</a><span class="coverage-status">已说明</span></div><p>给20单交付、10对质量、成本、速度、经验复用和留存的建议线，配日期、分母及不过线动作，不伪称已实现。</p></li></ol></details><details class="coverage-group"><summary>第4段 · 机会／预算／增长／人员／风险<span>15项 <span aria-hidden="true">+</span></span></summary><ol><li><div><a href="#market-detail">R09 · 市场机会</a><span class="coverage-status">待验证</span></div><p>机会是成果生成前后的使用、续改、恢复和复用障碍；人群、使用行为与可替代风险写清，但不编市场规模。</p></li><li><div><a href="#why-invest">R18 · 为什么我们要投入这个</a><span class="coverage-status">待验证</span></div><p>可复用已有工程、版本、恢复与社区基础，用有限投入验证产品收益；不因沉没成本或成员数量而扩张。</p></li><li><div><a href="#risk-detail">R19 · 风险是什么</a><span class="coverage-status">已说明</span></div><p>质量、可靠性、协作开销、泛化、入口、经营、巨头替代、安全许可和组织效率的风险及判断办法均列出。</p></li><li><div><a href="#risk-detail">R20 · 哪里没做好</a><span class="coverage-status">已说明</span></div><p>明确赛车品质和耗时、视频报告证据、稳定小白入口、媒体发布、跨任务复用与商业留存等尚未完成。</p></li><li><div><a href="#organization-detail">R58 · 现在的资源卡点</a><span class="coverage-status">已说明</span></div><p>卡在可靠完整路径、可比质量与费用账、真实持续使用和责任承接，不是再缺更多Harness或更多平台。</p></li><li><div><a href="#budget-detail">R59 · 投放30-50万</a><span class="coverage-status">已说明</span></div><p>按30—50万元推广另计，列14/30/45/60/90天全期间预算；若这是总预算，必须扣基础费用后重新安排。</p></li><li><div><a href="#budget-detail">R60 · 每天3000-5000元</a><span class="coverage-status">已说明</span></div><p>AI每日3000—5000元与工资每日3000元按自然日复算，用户增长额外费用不视为零或永不变化。</p></li><li><div><a href="#budget-detail">R61 · 人员工资成本按每天3000元</a><span class="coverage-status">已说明</span></div><p>工资按项目日总包3000元计算，不推断人数或行情，也不把继续支付的工资当可避免现金。</p></li><li><div><a href="#acceleration-math">R62 · 减少整体投入多少预算合适</a><span class="coverage-status">已说明</span></div><p>少30天毛成本少18—24万，额外推广30—50万可能仍多花6—32万；项目成本和实际现金抵消分别计算。</p></li><li><div><a href="#growth-plan">R63 · koc少量kol也可以自己写内容</a><span class="coverage-status">已说明</span></div><p>建议KOC65%、KOL10%、自营25%的小试验，按增量激活核算，不买声量；自营不重复算已有工资AI。</p></li><li><div><a href="#users-retention">R64 · 5000-1万用户左右验证产品留存</a><span class="coverage-status">待验证</span></div><p>注册、激活、成熟D7/D30人数与推广单价分开；5000—10000注册仅早期信号，需真实回访和收益才能谈成立。</p></li><li><div><a href="#organization-detail">R65 · 用ai就不需要研发了</a><span class="coverage-status">已说明</span></div><p>AI能承担大量代码与验证，产品可更直接做原型；但生产数据、隔离、账单和发布回退仍必须有人负责。</p></li><li><div><a href="#growth-plan">R66 · 人力投入和预算增长投入</a><span class="coverage-status">已说明</span></div><p>先批10万额度分3万与7万，余20万待D30与交付费用证据；责任可兼任，不因预算假设擅自招人或付款。</p></li><li><div><a href="#innovation-and-decision">R67 · 产品周期，是创新还是</a><span class="coverage-status">已说明</span></div><p>30天看交付、60天看使用和成本；这是交付方式、系统集成和社区产品创新，不是基础模型突破或无条件独创。</p></li><li><div><a href="#requirement-coverage">R68 · 每一个字都不许遗漏，不许不回答</a><span class="coverage-status">已说明</span></div><p>本轮完整原话以原文保留，逐个原意有本页答案与状态；没有证据就明确未证，不能为了全答而编造结论。</p></li></ol></details>
 <details class="source-register"><summary>历史文档与对话核查范围 · 31份核心索引 <span aria-hidden="true">+</span></summary>
 <p>核心文档此前按全文或有关段落读取，关键案例结合源码、trace、操作与文件核对；本轮复用证据，不伪称逐token读完所有私有对话。无关个人信息、凭据和原始认证日志不进入网页。网页与学城分别更新、分别验收；旧保存回执不能证明新稿已同步。</p>
 <ul><li><a href="https://km.sankuai.com/collabpage/2787566006" target="_blank" rel="noopener noreferrer">Meyo完整优化方案：一句意图-一个持续进化的作品 → 社区基于他人的作品迭代</a><span>历史方案或证据索引，不等于当前上线与验收。</span></li><li><a href="https://km.sankuai.com/collabpage/2786484162" target="_blank" rel="noopener noreferrer">觅游社区 × 异构军团：第一版协作、接口与实施路径</a><span>历史方案或证据索引，不等于当前上线与验收。</span></li><li><a href="https://km.sankuai.com/collabpage/2787603872" target="_blank" rel="noopener noreferrer">Meyo下一次开工指令｜成熟作品试玩、私有云空间与AI续改（2026-09-17更新）</a><span>历史方案或证据索引，不等于当前上线与验收。</span></li><li><a href="https://km.sankuai.com/collabpage/2787440847" target="_blank" rel="noopener noreferrer">明天从这里开工：先让原作品持续变好</a><span>历史方案或证据索引，不等于当前上线与验收。</span></li><li><a href="https://km.sankuai.com/collabpage/2786713132" target="_blank" rel="noopener noreferrer">测试环境部署快照｜2026-09-14</a><span>历史方案或证据索引，不等于当前上线与验收。</span></li><li><a href="https://km.sankuai.com/collabpage/2788111490" target="_blank" rel="noopener noreferrer">部署交接账本（完整JSON时点快照）</a><span>历史方案或证据索引，不等于当前上线与验收。</span></li><li><a href="https://km.sankuai.com/collabpage/2786842533" target="_blank" rel="noopener noreferrer">并行、接力与多负责人：真实源码和论文研究补充</a><span>历史方案或证据索引，不等于当前上线与验收。</span></li><li><a href="https://km.sankuai.com/collabpage/2787311303" target="_blank" rel="noopener noreferrer">原生提示词、公开惊艳案例与军团任务：核查与落地方式</a><span>历史方案或证据索引，不等于当前上线与验收。</span></li><li><a href="https://km.sankuai.com/collabpage/2787311305" target="_blank" rel="noopener noreferrer">Meyo 世界级交付 Context Atlas</a><span>历史方案或证据索引，不等于当前上线与验收。</span></li><li><a href="https://km.sankuai.com/collabpage/2787042013" target="_blank" rel="noopener noreferrer">从“不知道做什么”到第一次真实收益：Meyo产品发现补充</a><span>历史方案或证据索引，不等于当前上线与验收。</span></li><li><a href="https://km.sankuai.com/collabpage/2786752665" target="_blank" rel="noopener noreferrer">五个来源的接入判断与产物中心方案修正</a><span>历史方案或证据索引，不等于当前上线与验收。</span></li><li><a href="https://km.sankuai.com/collabpage/2786922516" target="_blank" rel="noopener noreferrer">Orca对Meyo的价值与接入决策｜2026-09-13</a><span>历史方案或证据索引，不等于当前上线与验收。</span></li><li><a href="https://km.sankuai.com/collabpage/2786653619" target="_blank" rel="noopener noreferrer">军团夜间全面审计｜2026-09-12</a><span>历史方案或证据索引，不等于当前上线与验收。</span></li><li><a href="https://km.sankuai.com/collabpage/2787061961" target="_blank" rel="noopener noreferrer">用户要求逐项覆盖与证据边界</a><span>历史方案或证据索引，不等于当前上线与验收。</span></li><li><a href="https://km.sankuai.com/collabpage/2786653620" target="_blank" rel="noopener noreferrer">记忆、学习、进化、工具与搜索：只读架构审计</a><span>历史方案或证据索引，不等于当前上线与验收。</span></li><li><a href="https://km.sankuai.com/collabpage/2786563904" target="_blank" rel="noopener noreferrer">四目标与当前代码对照：2026-09-11</a><span>历史方案或证据索引，不等于当前上线与验收。</span></li><li><a href="https://km.sankuai.com/collabpage/2786399044" target="_blank" rel="noopener noreferrer">部署验收真实原题</a><span>历史方案或证据索引，不等于当前上线与验收。</span></li><li><a href="https://km.sankuai.com/collabpage/2787301488" target="_blank" rel="noopener noreferrer">军团理念落地与原生能力审计（2026-09-11）</a><span>历史方案或证据索引，不等于当前上线与验收。</span></li><li><a href="https://km.sankuai.com/collabpage/2786892366" target="_blank" rel="noopener noreferrer">collaboration-research-sources-2026-09-11</a><span>历史方案或证据索引，不等于当前上线与验收。</span></li><li><a href="https://km.sankuai.com/collabpage/2786782785" target="_blank" rel="noopener noreferrer">artifact-ecosystem-intake-2026-09-11</a><span>历史方案或证据索引，不等于当前上线与验收。</span></li><li><a href="https://km.sankuai.com/collabpage/2786703046" target="_blank" rel="noopener noreferrer">first-value-research-sources-2026-09-11</a><span>历史方案或证据索引，不等于当前上线与验收。</span></li><li><a href="https://km.sankuai.com/collabpage/2787391238" target="_blank" rel="noopener noreferrer">holyshit-reference-sources-2026-09-11</a><span>历史方案或证据索引，不等于当前上线与验收。</span></li><li><a href="https://km.sankuai.com/collabpage/2786329969" target="_blank" rel="noopener noreferrer">holyshit-thread-index-2026-09-11</a><span>历史方案或证据索引，不等于当前上线与验收。</span></li><li><a href="https://km.sankuai.com/collabpage/2786952046" target="_blank" rel="noopener noreferrer">orca-review-sources-2026-09-13</a><span>历史方案或证据索引，不等于当前上线与验收。</span></li><li><a href="https://km.sankuai.com/collabpage/2787361143" target="_blank" rel="noopener noreferrer">plan-reconciliation-inventory-2026-09-11</a><span>历史方案或证据索引，不等于当前上线与验收。</span></li><li><a href="https://km.sankuai.com/collabpage/2788370799" target="_blank" rel="noopener noreferrer">觅游社区与云军团：面向用户的定位与表达</a><span>历史方案或证据索引，不等于当前上线与验收。</span></li><li><a href="https://km.sankuai.com/collabpage/2787333297" target="_blank" rel="noopener noreferrer">觅游AI原生社区：以AI与Harness协作为关系基础</a><span>历史方案或证据索引，不等于当前上线与验收。</span></li><li><a href="https://km.sankuai.com/collabpage/2787023932" target="_blank" rel="noopener noreferrer">觅游创作经济循环：从成熟作品试玩，到私有云空间与AI持续创作</a><span>历史方案或证据索引，不等于当前上线与验收。</span></li><li><a href="https://km.sankuai.com/collabpage/2788027385" target="_blank" rel="noopener noreferrer">AgentGit源码研究：觅游协作现场、版本交接与接入方案</a><span>历史方案或证据索引，不等于当前上线与验收。</span></li><li><a href="https://km.sankuai.com/collabpage/2786739028" target="_blank" rel="noopener noreferrer">AgentGit研究证据：固定源码、测试范围与Meyo对照</a><span>历史方案或证据索引，不等于当前上线与验收。</span></li><li><a href="https://km.sankuai.com/collabpage/2787157648" target="_blank" rel="noopener noreferrer">AgentGit独立核查：六家兼容与多人同会话的真实边界</a><span>历史方案或证据索引，不等于当前上线与验收。</span></li></ul></details>

@@ -1,0 +1,798 @@
+{
+  "title": "Auto能力的机制、动作与边界",
+  "scope": "只读当前B源码、指定历史Git源码及三份既有trace；不调用业务接口，不重算GAIA历次成绩",
+  "sourceRevision": "c09574ea775296070a74d16faeab70fe0a75056a",
+  "currentAutoRole": "capability_not_answer_member",
+  "sourceCountAudit": {
+    "scope_files": [
+      "seed-users-system/v11/evolution/search_fabric.py",
+      "seed-users-system/v11/evolution/search_fabric_verticals.py"
+    ],
+    "method": "AST读取注册字典键，不导入模块",
+    "base_adapter_names": [
+      "ddgs",
+      "brave_free",
+      "wikipedia",
+      "sonar",
+      "sonar_pro",
+      "tavily",
+      "aisa_smart",
+      "aisa_verity",
+      "anysearch"
+    ],
+    "vertical_adapter_names": [
+      "xiaohongshu",
+      "reddit",
+      "twitter",
+      "baidu",
+      "hackernews",
+      "pubchem",
+      "wikipedia_links",
+      "openalex",
+      "arxiv",
+      "crossref",
+      "pubmed",
+      "gdelt",
+      "courtlistener",
+      "wikidata",
+      "wayback_cdx",
+      "wayback_cdx_date",
+      "archive_today",
+      "musicbrainz",
+      "blogspot_feed",
+      "browser_history",
+      "panel_search",
+      "sh_web",
+      "sh_smart",
+      "sh_scholar",
+      "sh_verity"
+    ],
+    "distinct_declared_adapter_names": [
+      "aisa_smart",
+      "aisa_verity",
+      "anysearch",
+      "archive_today",
+      "arxiv",
+      "baidu",
+      "blogspot_feed",
+      "brave_free",
+      "browser_history",
+      "courtlistener",
+      "crossref",
+      "ddgs",
+      "gdelt",
+      "hackernews",
+      "musicbrainz",
+      "openalex",
+      "panel_search",
+      "pubchem",
+      "pubmed",
+      "reddit",
+      "sh_scholar",
+      "sh_smart",
+      "sh_verity",
+      "sh_web",
+      "sonar",
+      "sonar_pro",
+      "tavily",
+      "twitter",
+      "wayback_cdx",
+      "wayback_cdx_date",
+      "wikidata",
+      "wikipedia",
+      "wikipedia_links",
+      "xiaohongshu"
+    ],
+    "declared_count": 34,
+    "additional_conditional_names": [
+      "browser_bing"
+    ],
+    "potential_count_if_conditional_registration_succeeds": 35,
+    "default_AISA_switch_disabled_entries": [
+      "sonar",
+      "sonar_pro",
+      "aisa_smart",
+      "aisa_verity"
+    ],
+    "actual_live_registered_count": null,
+    "actual_current_available_count": null,
+    "aggregator_internal_engines_not_added": true,
+    "other_registries_not_counted_as_same_namespace": true,
+    "remote_source_count_in_selected_old_trace": null,
+    "result_source_labels_in_T3": [
+      "tavily"
+    ],
+    "exact_website_hostnames_in_T3": 27,
+    "limitations": [
+      "只有声明数量可静态确定；不能将34+1说成35个独立底层引擎全部可用",
+      "结果source标签、选源意图与真实远程请求不是同一证据层",
+      "27是返回URL的精确hostname去重，不是注册域名/eTLD+1统计，也不是搜索源数"
+    ]
+  },
+  "capabilities": [
+    {
+      "id": "C1",
+      "title": "多源并行检索",
+      "original_problem": "单一检索入口覆盖不全，一条慢通道拖住后续工作。",
+      "mechanism": "SearchFabric按源描述/可用预算选子集并发；保留部分结果、URL去重，缓存与错误标记分开；Auto薄路径优先执行模型原查询，不自动改写成更多查询。",
+      "source_refs": [
+        "S01",
+        "S02",
+        "S03",
+        "S04"
+      ],
+      "trace_refs": [
+        "T1",
+        "T2",
+        "T3"
+      ],
+      "trace_interpretation": "T1/T2证明旧Auto多次调用检索；T3是跨Harness共享CLI结果，不能冒充Auto所有源实测。",
+      "user_benefit": "机制上增加找到贴题资料的机会，减少重复检索与单源故障影响。",
+      "benefit_status": "机制解释，非质量提升幅度实证",
+      "cost_and_limits": [
+        "34个注册入口声明＋1个条件入口不等于实际可用数；聚合器内子源不能重复相加",
+        "基础映射中4个AISA相关入口默认受开关关闭；依赖、配额、许可与网络另证",
+        "缓存/并发减少重复等待的可能性不等于固定时延保证，慢源与噪声也会抬成本"
+      ],
+      "current_legion_sharing": "legion_tool已有共享web_search及SearchFabric调用代码；没有在本轮验证线上源可用性，也不保证各入口自动加载同一整套注册项。"
+    },
+    {
+      "id": "C2",
+      "title": "搜索蜂群：分职责，不是五家投票",
+      "original_problem": "一次检索容易只收集支持第一猜测的材料，遗漏原文和反例。",
+      "mechanism": "旧模块固定Planner、Scout、Evidence、Skeptic、Judge职责；真正并发的是三条检索线。已有种子证据时首跳可只跑反例线，避免重复。证据线可对候选URL深读。",
+      "source_refs": [
+        "S05",
+        "S06"
+      ],
+      "trace_refs": [
+        "T1",
+        "T2"
+      ],
+      "trace_interpretation": "这两份旧Auto轨迹中没有run_deep_research_swarm工具记录；本轮确认源码分工，未找到足以确认此蜂群运行及增益的独立旧回执。",
+      "user_benefit": "机制上把发现线索、核原始来源与主动反证互补，减少单一视角。",
+      "benefit_status": "机制解释，蜂群效果待验证",
+      "cost_and_limits": [
+        "五角色不等于五个不同模型/品牌Harness",
+        "旧封装有委托预算和固定职责；多路查询及深读可放大耗时、调用费用、重复信息",
+        "多数同意不等于事实正确，不能变成所有任务的必经质量门"
+      ],
+      "current_legion_sharing": "原工具可由目录发现，capstack通用桥受模块/依赖/绑定就绪限制；未证明当前全军团可直接运行蜂群。Auto仍不接成员单。"
+    },
+    {
+      "id": "C3",
+      "title": "多跳：让新线索决定下一问",
+      "original_problem": "答案跨资料分散，单次搜索结果只包含关系的一段。",
+      "mechanism": "_hop_judge读取累计支持与反证，返回gap_summary和next_queries；下一跳执行这些查询，记录queries/new_hits/stop_reason。证据充分、无后续查询、连续零新增或达到上限可结束。",
+      "source_refs": [
+        "S05",
+        "S06"
+      ],
+      "trace_refs": [
+        "T1",
+        "T2"
+      ],
+      "trace_interpretation": "T1的13次run_parallel_search只是调用数，没有可绑定的蜂群hops回执，不能写成13跳。",
+      "user_benefit": "机制上追踪尚缺的关系与约束，而非反复换同义词。",
+      "benefit_status": "源码已证机制；真实多跳是否提高交付需按原trace核验",
+      "cost_and_limits": [
+        "旧入口为一般3/重型5跳上限，不是每题必须跑满，也不是无限智能深挖",
+        "HopJudge调用失败的fallback可能sufficient=true；停了不等于证据真的充分",
+        "旧代码仍有规则分支与模板，不能包装为完全无控制的通用机制"
+      ],
+      "current_legion_sharing": "与蜂群同属依赖条件下可复用的旧工具实现，非当前默认任务流程；无本轮共享运行证明。"
+    },
+    {
+      "id": "C4",
+      "title": "用工具回到原件、把结果算出来",
+      "original_problem": "搜索摘要无法替代看原图、读文件、程序计算与执行验证。",
+      "mechanism": "统一工具注册后由模型发tool_calls，结果回到消息与证据；可调脚本、符号计算、抓取、图像/OCR等。",
+      "source_refs": [
+        "S07",
+        "S08",
+        "S15",
+        "S17",
+        "S18"
+      ],
+      "trace_refs": [
+        "T1",
+        "T2"
+      ],
+      "trace_interpretation": "T1有17次shell、5次抓取、1次sympy；T2有8次图像读取与2次OCR记录，只证调用/回执，不证全部成功或正确。",
+      "user_benefit": "让推导可复查，降低仅凭语言猜原始数据的风险。",
+      "benefit_status": "旧调用事实＋机制解释，非本轮效果实验",
+      "cost_and_limits": [
+        "工具也可能读错、算错、依赖未就绪，输出必须回到原任务核对",
+        "注册、runnable标记及文件存在不等于已经正确执行；权限边界不可绕"
+      ],
+      "current_legion_sharing": "部分抓取工具直接映射legion_tool，能力工具走capstack；未适配项只返回源码/不可运行，不再派给已退役Auto。"
+    },
+    {
+      "id": "C5",
+      "title": "画像与本轮意图：找对背景而不覆盖原题",
+      "original_problem": "同一句话在不同用户处境下所需结果不同，机械通用回答容易错配。",
+      "mechanism": "历史profile按标识取角色/痛点/关注；_build_user_context把它与当前意图组成辅助块；run_auto_agent在原问题之后注入，再交给引擎。",
+      "source_refs": [
+        "S09",
+        "S10"
+      ],
+      "trace_refs": [
+        "T1",
+        "T2"
+      ],
+      "trace_interpretation": "两份所读checkpoint没有足以确认本次画像命中/注入/影响决策的标志；这不证明所有历史任务都没画像。",
+      "user_benefit": "机制上减少重复解释、避免忽略已有处境；画像只是辅助假设。",
+      "benefit_status": "历史/现存拼接源码已证，个性化收益待验证",
+      "cost_and_limits": [
+        "角色推测可能错、过时或标识不匹配，原题与授权范围优先",
+        "有role_guess或user_profile_hit字段并不证明识别正确",
+        "旧user_profile_store源码从Git读取，当前B对应文件不在，不能说旧链仍在线"
+      ],
+      "current_legion_sharing": "不将旧Auto画像实现说成当前军团共享画像服务；本轮未验证替代链或线上个性化。"
+    },
+    {
+      "id": "C6",
+      "title": "相关经验召回：提炼后的记忆不等于向量搜索",
+      "original_problem": "每次从长日志重新理解任务，容易重复犯错或套用不适用经验。",
+      "mechanism": "历史memory_layers.recall查全局＋本人层，按词/标签重叠、依赖条件与时间排序，另有默认关闭的模型复筛；当前legion_memory按词和中文二元片段匹配，再用新鲜度/采用信号微调并按类型/归属过滤。",
+      "source_refs": [
+        "S09",
+        "S11",
+        "S12",
+        "S13"
+      ],
+      "trace_refs": [
+        "T1",
+        "T2"
+      ],
+      "trace_interpretation": "本轮未找到可绑定的经验实际采用与结果改善证据；0条显式recall工具记录不排除前置注入未记在该checkpoint。",
+      "user_benefit": "把相关方法交给当前执行者，减少重复整理；不是自动把旧答案当真。",
+      "benefit_status": "源码路径已证，实际收益待验证",
+      "cost_and_limits": [
+        "旧模块名叫语义记忆，基础实现实际是关键词召回，不是embedding",
+        "旧memory_layers文件当前B不存在；现军团legion_memory是另一实现，不能混称同一条已生效链",
+        "共享类型与归属过滤不是所有历史资料都自动可分享的许可"
+      ],
+      "current_legion_sharing": "legion_core已有历史经验搜索→参考文本注入的实际代码；效果与隐私治理仍须具体记录，未验证当前在线命中。"
+    },
+    {
+      "id": "C7",
+      "title": "找工具也要召回：词项、可选语义与可执行性分开",
+      "original_problem": "工具名字很多，用户说法又可能与函数名不同，相关能力会被埋没。",
+      "mechanism": "legion_tool对描述/名称做BM25排序；tool_semantic_index可在明确开关与完整本地模型/缓存满足时给多语言向量分。默认不开本地向量；字符n-gram回退不当跨语言语义，当前混排给该回退零语义权重。",
+      "source_refs": [
+        "S14",
+        "S15",
+        "S17"
+      ],
+      "trace_refs": [],
+      "trace_interpretation": "未执行scores/search或加载模型；这里只核当前源码路径，不冒称当前语义索引已在线。",
+      "user_benefit": "先把可相关、可执行的候选展示出来，由原生执行者决定用哪个，避免全清单挤占上下文。",
+      "benefit_status": "机制解释，不是检索准确率实测",
+      "cost_and_limits": [
+        "词项匹配有同义词盲区；向量也可能召回不适用工具，加载/计算有成本",
+        "不因名字含semantic就称智能匹配已生效，也不能把找到工具当成功执行"
+      ],
+      "current_legion_sharing": "属于当前共享工具发现代码，不依赖Auto作为答题者；实际后端必须读取本次返回的semantic_backend与调用回执。"
+    },
+    {
+      "id": "C8",
+      "title": "最后一环是消费：搜到、注入、采用、改善各算各的",
+      "original_problem": "资料与经验已经落盘，却没有进入下一步，或被错误总结/收尾丢掉。",
+      "mechanism": "搜索命中按URL去重后写证据/事件与checkpoint；蜂群完整结果保留于session，并将带来源结论和缺口传给后续；ToolMessage及经验prelude交给执行者；反例检索另返回冲突/不足。",
+      "source_refs": [
+        "S01",
+        "S06",
+        "S07",
+        "S09",
+        "S12",
+        "S13",
+        "S19"
+      ],
+      "trace_refs": [
+        "T1",
+        "T2"
+      ],
+      "trace_interpretation": "T1/T2有工具/证据/交卷回执，但不能据字段存在证明资料已用于正确交付。",
+      "user_benefit": "让准备工作成为下一步可用事实，而非只积累资料；错误与不确定性保留下来可继续处理。",
+      "benefit_status": "部分旧回执事实＋机制解释，净收益未测",
+      "cost_and_limits": [
+        "recalled计数只说明检索，注入只说明交给模型；mark_adopted仍是采用上报，不替代实际成果差异",
+        "反例工具含模板和阈值，不能上升为所有工作台统一裁判",
+        "模型可能忽略或误用背景，资料多也可能增加噪声和耗时"
+      ],
+      "current_legion_sharing": "当前有参考注入与采用上报入口；旧Auto验证器未证已独立共享。必须区分每一次是否被消费与是否让结果更好。"
+    }
+  ],
+  "technicalSources": {
+    "S01": {
+      "path": "seed-users-system/qa_system/agent/qa_tool_impls.py",
+      "symbols": "t_run_parallel_search / _thin_direct_search / _publish_search_hits",
+      "line_ranges": [
+        {
+          "start": 383,
+          "end": 628
+        }
+      ],
+      "revision": "B_working_tree",
+      "sha256": "a6ed625a7b3b3f0a917ef5862e66da4e84e4a9378a3a575f1885056e34b9ae46",
+      "current_file_exists": true
+    },
+    "S02": {
+      "path": "seed-users-system/v11/evolution/search_fabric.py",
+      "symbols": "SOURCE_REGISTRY / _SOURCE_CALLABLES",
+      "line_ranges": [
+        {
+          "start": 58,
+          "end": 182
+        },
+        {
+          "start": 949,
+          "end": 966
+        }
+      ],
+      "revision": "B_working_tree",
+      "sha256": "ffd45a7383cb7017586413439d0045e050926e5b5fdff7980a4b83f2f356ec6b",
+      "current_file_exists": true
+    },
+    "S03": {
+      "path": "seed-users-system/v11/evolution/search_fabric_verticals.py",
+      "symbols": "_VERTICAL_SOURCES / auto_register_all",
+      "line_ranges": [
+        {
+          "start": 1722,
+          "end": 2224
+        },
+        {
+          "start": 2442,
+          "end": 2480
+        }
+      ],
+      "revision": "B_working_tree",
+      "sha256": "196a2e2eb5be64c1fb3da0cb97b44ab5dfcd14f2c79f2dfd6808c7816b857181",
+      "current_file_exists": true
+    },
+    "S04": {
+      "path": "seed-users-system/v11/evolution/search_fabric.py",
+      "symbols": "_route_query / SearchFabric.search / _fanout_search / _call_source",
+      "line_ranges": [
+        {
+          "start": 979,
+          "end": 1041
+        },
+        {
+          "start": 1186,
+          "end": 1365
+        },
+        {
+          "start": 1367,
+          "end": 1508
+        }
+      ],
+      "revision": "B_working_tree",
+      "sha256": "ffd45a7383cb7017586413439d0045e050926e5b5fdff7980a4b83f2f356ec6b",
+      "current_file_exists": true
+    },
+    "S05": {
+      "path": "seed-users-system/v11/evolution/deep_research_swarm.py",
+      "symbols": "_plan / _run_one_hop / _hop_judge / run_five_agent_research",
+      "line_ranges": [
+        {
+          "start": 229,
+          "end": 254
+        },
+        {
+          "start": 291,
+          "end": 415
+        },
+        {
+          "start": 1074,
+          "end": 1268
+        },
+        {
+          "start": 1285,
+          "end": 1364
+        }
+      ],
+      "revision": "B_working_tree",
+      "sha256": "68e1bc23a00b6a64d3cf5746e7670e7f01ff1e5e5b632296b34e1549cfa0078f",
+      "current_file_exists": true
+    },
+    "S06": {
+      "path": "seed-users-system/qa_system/agent/qa_tool_impls.py",
+      "symbols": "t_run_deep_research_swarm",
+      "line_ranges": [
+        {
+          "start": 631,
+          "end": 729
+        }
+      ],
+      "revision": "B_working_tree",
+      "sha256": "a6ed625a7b3b3f0a917ef5862e66da4e84e4a9378a3a575f1885056e34b9ae46",
+      "current_file_exists": true
+    },
+    "S07": {
+      "path": "seed-users-system/qa_system/agent/native_agent_loop.py",
+      "symbols": "_run_tool / _invoke_thin_once",
+      "line_ranges": [
+        {
+          "start": 719,
+          "end": 733
+        },
+        {
+          "start": 4300,
+          "end": 4312
+        },
+        {
+          "start": 4432,
+          "end": 4442
+        }
+      ],
+      "revision": "B_working_tree",
+      "sha256": "d9b29f1ff0c3b3bc4bc2b830da5b6835febb7909c7e27a86025e44e00c3cb2fe",
+      "current_file_exists": true
+    },
+    "S08": {
+      "path": "seed-users-system/qa_system/agent/qa_tools_registry.py",
+      "symbols": "register_tool / get_all_tools",
+      "line_ranges": [
+        {
+          "start": 38,
+          "end": 65
+        },
+        {
+          "start": 81,
+          "end": 107
+        }
+      ],
+      "revision": "B_working_tree",
+      "sha256": "0116720b50e29080d33d1cb480134878bd18de3c8600f3e8f368332189f1174c",
+      "current_file_exists": true
+    },
+    "S09": {
+      "path": "seed-users-system/qa_system/agent/qa_auto_agent.py",
+      "symbols": "_recall_lessons / _build_user_context / recall_experience / run_auto_agent",
+      "line_ranges": [
+        {
+          "start": 1380,
+          "end": 1409
+        },
+        {
+          "start": 1657,
+          "end": 1731
+        },
+        {
+          "start": 2137,
+          "end": 2154
+        },
+        {
+          "start": 9404,
+          "end": 9468
+        }
+      ],
+      "revision": "B_working_tree",
+      "sha256": "128c3923c47aade23490e67f42e74de645884c4aab622feb93c1d0e4227ac40d",
+      "current_file_exists": true
+    },
+    "S10": {
+      "path": "seed-users-system/v11/evolution/user_profile_store.py",
+      "symbols": "get",
+      "line_ranges": [
+        {
+          "start": 130,
+          "end": 152
+        }
+      ],
+      "revision": "a495e9d1208a6eef0794d339887251680ee6067c",
+      "sha256": "09ebf5ff42fb576884901557c99064ceeb4789ce5baae85985699021afac79d5",
+      "current_file_exists": false
+    },
+    "S11": {
+      "path": "seed-users-system/v11/evolution/memory_layers.py",
+      "symbols": "recall",
+      "line_ranges": [
+        {
+          "start": 185,
+          "end": 279
+        }
+      ],
+      "revision": "a495e9d1208a6eef0794d339887251680ee6067c",
+      "sha256": "8a35a9c45f5b7f696b741fc782d0b21428d6bb81ea8e996b5c9b1c0ec60f801d",
+      "current_file_exists": false
+    },
+    "S12": {
+      "path": "release/legion-service/legion_memory.py",
+      "symbols": "_score / _visible_to / search / mark_adopted",
+      "line_ranges": [
+        {
+          "start": 154,
+          "end": 249
+        },
+        {
+          "start": 272,
+          "end": 288
+        }
+      ],
+      "revision": "B_working_tree",
+      "sha256": "6b9aef9b73a9ae65540ca3b283fe5892d95824cf201dcf3c4a9f501b70b65581",
+      "current_file_exists": true
+    },
+    "S13": {
+      "path": "release/legion-service/legion_core.py",
+      "symbols": "_recall_experience and prelude consumer",
+      "line_ranges": [
+        {
+          "start": 4151,
+          "end": 4168
+        },
+        {
+          "start": 8956,
+          "end": 8990
+        }
+      ],
+      "revision": "B_working_tree",
+      "sha256": "d3f0cd8057e71357cfe3449caccd7c09164ebf869a6dcae50079da64265a683d",
+      "current_file_exists": true
+    },
+    "S14": {
+      "path": "release/legion-service/tool_semantic_index.py",
+      "symbols": "_char_vector / _cached_embedding_scores / scores",
+      "line_ranges": [
+        {
+          "start": 29,
+          "end": 55
+        },
+        {
+          "start": 58,
+          "end": 77
+        },
+        {
+          "start": 114,
+          "end": 119
+        }
+      ],
+      "revision": "B_working_tree",
+      "sha256": "1ea6d92a16ca85cbb2cba80beca096a6c01c843b4a2f97b16faac6358ce5f6ce",
+      "current_file_exists": true
+    },
+    "S15": {
+      "path": "release/legion-service/legion_tool.py",
+      "symbols": "search ranking / _run_web_search / auto_tool dispatch",
+      "line_ranges": [
+        {
+          "start": 156,
+          "end": 190
+        },
+        {
+          "start": 577,
+          "end": 648
+        },
+        {
+          "start": 1368,
+          "end": 1425
+        }
+      ],
+      "revision": "B_working_tree",
+      "sha256": "d85583d5b124599bd440ccc19ecc99cb91d5b1795f56bf97698f3dee702b5507",
+      "current_file_exists": true
+    },
+    "S16": {
+      "path": "release/legion-service/harness_manifest.json",
+      "symbols": "auto role=capability",
+      "line_ranges": [
+        {
+          "start": 39,
+          "end": 62
+        }
+      ],
+      "revision": "B_working_tree",
+      "sha256": "da565783215e2943ab8043df1599d8f771930aaf4efbda15c74e0d197b366a5e",
+      "current_file_exists": true
+    },
+    "S17": {
+      "path": "release/legion-service/toolbox.py",
+      "symbols": "_AUTO_TOOL_FILES / factory discovery / bootstrap ASR entry",
+      "line_ranges": [
+        {
+          "start": 278,
+          "end": 294
+        },
+        {
+          "start": 340,
+          "end": 380
+        },
+        {
+          "start": 937,
+          "end": 944
+        }
+      ],
+      "revision": "B_working_tree",
+      "sha256": "e16a97c53d4fb8a7fb46e6628268183dce1ce8f2be93264bca853e937abbaad2",
+      "current_file_exists": true
+    },
+    "S18": {
+      "path": "release/legion-service/capstack_bridge.py",
+      "symbols": "_binding_ready / list_bridged_tools / call",
+      "line_ranges": [
+        {
+          "start": 77,
+          "end": 139
+        }
+      ],
+      "revision": "B_working_tree",
+      "sha256": "bcab53ce886b2ee04c5552b192781f19c1fa70cd70473fd8637859eeeffbe238",
+      "current_file_exists": true
+    },
+    "S19": {
+      "path": "seed-users-system/qa_system/agent/verify_as_search.py",
+      "symbols": "search_counter_examples / verify_by_search / arbitrate",
+      "line_ranges": [
+        {
+          "start": 103,
+          "end": 188
+        },
+        {
+          "start": 198,
+          "end": 218
+        }
+      ],
+      "revision": "B_working_tree",
+      "sha256": "b2a10f0ac8cf84b9a6cf315254f5898e8610c37cb81a8a93f0a3d960ea22a511",
+      "current_file_exists": true
+    }
+  },
+  "oldTraceFacts": {
+    "T1": {
+      "path": "seed-users-system/v11/.gaia_100miss_traces/ckpt_04a04a9b226c43fd.json",
+      "sha256": "99afbf4311babc98dd25125e31bbb8b147d315df79d6a4d75a2398d160ca607b",
+      "pointers": [
+        "$.tool_log",
+        "$.evidence_digest.preview",
+        "$.loop_events"
+      ],
+      "recorded_tool_count": 59,
+      "tool_name_counts": {
+        "judge_scope_and_triage": 5,
+        "search_github": 10,
+        "run_parallel_search": 13,
+        "build_answer_contract": 3,
+        "shell_exec": 17,
+        "fetch_url_smart": 5,
+        "finalize_answer": 4,
+        "request_more_budget": 1,
+        "sympy_calc": 1
+      },
+      "search_call_indices": [
+        4,
+        5,
+        8,
+        11,
+        14,
+        15,
+        16,
+        23,
+        37,
+        38,
+        40,
+        44,
+        46
+      ],
+      "swarm_tool_records": 0,
+      "explicit_recall_tool_records": 0,
+      "profile_or_recall_flags_present": [],
+      "evidence_preview_records": 8,
+      "preview_exact_hostname_count": 2,
+      "all_evidence_count_declared": 220,
+      "actual_adapter_or_remote_source_count": null,
+      "limits": [
+        "只统计旧工具轨迹，不重新判题或重算GAIA分数",
+        "缺少记录不能证明该功能从未运行；未发现足以确认画像/经验实际采用的回执",
+        "preview是截取，域名数不代表全部证据或搜索引擎数"
+      ]
+    },
+    "T2": {
+      "path": "seed-users-system/v11/.gaia_100miss_traces/ckpt_cca530fc405243b2.json",
+      "sha256": "195f6f11e67e7d169ee65f4628dc9c55ba362bd176760469339b8359e3599292",
+      "pointers": [
+        "$.tool_log",
+        "$.evidence_digest.preview",
+        "$.loop_events"
+      ],
+      "recorded_tool_count": 22,
+      "tool_name_counts": {
+        "see_image_vlm": 8,
+        "read_image_ocr": 2,
+        "document_wall": 1,
+        "shell_exec": 6,
+        "judge_scope_and_triage": 1,
+        "run_parallel_search": 3,
+        "finalize_answer": 1
+      },
+      "search_call_indices": [
+        14,
+        18,
+        20
+      ],
+      "swarm_tool_records": 0,
+      "explicit_recall_tool_records": 0,
+      "profile_or_recall_flags_present": [],
+      "evidence_preview_records": 8,
+      "preview_exact_hostname_count": 7,
+      "all_evidence_count_declared": 15,
+      "actual_adapter_or_remote_source_count": null,
+      "limits": [
+        "只统计旧工具轨迹，不重新判题或重算GAIA分数",
+        "缺少记录不能证明该功能从未运行；未发现足以确认画像/经验实际采用的回执",
+        "preview是截取，域名数不代表全部证据或搜索引擎数"
+      ]
+    },
+    "T3": {
+      "path": "harness_baselines/comparison/results/0ba7db6392f3_codex.json",
+      "sha256": "812ac6db33a3dad32012d8a5884e4d83f1a8feb71d48f78874a25d8f407076c1",
+      "scope": "另一个Harness使用同一搜索CLI的旧样本，不是Auto蜂群实测",
+      "pointers": [
+        "$.result.trace[6].item",
+        "$.result.trace[10].item",
+        "$.result.trace[13].item",
+        "$.result.trace[14].item",
+        "$.result.trace[15].item"
+      ],
+      "completed_search_CLI_records": 5,
+      "returned_rows_including_duplicates": 40,
+      "distinct_returned_urls": 33,
+      "distinct_result_source_labels": [
+        "tavily"
+      ],
+      "distinct_exact_website_hostnames": 27,
+      "observations": [
+        {
+          "trace_index": 6,
+          "exit_code": 0,
+          "returned_rows": 8,
+          "result_source_labels": [
+            "tavily"
+          ]
+        },
+        {
+          "trace_index": 10,
+          "exit_code": 0,
+          "returned_rows": 8,
+          "result_source_labels": [
+            "tavily"
+          ]
+        },
+        {
+          "trace_index": 13,
+          "exit_code": 0,
+          "returned_rows": 8,
+          "result_source_labels": [
+            "tavily"
+          ]
+        },
+        {
+          "trace_index": 14,
+          "exit_code": 0,
+          "returned_rows": 8,
+          "result_source_labels": [
+            "tavily"
+          ]
+        },
+        {
+          "trace_index": 15,
+          "exit_code": 0,
+          "returned_rows": 8,
+          "result_source_labels": [
+            "tavily"
+          ]
+        }
+      ],
+      "actual_remote_source_count": null,
+      "limits": [
+        "Tavily是返回记录的source标签，网站域名不是引擎",
+        "缺少逐适配器执行/缓存与网络请求账，不把5次CLI当5次远程检索，也不把27网站当27引擎",
+        "未引用原题、答案或评分"
+      ]
+    }
+  },
+  "rawPrivateContextPublished": false
+}

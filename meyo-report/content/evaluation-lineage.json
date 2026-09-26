@@ -1,0 +1,993 @@
+{
+  "title": "评测历史：问题、机制动作与证据边界",
+  "scope": {
+    "worktree": "meyo-upgrade-b-20260918",
+    "allowed_output_directory": "dev/boss-report-2026-09-23/mechanism-story-20260927",
+    "no_business_reruns": true,
+    "no_browser": true,
+    "no_product_changes": true,
+    "no_remote_writes": true,
+    "public_safe_summary_only": true
+  },
+  "fiveCriticalFacts": [
+    "61.2%＝旧pipeline 65题＋Auto在100错题中救回36题，再除165；不是Auto单次165题成绩。",
+    "118确有原文，但只明确附件救回12题，101→118的其余5题未知；154→157含定向返工与700→1200s加预算，不能全算某一机制的净提升。",
+    "164/165是历史累计峰值，后文明确清掉3道泄漏假胜改报161/165；现存“164条正确清单”只有163个独立qid，不能用文件行数证明164题通过。",
+    "两套公平40不能混：GAIA最难40题Auto旧分析为22/40；BrowseComp为2/40→6/40，且前后模型/预算与包装记录不一致，不能宣称公平提升3倍。",
+    "LoopArena 79/90是Controller分类决策，不是Auto/军团工程完成率；BC现存9/21是多轮曾对并集，也不是单发准确率。"
+  ],
+  "chartPolicy": {
+    "allow_single_curve": false,
+    "reason": "基线单发、错题救回、累计最好、清账更正、难题定向与控制器分类属于不同统计量；建议分类时间线/独立卡片。"
+  },
+  "milestones": [
+    {
+      "id": "gaia-pipeline65",
+      "title": "先把旧基线的分母说清楚",
+      "date": "2026-08-09 原文汇总；具体首轮执行日期未绑定",
+      "dataset": "GAIA 历史165题",
+      "denominator": 165,
+      "sample": "旧 pipeline 全题单；错题100进入后续重跑",
+      "model": "实际模型及逐题路由未由该报告绑定",
+      "version": "pipeline；确切代码版本未恢复",
+      "measurement_type": "旧基线自述",
+      "problem": "旧报告把不同执行路径放在同一能力结论下。",
+      "mechanism_action": "核对旧 pipeline 65 与重跑100的账本关系，不把它改写成新版单发基线。",
+      "result": {
+        "reported_hits": 65,
+        "reported_total": 165,
+        "percent": 39.3939,
+        "display": "旧 pipeline 65/165 ≈39.4%"
+      },
+      "evidence_levels": [
+        "E1"
+      ],
+      "source_refs": [
+        "KM-2780280477",
+        "KM-2779881874"
+      ],
+      "code_refs": [],
+      "trace_refs": [],
+      "causal_boundary": [
+        "39%是取整的旧路径成绩；不能视作相同模型、工具、时间预算下的受控基线。"
+      ],
+      "unknowns": [
+        "原始165题首轮结果文件与实际模型清单未在本轮恢复。"
+      ],
+      "single_run_curve_eligible": false
+    },
+    {
+      "id": "gaia-auto36",
+      "title": "给 Auto 真正的工具执行入口",
+      "date": "2026-08-09（正文）；两篇报告创建于2026-08-10",
+      "dataset": "GAIA 旧100错题；总账165题",
+      "denominator": 165,
+      "sample": "错题100：非附件70，附件跳过30；最终36救回、26答错、8超时",
+      "model": "原报告未绑定实际模型；不读取旧配置代替运行事实",
+      "version": "auto重型档；报告引用1499e130、18f4da0a、e4de9f62、d4482756，未恢复其历史源码",
+      "measurement_type": "错题救回与旧基线并集",
+      "problem": "pipeline 缺少 shell/API/脚本执行；异常兜底还曾读错 tool_log 字段。",
+      "mechanism_action": "切到 Auto 工具执行；summary/result 字段修复；归档每题 trace。视频工具引导减少错误抓取路线，但4题仍未答对。",
+      "result": {
+        "recovered": 36,
+        "miss_subset": 100,
+        "non_attachment_subset": 70,
+        "old_hits": 65,
+        "combined_hits": 101,
+        "combined_total": 165,
+        "percent": 61.2121,
+        "display": "65＋36＝101/165，61.2%；36/70＝51.4%是非附件错题救回率"
+      },
+      "evidence_levels": [
+        "E1"
+      ],
+      "source_refs": [
+        "KM-2780280477",
+        "KM-2780533291",
+        "KM-2779881874",
+        "REVIEW",
+        "T-LATE-RERUN-A",
+        "T-LATE-RERUN-B"
+      ],
+      "code_refs": [],
+      "trace_refs": [],
+      "causal_boundary": [
+        "不是 Auto 同版本一次独立重跑165题；11/25=44%是37题处理进度中的阶段样本，不与36/70并排当版本提升。",
+        "工程失败分类不证明移除失败后一定答对。F3工具路线改善不能说成视频正确率提高。"
+      ],
+      "unknowns": [
+        "完整 .gaia_auto_100miss_rerun.jsonl 未找到。现存同名trace目录的两份checkpoint是8月25–26日native记录，不能顶替8月9日的36次救回证据。"
+      ],
+      "single_run_curve_eligible": false
+    },
+    {
+      "id": "gaia-118",
+      "title": "附件先从“拿不到”变成“能读取”",
+      "date": "8月上旬阶段值；原文“今日”未绑定日期，快照修改至2026-08-17",
+      "dataset": "GAIA 历史165题",
+      "denominator": 165,
+      "sample": "旧101题累计基础上继续救回；逐题增量名单未恢复",
+      "model": "未知",
+      "version": "fetch_gaia_file / 附件本地化；具体提交未绑定",
+      "measurement_type": "累计阶段自述",
+      "problem": "题面只有附件名，受限数据集访问与本地资料缺失使附件题被跳过。",
+      "mechanism_action": "补齐附件访问与下载入口；把文件交给表格、PDF、图像与音频工具。",
+      "result": {
+        "reported_hits": 118,
+        "reported_total": 165,
+        "percent": 71.5152,
+        "reported_attachment_recovered": 12,
+        "display": "118/165＝71.5%；同文称附件已提升12题"
+      },
+      "evidence_levels": [
+        "E1"
+      ],
+      "source_refs": [
+        "KM-2778375484",
+        "KM-2781947413"
+      ],
+      "code_refs": [],
+      "trace_refs": [],
+      "causal_boundary": [
+        "101→118共17题，但原文只明确附件贡献12题；余下5题不能臆造归因。",
+        "该文还混入更晚92.7%自报表；标题日期不能充当118的精确跑批日。"
+      ],
+      "unknowns": [
+        "118名单、12道附件题逐题前后trace、实际模型及预算均未恢复。"
+      ],
+      "single_run_curve_eligible": false
+    },
+    {
+      "id": "gaia-130-correction",
+      "title": "先修“曾经答对”的记账资格",
+      "date": "2026-08-10（周报正文）；另段落把清账并入8月9日，保留日期冲突",
+      "dataset": "GAIA 历史165题",
+      "denominator": 165,
+      "sample": "pipeline OR auto 去重；曾报152，收紧可信来源后130",
+      "model": "未知；旧各轮可能混用",
+      "version": "ever_correct来源收紧；附件包38份、recursion_limit 70→130",
+      "measurement_type": "记账更正＋累计救回，不能合并为纯能力Δ",
+      "problem": "旧 ever_correct 会把不可信来源计为正确；缺附件与递归上限同时影响交卷。",
+      "mechanism_action": "只承认可信结果来源，按题去重；补附件入口并提高深题递归预算。",
+      "result": {
+        "retracted_hits": 152,
+        "corrected_hits": 130,
+        "total": 165,
+        "percent": 78.7879,
+        "display": "152→130是清账；101→130是另一个累计救回描述"
+      },
+      "evidence_levels": [
+        "E1"
+      ],
+      "source_refs": [
+        "KM-2779630806"
+      ],
+      "code_refs": [],
+      "trace_refs": [],
+      "causal_boundary": [
+        "下降22题是纠错，不是模型退化；“新增29题”不能都归给附件或某一预算改动。",
+        "该周报151/153/130的日期排序和概述存在交错，不拼成连续单发成绩线。"
+      ],
+      "unknowns": [
+        "152污染项列表与130可信项全量账本缺失；各动作净贡献未隔离。"
+      ],
+      "single_run_curve_eligible": false
+    },
+    {
+      "id": "gaia-154",
+      "title": "视觉题从粗读走向可计算的结构",
+      "date": "2026-08-13（周报）",
+      "dataset": "GAIA 历史165题",
+      "denominator": 165,
+      "sample": "长期错题定向返工；非随机新样本",
+      "model": "周报泛称Claude/GPT/Gemini多模型；逐题实际模型未知",
+      "version": "多空间访问、几何闭合、视觉局部读取；当前实现见CODE-GEOMETRY",
+      "measurement_type": "累计最好成绩自述",
+      "problem": "图像数字漏读、几何结构不闭合；机制能运转仍不等于能解剩余题。",
+      "mechanism_action": "让图像输出可检查的边/顶点，利用闭合约束与精确计算；接通进化和回测。",
+      "result": {
+        "reported_hits": 154,
+        "reported_total": 165,
+        "percent": 93.3333,
+        "display": "154/165＝93.3%；同期11错题的自进化尝试仍报告0题救回"
+      },
+      "evidence_levels": [
+        "E1",
+        "E3"
+      ],
+      "source_refs": [
+        "KM-2779630806"
+      ],
+      "code_refs": [
+        "CODE-GEOMETRY"
+      ],
+      "trace_refs": [
+        "T-GEOMETRY"
+      ],
+      "causal_boundary": [
+        "现存几何成功trace在8月14日，证明该工具后来真实使用，不单独证明8月13日154的每个增量。",
+        "不采纳“只剩11题就是能力上限”的永久结论；后续记录已推翻。"
+      ],
+      "unknowns": [
+        "完整154题版本绑定及前一轮逐题成绩缺失。"
+      ],
+      "single_run_curve_eligible": false
+    },
+    {
+      "id": "gaia-157",
+      "title": "拆小视觉读数，并让深多跳有时间走完",
+      "date": "2026-08-14（周报及几何/多跳trace）；分数图存档为8月15日",
+      "dataset": "GAIA 历史165题；定向4错题",
+      "denominator": 165,
+      "sample": "4道定向返工报告3救回：分数图9318445、多边形6359、多跳872bfbb；NatGeo在该小实验中未过，后续再过",
+      "model": "实际逐题模型未知；视觉调用含VLM/异构读取",
+      "version": "v99r意图补救、v99t中途模态纠偏；多跳预算700→1200s",
+      "measurement_type": "累计3题增量＋定向复测",
+      "problem": "分数图整图读取漏样本；几何视觉误读；多跳链在700s内走不完。",
+      "mechanism_action": "分数图先按像素切格再逐格读取，Fraction精算；几何闭合＋鞋带公式；意图自检输出造工具/换路线建议；多跳增加到1200s。",
+      "result": {
+        "reported_before": 154,
+        "reported_after": 157,
+        "total": 165,
+        "percent": 95.1515,
+        "targeted_rescue": "3/4（历史自述）",
+        "display": "154→157；定向4题救回3题，非泛化75%"
+      },
+      "evidence_levels": [
+        "E1",
+        "E3"
+      ],
+      "source_refs": [
+        "KM-2779630806"
+      ],
+      "code_refs": [
+        "CODE-AUTO",
+        "CODE-GEOMETRY"
+      ],
+      "trace_refs": [
+        "T-GEOMETRY",
+        "T-FRACTION",
+        "T-MULTIHOP"
+      ],
+      "causal_boundary": [
+        "多跳同时换策略和加500s预算，不是同预算算法单因果。",
+        "几何存档含9条工具记录：闭合与面积39、独立计算、最终交付均在；只能确认此局过程。",
+        "分数图“3次1对→5/5”及4题3救回是报告所述；未找到五份独立对应运行，不能升级为本轮复现。"
+      ],
+      "unknowns": [
+        "多数旧失败trace缺失，完整逐题前后配对不足；当前源码不等于v99r/v99t历史字节。"
+      ],
+      "single_run_curve_eligible": false
+    },
+    {
+      "id": "gaia-video",
+      "title": "先纠正“该看视频却只搜文字”，再谈答对",
+      "date": "2026-08-14及8月24回顾；各成功记录不同步",
+      "dataset": "GAIA 定向多模态难题",
+      "denominator": null,
+      "sample": "NatGeo、视频读数、模糊墓碑等定向案例",
+      "model": "逐题实际视觉模型未绑定",
+      "version": "v99s/v99t；modality_recorrect 更新session.modality_needs",
+      "measurement_type": "行为改善与后续个案成功",
+      "problem": "开局被判为text后无法转向视频；取得帧也可能读数错误或过早放弃。",
+      "mechanism_action": "把模态纠偏写回共享现场，使后续真正调用视频帧/转录；局部放大、换来源、多模态核验。",
+      "result": {
+        "display": "NatGeo后续记录命中；Cheater先从0次视频调用变为真实调用，但当次仍可能超时/答错",
+        "not_a_dataset_score": true
+      },
+      "evidence_levels": [
+        "E1",
+        "E3"
+      ],
+      "source_refs": [
+        "KM-2779630806",
+        "KM-2781947413"
+      ],
+      "code_refs": [
+        "CODE-AUTO"
+      ],
+      "trace_refs": [
+        "T-NATGEO"
+      ],
+      "causal_boundary": [
+        "NatGeo现存8月14日trace有85条工具记录，含7次取帧、3次转录；这不能证明所有视频题稳定正确。",
+        "周报“8次”与括号列7+1+1不完全一致；本报告不用该数作为精确计数。",
+        "同一周报先称信息墙、后写新通过，说明是不同时间点，不可挑最乐观段落覆盖失败。"
+      ],
+      "unknowns": [
+        "0次→后续调用的同配置成对原trace未完整恢复。"
+      ],
+      "single_run_curve_eligible": false
+    },
+    {
+      "id": "gaia-164-161",
+      "title": "高分之后，反查成功记录有没有被污染",
+      "date": "2026-08-15报告峰值；2026-08-24周报回顾更正",
+      "dataset": "GAIA 历史165题",
+      "denominator": 165,
+      "sample": "累计曾对；不是一次性独立165题测试",
+      "model": "多轮模型/预算混用，未逐题恢复",
+      "version": "首胜快照win_ckpt、来源/泄漏清理、评分器修复",
+      "measurement_type": "峰值自述后更正",
+      "problem": "答案泄漏、空gold的降级回答误写正确、双键与后写覆盖会污染成功账。",
+      "mechanism_action": "保存首胜现场并核验成功来源；隔离标准答案，清掉被污染胜局；修复记忆身份与评分口径。",
+      "result": {
+        "peak_reported_hits": 164,
+        "corrected_reported_hits": 161,
+        "total": 165,
+        "peak_percent": 99.3939,
+        "corrected_percent": 97.5758,
+        "display": "曾报164/165＝99.4%；后文明确撤回3道泄漏假胜，改报161/165＝97.6%"
+      },
+      "evidence_levels": [
+        "E1",
+        "E2"
+      ],
+      "source_refs": [
+        "KM-2780834005",
+        "KM-2781947413",
+        "GAIA-CORRECT",
+        "EVIDENCE-README"
+      ],
+      "code_refs": [],
+      "trace_refs": [],
+      "causal_boundary": [
+        "164不能作为当前无污染单发准确率；161也仍是当时的累计自述，不是本轮重新判题。",
+        "本地gaia_correct_ledger实际164行、163个独立qid，NatGeo重复；不能拿行数替164题通过。",
+        "另有162/165、163/166等历史快照，分母与去重范围不一，不认定哪份代表“最新真实分”。"
+      ],
+      "unknowns": [
+        "三个被撤回胜局的完整原始污染/清理/干净复跑链未恢复；主gaia_ledger.jsonl在本工作区未找到。"
+      ],
+      "single_run_curve_eligible": false
+    },
+    {
+      "id": "bc-delivery",
+      "title": "找到了答案，交卷时却被换掉或丢掉",
+      "date": "2026-08-18至2026-08-19",
+      "dataset": "BrowseComp 小样本",
+      "denominator": null,
+      "sample": "Russell同题多轮与20题累计台账，不是全部BrowseComp",
+      "model": "longcat-2.0及Opus；旧号称longcat的若干run后来标为Opus/polluted",
+      "version": "42d56208、de77e2e5、da95c92d、d646232c（报告引用，历史提交未回放）",
+      "measurement_type": "机制个案＋累计最好成绩",
+      "problem": "正确候选因覆盖率0.10被换错；done-final为空；工具请求400；撞墙时只剩元评论。",
+      "mechanism_action": "补done-final、工具消息兼容；保留已有候选、低覆盖继续补证；收尾读取候选。",
+      "result": {
+        "reported_snapshot": "6/20=30% ever_correct",
+        "display": "交付修复有同题回正记录；不能说一次修复后整集30%或38%"
+      },
+      "evidence_levels": [
+        "E1",
+        "E2"
+      ],
+      "source_refs": [
+        "KM-2781326969",
+        "KM-2781448048",
+        "BC-LEDGER"
+      ],
+      "code_refs": [],
+      "trace_refs": [],
+      "causal_boundary": [
+        "Q1 v165c错→v165d对在现存账中都标polluted，不能包装成干净受控因果。",
+        "同题longcat的bc_vault失败、bc_allfix成功，之后bc_arch又失败，说明仍有波动。",
+        "400消失或非空交卷只是运行改善，不等于推理正确率提升。"
+      ],
+      "unknowns": [
+        "该阶段所有原tool_log与模型请求回执未完整重绑；周报38%不能与6/20作为单一同口径序列。"
+      ],
+      "single_run_curve_eligible": false
+    },
+    {
+      "id": "bc-ledger-audit",
+      "title": "把“跑对次数”和“曾经跑对的题数”分开",
+      "date": "账本last_updated对应2026-08-21；本轮只读重计",
+      "dataset": "BrowseComp 历史小样本",
+      "denominator": 21,
+      "sample": "当前账21题，110条attempt；含polluted及可能重复登记",
+      "model": "混合longcat/Opus/native标签，不是一配置",
+      "version": "多轮历史run_id合集",
+      "measurement_type": "旧账本累计重计",
+      "problem": "README、周报和现存账本并非同一快照。",
+      "mechanism_action": "按题计ever_correct，并与attempt数量分列；保留污染标记，不把择优档案视为单发测试。",
+      "result": {
+        "questions": 21,
+        "attempt_records": 110,
+        "ever_correct_questions": 9,
+        "correct_attempt_records": 33,
+        "display": "现存账9/21曾经答对，110条记录中33条标正确；不是单发42.9%"
+      },
+      "evidence_levels": [
+        "E2"
+      ],
+      "source_refs": [
+        "BC-LEDGER",
+        "EVIDENCE-README"
+      ],
+      "code_refs": [],
+      "trace_refs": [],
+      "causal_boundary": [
+        "README称8题、2164次等数字与现存JSON结构/计数不符，不能照搬。",
+        "同题不同run甚至同elapsed的记录可能重复，110不声称110次独立实验。",
+        "被保存的成功trace是挑过的，不能据此估计成功率。"
+      ],
+      "unknowns": [],
+      "single_run_curve_eligible": false
+    },
+    {
+      "id": "gaia-fair40",
+      "title": "难题单发低分，先查评分与实验条件",
+      "date": "2026-08-25",
+      "dataset": "GAIA 定向最难40题",
+      "denominator": 40,
+      "sample": "从Auto单发错题中按反复重跑次数挑40，不是随机抽样；指纹91ae647b770935e4",
+      "model": "报告：Auto opus-4.8；其他多家gpt-5.6-sol；CC混合，非同模型",
+      "version": "fact_hit/语义规范化、搜索落账修复；报告称墙钟1200s/格",
+      "measurement_type": "定向40题单发旧结果重计＋评分更正",
+      "problem": "粗糙匹配漏判格式/拼写等价；搜索写到备用账被误判零搜索；中途模型配置变化。",
+      "mechanism_action": "合并搜索证据来源，修复判分；对GAIA允许合法零搜索；明确模型不一致。",
+      "result": {
+        "auto_hits": 22,
+        "total": 40,
+        "percent": 55.0,
+        "exact_tagged": 18,
+        "semantic_tagged": 4,
+        "no_final": 12,
+        "other_harness_hits": {
+          "auto": {
+            "rows": 40,
+            "hits": 22
+          },
+          "codex": {
+            "rows": 40,
+            "hits": 33
+          },
+          "hermes": {
+            "rows": 40,
+            "hits": 25
+          },
+          "deepseek": {
+            "rows": 40,
+            "hits": 19
+          },
+          "cc": {
+            "rows": 40,
+            "hits": 19
+          },
+          "deepagents": {
+            "rows": 40,
+            "hits": 10
+          }
+        },
+        "display": "Auto 22/40＝55%；旧分析可重计，其中18 exact、4 semantic"
+      },
+      "evidence_levels": [
+        "E1",
+        "E2"
+      ],
+      "source_refs": [
+        "GAIA40-REPORT",
+        "GAIA40-ANALYSIS",
+        "GAIA40-MANIFEST"
+      ],
+      "code_refs": [],
+      "trace_refs": [],
+      "causal_boundary": [
+        "22/40不是从GAIA98%退化到55%，前者为专挑难题单发，后者曾对累计。",
+        "修判分带来的涨分不是解题能力新增；非同模型不能归因哪家Harness本体更强。",
+        "报告163/166、65/166与历史165分母冲突，且65/166不等于其写出的39.4%；不静默归一化。"
+      ],
+      "unknowns": [],
+      "single_run_curve_eligible": false
+    },
+    {
+      "id": "bc-fair40",
+      "title": "拆掉丢答案的环节，再核对改后记录",
+      "date": "2026-08-25基线；2026-08-26修复报告",
+      "dataset": "BrowseComp 公平40题（与GAIA40不同）",
+      "denominator": 40,
+      "sample": "同一BC40题单；指纹dec773637bb11267；两条命中案例可追旧包装记录",
+      "model": "基线报告称gpt-5.6-sol/1200s；clean汇总写opus-4.8/300s；latest包装又多写gpt-5.6-sol/1200s",
+      "version": "移除交卷阻断、模块单例、fresh session、干净收尾、软收敛提示、query去重",
+      "measurement_type": "前后旧结果＋配置不一致的修复报告",
+      "problem": "交卷门反复阻断，双导入分裂_SESSIONS，旧状态重新注入失效指令，收尾拿工具噪音当答案。",
+      "mechanism_action": "清理上述信息/交付链；将收敛做提示而非强制替模型答题。",
+      "result": {
+        "reported_before": 2,
+        "recounted_after": 6,
+        "total": 40,
+        "after_percent": 15.0,
+        "display": "2/40→6/40有旧报告及6条hit可重计，但不是已证同模型同预算提升3倍"
+      },
+      "evidence_levels": [
+        "E1",
+        "E2"
+      ],
+      "source_refs": [
+        "KM-2782569511",
+        "BC40-REPORT",
+        "BC40-CLEAN",
+        "BC40-MANIFEST"
+      ],
+      "code_refs": [],
+      "trace_refs": [
+        "BC-XML-BEFORE",
+        "BC-XML-AFTER",
+        "BC-FILM-BEFORE",
+        "BC-FILM-AFTER"
+      ],
+      "causal_boundary": [
+        "XML与电影题的before/after包装hit由false变true；包装不含完整tool_log，“271→20工具”仍只是报告自述。",
+        "after包装finished-start不等于elapsed_wall_s，搜索计数也与search_requests长度不一致；不得假装其是完整干净运行收据。",
+        "原文把先验正确和泄漏混为一谈；先验知识本身不是作弊，只能把证据充分性另列。",
+        "失败分类97%工程问题不等于修完将有97%准确率，也不证明剩余已无bug。"
+      ],
+      "unknowns": [],
+      "single_run_curve_eligible": false
+    },
+    {
+      "id": "looparena-type-i",
+      "title": "用另一种题检验调度决策，不冒充Auto交付能力",
+      "date": "2026-09-07（本地提交a2a15843）",
+      "dataset": "LoopArena Type I",
+      "denominator": 90,
+      "sample": "现存90条、90个独立id；逐项预测是否正确",
+      "model": "文件名与提交自述为gpt-5.6-sol；结果未逐项携带可核实际模型身份",
+      "version": "本地提交a2a15843；网关接入适配，非Auto引擎版本A/B",
+      "measurement_type": "固定题单分类决策旧结果重计",
+      "problem": "需要分清“控制器判断下一步”与“系统真的完成工程任务”。",
+      "mechanism_action": "跑既有Type I题单检验Controller决策；本轮只重计correct字段，不执行任何题。",
+      "result": {
+        "correct": 79,
+        "total": 90,
+        "percent": 87.7778,
+        "error_records": 0,
+        "display": "79/90＝87.8%可重计；这是模型Controller题，不是Auto或军团作品完成率"
+      },
+      "evidence_levels": [
+        "E1",
+        "E2"
+      ],
+      "source_refs": [
+        "LOOP90"
+      ],
+      "code_refs": [],
+      "trace_refs": [],
+      "causal_boundary": [
+        "没有本地前版本对照，不能写成Auto升级带来的提升。",
+        "不等于Type II/III真实工程完成率；不继承提交文案中的“世界第一”外部排名。"
+      ],
+      "unknowns": [
+        "完整运行命令、预算、实际请求模型回执未在本轮材料中恢复。"
+      ],
+      "single_run_curve_eligible": false
+    },
+    {
+      "id": "other-benchmarks",
+      "title": "计划、调研和实际评测分开",
+      "date": "截至本轮所选历史材料",
+      "dataset": "HLE及外部榜单调研",
+      "denominator": null,
+      "sample": "未发现足以列入提升链的本地结果与机制配对",
+      "model": "不适用",
+      "version": "不适用",
+      "measurement_type": "不列成绩",
+      "problem": "方案里提到第二评测集，不代表已执行。",
+      "mechanism_action": "只列已读到本地结果的GAIA、BrowseComp与LoopArena；其它列缺口。",
+      "result": {
+        "display": "HLE仅见计划文字；外部榜单数字不当作本项目实测"
+      },
+      "evidence_levels": [
+        "E1"
+      ],
+      "source_refs": [
+        "KM-2778375484"
+      ],
+      "code_refs": [],
+      "trace_refs": [],
+      "causal_boundary": [
+        "未对445篇做全量正文审读；“未列”不等于仓库绝不存在。"
+      ],
+      "unknowns": [],
+      "single_run_curve_eligible": false
+    }
+  ],
+  "sourceIndex": [
+    {
+      "id": "KM-2780280477",
+      "path": "dev/boss-report-2026-09-23/history-2765940918/pages/2780280477.txt",
+      "kind": "历史自述原文快照",
+      "sha256": "29b473000c8d6b25b25813c3e64bf3ff819ad31f49aade706c317a613c974eea",
+      "locators": [
+        "L3–38",
+        "L40–66"
+      ],
+      "originalId": "2780280477"
+    },
+    {
+      "id": "KM-2780533291",
+      "path": "dev/boss-report-2026-09-23/history-2765940918/pages/2780533291.txt",
+      "kind": "历史自述原文快照",
+      "sha256": "77c2489a9da99dbe103d8f7baec0ae14ec759ad72b09a6673d68f5f6ceda88fd",
+      "locators": [
+        "L3–40"
+      ],
+      "originalId": "2780533291"
+    },
+    {
+      "id": "KM-2779881874",
+      "path": "dev/boss-report-2026-09-23/history-2765940918/pages/2779881874.txt",
+      "kind": "历史自述原文快照",
+      "sha256": "1cbd3f8008a4a2a9c7d2456b4adb58097c37aadfc25e637e2352e3fdd1b36bb5",
+      "locators": [
+        "L3–35",
+        "L59–75",
+        "L120–155"
+      ],
+      "originalId": "2779881874"
+    },
+    {
+      "id": "KM-2778375484",
+      "path": "dev/boss-report-2026-09-23/history-2765940918/pages/2778375484.txt",
+      "kind": "历史自述原文快照",
+      "sha256": "cdefecb46d1229e7c4821c9fa5ed82d9a909863a7ef555067a47914839dd89d4",
+      "locators": [
+        "L1–15",
+        "L72–86"
+      ],
+      "originalId": "2778375484"
+    },
+    {
+      "id": "KM-2779630806",
+      "path": "dev/boss-report-2026-09-23/history-2765940918/pages/2779630806.txt",
+      "kind": "历史自述原文快照",
+      "sha256": "d09908ee8efe1600f339b19b077c9b2ede0fedcf8b8e2659b48ca2e65090aad6",
+      "locators": [
+        "L50–156",
+        "L267–308",
+        "L482–491",
+        "L590–670"
+      ],
+      "originalId": "2779630806"
+    },
+    {
+      "id": "KM-2781947413",
+      "path": "dev/boss-report-2026-09-23/history-2765940918/pages/2781947413.txt",
+      "kind": "历史自述原文快照",
+      "sha256": "f3ddc0a31cb7219e3b52792b9f9da1e1c3e60c6aed4c0d6b61d40d5cd8c9c210",
+      "locators": [
+        "L1–38"
+      ],
+      "originalId": "2781947413"
+    },
+    {
+      "id": "KM-2780834005",
+      "path": "dev/boss-report-2026-09-23/history-2765940918/pages/2780834005.txt",
+      "kind": "历史自述原文快照",
+      "sha256": "015a735872b07855db233c932df73e1c0627c44f353550c03c28a4238e2ce12b",
+      "locators": [
+        "L1–16",
+        "L46–78"
+      ],
+      "originalId": "2780834005"
+    },
+    {
+      "id": "KM-2781326969",
+      "path": "dev/boss-report-2026-09-23/history-2765940918/pages/2781326969.txt",
+      "kind": "历史自述原文快照",
+      "sha256": "5a4e798cd0bd40d0c91422dbc5e667e444df7e9b5641a4f9b45a3184bf1353f7",
+      "locators": [
+        "L4–41",
+        "L44–70"
+      ],
+      "originalId": "2781326969"
+    },
+    {
+      "id": "KM-2781448048",
+      "path": "dev/boss-report-2026-09-23/history-2765940918/pages/2781448048.txt",
+      "kind": "历史自述原文快照",
+      "sha256": "94ec3ee3e222970f0654c1102294b6cf355fd8197036362c03fd3e051d414716",
+      "locators": [
+        "L227–301",
+        "L478–556",
+        "L714–728"
+      ],
+      "originalId": "2781448048"
+    },
+    {
+      "id": "KM-2782569511",
+      "path": "dev/boss-report-2026-09-23/history-2765940918/pages/2782569511.txt",
+      "kind": "历史自述原文快照",
+      "sha256": "5cfe7f83e77a43bd7ae6388ba05932a669041045758729aabf1bdfa0dec5604b",
+      "locators": [
+        "L1–70"
+      ],
+      "originalId": "2782569511"
+    },
+    {
+      "id": "REVIEW",
+      "path": "dev/boss-report-2026-09-23/auto-to-legion-20260926/source-review.md",
+      "kind": "既有审读（二级线索）",
+      "sha256": "d7cb1671789700b53137b42035db5720a6161d9497e1cb82bb339ca66457c5c7",
+      "locators": [
+        "L60–94"
+      ],
+      "originalId": null
+    },
+    {
+      "id": "GAIA-CORRECT",
+      "path": "seed-users-system/evidence/ledgers/gaia_correct_ledger.json",
+      "kind": "旧正确题清单",
+      "sha256": "0072b7435f5f6aededc2644653fc690d9a47876c73798c82c6aa3f09766aa697",
+      "locators": [
+        "$[*].qid",
+        "$[*].best_source",
+        "$[*].has_trace"
+      ],
+      "originalId": null
+    },
+    {
+      "id": "EVIDENCE-README",
+      "path": "seed-users-system/evidence/README.md",
+      "kind": "归档说明（可能陈旧）",
+      "sha256": "93d9a6d703b75826c87acac224567ecfbed20cbe375cf8b50288c29cb1f90915",
+      "locators": [
+        "L3–15",
+        "L19–39"
+      ],
+      "originalId": null
+    },
+    {
+      "id": "BC-LEDGER",
+      "path": "seed-users-system/evidence/ledgers/bc_ledger.json",
+      "kind": "旧运行汇总账",
+      "sha256": "1c5ea3c415eb015e49c81645de0977c329294bf3d8c702f607a03c6c326a3b23",
+      "locators": [
+        "$.questions.*.attempts",
+        "$.questions.*.ever_correct",
+        "$.stats"
+      ],
+      "originalId": null
+    },
+    {
+      "id": "BC40-CLEAN",
+      "path": "harness_baselines/fair_bench_40/all40_clean_results.json",
+      "kind": "旧逐题结果",
+      "sha256": "226e5601883a486b63256d468d880a1cea6b1cfb1a16f59f313ef8bf3a342547",
+      "locators": [
+        "$.model",
+        "$.wall_s",
+        "$.rows[*].hit"
+      ],
+      "originalId": null
+    },
+    {
+      "id": "BC40-REPORT",
+      "path": "harness_baselines/fair_bench_40/FINAL_REPORT_40q_6harness.md",
+      "kind": "旧实验报告",
+      "sha256": "a46c67c49c59b920ffe1f36ccad769e04b56167bdaca1e9838cd6c3041737c61",
+      "locators": [
+        "L3–16",
+        "L41–45"
+      ],
+      "originalId": null
+    },
+    {
+      "id": "BC40-MANIFEST",
+      "path": "harness_baselines/fair_bench_40/manifest_40.json",
+      "kind": "旧题单与声明配置",
+      "sha256": "37f793cb0171c329838fc77342cec1ca6491e0fdbe0f37b199a4d2fc752d4bbe",
+      "locators": [
+        "$.created_at",
+        "$.question_fingerprint",
+        "$.fairness"
+      ],
+      "originalId": null
+    },
+    {
+      "id": "GAIA40-REPORT",
+      "path": "harness_baselines/fair_bench_gaia40/FINAL_REPORT_gaia40_6harness.md",
+      "kind": "旧实验报告",
+      "sha256": "b6d1d4a148b79923c26bb9b542367562079a168cf79b26ce046c2f19872f6497",
+      "locators": [
+        "L3–34",
+        "L39–48"
+      ],
+      "originalId": null
+    },
+    {
+      "id": "GAIA40-ANALYSIS",
+      "path": "harness_baselines/fair_bench_gaia40/trace_analysis_gaia40.json",
+      "kind": "旧逐题分析结果",
+      "sha256": "23ef916e67fa5f41407fe963f39221b707c12ea5292a94f20a0cade5db8d4d50",
+      "locators": [
+        "$.cells.*.auto.hit",
+        "$.cells.*.auto.reason",
+        "$.ever_correct"
+      ],
+      "originalId": null
+    },
+    {
+      "id": "GAIA40-MANIFEST",
+      "path": "harness_baselines/fair_bench_gaia40/manifest_gaia40.json",
+      "kind": "旧题单与声明配置",
+      "sha256": "ac7a99c636986a109bfe1fa63ce4fe3529d5d7f77b650d0600166d8b0c1a55e1",
+      "locators": [
+        "$.created_at",
+        "$.selection",
+        "$.question_fingerprint",
+        "$.fairness"
+      ],
+      "originalId": null
+    },
+    {
+      "id": "LOOP90",
+      "path": "dev/looparena-type1-gpt56sol-878.jsonl",
+      "kind": "旧逐项预测结果",
+      "sha256": "9852ba39b830cd19608a0501db73d40cd1a6b558c39683bf75c9c5b51c8c98e6",
+      "locators": [
+        "每行 $.id / $.correct / $.error / $.response_audit"
+      ],
+      "originalId": null
+    },
+    {
+      "id": "CODE-AUTO",
+      "path": "seed-users-system/qa_system/agent/qa_auto_agent.py",
+      "kind": "现存源码（非历史版本回放）",
+      "sha256": "128c3923c47aade23490e67f42e74de645884c4aab622feb93c1d0e4227ac40d",
+      "locators": [
+        "L5234–5273"
+      ],
+      "originalId": null
+    },
+    {
+      "id": "CODE-GEOMETRY",
+      "path": "seed-users-system/qa_system/agent/capability_stack.py",
+      "kind": "现存源码（非历史版本回放）",
+      "sha256": "272dfda9959880c81483839f71c474c00325f229777d98d00bc092bc02837c5a",
+      "locators": [
+        "L1732–1757",
+        "L1893–1941",
+        "L1981–1986"
+      ],
+      "originalId": null
+    },
+    {
+      "id": "T-GEOMETRY",
+      "path": "seed-users-system/evidence/gaia_correct/ckpt_6359a0b18f7b499b.json",
+      "kind": "原始 checkpoint（仅内部定位）",
+      "sha256": "2ee443cdb50f509f712489f66e695a1e39cdf5eb38e5ca590283ac3b1a2198b9",
+      "locators": [
+        "$.tool_log",
+        "$.updated",
+        "$.final"
+      ],
+      "originalId": null
+    },
+    {
+      "id": "T-FRACTION",
+      "path": "seed-users-system/evidence/gaia_correct/ckpt_9318445ffe6a4e1b.json",
+      "kind": "原始 checkpoint（仅内部定位）",
+      "sha256": "2420d73766402befa316fd332492fb9035cab2fc62824e384fbb95dab90a358f",
+      "locators": [
+        "$.tool_log",
+        "$.updated",
+        "$.final"
+      ],
+      "originalId": null
+    },
+    {
+      "id": "T-MULTIHOP",
+      "path": "seed-users-system/evidence/gaia_correct/ckpt_872bfbb19ccf49f6.json",
+      "kind": "原始 checkpoint（仅内部定位）",
+      "sha256": "ecc24a1337bb88541a3d3731be4097cb6f36244484fbc401cc113dfabce447c7",
+      "locators": [
+        "$.tool_log",
+        "$.updated",
+        "$.final"
+      ],
+      "originalId": null
+    },
+    {
+      "id": "T-NATGEO",
+      "path": "seed-users-system/evidence/gaia_correct/ckpt_8b3379c009814f5b.json",
+      "kind": "原始 checkpoint（仅内部定位）",
+      "sha256": "8e4ce90f4ca54048951d18d6f8b922bcf2dded0984c671247d372e49a190e502",
+      "locators": [
+        "$.tool_log",
+        "$.updated",
+        "$.final"
+      ],
+      "originalId": null
+    },
+    {
+      "id": "BC-XML-BEFORE",
+      "path": "harness_baselines/fair_bench_40/traces/005fe9e267e4/auto/pre_optimized_latest.json",
+      "kind": "逐题运行包装记录（非完整 tool_log）",
+      "sha256": "174fb2e8366bb78436ec32e00e1a92089c906fae74d92bc1d8b9d3c1c922b6f7",
+      "locators": [
+        "$.comparison_config.model",
+        "$.comparison_config.wall_s",
+        "$.started_at",
+        "$.finished_at",
+        "$.elapsed_wall_s",
+        "$.evaluation",
+        "$.search_requests"
+      ],
+      "originalId": null
+    },
+    {
+      "id": "BC-XML-AFTER",
+      "path": "harness_baselines/fair_bench_40/traces/005fe9e267e4/auto/latest.json",
+      "kind": "逐题运行包装记录（非完整 tool_log）",
+      "sha256": "a4f6ca564657a057b8355050c01fe6e571afb6b3120b34d7d71a800d57a3562b",
+      "locators": [
+        "$.comparison_config.model",
+        "$.comparison_config.wall_s",
+        "$.started_at",
+        "$.finished_at",
+        "$.elapsed_wall_s",
+        "$.evaluation",
+        "$.search_requests"
+      ],
+      "originalId": null
+    },
+    {
+      "id": "BC-FILM-BEFORE",
+      "path": "harness_baselines/fair_bench_40/traces/0379943e0d0b/auto/pre_optimized_latest.json",
+      "kind": "逐题运行包装记录（非完整 tool_log）",
+      "sha256": "8d9f5469a8bbc2d97d0f119ce9f82f40187adf0a8b3772a68898784d23509d13",
+      "locators": [
+        "$.comparison_config.model",
+        "$.comparison_config.wall_s",
+        "$.started_at",
+        "$.finished_at",
+        "$.elapsed_wall_s",
+        "$.evaluation",
+        "$.search_requests"
+      ],
+      "originalId": null
+    },
+    {
+      "id": "BC-FILM-AFTER",
+      "path": "harness_baselines/fair_bench_40/traces/0379943e0d0b/auto/latest.json",
+      "kind": "逐题运行包装记录（非完整 tool_log）",
+      "sha256": "f4d9ef56ced67289b57dba69133192e51b53ad5257a3aff475ea2e580636d55e",
+      "locators": [
+        "$.comparison_config.model",
+        "$.comparison_config.wall_s",
+        "$.started_at",
+        "$.finished_at",
+        "$.elapsed_wall_s",
+        "$.evaluation",
+        "$.search_requests"
+      ],
+      "originalId": null
+    },
+    {
+      "id": "T-LATE-RERUN-A",
+      "path": "seed-users-system/v11/.gaia_100miss_traces/ckpt_04a04a9b226c43fd.json",
+      "kind": "后期同目录checkpoint（不是早期36题救回证据）",
+      "sha256": "99afbf4311babc98dd25125e31bbb8b147d315df79d6a4d75a2398d160ca607b",
+      "locators": [
+        "$.backend",
+        "$.updated",
+        "$.tool_log"
+      ],
+      "originalId": null
+    },
+    {
+      "id": "T-LATE-RERUN-B",
+      "path": "seed-users-system/v11/.gaia_100miss_traces/ckpt_cca530fc405243b2.json",
+      "kind": "后期同目录checkpoint（不是早期36题救回证据）",
+      "sha256": "195f6f11e67e7d169ee65f4628dc9c55ba362bd176760469339b8359e3599292",
+      "locators": [
+        "$.backend",
+        "$.updated",
+        "$.tool_log"
+      ],
+      "originalId": null
+    }
+  ],
+  "rawTracePublished": false
+}

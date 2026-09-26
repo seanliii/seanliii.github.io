@@ -87,11 +87,11 @@
   // 只标当前访问位置；不拿这个标签推断服务器健康或模型质量。
   const location = window.location;
   if (location && location.protocol === 'file:') {
-    setText('publication-mode', '你正在看本地副本 · 2026.09.26交付物直达版');
+    setText('publication-mode', '本地副本 · 机制、实证与作品分享');
     setText('publication-description', '这不是线上网址。可在本地看已有文件；转发给别人请使用右侧的正式网页链接。');
   } else if (location && location.hostname === 'seanliii.github.io') {
-    setText('publication-mode', '个人主页正式展示页 · 2026.09.26交付物直达版');
-    setText('publication-description', '作品区最前面就是在线体验、原成品和源码下载；新增Auto到军团的技术主线。公司测试站和学城仍需原有权限，不与独立作品地址混淆。');
+    setText('publication-mode', '公开分享页 · 机制、实证与作品');
+    setText('publication-description', 'Auto机制、评测对应动作、同订单的作品变化都在这里。太阳系和3D对战使用固定体验地址，版本与已知缺口分别说明；公司测试站和学城仍需原有权限。');
   }
 
   const form = byId('budget-form');
@@ -180,7 +180,7 @@
   window.addEventListener('hashchange', () => revealAnswer(window.location && window.location.hash));
   revealAnswer(window.location && window.location.hash);
   if ('IntersectionObserver' in window) {
-    const chapters = document.querySelectorAll('#thinking-evolution, #value, #works, #validation, #investment');
+    const chapters = document.querySelectorAll('#thinking-evolution, #value, #mechanism-evidence, #works, #validation, #investment');
     const navigation = document.querySelectorAll('.main-nav a');
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {

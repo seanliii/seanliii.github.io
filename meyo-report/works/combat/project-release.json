@@ -1,0 +1,37 @@
+{
+  "projectId": "combat",
+  "stablePath": "works/combat/index.html",
+  "currentRelease": "visible-6f2381e8",
+  "title": "RIFT LAB · 3D对战实验",
+  "releases": [
+    {
+      "id": "visible-6f2381e8",
+      "label": "当前演示｜出生与攻击有旧证据，复活仍有缺陷",
+      "entry": "versions/visible-6f2381e8/index.html",
+      "originalSession": "c9c9a9c87217",
+      "sourceHash": "6f2381e862506c69d5a4f8106e302d4fa7abb44498692b65d4c42e6291fa2f49",
+      "publicCopyHash": "757e95f24cd5370259ec415a64a526d25281fc6a019d1346e30d7c2dfd3e5d64",
+      "download": "../../downloads/combat-visible-6f2381e8-public.zip",
+      "distributionDifference": "替换五幅角色肖像、界面展示名称和指名徽记；战斗逻辑、地图和输入不变，原工程未改。不是历史原版或新质量验收。",
+      "evidenceNote": "依据同指纹原版旧运行记录，不是本次公开副本的浏览器验收。"
+    },
+    {
+      "id": "readable-b97af815",
+      "label": "历史演示｜泛白修复后的可读版本",
+      "entry": "versions/readable-b97af815/index.html",
+      "originalSession": "c9c9a9c87217",
+      "sourceHash": "b97af8155ecbe10db6127b9d8428068af0d7283a6c9041f11a2754cd653c5925",
+      "publicCopyHash": "67220505bae5c47a4351b586481d394255fb6abe16b13fc74e4408e31e5b7852",
+      "download": "../../downloads/combat-readable-b97af815-public.zip",
+      "distributionDifference": "替换五幅角色肖像、界面展示名称和指名徽记；战斗逻辑、地图和输入不变，原工程未改。不是历史原版或新质量验收。",
+      "evidenceNote": "依据同指纹原版旧运行记录，不是本次公开副本的浏览器验收。"
+    }
+  ],
+  "newerExperiment": {
+    "sourceHash": "840664a9937a64af07805d3ea0dedd57cafe8edee02e60dd83c4d63998b20269",
+    "status": "旧实测出生/复活实体未画出；新GLB来源未在本次完整核验，不作为默认公开可玩版",
+    "includedAsPlayableRelease": false
+  },
+  "runtimeValidation": "未进行新浏览器试玩；原版部分可用，不是全部玩法稳定完成",
+  "stableLinkPolicy": "更新当前版本指向，不更换项目体验地址；旧快照保留且不覆盖"
+}
