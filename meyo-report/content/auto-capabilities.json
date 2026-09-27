@@ -1,7 +1,28 @@
 {
   "title": "Auto能力的机制、动作与边界",
-  "scope": "只读当前B源码、指定历史Git源码及三份既有trace；不调用业务接口，不重算GAIA历次成绩",
+  "scope": "C1-C8保留首次对B源码、指定历史Git源码及三份旧trace的核查；C9-C10补读当前实体/关系源码及两份旧事件日志，另以构造内存输入核对四项函数行为。不调用业务接口或模型，不重算GAIA成绩；各次源码身份分别列明。",
   "sourceRevision": "c09574ea775296070a74d16faeab70fe0a75056a",
+  "sourceRevisionScope": "首批能力记录的源码身份；实体关系补充和逐文件版本另列",
+  "entityRelationAddendum": {
+    "added_at_revision": "7c04fd8a9c08ce209b073fcf55133e71f3a5aab6",
+    "source_ids": [
+      "S20",
+      "S21",
+      "S22",
+      "S23",
+      "S24",
+      "S25",
+      "S26",
+      "S27"
+    ],
+    "purpose": "用户指出实体和关系没有独立讲清，扩展同一公开分享，不改产品执行机制",
+    "original_c1_c8_and_prior_evidence_unchanged": true,
+    "public_case_ids": [
+      "ER1",
+      "ER2"
+    ],
+    "private_raw_logs_not_published": true
+  },
   "currentAutoRole": "capability_not_answer_member",
   "sourceCountAudit": {
     "scope_files": [
@@ -302,6 +323,63 @@
         "模型可能忽略或误用背景，资料多也可能增加噪声和耗时"
       ],
       "current_legion_sharing": "当前有参考注入与采用上报入口；旧Auto验证器未证已独立共享。必须区分每一次是否被消费与是否让结果更好。"
+    },
+    {
+      "id": "C9",
+      "title": "实体识别与消歧：候选不等于答案",
+      "original_problem": "检索常出现近似/同名对象，或先选中的候选在末端漂移；只凭名字频次和局部匹配容易找错人或机构。",
+      "mechanism": "从问题拆条件；为候选记录candidate/probable/confirmed/rejected状态，逐条件区分支持、矛盾与未知，再比较候选、保留调查进度。倒置问题可先提出未验证名称，再按候选全名和未核条件定向取证。",
+      "source_refs": [
+        "S20",
+        "S22",
+        "S23",
+        "S24",
+        "S25"
+      ],
+      "trace_refs": [
+        "ER1",
+        "ER2",
+        "T1",
+        "T2"
+      ],
+      "trace_interpretation": "旧ER1中14条证据已到，却将搜索服务名提升为有支持候选；ER2中状态锁定与真实关系缺口脱节。两日志run_id未知，不能证明同名消歧修复或机制提分。",
+      "user_benefit": "减少“搜到了相同词但认错对象”，并让接手者知道当前调查哪个候选、哪些条件还没核。",
+      "benefit_status": "机制价值解释，不是已验证稳定消歧或准确率提升",
+      "cost_and_limits": [
+        "基础名称归一仍主要是大小写/空白与词面匹配，不是完整跨语言别名或同名消歧服务",
+        "confirmed的旧默认阈值为80%覆盖及至少2源，标签不等于所有条件已确证",
+        "未知不等于反证；旧严格门可能因未知较多拒交，单调黑名单或收尾替换也可能固化误判"
+      ],
+      "current_legion_sharing": "存在于原Auto模块与历史执行路径；当前Auto仅工具来源，不参与默认接单。本轮未证明整套候选/关系核验已成为各家可直接调用、实际有效的共享工具。"
+    },
+    {
+      "id": "C10",
+      "title": "关系与来源证据图：连对联系，再继续查",
+      "original_problem": "证据散在多页和多轮工具结果里；同时出现两个人名不等于存在所需关系，换步骤或换成员还可能丢掉中间对象与关系。",
+      "mechanism": "把成功检索/抓取及部分结构化计算结果整理成主体—关系—客体，保存来源、分数和落账步骤；关系路径与逐条件证据可进入后续候选提名和问题缺口。图只是单任务内的轻量状态。",
+      "source_refs": [
+        "S21",
+        "S22",
+        "S26",
+        "S27",
+        "S28",
+        "S29"
+      ],
+      "trace_refs": [
+        "ER2",
+        "T1",
+        "T2"
+      ],
+      "trace_interpretation": "旧ER2明确了两条关系缺口，但所查后续片段只有拟议动作没有执行回执；T1保存2条边/4节点、T2图为空。存图不等于关系正确或被采用，不具备完整前后效果归因。",
+      "user_benefit": "让新查询追缺失的联系，让后来成员沿同一份证据现场接着做，而不是只继承一个无出处结论。",
+      "benefit_status": "可审查机制与有限旧记录，不是通用关系推理能力或交付净收益证明",
+      "cost_and_limits": [
+        "存储保留关系方向，但find_paths沿无向邻接遍历；连通不保证方向、关系类型或事实时间都正确",
+        "同一边再次出现会提分，未要求独立来源；该分数不是正确概率，来源字符串也不是独立信源证明",
+        "LLM或启发式抽取仍会错漏；图有界且裁剪可能减少来源，不是完整时态知识图谱数据库",
+        "搜索增量入图调用未传模型回调；倒置矩阵调用还可能传空证据ID，不能把语义抽取或逐条件来源闭环当成已全部完成"
+      ],
+      "current_legion_sharing": "原Auto检索与native执行有入图/候选消费代码，原工具桥接状态仍逐项区分；没有本轮全家在线调用或关系推理增益验证。"
     }
   ],
   "technicalSources": {
@@ -639,6 +717,194 @@
       "revision": "B_working_tree",
       "sha256": "b2a10f0ac8cf84b9a6cf315254f5898e8610c37cb81a8a93f0a3d960ea22a511",
       "current_file_exists": true
+    },
+    "S20": {
+      "path": "seed-users-system/qa_system/agent/identity_coverage.py",
+      "symbols": "extract_claims / classify_claims_tri_state / classify_state / upsert_identity / maybe_soft_lock / decide_next_action",
+      "line_ranges": [
+        {
+          "start": 40,
+          "end": 104
+        },
+        {
+          "start": 472,
+          "end": 533
+        },
+        {
+          "start": 622,
+          "end": 769
+        },
+        {
+          "start": 874,
+          "end": 956
+        },
+        {
+          "start": 1000,
+          "end": 1104
+        },
+        {
+          "start": 1353,
+          "end": 1427
+        }
+      ],
+      "revision": "7c04fd8a9c08ce209b073fcf55133e71f3a5aab6",
+      "sha256": "61f56edf726547c0d2481d44e785fc789ad7e9043a677d39535fae82aebc4324",
+      "current_file_exists": true,
+      "identity": "本轮当前源码快照，不冒充旧实验当时版本"
+    },
+    "S21": {
+      "path": "seed-users-system/qa_system/agent/evidence_graph.py",
+      "symbols": "extract_triplets / observe_triplets / _add_edge / _prune / find_paths",
+      "line_ranges": [
+        {
+          "start": 34,
+          "end": 48
+        },
+        {
+          "start": 135,
+          "end": 229
+        },
+        {
+          "start": 230,
+          "end": 334
+        }
+      ],
+      "revision": "7c04fd8a9c08ce209b073fcf55133e71f3a5aab6",
+      "sha256": "7a96fffc1ff24801eb6e4ff7b0b3ebe81d25bb448d131bae0708c2e099fde7db",
+      "current_file_exists": true,
+      "identity": "本轮当前源码快照，不冒充旧实验当时版本"
+    },
+    "S22": {
+      "path": "seed-users-system/qa_system/agent/inverted_entity_pipeline.py",
+      "symbols": "initialize / generate_hypotheses / register_hypothesis / update_matrix / next_verification_query",
+      "line_ranges": [
+        {
+          "start": 27,
+          "end": 159
+        }
+      ],
+      "revision": "7c04fd8a9c08ce209b073fcf55133e71f3a5aab6",
+      "sha256": "e72fbcd01aa549cd605ac92a567f7c6654f3b99a5e3366062e6f80cd746a5f39",
+      "current_file_exists": true,
+      "identity": "本轮当前源码快照，不冒充旧实验当时版本"
+    },
+    "S23": {
+      "path": "seed-users-system/qa_system/agent/constraint_ledger.py",
+      "symbols": "compute_hard_confidence / answer_grounding / constraint_reconcile",
+      "line_ranges": [
+        {
+          "start": 37,
+          "end": 111
+        },
+        {
+          "start": 168,
+          "end": 245
+        }
+      ],
+      "revision": "7c04fd8a9c08ce209b073fcf55133e71f3a5aab6",
+      "sha256": "14720e773953caae92825c4fe58a7277f9431ab4d402e85b9667014f11fc7266",
+      "current_file_exists": true,
+      "identity": "本轮当前源码快照，不冒充旧实验当时版本"
+    },
+    "S24": {
+      "path": "seed-users-system/qa_system/agent/entity_memory_bank.py",
+      "symbols": "observe_entities / get_bank_entities / rank_by_coverage",
+      "line_ranges": [
+        {
+          "start": 81,
+          "end": 167
+        }
+      ],
+      "revision": "7c04fd8a9c08ce209b073fcf55133e71f3a5aab6",
+      "sha256": "8a3bab38d78ba7901c2b6d1d2a985005115900987b89aa470c38c4892047e472",
+      "current_file_exists": true,
+      "identity": "本轮当前源码快照，不冒充旧实验当时版本"
+    },
+    "S25": {
+      "path": "seed-users-system/qa_system/agent/entity_drift_lowconf_guard.py",
+      "symbols": "observe_key_entities / get_confirmed_entities / detect_entity_drift",
+      "line_ranges": [
+        {
+          "start": 199,
+          "end": 281
+        }
+      ],
+      "revision": "7c04fd8a9c08ce209b073fcf55133e71f3a5aab6",
+      "sha256": "6afad8ca7ae4e4c028cc3a6ac7e787337bfce7972aaef10f3d1f02abeb46af64",
+      "current_file_exists": true,
+      "identity": "本轮当前源码快照，不冒充旧实验当时版本"
+    },
+    "S26": {
+      "path": "seed-users-system/qa_system/agent/qa_tool_impls.py",
+      "symbols": "incremental search evidence graph publication",
+      "line_ranges": [
+        {
+          "start": 383,
+          "end": 451
+        }
+      ],
+      "revision": "7c04fd8a9c08ce209b073fcf55133e71f3a5aab6",
+      "sha256": "a6ed625a7b3b3f0a917ef5862e66da4e84e4a9378a3a575f1885056e34b9ae46",
+      "current_file_exists": true,
+      "identity": "本轮当前源码快照，不冒充旧实验当时版本"
+    },
+    "S27": {
+      "path": "seed-users-system/qa_system/agent/native_agent_loop.py",
+      "symbols": "retrieval and shell observation / canonical projection / relation_path nomination",
+      "line_ranges": [
+        {
+          "start": 975,
+          "end": 1075
+        },
+        {
+          "start": 2064,
+          "end": 2113
+        },
+        {
+          "start": 2340,
+          "end": 2414
+        },
+        {
+          "start": 2588,
+          "end": 2635
+        }
+      ],
+      "revision": "7c04fd8a9c08ce209b073fcf55133e71f3a5aab6",
+      "sha256": "d9b29f1ff0c3b3bc4bc2b830da5b6835febb7909c7e27a86025e44e00c3cb2fe",
+      "current_file_exists": true,
+      "identity": "本轮当前源码快照，不冒充旧实验当时版本"
+    },
+    "S28": {
+      "path": "seed-users-system/qa_system/agent/finalize_governor.py",
+      "symbols": "graph candidate suggestions and final readiness",
+      "line_ranges": [
+        {
+          "start": 35,
+          "end": 72
+        },
+        {
+          "start": 196,
+          "end": 223
+        }
+      ],
+      "revision": "7c04fd8a9c08ce209b073fcf55133e71f3a5aab6",
+      "sha256": "9d14686876e20b3a203350a40e10ae9e450df9a4eb884eb2c4f468c70f2c1b9d",
+      "current_file_exists": true,
+      "identity": "当前源码快照，非原实验运行版本"
+    },
+    "S29": {
+      "path": "seed-users-system/qa_system/agent/entity_relevance.py",
+      "symbols": "attach relation paths to entity passage",
+      "line_ranges": [
+        {
+          "start": 110,
+          "end": 140
+        }
+      ],
+      "revision": "7c04fd8a9c08ce209b073fcf55133e71f3a5aab6",
+      "sha256": "3deda66335d0c308ee796f5529020856ebefb4bb213558aed387b7677f2b2d8d",
+      "current_file_exists": true,
+      "identity": "当前源码快照，非原实验运行版本"
     }
   },
   "oldTraceFacts": {
@@ -791,6 +1057,52 @@
         "Tavily是返回记录的source标签，网站域名不是引擎",
         "缺少逐适配器执行/缓存与网络请求账，不把5次CLI当5次远程检索，也不把27网站当27引擎",
         "未引用原题、答案或评分"
+      ]
+    },
+    "ER1": {
+      "kind": "旧基准实际事件反例，非本次重跑",
+      "scope": "人物识别题的候选类型错误，隐去题面、人物与答案",
+      "source_sha256": "2c6cfa4886a0b1a468822a8dc429cbd31472933f646844842ca4f7f6328ad4a9",
+      "locators": [
+        "L1054–1071"
+      ],
+      "observations": [
+        "14个证据ID均能回到候选前的事件",
+        "搜索服务名成为候选，由hypothesized到investigated到supported",
+        "supported理由写4/8覆盖且缺关键证据，但unresolved_constraints为空"
+      ],
+      "limits": [
+        "run_id=unknown，跨多个时段，不能绑定完整attempt",
+        "未见本片段该候选selected或最终交卷",
+        "不是同名人物混淆的实证，不支持修后提分因果"
+      ],
+      "source_documents": [
+        "2782515730",
+        "2782703397"
+      ]
+    },
+    "ER2": {
+      "kind": "旧基准实际事件反例，非本次重跑",
+      "scope": "人物、书籍、书评与场所日期的关系链未核清，隐去具体对象",
+      "source_sha256": "3014757ec5bd2a984be05171727a6fbb80074fe446c10e64b0a38a4af1cdf36b",
+      "locators": [
+        "L104–109",
+        "L345–350",
+        "L740–765"
+      ],
+      "observations": [
+        "槽位残片和人名先后被标全部约束覆盖并selected",
+        "更晚记录明确缺人物撰书与书评针对该书两条关系",
+        "后续可见片段只有目标/拟议动作/选择工具，未有tool_started/tool_succeeded"
+      ],
+      "limits": [
+        "run_id=unknown，不与更晚正式结果强行拼接",
+        "没有证据证明主客关系写反后已修正",
+        "supporting_evidence_ids空不代表generic evidence_ids空",
+        "不能把提出下一步当已经执行和答对"
+      ],
+      "source_documents": [
+        "2782515730"
       ]
     }
   },

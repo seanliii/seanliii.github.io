@@ -10,7 +10,7 @@
   <link rel="canonical" href="https://seanliii.github.io/meyo-report/">
   <title>Meyo｜让想法变成作品</title>
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="styles.css?v=305ac5818c04">
+  <link rel="stylesheet" href="styles.css?v=ca10d2bbc193">
   <script src="budget-core.js?v=ff8bb161bfe7" defer></script>
   <script src="report.js?v=1fdc3941d5e0" defer></script>
 </head>
@@ -124,8 +124,8 @@
 <td>做成各家可发现、获准调用的独立工具；不必先启动整套 auto 才能借一个能力</td>
 </tr>
 <tr>
-<td><strong>事实与反证的方法</strong>：追来源、识别冲突、核对实体、保留失败现场</td>
-<td>作为模型需要时可以使用的能力与上下文，不让每个任务都过一遍统一裁判</td>
+<td><strong>事实、实体与关系的方法</strong>：追来源、区分同名候选、逐条件核验、保留关系方向与反证</td>
+<td>作为模型需要时可以使用的能力与上下文，不让每个任务都过一遍统一裁判；详见<a href="#entity-relations">实体与关系</a></td>
 </tr>
 <tr>
 <td><strong>连续工作的经验</strong>：上下文、检查点、失败记录与方法沉淀</td>
@@ -505,8 +505,8 @@
 <li>**同一体验入口：**分享一个固定地址；更新后仍从这里看到当前版本，旧版本保留在版本列表里，不让读者追一串新链接。</li>
 </ul>
 <p>不同工作台可以保留自己的原生会话、工具和思考方式。要互通的是完成这件事所必需的现场，而不是用一套固定思考步骤把它们压成同一种 Agent。<strong>展示的同一背景，不代表实验条件完全相同；同订单续改和不同订单对比也必须分开。</strong></p>
-<h3 id="auto-capability-detail">Auto 的搜索、工具与召回，分别解决哪一类问题？</h3>
-<p>多源搜索解决“哪里有资料”，搜索蜂群补“有没有漏掉另一种解释”，多跳解决“关系链缺哪一环”，工具解决“能不能读原件、真的算出来”，召回解决“已有经验能不能帮这次少重做”。最后都要回到同一个问题：<strong>这些信息有没有进入正确行动，并改善最终结果？</strong></p>
+<h3 id="auto-capability-detail">Auto 的搜索、工具、召回与实体关系，分别解决什么？</h3>
+<p>多源搜索解决“哪里有资料”，搜索蜂群补“有没有漏掉另一种解释”，多跳解决“关系链缺哪一环”，工具解决“能不能读原件、真的算出来”，召回解决“已有经验能不能帮这次少重做”；实体核验看“找的是不是同一个对象”，关系取证看“对象之间的联系有没有依据”。最后都要回到同一个问题：<strong>这些信息有没有进入正确行动，并改善最终结果？</strong></p>
 <p>下面逐项列出具体机制、源码、旧动作证据和边界。数量是能力目录的声明口径，不是在线可用性或效果排名。</p>
 <aside class="source-inventory" aria-label="多源搜索的数量口径">
 <div><strong>34 个声明入口 ＋ 1 个条件入口</strong><p>这是源码注册名计数，不是35个独立引擎都在线。部分入口受开关、授权、网络和配额影响；聚合器内部子源不能重复相加。</p></div>
@@ -515,82 +515,195 @@
 <dl class="mechanism-facts">
 <div><dt>原问题</dt><dd>单一检索入口覆盖不全，一条慢通道拖住后续工作。</dd></div>
 <div><dt>具体机制</dt><dd>SearchFabric按源描述/可用预算选子集并发；保留部分结果、URL去重，缓存与错误标记分开；Auto薄路径优先执行模型原查询，不自动改写成更多查询。</dd></div>
-<div><dt>旧动作证据</dt><dd>T1/T2证明旧Auto多次调用检索；T3是跨Harness共享CLI结果，不能冒充Auto所有源实测。</dd></div>
+<div><dt>动作与证据</dt><dd>T1/T2证明旧Auto多次调用检索；T3是跨Harness共享CLI结果，不能冒充Auto所有源实测。</dd></div>
 <div><dt>为什么有价值</dt><dd>机制上增加找到贴题资料的机会，减少重复检索与单源故障影响。 <em>机制解释，非质量提升幅度实证。</em></dd></div>
 <div><dt>现在接到哪里</dt><dd>legion_tool已有共享web_search及SearchFabric调用代码；没有在本轮验证线上源可用性，也不保证各入口自动加载同一整套注册项。</dd></div>
 <div class="mechanism-caution"><dt>代价与边界</dt><dd>34个注册入口声明＋1个条件入口不等于实际可用数；聚合器内子源不能重复相加；基础映射中4个AISA相关入口默认受开关关闭；依赖、配额、许可与网络另证；缓存/并发减少重复等待的可能性不等于固定时延保证，慢源与噪声也会抬成本</dd></div>
 </dl><details class="evidence-detail"><summary>查看源码位置与证据口径</summary><ul><li><code>seed-users-system/qa_system/agent/qa_tool_impls.py:383–628</code></li><li><code>seed-users-system/v11/evolution/search_fabric.py:58–182, 949–966</code></li><li><code>seed-users-system/v11/evolution/search_fabric_verticals.py:1722–2224, 2442–2480</code></li><li><code>seed-users-system/v11/evolution/search_fabric.py:979–1041, 1186–1365, 1367–1508</code></li></ul>
-<p>对应旧记录：T1、T2、T3。来源指纹与统计方法见本节可下载索引；不公开原始私人上下文。</p></details></article><article class="mechanism-card" id="capability-C2">
+<p>对应记录：T1、T2、T3。来源指纹与统计方法见本节可下载索引；不公开原始私人上下文。</p></details></article><article class="mechanism-card" id="capability-C2">
 <div class="mechanism-card-heading"><span>C2</span><h4>搜索蜂群：分职责，不是五家投票</h4></div>
 <dl class="mechanism-facts">
 <div><dt>原问题</dt><dd>一次检索容易只收集支持第一猜测的材料，遗漏原文和反例。</dd></div>
 <div><dt>具体机制</dt><dd>旧模块固定Planner、Scout、Evidence、Skeptic、Judge职责；真正并发的是三条检索线。已有种子证据时首跳可只跑反例线，避免重复。证据线可对候选URL深读。</dd></div>
-<div><dt>旧动作证据</dt><dd>这两份旧Auto轨迹中没有run_deep_research_swarm工具记录；本轮确认源码分工，未找到足以确认此蜂群运行及增益的独立旧回执。</dd></div>
+<div><dt>动作与证据</dt><dd>这两份旧Auto轨迹中没有run_deep_research_swarm工具记录；本轮确认源码分工，未找到足以确认此蜂群运行及增益的独立旧回执。</dd></div>
 <div><dt>为什么有价值</dt><dd>机制上把发现线索、核原始来源与主动反证互补，减少单一视角。 <em>机制解释，蜂群效果待验证。</em></dd></div>
 <div><dt>现在接到哪里</dt><dd>原工具可由目录发现，capstack通用桥受模块/依赖/绑定就绪限制；未证明当前全军团可直接运行蜂群。Auto仍不接成员单。</dd></div>
 <div class="mechanism-caution"><dt>代价与边界</dt><dd>五角色不等于五个不同模型/品牌Harness；旧封装有委托预算和固定职责；多路查询及深读可放大耗时、调用费用、重复信息；多数同意不等于事实正确，不能变成所有任务的必经质量门</dd></div>
 </dl><details class="evidence-detail"><summary>查看源码位置与证据口径</summary><ul><li><code>seed-users-system/v11/evolution/deep_research_swarm.py:229–254, 291–415, 1074–1268, 1285–1364</code></li><li><code>seed-users-system/qa_system/agent/qa_tool_impls.py:631–729</code></li></ul>
-<p>对应旧记录：T1、T2。来源指纹与统计方法见本节可下载索引；不公开原始私人上下文。</p></details></article><article class="mechanism-card" id="capability-C3">
+<p>对应记录：T1、T2。来源指纹与统计方法见本节可下载索引；不公开原始私人上下文。</p></details></article><article class="mechanism-card" id="capability-C3">
 <div class="mechanism-card-heading"><span>C3</span><h4>多跳：让新线索决定下一问</h4></div>
 <dl class="mechanism-facts">
 <div><dt>原问题</dt><dd>答案跨资料分散，单次搜索结果只包含关系的一段。</dd></div>
 <div><dt>具体机制</dt><dd>_hop_judge读取累计支持与反证，返回gap_summary和next_queries；下一跳执行这些查询，记录queries/new_hits/stop_reason。证据充分、无后续查询、连续零新增或达到上限可结束。</dd></div>
-<div><dt>旧动作证据</dt><dd>T1的13次run_parallel_search只是调用数，没有可绑定的蜂群hops回执，不能写成13跳。</dd></div>
+<div><dt>动作与证据</dt><dd>T1的13次run_parallel_search只是调用数，没有可绑定的蜂群hops回执，不能写成13跳。</dd></div>
 <div><dt>为什么有价值</dt><dd>机制上追踪尚缺的关系与约束，而非反复换同义词。 <em>源码已证机制；真实多跳是否提高交付需按原trace核验。</em></dd></div>
 <div><dt>现在接到哪里</dt><dd>与蜂群同属依赖条件下可复用的旧工具实现，非当前默认任务流程；无本轮共享运行证明。</dd></div>
 <div class="mechanism-caution"><dt>代价与边界</dt><dd>旧入口为一般3/重型5跳上限，不是每题必须跑满，也不是无限智能深挖；HopJudge调用失败的fallback可能sufficient=true；停了不等于证据真的充分；旧代码仍有规则分支与模板，不能包装为完全无控制的通用机制</dd></div>
 </dl><details class="evidence-detail"><summary>查看源码位置与证据口径</summary><ul><li><code>seed-users-system/v11/evolution/deep_research_swarm.py:229–254, 291–415, 1074–1268, 1285–1364</code></li><li><code>seed-users-system/qa_system/agent/qa_tool_impls.py:631–729</code></li></ul>
-<p>对应旧记录：T1、T2。来源指纹与统计方法见本节可下载索引；不公开原始私人上下文。</p></details></article><article class="mechanism-card" id="capability-C4">
+<p>对应记录：T1、T2。来源指纹与统计方法见本节可下载索引；不公开原始私人上下文。</p></details></article><article class="mechanism-card" id="capability-C4">
 <div class="mechanism-card-heading"><span>C4</span><h4>用工具回到原件、把结果算出来</h4></div>
 <dl class="mechanism-facts">
 <div><dt>原问题</dt><dd>搜索摘要无法替代看原图、读文件、程序计算与执行验证。</dd></div>
 <div><dt>具体机制</dt><dd>统一工具注册后由模型发tool_calls，结果回到消息与证据；可调脚本、符号计算、抓取、图像/OCR等。</dd></div>
-<div><dt>旧动作证据</dt><dd>T1有17次shell、5次抓取、1次sympy；T2有8次图像读取与2次OCR记录，只证调用/回执，不证全部成功或正确。</dd></div>
+<div><dt>动作与证据</dt><dd>T1有17次shell、5次抓取、1次sympy；T2有8次图像读取与2次OCR记录，只证调用/回执，不证全部成功或正确。</dd></div>
 <div><dt>为什么有价值</dt><dd>让推导可复查，降低仅凭语言猜原始数据的风险。 <em>旧调用事实＋机制解释，非本轮效果实验。</em></dd></div>
 <div><dt>现在接到哪里</dt><dd>部分抓取工具直接映射legion_tool，能力工具走capstack；未适配项只返回源码/不可运行，不再派给已退役Auto。</dd></div>
 <div class="mechanism-caution"><dt>代价与边界</dt><dd>工具也可能读错、算错、依赖未就绪，输出必须回到原任务核对；注册、runnable标记及文件存在不等于已经正确执行；权限边界不可绕</dd></div>
 </dl><details class="evidence-detail"><summary>查看源码位置与证据口径</summary><ul><li><code>seed-users-system/qa_system/agent/native_agent_loop.py:719–733, 4300–4312, 4432–4442</code></li><li><code>seed-users-system/qa_system/agent/qa_tools_registry.py:38–65, 81–107</code></li><li><code>release/legion-service/legion_tool.py:156–190, 577–648, 1368–1425</code></li><li><code>release/legion-service/toolbox.py:278–294, 340–380, 937–944</code></li><li><code>release/legion-service/capstack_bridge.py:77–139</code></li></ul>
-<p>对应旧记录：T1、T2。来源指纹与统计方法见本节可下载索引；不公开原始私人上下文。</p></details></article><article class="mechanism-card" id="capability-C5">
+<p>对应记录：T1、T2。来源指纹与统计方法见本节可下载索引；不公开原始私人上下文。</p></details></article><article class="mechanism-card" id="capability-C5">
 <div class="mechanism-card-heading"><span>C5</span><h4>画像与本轮意图：找对背景而不覆盖原题</h4></div>
 <dl class="mechanism-facts">
 <div><dt>原问题</dt><dd>同一句话在不同用户处境下所需结果不同，机械通用回答容易错配。</dd></div>
 <div><dt>具体机制</dt><dd>历史profile按标识取角色/痛点/关注；_build_user_context把它与当前意图组成辅助块；run_auto_agent在原问题之后注入，再交给引擎。</dd></div>
-<div><dt>旧动作证据</dt><dd>两份所读checkpoint没有足以确认本次画像命中/注入/影响决策的标志；这不证明所有历史任务都没画像。</dd></div>
+<div><dt>动作与证据</dt><dd>两份所读checkpoint没有足以确认本次画像命中/注入/影响决策的标志；这不证明所有历史任务都没画像。</dd></div>
 <div><dt>为什么有价值</dt><dd>机制上减少重复解释、避免忽略已有处境；画像只是辅助假设。 <em>历史/现存拼接源码已证，个性化收益待验证。</em></dd></div>
 <div><dt>现在接到哪里</dt><dd>不将旧Auto画像实现说成当前军团共享画像服务；本轮未验证替代链或线上个性化。</dd></div>
 <div class="mechanism-caution"><dt>代价与边界</dt><dd>角色推测可能错、过时或标识不匹配，原题与授权范围优先；有role_guess或user_profile_hit字段并不证明识别正确；旧user_profile_store源码从Git读取，当前B对应文件不在，不能说旧链仍在线</dd></div>
 </dl><details class="evidence-detail"><summary>查看源码位置与证据口径</summary><ul><li><code>seed-users-system/qa_system/agent/qa_auto_agent.py:1380–1409, 1657–1731, 2137–2154, 9404–9468</code></li><li><code>seed-users-system/v11/evolution/user_profile_store.py:130–152</code></li></ul>
-<p>对应旧记录：T1、T2。来源指纹与统计方法见本节可下载索引；不公开原始私人上下文。</p></details></article><article class="mechanism-card" id="capability-C6">
+<p>对应记录：T1、T2。来源指纹与统计方法见本节可下载索引；不公开原始私人上下文。</p></details></article><article class="mechanism-card" id="capability-C6">
 <div class="mechanism-card-heading"><span>C6</span><h4>相关经验召回：提炼后的记忆不等于向量搜索</h4></div>
 <dl class="mechanism-facts">
 <div><dt>原问题</dt><dd>每次从长日志重新理解任务，容易重复犯错或套用不适用经验。</dd></div>
 <div><dt>具体机制</dt><dd>历史memory_layers.recall查全局＋本人层，按词/标签重叠、依赖条件与时间排序，另有默认关闭的模型复筛；当前legion_memory按词和中文二元片段匹配，再用新鲜度/采用信号微调并按类型/归属过滤。</dd></div>
-<div><dt>旧动作证据</dt><dd>本轮未找到可绑定的经验实际采用与结果改善证据；0条显式recall工具记录不排除前置注入未记在该checkpoint。</dd></div>
+<div><dt>动作与证据</dt><dd>本轮未找到可绑定的经验实际采用与结果改善证据；0条显式recall工具记录不排除前置注入未记在该checkpoint。</dd></div>
 <div><dt>为什么有价值</dt><dd>把相关方法交给当前执行者，减少重复整理；不是自动把旧答案当真。 <em>源码路径已证，实际收益待验证。</em></dd></div>
 <div><dt>现在接到哪里</dt><dd>legion_core已有历史经验搜索→参考文本注入的实际代码；效果与隐私治理仍须具体记录，未验证当前在线命中。</dd></div>
 <div class="mechanism-caution"><dt>代价与边界</dt><dd>旧模块名叫语义记忆，基础实现实际是关键词召回，不是embedding；旧memory_layers文件当前B不存在；现军团legion_memory是另一实现，不能混称同一条已生效链；共享类型与归属过滤不是所有历史资料都自动可分享的许可</dd></div>
 </dl><details class="evidence-detail"><summary>查看源码位置与证据口径</summary><ul><li><code>seed-users-system/qa_system/agent/qa_auto_agent.py:1380–1409, 1657–1731, 2137–2154, 9404–9468</code></li><li><code>seed-users-system/v11/evolution/memory_layers.py:185–279</code></li><li><code>release/legion-service/legion_memory.py:154–249, 272–288</code></li><li><code>release/legion-service/legion_core.py:4151–4168, 8956–8990</code></li></ul>
-<p>对应旧记录：T1、T2。来源指纹与统计方法见本节可下载索引；不公开原始私人上下文。</p></details></article><article class="mechanism-card" id="capability-C7">
+<p>对应记录：T1、T2。来源指纹与统计方法见本节可下载索引；不公开原始私人上下文。</p></details></article><article class="mechanism-card" id="capability-C7">
 <div class="mechanism-card-heading"><span>C7</span><h4>找工具也要召回：词项、可选语义与可执行性分开</h4></div>
 <dl class="mechanism-facts">
 <div><dt>原问题</dt><dd>工具名字很多，用户说法又可能与函数名不同，相关能力会被埋没。</dd></div>
 <div><dt>具体机制</dt><dd>legion_tool对描述/名称做BM25排序；tool_semantic_index可在明确开关与完整本地模型/缓存满足时给多语言向量分。默认不开本地向量；字符n-gram回退不当跨语言语义，当前混排给该回退零语义权重。</dd></div>
-<div><dt>旧动作证据</dt><dd>未执行scores/search或加载模型；这里只核当前源码路径，不冒称当前语义索引已在线。</dd></div>
+<div><dt>动作与证据</dt><dd>未执行scores/search或加载模型；这里只核当前源码路径，不冒称当前语义索引已在线。</dd></div>
 <div><dt>为什么有价值</dt><dd>先把可相关、可执行的候选展示出来，由原生执行者决定用哪个，避免全清单挤占上下文。 <em>机制解释，不是检索准确率实测。</em></dd></div>
 <div><dt>现在接到哪里</dt><dd>属于当前共享工具发现代码，不依赖Auto作为答题者；实际后端必须读取本次返回的semantic_backend与调用回执。</dd></div>
 <div class="mechanism-caution"><dt>代价与边界</dt><dd>词项匹配有同义词盲区；向量也可能召回不适用工具，加载/计算有成本；不因名字含semantic就称智能匹配已生效，也不能把找到工具当成功执行</dd></div>
 </dl><details class="evidence-detail"><summary>查看源码位置与证据口径</summary><ul><li><code>release/legion-service/tool_semantic_index.py:29–55, 58–77, 114–119</code></li><li><code>release/legion-service/legion_tool.py:156–190, 577–648, 1368–1425</code></li><li><code>release/legion-service/toolbox.py:278–294, 340–380, 937–944</code></li></ul>
-<p>对应旧记录：。来源指纹与统计方法见本节可下载索引；不公开原始私人上下文。</p></details></article><article class="mechanism-card" id="capability-C8">
+<p>对应记录：本项先以源码和明确标注的函数观察说明，业务记录范围见下方专节。来源指纹与统计方法见本节可下载索引；不公开原始私人上下文。</p></details></article><article class="mechanism-card" id="capability-C8">
 <div class="mechanism-card-heading"><span>C8</span><h4>最后一环是消费：搜到、注入、采用、改善各算各的</h4></div>
 <dl class="mechanism-facts">
 <div><dt>原问题</dt><dd>资料与经验已经落盘，却没有进入下一步，或被错误总结/收尾丢掉。</dd></div>
 <div><dt>具体机制</dt><dd>搜索命中按URL去重后写证据/事件与checkpoint；蜂群完整结果保留于session，并将带来源结论和缺口传给后续；ToolMessage及经验prelude交给执行者；反例检索另返回冲突/不足。</dd></div>
-<div><dt>旧动作证据</dt><dd>T1/T2有工具/证据/交卷回执，但不能据字段存在证明资料已用于正确交付。</dd></div>
+<div><dt>动作与证据</dt><dd>T1/T2有工具/证据/交卷回执，但不能据字段存在证明资料已用于正确交付。</dd></div>
 <div><dt>为什么有价值</dt><dd>让准备工作成为下一步可用事实，而非只积累资料；错误与不确定性保留下来可继续处理。 <em>部分旧回执事实＋机制解释，净收益未测。</em></dd></div>
 <div><dt>现在接到哪里</dt><dd>当前有参考注入与采用上报入口；旧Auto验证器未证已独立共享。必须区分每一次是否被消费与是否让结果更好。</dd></div>
 <div class="mechanism-caution"><dt>代价与边界</dt><dd>recalled计数只说明检索，注入只说明交给模型；mark_adopted仍是采用上报，不替代实际成果差异；反例工具含模板和阈值，不能上升为所有工作台统一裁判；模型可能忽略或误用背景，资料多也可能增加噪声和耗时</dd></div>
 </dl><details class="evidence-detail"><summary>查看源码位置与证据口径</summary><ul><li><code>seed-users-system/qa_system/agent/qa_tool_impls.py:383–628</code></li><li><code>seed-users-system/qa_system/agent/qa_tool_impls.py:631–729</code></li><li><code>seed-users-system/qa_system/agent/native_agent_loop.py:719–733, 4300–4312, 4432–4442</code></li><li><code>seed-users-system/qa_system/agent/qa_auto_agent.py:1380–1409, 1657–1731, 2137–2154, 9404–9468</code></li><li><code>release/legion-service/legion_memory.py:154–249, 272–288</code></li><li><code>release/legion-service/legion_core.py:4151–4168, 8956–8990</code></li><li><code>seed-users-system/qa_system/agent/verify_as_search.py:103–188, 198–218</code></li></ul>
-<p>对应旧记录：T1、T2。来源指纹与统计方法见本节可下载索引；不公开原始私人上下文。</p></details></article></div>
+<p>对应记录：T1、T2。来源指纹与统计方法见本节可下载索引；不公开原始私人上下文。</p></details></article><article class="mechanism-card" id="capability-C9">
+<div class="mechanism-card-heading"><span>C9</span><h4>实体识别与消歧：候选不等于答案</h4></div>
+<dl class="mechanism-facts">
+<div><dt>原问题</dt><dd>检索常出现近似/同名对象，或先选中的候选在末端漂移；只凭名字频次和局部匹配容易找错人或机构。</dd></div>
+<div><dt>具体机制</dt><dd>从问题拆条件；为候选记录candidate/probable/confirmed/rejected状态，逐条件区分支持、矛盾与未知，再比较候选、保留调查进度。倒置问题可先提出未验证名称，再按候选全名和未核条件定向取证。</dd></div>
+<div><dt>动作与证据</dt><dd>旧ER1中14条证据已到，却将搜索服务名提升为有支持候选；ER2中状态锁定与真实关系缺口脱节。两日志run_id未知，不能证明同名消歧修复或机制提分。</dd></div>
+<div><dt>为什么有价值</dt><dd>减少“搜到了相同词但认错对象”，并让接手者知道当前调查哪个候选、哪些条件还没核。 <em>机制价值解释，不是已验证稳定消歧或准确率提升。</em></dd></div>
+<div><dt>现在接到哪里</dt><dd>存在于原Auto模块与历史执行路径；当前Auto仅工具来源，不参与默认接单。本轮未证明整套候选/关系核验已成为各家可直接调用、实际有效的共享工具。</dd></div>
+<div class="mechanism-caution"><dt>代价与边界</dt><dd>基础名称归一仍主要是大小写/空白与词面匹配，不是完整跨语言别名或同名消歧服务；confirmed的旧默认阈值为80%覆盖及至少2源，标签不等于所有条件已确证；未知不等于反证；旧严格门可能因未知较多拒交，单调黑名单或收尾替换也可能固化误判</dd></div>
+</dl><details class="evidence-detail"><summary>查看源码位置与证据口径</summary><ul><li><code>seed-users-system/qa_system/agent/identity_coverage.py:40–104, 472–533, 622–769, 874–956, 1000–1104, 1353–1427</code></li><li><code>seed-users-system/qa_system/agent/inverted_entity_pipeline.py:27–159</code></li><li><code>seed-users-system/qa_system/agent/constraint_ledger.py:37–111, 168–245</code></li><li><code>seed-users-system/qa_system/agent/entity_memory_bank.py:81–167</code></li><li><code>seed-users-system/qa_system/agent/entity_drift_lowconf_guard.py:199–281</code></li></ul>
+<p>对应记录：ER1、ER2、T1、T2。来源指纹与统计方法见本节可下载索引；不公开原始私人上下文。</p></details></article><article class="mechanism-card" id="capability-C10">
+<div class="mechanism-card-heading"><span>C10</span><h4>关系与来源证据图：连对联系，再继续查</h4></div>
+<dl class="mechanism-facts">
+<div><dt>原问题</dt><dd>证据散在多页和多轮工具结果里；同时出现两个人名不等于存在所需关系，换步骤或换成员还可能丢掉中间对象与关系。</dd></div>
+<div><dt>具体机制</dt><dd>把成功检索/抓取及部分结构化计算结果整理成主体—关系—客体，保存来源、分数和落账步骤；关系路径与逐条件证据可进入后续候选提名和问题缺口。图只是单任务内的轻量状态。</dd></div>
+<div><dt>动作与证据</dt><dd>旧ER2明确了两条关系缺口，但所查后续片段只有拟议动作没有执行回执；T1保存2条边/4节点、T2图为空。存图不等于关系正确或被采用，不具备完整前后效果归因。</dd></div>
+<div><dt>为什么有价值</dt><dd>让新查询追缺失的联系，让后来成员沿同一份证据现场接着做，而不是只继承一个无出处结论。 <em>可审查机制与有限旧记录，不是通用关系推理能力或交付净收益证明。</em></dd></div>
+<div><dt>现在接到哪里</dt><dd>原Auto检索与native执行有入图/候选消费代码，原工具桥接状态仍逐项区分；没有本轮全家在线调用或关系推理增益验证。</dd></div>
+<div class="mechanism-caution"><dt>代价与边界</dt><dd>存储保留关系方向，但find_paths沿无向邻接遍历；连通不保证方向、关系类型或事实时间都正确；同一边再次出现会提分，未要求独立来源；该分数不是正确概率，来源字符串也不是独立信源证明；LLM或启发式抽取仍会错漏；图有界且裁剪可能减少来源，不是完整时态知识图谱数据库；搜索增量入图调用未传模型回调；倒置矩阵调用还可能传空证据ID，不能把语义抽取或逐条件来源闭环当成已全部完成</dd></div>
+</dl><details class="evidence-detail"><summary>查看源码位置与证据口径</summary><ul><li><code>seed-users-system/qa_system/agent/evidence_graph.py:34–48, 135–229, 230–334</code></li><li><code>seed-users-system/qa_system/agent/inverted_entity_pipeline.py:27–159</code></li><li><code>seed-users-system/qa_system/agent/qa_tool_impls.py:383–451</code></li><li><code>seed-users-system/qa_system/agent/native_agent_loop.py:975–1075, 2064–2113, 2340–2414, 2588–2635</code></li><li><code>seed-users-system/qa_system/agent/finalize_governor.py:35–72, 196–223</code></li><li><code>seed-users-system/qa_system/agent/entity_relevance.py:110–140</code></li></ul>
+<p>对应记录：ER2、T1、T2。来源指纹与统计方法见本节可下载索引；不公开原始私人上下文。</p></details></article></div>
+<h3 id="entity-relations">实体与关系：不只搜到名字，还要找对对象、核对联系</h3>
+<p>Auto 除了搜资料，还尝试把“这页里出现了什么名字”推进到“这个对象究竟是不是我们要找的，它和其他对象是什么关系”。**实体回答“是谁、是什么”，关系回答“谁在什么条件下，与谁发生了什么联系”。**这里说的是解题中的人、机构、作品、地点等对象，不是账号身份，也不是社区用户之间的社交关系。</p>
+<p>这层很重要：<strong>名字出现不等于身份确认，两个名字一起出现不等于关系成立，几条边连起来也不等于推理已经正确。</strong></p>
+<h4>1．实体：把“看起来像”与“证据支持”分开</h4>
+<p>多个同名人物、同一机构的简称与全称、同一作品的不同版本，都可能使检索跑向错误对象。旧 Auto 用候选池与条件对账来减少“先看到谁，就认定是谁”的问题；它不是已经完成的通用别名消歧服务，基础归一仍主要是大小写、空白和名称匹配。</p>
+<table>
+<thead>
+<tr>
+<th>旧候选状态</th>
+<th>表示什么</th>
+<th>不能误读成什么</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>candidate</code> · 候选</td>
+<td>出现了可能相关的对象，条件还没核完</td>
+<td>不是“已找到答案”</td>
+</tr>
+<tr>
+<td><code>probable</code> · 较可能</td>
+<td>部分条件获得支持，仍有缺口</td>
+<td>不是模型说得自信就能确定</td>
+</tr>
+<tr>
+<td><code>confirmed</code> · 已确认标签</td>
+<td>达到当时覆盖率与来源数量策略</td>
+<td><strong>不等于全部约束已满足</strong>；旧默认阈值是覆盖率80%及至少2个来源，标签不是事实保证</td>
+</tr>
+<tr>
+<td><code>rejected</code> · 已排除</td>
+<td>某项条件被判断为有反证，记录排除原因</td>
+<td>不应与“暂时没搜到证据”混为一谈</td>
+</tr>
+</tbody>
+</table>
+<p>每个候选再拆成“条件 × 证据”的表，逐项区分：<strong>有支持、存在矛盾、未证实</strong>。条件可以是时间、地点、身份、参与作品等。**未找到证据，不等于已经证伪。**旧实现仍有词面覆盖、数值启发式、来源计数与阈值等限制，不能把这张表包装成不会误判的裁判。</p>
+<h4>2．关系：从一堆网页，变成可追问的证据链</h4>
+<p>旧 <code>evidence_graph</code> 将工具结果整理为“主体—关系—客体”，提供来源、分数和落账步骤字段。例如：</p>
+<figure class="entity-example" aria-labelledby="entity-example-caption">
+<figcaption id="entity-example-caption">说明性示例：为解释机制构造，不是实际评测成功截图</figcaption>
+<div class="entity-chain">
+<div class="entity-node"><strong>人物甲</strong><span>先核是不是同一个人</span></div>
+<div class="entity-edge"><strong>2021年在此任职 →</strong><span>需有对应原文／工具依据</span></div>
+<div class="entity-node"><strong>机构乙</strong><span>全称、简称不能随意混用</span></div>
+<div class="entity-edge"><strong>位于 →</strong><span>另一条关系，单独取证</span></div>
+<div class="entity-node"><strong>城市丙</strong><span>不能只因同城就认同一机构</span></div>
+</div>
+<p>即使这两条关系都有依据，也不能直接推出“人物甲参与了机构乙的论文丁”。如果原文只写“曾合作”，更不能自动改成“任职”。关系类型、方向和时间都需要分别核对。</p>
+</figure>
+<p>这类关系也不一定都从文字抽取：有坐标和可靠数据时，“附近、距离、方位”可以通过工具计算，再把数据来源和计算结果带回现场；不能因为网页没写一句完整关系，就说问题无法继续。<strong>旧源码有把部分脚本计算结果送入证据图的路径，但不保证所有数值或空间关系都能正确抽出来。</strong></p>
+<p>图的作用，是帮助下一步看清还缺哪条联系、该去哪里补证据；不是让“图上有路径”代替推理。这是一份单任务中的轻量记录，<strong>不是知识图谱数据库</strong>，也不代表已经具备完整的时态、别名、跨文档实体链接和独立来源验证。源码有模型抽取与规则回退，但当前搜索增量入图调用没有传模型回调，不能把它宣传成每条关系都经过了语义抽取。</p>
+<h4>3．多约束倒置识别：先有候选，再逐条件验证</h4>
+<p>有些问题不告诉你名字，而是描述“它在某地、某年发生某事、和两个对象有关”。把整段条件拆成宽泛关键词去搜，容易搜到很多相关词，却始终找不到正确对象。</p>
+<p>Auto 为此尝试了<strong>候选优先＋逐约束验证</strong>：先提出少量待调查的名称，再围绕“候选全名＋未核实条件”取证，记录每个格子的状态。如果结果不断偏离候选，尝试换候选或换方向，而不是机械增加搜索次数。<strong>模型先验生成的是假设，不是证据。</strong></p>
+<p>这里也不能把矩阵全绿当成闭环完成：旧矩阵函数不会独立核实证据ID，所查的调用点还可能传空证据ID。因此每条条件能否追到具体原文或计算结果，仍是必须保留的缺口。</p>
+<p>一个候选证据还少，未必应该立刻丢掉；需要保留已有依据，找能区分候选的条件。旧“软锁”用于减少末端随意换答案，但锁错也会放大错误，所以它又加入了候选间比较与排除记录。<strong>这是走过的探索，不是今天要把软锁、黑名单或强制换答案整包复制给所有 Harness。</strong></p>
+<h4>4．源码确实有这层，但真实效果与旧控制必须分开</h4>
+<p>旧实际运行中可以看到两条有代表性的反例，它们不是本次构造的示例：</p>
+<table>
+<thead>
+<tr>
+<th>旧运行观察</th>
+<th>对应机制为什么重要</th>
+<th>这份记录不能证明什么</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>**ER1：资料到了，却认错对象。**一道人物识别题收到了14条带ID的证据，却将搜索服务名称写成候选并标为“有支持”。同条理由还写着“4／8条件覆盖、仍缺关键证据”，未解决条件数组却为空。</td>
+<td>候选类型、条件核验和明确缺口必须对应起来；引用了多少条资料，不等于找对了实体。</td>
+<td>这不是两个同名人物混淆的实证，也没有证明该候选已经提交为最终答案，更不能说之后已修好或因此提分。</td>
+</tr>
+<tr>
+<td>**ER2：关系没核清，状态先说完成。**一条“人物—书籍—书评—场所及日期”的任务中，槽位残片和人名先后被标成全部条件覆盖并锁定；后续才明确缺哪两条关系。</td>
+<td>关系类型与答案类型都要核实，不能让局部词面命中或状态标签掩盖缺失的联系。</td>
+<td>后续片段只有目标、拟议动作和选工具记录，没有对应执行回执；不能写成关系已经补齐、方向已纠正或最终答对。</td>
+</tr>
+</tbody>
+</table>
+<p>两例中的 <code>supported</code>／<code>selected</code> 是旧运行事件里的候选状态，不能与前面四态模块的 <code>confirmed</code> 直接当成同一个字段。它们共同提醒我们：状态如何计算、由谁消费、缺口有没有保留下来，都需要看实际记录。</p>
+<p>两份事件文件的 <code>run_id</code> 都是 <code>unknown</code>，且跨多个时间片段；本轮未恢复完整的修前修后配对，所以只用来说明真实失败形态，不用来计算成功率或归因提分。相关历史复盘可查<a target="_blank" rel="noopener noreferrer" href="https://km.sankuai.com/collabpage/2782515730">实体与关系Trace诊断</a>、<a target="_blank" rel="noopener noreferrer" href="https://km.sankuai.com/collabpage/2782703397">8月下旬周报</a>；这些原文中的作者归因也不能代替完整实验。</p>
+<p>另外，两份已读的 Auto 旧检查点中，一份确实保存了4个节点、2条图边，另一份图为空。这证明前者存过结构化关系，不证明关系正确、被采用或改善了答案；图为空也不足以断言历史上从未运行过。</p>
+<p>当前源码仍有几个特别需要说清的边界：</p>
+<ul>
+<li><strong>图保存方向，遍历却可以反着走。</strong><code>find_paths</code> 做的是无向邻接探索，所以“能从甲走到乙”不证明关系可以反过来解释。落账步骤也不等于关系真实生效时间，不能当成时态推理已经完成。</li>
+<li><strong>重复不等于独立验证。<strong>同一条边再次出现就会加分，即使来自同一来源；这个分数</strong>不等于正确概率</strong>。来源字段允许为空，字符串不天然等于独立信源，裁剪图时还可能丢掉部分来源列表。</li>
+<li>**已确认标签不等于全部条件真成立。**覆盖率、关键词匹配、数值矛盾判断都有误判空间；图存在或 <code>confirmed</code> 不应让剩余缺口消失。</li>
+<li>**旧控制仍会干预结果。**旧严格门可能因为未知条件较多就阻止提交，旧黑名单可能让误排除难以恢复，部分收尾路径还会用软锁替换最终答案。这些行为有源码，不应美化为“只是提供上下文、完全不控制”。</li>
+</ul>
+<p>这次使用<strong>明确构造的内存输入</strong>核对了其中三件事：4／5条件覆盖、2个来源会得到 <code>confirmed</code>；同一来源重复出现会让边分数从0.7升到约0.8；从关系客体也能沿邻接返回主体。它们验证的是当前函数的行为，<strong>不是新增业务案例或实体推理效果评测</strong>。原产品代码没有因此修改。</p>
+<p>对今天军团最值得继承的是：**候选是谁、哪些条件已有依据、哪条关系仍缺证据、反证是什么，以及这些事实怎样交给下一位成员继续使用。**不是再建一个统一总裁判。当前 Auto 的答题角色已退出本地默认池；这套实体／关系方法是否都已拆成各家可用的工具、是否稳定提高新任务质量，仍需要独立的调用与结果证据，不能从源码存在直接推定。</p>
+
 <h3 id="evaluation-lineage">评测每次怎么变，必须和当时的动作放在一起</h3>
 <p>这不是一条可以从39%直接画到99%的单发提分曲线。历史材料混有旧流水线、错题救回、累计曾经答对、定向返工、不同预算以及记账更正。下面不回避数字，但把每个数字的分母和能支持的结论一起写出来。</p>
 <p><strong>三个阅读标识：</strong>“历史自述”表示当时文档的说法；“旧结果可重计”表示本轮重新数了已有结构化记录；“原动作可查”表示能够读到相关工具过程。它们都不是这次重新执行全套评测，也不自动证明一项机制独立造成了提升。</p>
@@ -796,7 +909,7 @@
 <p>答对一道问题、把文件写出来、作品达到专业水平，是三种不同的结果。评测让我们发现资料、工具、记账和收尾的问题；真实作品又会暴露画面、交互、玩法、声音、持续修改和协作的缺口。</p>
 <p>所以不能把 GAIA 分数搬到赛车上，声称赛车也世界级；也不能用一个很好看的截图证明所有机制有效。下一段把同一太阳系与赛车订单的原问题、成员动作、截图和剩余缺口放在一起，让变化可以直接看到。</p>
 </div>
-<div class="history-downloads"><a class="text-link" href="content/auto-capabilities.json" download>下载Auto能力与源码索引 ↓</a><a class="text-link" href="content/evaluation-lineage.json" download>下载评测动作与口径 ↓</a><a class="text-link" href="#solar-evolution">把这些问题放回真实作品 ↗</a></div></section>
+<div class="history-downloads"><a class="text-link" href="content/auto-capabilities.json" download>下载Auto能力与源码索引 ↓</a><a class="text-link" href="content/entity-relations.txt" download>下载实体与关系说明 ↓</a><a class="text-link" href="content/evaluation-lineage.json" download>下载评测动作与口径 ↓</a><a class="text-link" href="#solar-evolution">把这些问题放回真实作品 ↗</a></div></section>
 <!-- INTEGRATED MECHANISM END -->
     <section class="works-band" id="works" aria-labelledby="works-title">
       <div class="wrap">
