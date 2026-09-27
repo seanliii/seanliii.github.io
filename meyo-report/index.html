@@ -10,7 +10,7 @@
   <link rel="canonical" href="https://seanliii.github.io/meyo-report/">
   <title>Meyo｜让想法变成作品</title>
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="styles.css?v=22f86110979c">
+  <link rel="stylesheet" href="styles.css?v=3d79bd263f1c">
   <script src="budget-core.js?v=ff8bb161bfe7" defer></script>
   <script src="visual-explorers.js?v=ec6c019db6ec" defer></script>
   <script src="report.js?v=df5cc3cce042" defer></script>
@@ -918,7 +918,159 @@
 <p>当前源码（非历史版本回放）：本轮未绑定。历史运行记录：本轮未恢复完整绑定记录。</p>
 
 <p>仍缺：</p></details></details></div>
-</details><h3 id="from-evaluation-to-artifact">为什么评测不错，作品还是可能不好用？</h3><details class="progressive-detail" id="from-evaluation-to-artifact-reading"><summary><span>展开评测与作品质量的区别</span><span class="detail-action" aria-hidden="true">展开 ＋</span></summary><p>答对一道问题、把文件写出来、作品达到专业水平，是三种不同的结果。评测让我们发现资料、工具、记账和收尾的问题；真实作品又会暴露画面、交互、玩法、声音、持续修改和协作的缺口。</p>
+</details><section class="failure-story" id="failures-to-legion" aria-labelledby="failures-title"><h3 id="failures-title">GAIA、搜索题暴露了什么，为什么走向军团？</h3><p>不是题难了就多叫几家。Auto教会我们让模型自己找、读、算、用工具；错题又提醒我们：拿到资料、理解证据、完成执行、正确记账，是四件不同的事。</p><figure class="failure-ledger"><figcaption><strong>一份旧账：100道旧错题，后来怎样了？</strong><span>2026-08-09旧报告 · 原报告统计，未重判题目</span></figcaption><div class="failure-counts"><a href="#eval-gaia-auto36" data-failure-count="36"><strong>36<small> / 100</small></strong><span>后续救回</span><span class="failure-count-track" aria-hidden="true"><i style="width:36%"></i></span></a><a href="#failure-explorer--understanding" data-failure-count="26"><strong>26<small> / 100</small></strong><span>作答仍错</span><span class="failure-count-track" aria-hidden="true"><i style="width:26%"></i></span></a><a href="#failure-explorer--delivery" data-failure-count="8"><strong>8<small> / 100</small></strong><span>超时未成</span><span class="failure-count-track" aria-hidden="true"><i style="width:8%"></i></span></a><a href="#failure-explorer--input" data-failure-count="30"><strong>30<small> / 100</small></strong><span>缺附件跳过</span><span class="failure-count-track" aria-hidden="true"><i style="width:30%"></i></span></a></div><p class="visual-caution">旧流水线65题＋后续救回36题＝101/165（61.2%）。这是合并救回账，不是Auto同模型、同版本、同预算的单次165题成绩；四组也不是四种根因的证明。</p></figure><div class="visual-explorer evaluation-visual-explorer failure-visual-explorer" id="failure-explorer" data-explorer><div class="explorer-toolbar"><span>点一个节点，往下看</span><div><button type="button" data-explorer-prev aria-label="从失败原因看Auto到军团：上一项">←</button><button type="button" data-explorer-next aria-label="从失败原因看Auto到军团：下一项">→</button></div></div><div class="explorer-choices" role="group" aria-label="从失败原因看Auto到军团"><button type="button" data-explorer-select="input" aria-controls="failure-explorer--input" aria-pressed="true"><span class="choice-step">01</span><svg class="ex-icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m5 4 5 5-3 3-5-5c-1 5 3 9 7 7l7 7 4-4-7-7c2-4-2-8-7-7"/></svg><span class="choice-name">原件没到手</span><small>先分清环境与能力</small></button><button type="button" data-explorer-select="search" aria-controls="failure-explorer--search" aria-pressed="false"><span class="choice-step">02</span><svg class="ex-icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="10" cy="10" r="6"/><path d="m15 15 6 6"/></svg><span class="choice-name">搜到却不对</span><small>命中不等于答案</small></button><button type="button" data-explorer-select="understanding" aria-controls="failure-explorer--understanding" aria-pressed="false"><span class="choice-step">03</span><svg class="ex-icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></svg><span class="choice-name">做了仍答错</span><small>工具成功≠理解成功</small></button><button type="button" data-explorer-select="relations" aria-controls="failure-explorer--relations" aria-pressed="false"><span class="choice-step">04</span><svg class="ex-icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="5" cy="6" r="3"/><circle cx="19" cy="7" r="3"/><circle cx="12" cy="20" r="3"/><path d="m8 6 8 1M6 9l4 8m8-7-5 7"/></svg><span class="choice-name">实体关系串错</span><small>最后一跳没证据</small></button><button type="button" data-explorer-select="delivery" aria-controls="failure-explorer--delivery" aria-pressed="false"><span class="choice-step">05</span><svg class="ex-icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="3" width="16" height="18" rx="3"/><path d="M8 7h8M8 11h8M8 15h4"/></svg><span class="choice-name">过程丢了交付</span><small>超时、收尾、恢复</small></button><button type="button" data-explorer-select="measurement" aria-controls="failure-explorer--measurement" aria-pressed="false"><span class="choice-step">06</span><svg class="ex-icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></svg><span class="choice-name">分数口径混了</span><small>曾对≠稳定会做</small></button><button type="button" data-explorer-select="legion" aria-controls="failure-explorer--legion" aria-pressed="false"><span class="choice-step">07</span><svg class="ex-icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="7" r="3"/><circle cx="18" cy="9" r="2"/><path d="M2 21v-4a6 6 0 0 1 12 0v4m2-7a4 4 0 0 1 6 4v3"/></svg><span class="choice-name">为什么转军团</span><small>拆职责，不堆人头</small></button></div><div class="explorer-display"><div class="explorer-panel" id="failure-explorer--input" data-explorer-panel="input"><div class="visual-result"><div class="visual-result-copy"><span class="visual-badge">历史复盘；不是新实验</span><h4>题目让你看附件，搜索不能替代原件</h4><p>100道旧错题中，30道被记为缺附件而跳过；这能说明输入没到现场，不能说明模型看过后一定会答对。</p><div class=visual-links><a href="#eval-gaia-118">看附件阶段与未明增量 ↗</a><a href="#failure-detail-input">展开这类失败 ↗</a></div></div><div class="visual-result-picture"><div class="ex-diagram uncertain"><div class="diagram-node"><strong>题目指向</strong><span>特定附件／原页面</span></div><span class="diagram-arrow" aria-hidden="true">→</span><div class="diagram-node"><strong>现场缺失</strong><span>工具拿不到原件</span></div><span class="diagram-arrow" aria-hidden="true">→</span><div class="diagram-node"><strong>先补输入</strong><span>然后才验能力</span></div></div></div></div><p class="visual-caution">拿到材料不等于答对；缺资料的错误不能靠增加成员或投票消失。</p><details class="progressive-detail" id="failure-facts-input"><summary><span>展开原因、动作、结果与协作边界</span><span class="detail-action" aria-hidden="true">展开 ＋</span></summary><dl class="mechanism-facts"><div><dt>可能卡在哪里</dt><dd>输入与工具链缺口：附件、原页面或读取入口缺失。先修可访问性，再区分读不懂、算不准等能力问题。</dd></div><div><dt>当时／后来改什么</dt><dd>旧记录随后补齐附件访问与下载，把原文件交给表格、PDF、图像和音频工具。</dd></div><div><dt>结果能证明什么</dt><dd>118阶段记录明确说附件带来12题；相对101增加的其余5题归因未恢复，不能全记到同一改动。</dd></div><div><dt>军团能帮什么</dt><dd>值得共享的是原件、工具入口与权限状态；原负责人可借已有能力，不必重写一套读取器。当前不据此宣称各家已全链路共享。</dd></div></dl></details></div><div class="explorer-panel" id="failure-explorer--search" data-explorer-panel="search" hidden><div class="visual-result"><div class="visual-result-copy"><span class="visual-badge">历史复盘；不是新实验</span><h4>更多来源，可能只是更多不相干的结果</h4><p>W31旧词源实验记为31/58命中，稳定词18/30命中；同周仍有来源口径冲突、限流和搜索收口待验证。</p><div class=visual-links><a href="#auto-explorer">看蜂群、多源与召回 ↗</a><a href="#failure-detail-search">展开搜索专项 ↗</a></div></div><div class="visual-result-picture"><div class="ex-diagram uncertain"><div class="diagram-node"><strong>搜索命中</strong><span>有链接／有片段</span></div><span class="diagram-arrow" aria-hidden="true">→</span><div class="diagram-node"><strong>证据判断</strong><span>贴题、来源、冲突</span></div><span class="diagram-arrow" aria-hidden="true">→</span><div class="diagram-node"><strong>形成答案</strong><span>结果真正被采用</span></div></div></div></div><p class="visual-caution">工具更多是选择更多，不是正确性证明；关键是能否找到并采用支持当前问题的证据。</p><details class="progressive-detail" id="failure-facts-search"><summary><span>展开原因、动作、结果与协作边界</span><span class="detail-action" aria-hidden="true">展开 ＋</span></summary><dl class="mechanism-facts"><div><dt>可能卡在哪里</dt><dd>查询不贴题、来源互相冲突、结果没有被后续推理采用，都可能让搜索空转；不能仅凭低命中率认定某一种根因。</dd></div><div><dt>当时／后来改什么</dt><dd>旧记录列出查询改写、结构化网页抽取、坏站过滤、超时换源与站点经验；部分收口和深研链仍标待复核。</dd></div><div><dt>结果能证明什么</dt><dd>31/58是当时词表与来源组合的命中率，不是GAIA正确率，也不是今天几十个搜索入口的在线率。</dd></div><div><dt>军团能帮什么</dt><dd>保留搜索蜂群、专业来源和召回能力，让原生工作台按任务取用并看到冲突与失败，不强制每题调用所有来源。</dd></div></dl></details></div><div class="explorer-panel" id="failure-explorer--understanding" data-explorer-panel="understanding" hidden><div class="visual-result"><div class="visual-result-copy"><span class="visual-badge">历史复盘；不是新实验</span><h4>工具执行了，不等于真正看懂了</h4><p>旧100题中26题作答仍错；同一报告另述的视频小样本虽改善抓取路线，4道视频题最终仍未答对。</p><div class=visual-links><a href="#eval-gaia-154">看进化未救回反例 ↗</a><a href="#eval-gaia-157">看动作与预算变化 ↗</a><a href="#failure-detail-understanding">展开能力边界 ↗</a></div></div><div class="visual-result-picture"><div class="ex-diagram uncertain"><div class="diagram-node"><strong>素材与工具</strong><span>能读取、能执行</span></div><span class="diagram-arrow" aria-hidden="true">→</span><div class="diagram-node"><strong>理解与推理</strong><span>仍可能认错或算错</span></div><span class="diagram-arrow" aria-hidden="true">→</span><div class="diagram-node"><strong>最后答案</strong><span>必须单独检查</span></div></div></div></div><p class="visual-caution">路线改善不等于答对；更多成员或更长Prompt不会自动弥补理解与推理能力。</p><details class="progressive-detail" id="failure-facts-understanding"><summary><span>展开原因、动作、结果与协作边界</span><span class="detail-action" aria-hidden="true">展开 ＋</span></summary><dl class="mechanism-facts"><div><dt>可能卡在哪里</dt><dd>看懂画面、识别条件、多步推理和精确计算是不同难点。26题没有逐题统一根因，不能都推给模型或上下文。</dd></div><div><dt>当时／后来改什么</dt><dd>后续记录涉及真读图、视频取帧、结构化中间结果与代码精算；这些动作要和最后答案分别核对。</dd></div><div><dt>结果能证明什么</dt><dd>154、157是历史阶段累计口径，夹杂多项改动及多跳预算700→1200秒；同期还有11错题自进化0题救回的负例。</dd></div><div><dt>军团能帮什么</dt><dd>真实缺口需要专门工具或不同能力时才补位；也要保留完整单家作为对照，不能把新增计算预算藏起来。</dd></div></dl></details></div><div class="explorer-panel" id="failure-explorer--relations" data-explorer-panel="relations" hidden><div class="visual-result"><div class="visual-result-copy"><span class="visual-badge">历史复盘；不是新实验</span><h4>找到了几个名字，不等于连对了整条关系</h4><p>已归档的人物题有14条证据却混入搜索服务名候选；另一条人物→书→书评→地点日期链，缺口未核就先选了答案。</p><div class=visual-links><a href="#entity-explorer">点看实体与关系图 ↗</a><a href="#entity-full-text">看旧事件与源码边界 ↗</a><a href="#failure-detail-relations">展开多跳失败 ↗</a></div></div><div class="visual-result-picture"><div class="ex-diagram uncertain"><div class="diagram-node"><strong>候选是谁</strong><span>别把工具当人物</span></div><span class="diagram-arrow" aria-hidden="true">→</span><div class="diagram-node"><strong>关系是否对</strong><span>谁写了哪本书</span></div><span class="diagram-arrow" aria-hidden="true">→</span><div class="diagram-node"><strong>最后一跳</strong><span>地点／日期有据</span></div></div></div></div><p class="visual-caution">共享Context必须可消费；当前未证明每家已共享这些状态，更未证明消歧和多跳从此稳定正确。</p><details class="progressive-detail" id="failure-facts-relations"><summary><span>展开原因、动作、结果与协作边界</span><span class="detail-action" aria-hidden="true">展开 ＋</span></summary><dl class="mechanism-facts"><div><dt>可能卡在哪里</dt><dd>候选身份、关系方向和最终条件没有对齐，或者证据未被正确使用。名字出现次数、自报置信度都不能替代这些检查。</dd></div><div><dt>当时／后来改什么</dt><dd>候选、条件和关系保留各自来源与未知项，把失败现场送回执行者；旧方案的硬锁与置信门不自动推广。</dd></div><div><dt>结果能证明什么</dt><dd>两个旧事件的run_id未知，只支持失败形态，不支持完整前后因果；现存源码仍有强控制局限，不能说已经修净。</dd></div><div><dt>军团能帮什么</dt><dd>按同一任务传递原证据、候选、关系与缺口，让同伴接着核最后一跳，而不是另写一份看似一致的答案。</dd></div></dl></details></div><div class="explorer-panel" id="failure-explorer--delivery" data-explorer-panel="delivery" hidden><div class="visual-result"><div class="visual-result-copy"><span class="visual-badge">历史复盘；不是新实验</span><h4>会做一部分，也可能没把结果交出来</h4><p>旧100题有8题超时；另一份64错题诊断另列15题撞步骤上限。它们是不同表的分类，不能直接相加。</p><div class=visual-links><a href="#eval-bc-fair40">看有限前后记录 ↗</a><a href="#same-context">看交接要带什么 ↗</a><a href="#failure-detail-delivery">展开执行问题 ↗</a></div></div><div class="visual-result-picture"><div class="ex-diagram uncertain"><div class="diagram-node"><strong>正在求解</strong><span>工具与中间结果</span></div><span class="diagram-arrow" aria-hidden="true">→</span><div class="diagram-node"><strong>发生中断</strong><span>预算／协议／退出</span></div><span class="diagram-arrow" aria-hidden="true">→</span><div class="diagram-node"><strong>继承现场</strong><span>再求解或如实交付</span></div></div></div></div><p class="visual-caution">去掉时限不代表一定能解题；也不能用更严的拒交门把模型已经产生的有用结果再次吞掉。</p><details class="progressive-detail" id="failure-facts-delivery"><summary><span>展开原因、动作、结果与协作边界</span><span class="detail-action" aria-hidden="true">展开 ＋</span></summary><dl class="mechanism-facts"><div><dt>可能卡在哪里</dt><dd>预算耗尽、结果字段漏读、收尾丢失和恢复断链属于不同执行问题；超时也可能意味着还没找到答案。</dd></div><div><dt>当时／后来改什么</dt><dd>旧记录有结果字段兜底与逐题trace保留；后来沿着保存现场、回传失败、接着原工程继续做的方向修复。</dd></div><div><dt>结果能证明什么</dt><dd>复盘作者也承认撞墙类中13道日志尚未攒到答案。BC另有2/40→6/40，但模型、预算和包装有差异，不能归为同条件三倍提升。</dd></div><div><dt>军团能帮什么</dt><dd>Meyo应负责运行、持久化与恢复；交接要带原工程和实际失败，让负责人或补位者继续，不再从空目录重做。</dd></div></dl></details></div><div class="explorer-panel" id="failure-explorer--measurement" data-explorer-panel="measurement" hidden><div class="visual-result"><div class="visual-result-copy"><span class="visual-badge">历史复盘；不是新实验</span><h4>账本涨了，不代表下一次就能做到</h4><p>历史164累计峰值后来撤回3道污染假胜改为161；BC有多轮曾对并集；BC20还出现摘要16/20，逐条长文标记17/20。</p><div class=visual-links><a href="#evaluation-explorer">逐条看14个评测口径 ↗</a><a href="#failure-detail-measurement">展开账本矛盾 ↗</a></div></div><div class="visual-result-picture"><div class="ex-diagram"><div class="diagram-node"><strong>历史累计</strong><span>多轮曾经做对</span></div><span class="diagram-arrow" aria-hidden="true">→</span><div class="diagram-node"><strong>统一条件</strong><span>同题、资料、预算</span></div><span class="diagram-arrow" aria-hidden="true">→</span><div class="diagram-node"><strong>净改善</strong><span>质量／可靠性／成本</span></div></div></div></div><p class="visual-caution">旧数字不连成一条提分曲线；未证明的泛化、协作优势、便宜模型追平和世界级交付，仍要留作待验目标。</p><details class="progressive-detail" id="failure-facts-measurement"><summary><span>展开原因、动作、结果与协作边界</span><span class="detail-action" aria-hidden="true">展开 ＋</span></summary><dl class="mechanism-facts"><div><dt>可能卡在哪里</dt><dd>累计最好、定向救题、不同模型预算、格式问题和真实错误被混在一起，会让数字看起来进步却解释不了稳定性。</dd></div><div><dt>当时／后来改什么</dt><dd>把每次运行、评分、版本和预算分开记；保留失败与撤回记录，用原始结果重计，不能拿最终累计账替代单次验证。</dd></div><div><dt>结果能证明什么</dt><dd>GAIA难40中Auto22/40、BC另一40题2→6/40，各自分母与条件不同；BC20标记重数也不是重新判题。</dd></div><div><dt>军团能帮什么</dt><dd>比较完整原生单家与按需协作时，用同一真实任务、资料、权限与预算，另列模型差异、时间和全部成本。</dd></div></dl></details></div><div class="explorer-panel" id="failure-explorer--legion" data-explorer-panel="legion" hidden><div class="visual-result"><div class="visual-result-copy"><span class="visual-badge">历史复盘；不是新实验</span><h4>留下Auto的本事，拆开它包办一切的负担</h4><p>Auto积累了自主用工具、搜索蜂群、多跳、实体关系、智能召回与失败追查；早期组队却也出现4/4/2题低于最强单家5题。</p><div class=visual-links><a href="#auto-to-legion">完整技术主线 ↗</a><a href="#failure-detail-legion">保留什么、拆开什么 ↗</a><a href="#work-explorer">回到真实作品看变化 ↗</a></div></div><div class="visual-result-picture"><div class="ex-diagram"><div class="diagram-node"><strong>Auto资产</strong><span>工具、证据、经验</span></div><span class="diagram-arrow" aria-hidden="true">→</span><div class="diagram-node"><strong>原生工作台</strong><span>保留各自长处</span></div><span class="diagram-arrow" aria-hidden="true">→</span><div class="diagram-node"><strong>同一结果</strong><span>按需协作继续改</span></div></div></div></div><p class="visual-caution">单家失败，不等于军团必胜。目标仍是更好交付或同质量更低总成本，不能拿参与人数代替效果。</p><details class="progressive-detail" id="failure-facts-legion"><summary><span>展开原因、动作、结果与协作边界</span><span class="detail-action" aria-hidden="true">展开 ＋</span></summary><dl class="mechanism-facts"><div><dt>可能卡在哪里</dt><dd>架构判断：把工具、执行、状态和最终裁决全塞进一个自研循环，会把这一套工作方式的局限传给所有任务。</dd></div><div><dt>当时／后来改什么</dt><dd>历史拆解方向是开放工具与现场，让成熟Harness保留原生执行方式；不是把Auto清零，也不是再造一个包办所有判断的总大脑。</dd></div><div><dt>结果能证明什么</dt><dd>当前B代码中Auto是工具能力来源、不接答题或首脑；这是本地状态，不证明所有生产实例已同步，更不是协作净增益证明。</dd></div><div><dt>军团能帮什么</dt><dd>用户仍只说一个目标；原负责人先用足本事，遇到真缺口才借工具或同伴，回到同一工程改进。Meyo承接连接与恢复。</dd></div></dl></details></div></div><p class="visual-caution">七类路径可能重叠，是定位视角，不是全题库互斥归因；方案、机制存在与实测收益分开。</p></div><aside class="failure-counterexample"><strong>保留一个反例：组队也失败过。</strong><p>早期10题记录：组队v1/v2/v3答对4/4/2题，最强单家答对5题。原文不支持组队已胜出；本轮未重跑，不是当前排名。</p><p>单家失败，不等于军团必胜。转向的是开放工具、保留原生能力、按需补位，不是强制多人答题或投票融合。</p><a href="#failure-detail-legion">为什么仍选择开放生态，而不是堆人数 ↗</a></aside><details class="progressive-detail" id="failures-full-text"><summary><span>展开完整复盘：题集、失败、动作、反例与原记录</span><span class="detail-action" aria-hidden="true">展开 ＋</span></summary><p><strong>一句话：Auto让模型从“回答问题”走到“自主找资料、用工具”；大量错题提醒我们，要把好工具和真实现场开放出来，而不是继续把所有能力、控制和裁决塞进同一个自研循环。这个选择值得验证，但不等于多家协作已经胜过最强单家。</strong></p>
+<p>这里的“军团”不是把几份答案拼起来。用户仍只说一个目标，原生工作台先把自己的本事用足，遇到真缺口才借工具、借同伴，再回到同一工程继续改。Meyo承担连接、权限、持久化、恢复和证据展示；如何理解、研究、执行与返工，由真正做事的Harness负责。</p>
+<h2>先把“大量测试”分开，别混成一个分数</h2>
+<table>
+<thead>
+<tr>
+<th>材料</th>
+<th>能说明什么</th>
+<th>不能怎么用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>GAIA165累计账与100道旧错题重跑报告</td>
+<td>哪些题曾被救回，历史怎样诊断失败</td>
+<td>不是统一模型、版本、预算的一次165题全量成绩</td>
+</tr>
+<tr>
+<td>GAIA定向难40：Auto22/40</td>
+<td>这组旧结果可重计，见上方评测节点</td>
+<td>不能与165累计值直接比较；各家模型不同，不是纯Harness排名</td>
+</tr>
+<tr>
+<td>BC历史错题20条</td>
+<td>跨9个结果文件挑出的错题和已有失败标记</td>
+<td>不是一次20题测试；未在本轮按题面重新确认去重</td>
+</tr>
+<tr>
+<td>BC另一组40题：2→6/40；另一账本9/21</td>
+<td>有限前后记录、或多轮曾对并集</td>
+<td>不是同预算稳定提升3倍；9/21不是单发42.9%</td>
+</tr>
+<tr>
+<td>W31搜索词源实验：31/58、18/30</td>
+<td>特定词表与来源组合的历史命中</td>
+<td>不是GAIA答题正确率，不是今日来源在线率</td>
+</tr>
+<tr>
+<td>早期组队10题</td>
+<td>原报告中的组队负例</td>
+<td>不是今天的能力排行榜</td>
+</tr>
+</tbody>
+</table>
+<p>**旧100题去向是36、26、8、30：后续救回36、作答仍错26、超时8、缺附件跳过30。**四项出自同一份旧报告，总数100。旧流水线65加后续救回36得到101/165，属于合并账；非附件错题救回36/70也不是整体准确率。本地未恢复该报告引用的完整100题重跑文件，不能说本轮独立重现了36条救回。</p>
+<p>另一份165复盘把剩余64题自述为<strong>30、15、8、11</strong>：缺附件、撞步骤上限、超时、交了错答。它与前表26道“作答仍错”的细分未恢复逐题配对，<strong>不能跨表拼接或相加</strong>。原因分类和能力分类也会重叠；例如缺附件30与能力维度附件19，不是两个可以相加的组。</p>
+<h4 id="failure-detail-input">1. 原件没到手：先修输入，不急着判模型不行</h4>
+<p>题目指定了一个表格、PDF、图片或视频，系统却拿不到原件，这时搜索出来的“相似资料”不是替代品。旧100错题里30道因缺附件跳过，证明的是当时输入链缺口。</p>
+<p>后续动作是接通附件获取和读取工具。118阶段记录明确归因于附件的提升是12题；从101到118的其余5题没有恢复清楚的归因，不能都算给附件功能。<strong>补齐输入有价值，但不保证原来的30题会全部答对。</strong></p>
+<p>在开放生态里，值得复用的是原文件、读取工具和可访问状态；不必每个Harness重写一套下载器。是否已对每一家实际可用，需要运行证据，不能凭“有共享接口”就宣称全通。</p>
+<h4 id="failure-detail-search">2. 搜到却不对：搜索蜂群不是“越多越强”</h4>
+<p>Auto曾投入多源搜索、专业来源、多跳、查询改写、智能召回和站点经验。它们值得保留，因为模型需要的不只是一个搜索框。但结果可能不贴题、来源互相冲突、最后一跳没有支持证据，甚至资料已经找到却没有被后续执行采用。</p>
+<p>W31记录31/58词源命中、稳定词18/30；同周也记录限流、冲突和收口未完成。结构化提取、坏站过滤、超时换源是当时做过或推进的动作，<strong>不能把一周工作清单写成整条搜索链已经验收。</strong></p>
+<p>因此方向不是强制每道题打开几十个来源，而是让执行者自己选择，知道来源是什么、哪里失败、哪些证据冲突、当前还缺什么。工具数量是可用选项；有效答案才是结果。</p>
+<h4 id="failure-detail-understanding">3. 做了仍答错：工具成功和理解成功是两层</h4>
+<p>旧100题里26道提交了错误答案，但缺少统一逐题根因，不能简单说都是“Context不够”或都是“模型太弱”。视觉识别、条件理解、算术、多跳推理可能分别出错，也可能同时发生。</p>
+<p>一个尤其重要的负例：旧报告中的视频小样本改变了抓取路径，<strong>4道视频题最终仍未答对</strong>。它说明流程可能更合理，却没有证明最终正确性提高。</p>
+<p>后来的读图、取帧、结构化中间结果与代码精算都有具体动作记录。154→157还包含多跳预算700→1200秒，不能归为同成本单机制收益；同期11道错题的自进化尝试仍报告0题救回。完整条件保留在上方14条评测节点中。</p>
+<p>军团能提供不同的工具与能力选项，但更强能力、更多时间、更多预算各自贡献多少，必须分开。只写更长Prompt、加一个评审，或让更多成员重复同样错误，都不等于解决能力缺口。</p>
+<h4 id="failure-detail-relations">4. 实体关系串错：缺的可能是最后一跳，而不是下一百条搜索</h4>
+<p>已核的旧事件里，一条人物题虽积累14条证据，候选中却混入了搜索服务名称；另一条“人物→书→书评→地点和日期”链，最后条件没核就提前选了答案。<strong>资料多不等于主体识别正确；候选出现过也不等于它满足全部关系。</strong></p>
+<p>所以要能看见候选是谁、与谁有什么关系、方向是否正确、来源支持哪一跳、哪个条件仍未知。把这些原样交给执行者，比只给“置信度很高”“大家都同意”更有用。</p>
+<p>这是保留实体、关系、来源与失败现场的理由，不是建议把每种题的步骤写死。旧的实体硬锁、置信门和强裁决也有局限，不能原封不动推广成全平台规则。</p>
+<p>两条旧事件的<strong>run_id未知</strong>，只能作为失败形态；本轮没有完整前后运行配对，不能写成“加了关系图就修好了”。同伴是否真的消费了这些现场，也要另有证据。</p>
+<h4 id="failure-detail-delivery">5. 过程丢了交付：既有工程问题，也有尚未解出来</h4>
+<p>旧记录包含超时、撞步骤上限、结果字段漏读、异常收尾和恢复断链。它们要求不同修法：例如读回结果字段、保存逐题trace、让真实失败回到执行者，交接时带着原工程继续。</p>
+<p>但“工程失败”不等于“只要修工程就会答对”。165复盘作者自己承认，撞墙类中<strong>13道日志尚未攒到答案</strong>；延长时间只能提供继续求解的机会。不能把未找到答案包装成“其实模型早就会了”。</p>
+<p>BC的2/40→6/40有有限旧证据，但模型、预算与包装记录并不完全一致；它不是可证明某一修复带来三倍提升的公平实验。也不应靠更严的拒交门，把本已产生的有用结果又吞掉。</p>
+<p>Meyo应做的是让任何一家都看得见自己的处境、拿得到已有文件、可继续执行；不是在上方替它决定答案。</p>
+<h4 id="failure-detail-measurement">6. 账本混了：分清“曾经会”与“稳定会”</h4>
+<p>历史164累计峰值后来撤回3道污染假胜，改报161。这些都不是今天重新单发的得分。164旧账还存在独立题号数量问题；完整说明见上方对应评测节点，不能为了图好看连成一条持续上升的线。</p>
+<p>BC20也有明确的内部矛盾：<strong>摘要16/20，逐条长文标记17/20</strong>。摘要低置信/未确认15/20，与逐条“自认未确认/撞墙”14/20定义不同，不能静默替换；两类布尔标记同时为真的有12条，不能相加。本轮只是重数旧标记，<strong>未重判题目</strong>，也不能据此说85%的错误仅由格式导致。</p>
+<p>GAIA165旧复盘的tier表四行只合计98/162，和总账101/165不齐；“为何答对”的几组也不能直接当互斥分布。旧冲分计划的86%、95%既非实测，其列出的增量算术也不能支持这些百分比。这里不把它们画成既成成绩。</p>
+<p>下一步真正有意义的比较，是完整原生单家与按需协作在<strong>同一真实任务、资料、权限与预算</strong>下的表现。比机制时尽量用同实际模型；比产品方案时可保留各家的原生配置，但模型差异、全部重试成本、时间和失败必须明示。不能禁掉单家的原生工具，再用这个弱基线证明军团强。</p>
+<h4 id="failure-detail-legion">7. 为什么转成军团：保资产、拆职责、看净收益</h4>
+<p>这是从历史失败得到的<strong>架构判断和待验方向</strong>，不是由某一次低分直接证明的结论。</p>
+<table>
+<thead>
+<tr>
+<th>留下来</th>
+<th>拆开或不再强加</th>
+<th>开放后的目标</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>自主使用工具；搜索蜂群、多跳、实体关系、智能召回</td>
+<td>想借一个工具却必须启动整个Auto循环</td>
+<td>工具可被原生Harness按需使用</td>
+</tr>
+<tr>
+<td>原件、来源、候选、真实失败和经过验证的经验</td>
+<td>统一首脑、固定题型步骤、替模型裁决的强控制</td>
+<td>原生执行者带着同一现场自主判断</td>
+</tr>
+<tr>
+<td>持久工程、可恢复任务、被实际采用的改进</td>
+<td>各做一份再投票拼答案；参与人数当成果</td>
+<td>回到同一个作品继续改，用户少管理</td>
+</tr>
+<tr>
+<td>可追查的运行与成本记录</td>
+<td>不同预算混算、多轮最好当单次能力</td>
+<td>同质量更省或同成本更好，净收益为正</td>
+</tr>
+</tbody>
+</table>
+<p>**单家失败，不等于军团必胜。**早期10题原报告记组队v1/v2/v3为4/4/2，最强单家DeepSeek为5/10；本轮未重跑，也不是当前排名。至少它明确反对“人多就好”的宣传。</p>
+<p>当前B代码里的Auto已是工具能力来源，不接答题或首脑。这是本地状态，不外推为全部生产实例同步。各家的工具与经验是否真能互用、补位是否优于用足全部原生能力的最强单家，还需要逐任务证据。</p>
+<p>为什么仍值得做？因为可以不用丢掉Auto积累，又能利用不断出现的新工作台，而不要求用户反复搬工程、重述背景或自己管理几家AI。先把一个工作台的交付做强，再在真实边界上验证协作；更便宜模型是否能借工具与经验做到同等质量，也必须计入全部成本后再下结论。</p>
+<p>最终衡量不只是一题答对：用户拿到的游戏能不能玩、网站能不能用、报告有没有依据、视频是不是成片；有反馈能否在原作品继续改。评测用来暴露短板，不能代替这些真实交付，更不能证明社区复用与留存已经成立。</p>
+<h2>原记录与阅读边界</h2>
+<p>只公开综合说明、必要统计和来源元信息，不附原题标准答案、私人周报正文、原始会话或日志。学城原记录仍需原有权限，公开图解和本节下载不需要这些权限。</p>
+<table>
+<thead>
+<tr>
+<th>原记录</th>
+<th>本次使用范围</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a target="_blank" rel="noopener noreferrer" href="https://km.sankuai.com/collabpage/2780280477">100道旧错题重跑记录</a></td>
+<td>全文；合并救回口径、四组去向、视频负例</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener noreferrer" href="https://km.sankuai.com/collabpage/2779881874">GAIA165旧复盘</a></td>
+<td>全文与独立侧核；原因分类、算术冲突和乐观假设</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener noreferrer" href="https://km.sankuai.com/collabpage/2778223057">W31搜索词源与执行问题</a></td>
+<td>搜索实验、收口与接线有关段落</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener noreferrer" href="https://km.sankuai.com/collabpage/2782150569">BC历史错题20条</a></td>
+<td>摘要和20条已有元信息；9个来源文件，不重新判题</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener noreferrer" href="https://km.sankuai.com/collabpage/2781841859">搜索多跳联合诊断</a></td>
+<td>失败假设与方案边界；不是五名独立专家已证实</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener noreferrer" href="https://km.sankuai.com/collabpage/2783580070">早期组队边界</a></td>
+<td>10题对照原文；未恢复同条件完整实验</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener noreferrer" href="https://km.sankuai.com/collabpage/2783785919">Auto职责拆解</a></td>
+<td>复用此前原文及源码核查；方案与当前本地状态分开</td>
+</tr>
+</tbody>
+</table>
+<p>附件12题、154/157/161、GAIA难40、BC40及实体关系旧事件，继续使用本页已有评测和实体章节的来源，不重复制造新的实验。每份新增来源的精确指纹和读取范围见可下载JSON；本轮未调用模型、跑题、改产品服务或重新进行浏览器视觉验收。</p>
+</details><div class="history-downloads"><a class="text-link" href="content/failures-to-legion.txt" download>下载完整失败复盘 ↓</a><a class="text-link" href="content/failures-to-legion.json" download>下载统计与来源指纹 ↓</a></div></section><h3 id="from-evaluation-to-artifact">为什么评测不错，作品还是可能不好用？</h3><details class="progressive-detail" id="from-evaluation-to-artifact-reading"><summary><span>展开评测与作品质量的区别</span><span class="detail-action" aria-hidden="true">展开 ＋</span></summary><p>答对一道问题、把文件写出来、作品达到专业水平，是三种不同的结果。评测让我们发现资料、工具、记账和收尾的问题；真实作品又会暴露画面、交互、玩法、声音、持续修改和协作的缺口。</p>
 <p>所以不能把 GAIA 分数搬到赛车上，声称赛车也世界级；也不能用一个很好看的截图证明所有机制有效。下一段把同一太阳系与赛车订单的原问题、成员动作、截图和剩余缺口放在一起，让变化可以直接看到。</p>
 </details></div>
 <div class="history-downloads"><a class="text-link" href="content/auto-capabilities.json" download>下载Auto能力与源码索引 ↓</a><a class="text-link" href="content/entity-relations.txt" download>下载实体与关系说明 ↓</a><a class="text-link" href="content/evaluation-lineage.json" download>下载评测动作与口径 ↓</a><a class="text-link" href="#solar-evolution">把这些问题放回真实作品 ↗</a></div></section>
