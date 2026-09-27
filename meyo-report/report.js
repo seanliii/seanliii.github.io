@@ -87,11 +87,11 @@
   // 只标当前访问位置；不拿这个标签推断服务器健康或模型质量。
   const location = window.location;
   if (location && location.protocol === 'file:') {
-    setText('publication-mode', '本地副本 · 机制、实证与作品分享');
+    setText('publication-mode', '本地副本 · 图解交互式项目分享');
     setText('publication-description', '这不是线上网址。可在本地看已有文件；转发给别人请使用右侧的正式网页链接。');
   } else if (location && location.hostname === 'seanliii.github.io') {
-    setText('publication-mode', '公开分享页 · 机制、实证与作品');
-    setText('publication-description', 'Auto机制、评测对应动作、同订单的作品变化都在这里。太阳系和3D对战使用固定体验地址，版本与已知缺口分别说明；公司测试站和学城仍需原有权限。');
+    setText('publication-mode', '公开分享页 · 点图解，再读详情');
+    setText('publication-description', '点击节点了解Auto、实体关系、评测与作品阶段；完整原文按需展开。太阳系和3D对战固定地址不变，游戏版本与已知缺口也不变。');
   }
 
   const form = byId('budget-form');
@@ -150,10 +150,10 @@
   window.addEventListener('resize', updateProgress, { passive: true });
   updateProgress();
 
-  // 四段始终在同一页：从提纲跳到答案时先展开原生details，不把用户丢到隐藏锚点。
+  // 图解默认简洁；完整文字仍在同页，按意愿打开而不是删除。
   const expandButton = byId('expand-report');
   const collapseButton = byId('collapse-report');
-  const mainDetails = () => document.querySelectorAll('details.reading-detail');
+  const mainDetails = () => document.querySelectorAll('details');
   if (expandButton) expandButton.addEventListener('click', () => {
     mainDetails().forEach((detail) => { detail.open = true; });
     expandButton.setAttribute('aria-expanded', 'true');
@@ -170,12 +170,18 @@
     try { id = decodeURIComponent(hash.slice(1)); } catch { return; }
     const target = byId(id);
     if (!target) return;
-    for (let parent = target.parentElement; parent; parent = parent.parentElement) {
+    if (window.MeyoVisualShare) window.MeyoVisualShare.reveal(hash);
+    for (let parent = target; parent; parent = parent.parentElement) {
       if (parent.tagName === 'DETAILS') parent.open = true;
     }
   };
+  mainDetails().forEach(detail => detail.addEventListener('toggle', updateProgress));
   document.querySelectorAll('a[href^="#"]').forEach((link) => {
-    link.addEventListener('click', () => revealAnswer(link.getAttribute('href')));
+    link.addEventListener('click', (event) => {
+      if (event.defaultPrevented || event.button > 0
+          || event.ctrlKey || event.metaKey || event.shiftKey || event.altKey) return;
+      revealAnswer(link.getAttribute('href'));
+    });
   });
   window.addEventListener('hashchange', () => revealAnswer(window.location && window.location.hash));
   revealAnswer(window.location && window.location.hash);
