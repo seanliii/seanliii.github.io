@@ -10,7 +10,7 @@
   <link rel="canonical" href="https://seanliii.github.io/meyo-report/">
   <title>Meyo｜让想法变成作品</title>
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="styles.css?v=3d79bd263f1c">
+  <link rel="stylesheet" href="styles.css?v=a1cad0efa86b">
   <script src="budget-core.js?v=ff8bb161bfe7" defer></script>
   <script src="visual-explorers.js?v=ec6c019db6ec" defer></script>
   <script src="report.js?v=df5cc3cce042" defer></script>
@@ -498,7 +498,544 @@
 <section class="chapter wrap mechanism-story" id="mechanism-evidence" aria-labelledby="mechanism-evidence-title">
 <div class="chapter-heading"><span class="chapter-number">↳</span><span>从机制、动作到用户实际拿到的结果</span></div>
 <h2 id="mechanism-evidence-title">一项机制，究竟怎样改变一次交付？</h2>
-<div class="prose mechanism-prose"><details class="progressive-detail" id="mechanism-reading-intro"><summary><span>这部分如何看证据</span><span class="detail-action" aria-hidden="true">展开 ＋</span></summary><p>我们不想把搜索、工具、评测和作品分成几份互不相干的介绍。更有用的看法是：<strong>一个真实问题原来卡在哪里，我们改了什么，模型随后做了什么，最后交付物发生了什么变化。</strong></p>
+<div class="prose mechanism-prose"><section class="legion-pillars" id="legion-pillars" aria-labelledby="legion-pillars-title"><h3 id="legion-pillars-title">军团靠哪几块真正发挥作用？</h3><p>不是把更多AI放在一起，而是让它们带着同一现场，找到需要的能力，围绕同一作品继续做。七块机制，加上一套能复用的部署基础。</p><p class="legion-proof-principle">每块都带四样东西：真实源码、已核记录、迭代过程、下一步。代码存在不等于已上线，已经采用也不等于持续胜出。</p><div class="visual-explorer evaluation-visual-explorer legion-pillars-explorer" id="legion-explorer" data-explorer><div class="explorer-toolbar"><span>点一个节点，往下看</span><div><button type="button" data-explorer-prev aria-label="军团核心机制与部署基础：上一项">←</button><button type="button" data-explorer-next aria-label="军团核心机制与部署基础：下一项">→</button></div></div><div class="explorer-choices" role="group" aria-label="军团核心机制与部署基础"><button type="button" data-explorer-select="context" aria-controls="legion-explorer--context" aria-pressed="true"><span class="choice-step">01</span><svg class="ex-icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="3" width="16" height="18" rx="3"/><path d="M8 7h8M8 11h8M8 15h4"/></svg><span class="choice-name">上下文机制</span><small>接棒不失忆</small></button><button type="button" data-explorer-select="tools" aria-controls="legion-explorer--tools" aria-pressed="false"><span class="choice-step">02</span><svg class="ex-icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m5 4 5 5-3 3-5-5c-1 5 3 9 7 7l7 7 4-4-7-7c2-4-2-8-7-7"/></svg><span class="choice-name">开放工具与召回</span><small>找到、分清、真能用</small></button><button type="button" data-explorer-select="ecosystem" aria-controls="legion-explorer--ecosystem" aria-pressed="false"><span class="choice-step">03</span><svg class="ex-icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 5v13m0-6h7c4 0 5-3 5-7"/><circle cx="6" cy="3" r="2"/><circle cx="6" cy="21" r="2"/><circle cx="18" cy="3" r="2"/></svg><span class="choice-name">自动注册与生态</span><small>接入不靠手维护</small></button><button type="button" data-explorer-select="evolution" aria-controls="legion-explorer--evolution" aria-pressed="false"><span class="choice-step">04</span><svg class="ex-icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10a9 9 0 0 1 16-5l2 3m-5 0h5V3M21 14a9 9 0 0 1-16 5l-2-3m5 0H3v5"/></svg><span class="choice-name">自进化与群体进化</span><small>采用才有价值</small></button><button type="button" data-explorer-select="world" aria-controls="legion-explorer--world" aria-pressed="false"><span class="choice-step">05</span><svg class="ex-icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></svg><span class="choice-name">世界对齐</span><small>高标准来自真实参照</small></button><button type="button" data-explorer-select="orchestration" aria-controls="legion-explorer--orchestration" aria-pressed="false"><span class="choice-step">06</span><svg class="ex-icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="7" r="3"/><circle cx="18" cy="9" r="2"/><path d="M2 21v-4a6 6 0 0 1 12 0v4m2-7a4 4 0 0 1 6 4v3"/></svg><span class="choice-name">按需组织与接力</span><small>不是答案拼盘</small></button><button type="button" data-explorer-select="delivery" aria-controls="legion-explorer--delivery" aria-pressed="false"><span class="choice-step">07</span><svg class="ex-icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="18" rx="3"/><path d="m10 8 6 4-6 4Z"/></svg><span class="choice-name">原作品交付与恢复</span><small>能用、能改、能退回</small></button><button type="button" data-explorer-select="deployment" aria-controls="legion-explorer--deployment" aria-pressed="false"><span class="choice-step">08</span><svg class="ex-icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m8 6-6 6 6 6m8-12 6 6-6 6m-3-16-2 20"/></svg><span class="choice-name">部署与复用基础</span><small>搭一次，下次少重来</small></button></div><div class="explorer-display"><div class="explorer-panel" id="legion-explorer--context" data-explorer-panel="context"><div class="visual-result"><div class="visual-result-copy"><span class="visual-badge">主链接线＋旧本地个案</span><h4>不只是记住聊天，而是保住可继续工作的现场</h4><p>像交班时把原工程、文件版本、做过的动作、失败和下一处缺口一起留下。该带的能找到，而不是每次重讲，或把所有日志硬塞过去。</p><div class=visual-links><a href="#same-context">看同一现场的组成 ↗</a><a href="#auto-explorer">看Auto积累如何保留 ↗</a></div></div><div class="visual-result-picture"><div class="ex-diagram"><div class="diagram-node"><strong>原始目标</strong><span>工程／版本／资料</span></div><span class="diagram-arrow" aria-hidden="true">→</span><div class="diagram-node"><strong>按需现场</strong><span>完整记录＋短索引</span></div><span class="diagram-arrow" aria-hidden="true">→</span><div class="diagram-node"><strong>下一位执行</strong><span>拿原文件继续做</span></div></div></div></div><p class="legion-observation"><strong>目前证据：</strong>当前源码有产出→快照→原生输入的消费者；旧本地任务证明Codex工程可由Hermes原生工具续改。另有大记忆投影与引用读回记录。</p><p class="visual-caution">跨家接工程不是跨家续同一个原生会话；上下文有预算，不是无限或无损。Auto保留链可读，但当前是tools-only，不为证明对称而重新启用。</p><details class="progressive-detail" id="legion-evidence-context"><summary><span>展开源码、迭代过程、证据和下一步</span><span class="detail-action" aria-hidden="true">展开 ＋</span></summary><ol class="legion-iterations"><li><strong>原工程接棒｜2026-09-20旧验收</strong><dl class="mechanism-facts"><div><dt>原来卡在哪</dt><dd>换成员容易丢工程与版本，变成另做一份。</dd></div><div><dt>对应动作</dt><dd>把原文件、候选和来源交给Hermes原生工具续作。</dd></div><div><dt>结果与边界</dt><dd>旧本地采用/恢复成立；同Astra、冷接项目，不是所有家或线上已验。</dd></div></dl></li><li><strong>大上下文传输｜2026-09-21旧隔离记录</strong><dl class="mechanism-facts"><div><dt>原来卡在哪</dt><dd>把完整大记录塞进启动参数触发E2BIG。</dd></div><div><dt>对应动作</dt><dd>大节点转为可回访引用，原恢复/UI记录保留。</dd></div><div><dt>结果与边界</dt><dd>环境投影与62引用读回有记录；未重放原业务，不冒称已恢复该业务。</dd></div></dl></li></ol><h5>真实源码与调用位置</h5><details class="legion-source"><summary><code>release/legion-service/project_context.py:139–162</code></summary><p>项目初始化保留同会话已有事实；不是每次只从最新一句话重来。</p><p class="legion-source-meta">B工作树 · 所引文件无未提交改动 · HEAD edbc7dad958b；均不自动代表线上版本。</p><pre><code>def _initialize_locked(team_id: str, objective: str, plan: dict, *, mode: str,
+                       user_id: str = &quot;&quot;, conversation_id: str = &quot;&quot;) -&gt; dict:
+    &quot;&quot;&quot;调用者已持有 _packet_lock；合并原有项目事实，不另建执行现场。&quot;&quot;&quot;
+    source = plan.get(&quot;project_context&quot;) if isinstance(plan.get(&quot;project_context&quot;), dict) else {}
+    packet = _json_safe(source) if source else {}
+    previous = load(team_id)
+    conversation = str(conversation_id or packet.get(&quot;conversation_id&quot;) or
+                       previous.get(&quot;conversation_id&quot;) or team_id)
+    require_owner(previous, user_id, conversation)
+    # 显式调用沿本次身份表示传给 workdir；未指定用户的维护调用保留原归属。
+    owner = str(user_id or previous.get(&quot;user_id&quot;) or packet.get(&quot;user_id&quot;) or &quot;&quot;)
+    same_context = bool(previous and str(previous.get(&quot;conversation_id&quot;) or &quot;&quot;) == conversation)
+    if same_context:
+        for key in (&quot;decisions&quot;, &quot;completed&quot;, &quot;open_gaps&quot;, &quot;verification_findings&quot;, &quot;artifacts&quot;, &quot;attempts&quot;,
+                    &quot;source_ref&quot;, &quot;input_snapshot&quot;, &quot;version_identity&quot;, &quot;execution_role&quot;, &quot;quality_context&quot;,
+                    &quot;visibility&quot;, &quot;reference_atlas&quot;, &quot;frontier_research_contract&quot;):
+            if key not in packet and previous.get(key) not in (None, &quot;&quot;, [], {}):
+                packet[key] = _json_safe(previous[key])
+        # 续做计划可能只携带任务状态，工程现场仍以该会话的持久 packet 为准。
+        # 两个路径别名成组继承：显式给新 workspace 时不能再补回旧 repo_root。
+        if not any(key in packet for key in (&quot;repo_root&quot;, &quot;workspace_root&quot;)):
+            for key in (&quot;repo_root&quot;, &quot;workspace_root&quot;):
+                if previous.get(key):
+                    packet[key] = _json_safe(previous[key])</code></pre><p class="legion-source-meta">文件 SHA-256：<code>e22fb78254e2e7fdde771a8be35fbef1e727542f544bf00ca12e75cb3c789c68</code></p></details><details class="legion-source"><summary><code>release/legion-service/legion_core.py:6620–6644</code></summary><p>当前主链按任务取项目快照，经project_context参数交给实际执行入口。</p><p class="legion-source-meta">B工作树 · 含本地未提交改动 · HEAD edbc7dad958b；均不自动代表线上版本。</p><pre><code>        try:
+            from legion_contracts import CapabilityPolicy, TaskFacts
+            _node_spec = raw_tasks.get(k) or {} if isinstance(raw_tasks.get(k), dict) else {}
+            _verification_role = str(_node_spec.get(&quot;verification_role&quot;) or &quot;&quot;)
+            _verification_criteria = list(_node_spec.get(&quot;verification_criteria&quot;) or [])
+            _project_snapshot = (_project_context.snapshot(team_id, k, packet=_project_packet)
+                                 if _project_context else dict(_project_packet or {}))
+            _task_facts = TaskFacts(
+                goal=question, role=role_task or &quot;回答问题&quot;, task_id=k, team_id=team_id,
+                attempt_id=int(attempt or 0), input_hash=str(_node_spec.get(&quot;input_hash&quot;) or &quot;&quot;),
+                idempotency_key=str(_node_spec.get(&quot;idempotency_key&quot;) or &quot;&quot;),
+                delivery_contract=dict(plan.get(&quot;delivery_contract&quot;) or {}),
+                orchestration={**(orchestration_spec.to_dict() if orchestration_spec else {}),
+                               &quot;assignment&quot;: {&quot;task_id&quot;: k, &quot;harness&quot;: harness_key,
+                                              &quot;source&quot;: _node_spec.get(&quot;assignment_source&quot;),
+                                              &quot;native_capabilities&quot;: _node_spec.get(&quot;native_capabilities&quot;) or {}}},
+                deliverables=list((plan.get(&quot;deliverables&quot;) or [])),
+                acceptance=list((plan.get(&quot;acceptance&quot;) or [])) if isinstance(plan.get(&quot;acceptance&quot;), list)
+                           else ([str(plan.get(&quot;acceptance&quot;))] if plan.get(&quot;acceptance&quot;) else []),
+                upstream_artifacts=_upstream_refs,
+                upstream_results=[{&quot;key&quot;: d, &quot;status&quot;: (results.get(d) or {}).get(&quot;status&quot;),
+                                   &quot;error_envelope&quot;: (results.get(d) or {}).get(&quot;error_envelope&quot;)}
+                                  for d in deps],
+                project_context=_project_snapshot,
+            ).to_dict()</code></pre><p class="legion-source-meta">文件 SHA-256：<code>d3f0cd8057e71357cfe3449caccd7c09164ebf869a6dcae50079da64265a683d</code></p></details><details class="legion-source"><summary><code>harness_baselines/meyo-orchestrator/harness_registry.py:1493–1512</code></summary><p>原生上下文装配有PROJECT_CONTEXT_JSON消费者；收到不等于理解或采用。</p><p class="legion-source-meta">B工作树 · 所引文件无未提交改动 · HEAD edbc7dad958b；均不自动代表线上版本。</p><pre><code>    # project_context 有独立高权重 section；从 task_facts 删除同名副本，避免同一项目现场双写计费。
+    prompt_facts = dict(ctx.task_facts or {})
+    prompt_facts.pop(&quot;project_context&quot;, None)
+    # 文件起点索引只供运行时观察；不改变模型看到的项目语义，也不产生无项目的伪项目块。
+    prompt_project = {key: value for key, value in (ctx.project_context or {}).items()
+                      if key != &quot;_artifact_input_baseline&quot;}
+    if quick and prompt_project:
+        for duplicate in (&quot;goal&quot;, &quot;team_id&quot;, &quot;delivery_contract&quot;, &quot;acceptance&quot;, &quot;deliverables&quot;):
+            prompt_facts.pop(duplicate, None)
+        prompt_facts = {key: value for key, value in prompt_facts.items()
+                        if value not in (None, &quot;&quot;, [], {}, 0)}
+    facts_block = (&quot;\n\nTASK_FACTS_JSON\n&quot; + _json.dumps(prompt_facts, ensure_ascii=False, separators=(&quot;,&quot;, &quot;:&quot;))
+                   if prompt_facts else &quot;&quot;)
+    policy_block = (&quot;\n\nCAPABILITY_POLICY_JSON\n&quot; + _json.dumps(ctx.capability_policy, ensure_ascii=False, separators=(&quot;,&quot;, &quot;:&quot;))
+                    if ctx.capability_policy and not quick else &quot;&quot;)
+    memory_block = (&quot;\n\nTASK_MEMORY_JSON\n&quot; + _json.dumps(ctx.task_memory, ensure_ascii=False, separators=(&quot;,&quot;, &quot;:&quot;))
+                    if ctx.task_memory else &quot;&quot;)
+    project_block = (&quot;\n\nPROJECT_CONTEXT_JSON\n&quot; +
+                     _json.dumps(prompt_project, ensure_ascii=False, separators=(&quot;,&quot;, &quot;:&quot;))
+                     if prompt_project else &quot;&quot;)</code></pre><p class="legion-source-meta">文件 SHA-256：<code>336aea7d8259df32058fe89390ed8cbcac94c4eba99775a87a6a00632cb384f1</code></p></details><details class="legion-source"><summary><code>release/legion-service/task_memory.py:59–83</code></summary><p>原生传输使用有界投影与原文引用，保留完整恢复记录；不是无限上下文。</p><p class="legion-source-meta">B工作树 · 所引文件无未提交改动 · HEAD edbc7dad958b；均不自动代表线上版本。</p><pre><code>def native_context(team_id: str, key: str) -&gt; dict:
+    &quot;&quot;&quot;仅给原生执行入口的读取投影；恢复/UI仍使用完整context和原记录。&quot;&quot;&quot;
+    with _LOCK:
+        view = context(team_id, key)
+        state = load(team_id, key)
+        if not view or state.get(&quot;team_id&quot;) != team_id or state.get(&quot;key&quot;) != key:
+            return view
+        path = _path(team_id, key)
+        if path.is_symlink() or path.parent.is_symlink() or ROOT.is_symlink():
+            return view
+        view = dict(view)
+        import project_context
+        if isinstance(view.get(&quot;artifacts&quot;), list):
+            view[&quot;artifacts&quot;] = project_context._snapshot_artifacts(
+                team_id, state, view[&quot;artifacts&quot;], source_path=path)
+        # 完整原生历史和工具事实仍在本请求原节点；只省传输，不删事实，
+        # 不改变native checkpoint、工作目录或失败状态。
+        nodes = {&quot;/&quot; + name: view[name] for name in (&quot;completed_steps&quot;, &quot;native_facts&quot;)
+                 if name in view}
+        refs = project_context._snapshot_references(path, state, nodes)
+        for name in (&quot;completed_steps&quot;, &quot;native_facts&quot;):
+            if &quot;/&quot; + name in refs:
+                view.pop(name, None)
+                view[name + &quot;_ref&quot;] = refs[&quot;/&quot; + name]
+        return view</code></pre><p class="legion-source-meta">文件 SHA-256：<code>f4bf200018f519a44ac376df3f6dc51c69081ea8e59d60ed6dfcc7be8f9f29e4</code></p></details><h5>已有记录，不是本轮重跑</h5><ul class="legion-records"><li><strong>Codex工程由Hermes原生工具续作</strong><p>2026-09-20旧本地冷接棒，不是把Codex原生会话变成Hermes原生会话；同Astra。</p><p class="legion-source-meta">旧记录指纹：<code>bdf69058222ac7337c9ddb51449c89fc68ea7f4f21bb8e822ee0462b6e480f07</code></p></li><li><strong>大记忆投影与原记录保全</strong><p>2026-09-21旧隔离记录：环境体积2,484,227→90,922字节，62引用读回；没有重放原业务，不能把blocked改称done。</p><p class="legion-source-meta">旧记录指纹：<code>a7fd24d4ff6009ed3a506d197ea5ef1f0aa59484eebf038f437ce7ea958b0e44</code></p></li></ul><p class="legion-next"><strong>下一步只验证这一点：</strong>在下一条获准原作品中，把实际发出的现场、引用读回、接手工具动作和成果变化串起来，分别确认进程内与子进程。</p></details></div><div class="explorer-panel" id="legion-explorer--tools" data-explorer-panel="tools" hidden><div class="visual-result"><div class="visual-result-copy"><span class="visual-badge">工具调用有旧记录；召回收益待证</span><h4>工具开放出来，还要让执行者找得到、用得对</h4><p>像工具仓里既有能直接拿来用的扳手，也有参考图纸。系统要说明来源、依赖和可执行性，再按需求给候选，不能只展示一长串工具名。</p><div class=visual-links><a href="#auto-capability-detail">看工具与搜索来源 ↗</a><a href="#failures-to-legion">看为什么搜得多仍会错 ↗</a></div></div><div class="visual-result-picture"><div class="ex-diagram"><div class="diagram-node"><strong>开放供给</strong><span>CLI／函数／参考源码</span></div><span class="diagram-arrow" aria-hidden="true">→</span><div class="diagram-node"><strong>按需召回</strong><span>词项／改写／可选向量</span></div><span class="diagram-arrow" aria-hidden="true">→</span><div class="diagram-node"><strong>真实调用</strong><span>看结果与失败</span></div></div></div></div><p class="legion-observation"><strong>目前证据：</strong>供给→候选→调用有源码；旧记录有共享搜索CLI和函数复用，也保留超时。向量与模型改写组合的实际提准、提速或降本没有在本轮验证。</p><p class="visual-caution">不是默认全语义：向量受开关与模型条件影响，改写可能调用模型，空候选仍可字符回退。目录可用不等于任务正确，部分跨成员工具执行仍未完成。</p><details class="progressive-detail" id="legion-evidence-tools"><summary><span>展开源码、迭代过程、证据和下一步</span><span class="detail-action" aria-hidden="true">展开 ＋</span></summary><ol class="legion-iterations"><li><strong>从清单到可执行候选</strong><dl class="mechanism-facts"><div><dt>原来卡在哪</dt><dd>找得到源码，但并不知道能否直接执行。</dd></div><div><dt>对应动作</dt><dd>标明来源/path/runnable，调用前检查依赖；未适配项返回不可执行。</dd></div><div><dt>结果与边界</dt><dd>已有函数复用与失败回执，不等于全部旧Auto能力都可直接借用。</dd></div></dl></li><li><strong>从词项到有条件的智能召回</strong><dl class="mechanism-facts"><div><dt>原来卡在哪</dt><dd>中文或跨语言需求可能找不到合适工具。</dd></div><div><dt>对应动作</dt><dd>保留词项排序，按条件加入查询改写、真实多语向量与回退。</dd></div><div><dt>结果与边界</dt><dd>当前组合未作本轮运行；模型改写的费用和延迟不能藏起来。</dd></div></dl></li></ol><h5>真实源码与调用位置</h5><details class="legion-source"><summary><code>release/legion-service/legion_tool.py:173–179</code></summary><p>只有真实多语向量模式才进入对应混排，不能把所有回退都称语义召回。</p><p class="legion-source-meta">B工作树 · 所引文件无未提交改动 · HEAD edbc7dad958b；均不自动代表线上版本。</p><pre><code>    # 字符 n-gram 不是跨语言语义：中英零交集时仍会因泛中文描述产生噪声。只有真正的多语言
+    # embedding 才参与混排；否则诚实保留 BM25，交给 harness 读 manifest 后自行改写重搜。
+    semantic_weight = 0.55 if semantic_backend == &quot;multilingual_embedding&quot; else 0.0
+    lexical_weight = 1.0 - semantic_weight
+    for item in catalog:
+        score = (lexical_weight * lexical.get(item[&quot;id&quot;], 0.0) / lex_max
+                 + semantic_weight * max(0.0, semantic.get(item[&quot;id&quot;], 0.0)))</code></pre><p class="legion-source-meta">文件 SHA-256：<code>d85583d5b124599bd440ccc19ecc99cb91d5b1795f56bf97698f3dee702b5507</code></p></details><details class="legion-source"><summary><code>release/legion-service/tool_semantic_index.py:53–69</code></summary><p>向量召回依赖开关与完整本地模型条件；源码存在不代表当前启用。</p><p class="legion-source-meta">B工作树 · 所引文件无未提交改动 · HEAD edbc7dad958b；均不自动代表线上版本。</p><pre><code>    if os.environ.get(&quot;LEGION_TOOL_LOCAL_EMBEDDING&quot;, &quot;0&quot;) != &quot;1&quot;:
+        return None
+    return _embedding_scores(items, query)
+
+
+def _embedding_scores(items: list[dict], query: str) -&gt; list[float] | None:
+    # 下载/修复 embedding 模型属于显式安装动作，绝不能在每次工具检索时偷偷联网重试。
+    # 只有本地快照完整且缓存索引已存在时才启用；否则立即回退字符 n-gram。
+    model_cache = Path.home() / &quot;.cache&quot; / &quot;huggingface&quot; / &quot;hub&quot; / \
+        &quot;models--sentence-transformers--paraphrase-multilingual-MiniLM-L12-v2&quot;
+    snapshots = model_cache / &quot;snapshots&quot;
+    required = (&quot;modules.json&quot;, &quot;config.json&quot;, &quot;tokenizer.json&quot;, &quot;model.safetensors&quot;)
+    complete_snapshot = next((p for p in snapshots.glob(&quot;*&quot;)
+                              if p.is_dir() and all((p / name).exists() for name in required)), None) \
+        if snapshots.is_dir() else None
+    if not CACHE.is_file() or complete_snapshot is None:
+        return None</code></pre><p class="legion-source-meta">文件 SHA-256：<code>1ea6d92a16ca85cbb2cba80beca096a6c01c843b4a2f97b16faac6358ce5f6ce</code></p></details><details class="legion-source"><summary><code>release/legion-service/legion_tool.py:239–248</code></summary><p>没有候选时仍可走字符片段正分回退；这是回退，不是跨语言语义证明。</p><p class="legion-source-meta">B工作树 · 所引文件无未提交改动 · HEAD edbc7dad958b；均不自动代表线上版本。</p><pre><code>    fallback_semantic = False
+    # 模型改写不可用/超时时，通用字符向量只作为“避免交白卷”的最后候选源；仅收正分项，
+    # 不随机塞零相关工具，也不覆盖已有 BM25 候选。
+    if not supply_pool and semantic_backend == &quot;character_ngram_fallback&quot;:
+        semantic_ranked = sorted(
+            ((score, item) for item, score in zip(catalog, sem_scores) if score &gt; 0),
+            key=lambda pair: -pair[0])
+        supply_pool = [item for _score, item in semantic_ranked[:max(top * 3, top)]]
+        hits = supply_pool[:top]
+        fallback_semantic = bool(supply_pool)</code></pre><p class="legion-source-meta">文件 SHA-256：<code>d85583d5b124599bd440ccc19ecc99cb91d5b1795f56bf97698f3dee702b5507</code></p></details><details class="legion-source"><summary><code>release/legion-service/capstack_bridge.py:115–139</code></summary><p>可执行能力调用要核依赖并落到真实函数；参考源码不自动成为工具。</p><p class="legion-source-meta">B工作树 · 所引文件无未提交改动 · HEAD edbc7dad958b；均不自动代表线上版本。</p><pre><code>                names.add(n[2:])
+    return sorted(names)
+
+
+def call(tool_name: str, path: str = &quot;&quot;, question: str = &quot;&quot;, timeout_s: int = 120) -&gt; dict:
+    &quot;&quot;&quot;无状态桥调 auto 的 t_&lt;tool_name&gt;(跨 capability_stack+qa_tool_impls)·stub session·绕开 auto pipeline.
+
+    path: 本地文件路径(OCR/PDF/图像类解析它);question: 覆盖式问题(优先于path).
+    返回 {ok, result, tool, via:&#x27;capstack_bridge&#x27;}。核心工具无状态·session 用空 dict 承接记录。
+    &quot;&quot;&quot;
+    fn = _find_fn(tool_name)
+    if not callable(fn):
+        return {&quot;ok&quot;: False, &quot;runnable&quot;: False,
+                &quot;error&quot;: f&quot;工具源码仅供参考或无状态桥/随包依赖未就绪: t_{tool_name}&quot;,
+                &quot;hint&quot;: f&quot;可桥调的: {list_bridged_tools()[:20]}&quot;}
+    # 构造 question(工具内 _parse_local_path 从 question 提路径)+ stub session(空dict即可)
+    q = question or (path or &quot;&quot;)
+    stub_session: dict = {&quot;extracted_values&quot;: [], &quot;_budget&quot;: {}}
+    try:
+        result = fn(q, stub_session)
+        return {&quot;ok&quot;: True, &quot;result&quot;: str(result), &quot;tool&quot;: tool_name,
+                &quot;via&quot;: &quot;capstack_bridge&quot;,
+                &quot;extracted_values&quot;: stub_session.get(&quot;extracted_values&quot;, [])}
+    except Exception as e:
+        return {&quot;ok&quot;: False, &quot;error&quot;: f&quot;桥调 t_{tool_name} 失败: {type(e).__name__}: {e}&quot;,</code></pre><p class="legion-source-meta">文件 SHA-256：<code>bcab53ce886b2ee04c5552b192781f19c1fa70cd70473fd8637859eeeffbe238</code></p></details><h5>已有记录，不是本轮重跑</h5><ul class="legion-records"><li><strong>工具函数复用与同伴源码步骤的混合结果</strong><p>旧记录同时保留函数复用通过与同伴源码步骤超时；不是向量召回精度或成本实验。</p><p class="legion-source-meta">旧记录指纹：<code>cd90dd02df6336dbc3097b48ff63d66625fffe10b49d56e3f3a14045b10ac61f</code></p></li></ul><p class="legion-next"><strong>下一步只验证这一点：</strong>在真实需求自然发生时，记录召回路径、候选、选中工具、执行结果及费用；比较各路贡献，不靠工具数量宣称进步。</p></details></div><div class="explorer-panel" id="legion-explorer--ecosystem" data-explorer-panel="ecosystem" hidden><div class="visual-result"><div class="visual-result-copy"><span class="visual-badge">统一入口有源码；分步SKIP/FAIL保留</span><h4>新工作台能加入，但不能把目录存在当成能力</h4><p>接入像入职：先知道它是谁、版本和角色是什么，再确认装得起、能读写、能做任务。不能因为仓库下载成功，就宣布它已上岗。</p><div class=visual-links><a href="#ecosystem-adaptation">看生态、插件与原工作习惯 ↗</a></div></div><div class="visual-result-picture"><div class="ex-diagram"><div class="diagram-node"><strong>发现候选</strong><span>版本／协议／角色</span></div><span class="diagram-arrow" aria-hidden="true">→</span><div class="diagram-node"><strong>统一注册</strong><span>安装与分步检查</span></div><span class="diagram-arrow" aria-hidden="true">→</span><div class="diagram-node"><strong>可用选项</strong><span>按运行条件入池</span></div></div></div></div><p class="legion-observation"><strong>目前证据：</strong>自动候选、manifest校验、加锁注册与运行条件有接线。旧三家接入记录并不全绿：入池均跳过，一家速度失败，一家只按能力角色验。</p><p class="visual-caution">总PASS允许SKIP；候选池可有乐观目录项。在册、已安装、可执行、完成真实任务必须分开，不承诺任意GitHub一键变可用成员。</p><details class="progressive-detail" id="legion-evidence-ecosystem"><summary><span>展开源码、迭代过程、证据和下一步</span><span class="detail-action" aria-hidden="true">展开 ＋</span></summary><ol class="legion-iterations"><li><strong>统一接入代替多张名单</strong><dl class="mechanism-facts"><div><dt>原来卡在哪</dt><dd>人工改目录、安装位置和编排名单容易不同步。</dd></div><div><dt>对应动作</dt><dd>候选先经manifest校验，再由onboard流程注册。</dd></div><div><dt>结果与边界</dt><dd>自动发现是候选生成，不代替源码、许可或安全确认。</dd></div></dl></li><li><strong>旧三家接入｜2026-09-11记录</strong><dl class="mechanism-facts"><div><dt>原来卡在哪</dt><dd>一个总PASS会掩盖未跑入池或性能失败。</dd></div><div><dt>对应动作</dt><dd>按成员角色分别记安装、工具、模式、速度和入池。</dd></div><div><dt>结果与边界</dt><dd>Prime有工具落盘；LoopX按能力动作；Penguin速度FAIL；三者入池SKIP，不能宣传全家上线。</dd></div></dl></li></ol><h5>真实源码与调用位置</h5><details class="legion-source"><summary><code>release/legion-service/agent_manifest.py:186–202</code></summary><p>自动发现先形成候选描述，不把任意GitHub目录直接视为可运行成员。</p><p class="legion-source-meta">B工作树 · 所引文件无未提交改动 · HEAD edbc7dad958b；均不自动代表线上版本。</p><pre><code>def discover_local(path: str, url: str = &quot;&quot;, ref: str = &quot;HEAD&quot;) -&gt; dict:
+    &quot;&quot;&quot;读取项目自述元数据形成候选 manifest；不自动执行、不猜未声明协议。&quot;&quot;&quot;
+    root = pathlib.Path(path).expanduser().resolve()
+    if not root.is_dir():
+        return {&quot;ok&quot;: False, &quot;error&quot;: f&quot;目录不存在:{root}&quot;}
+    package = _read_json(root / &quot;package.json&quot;)
+    pyproject = _read_text(root / &quot;pyproject.toml&quot;)
+    cargo = _read_text(root / &quot;Cargo.toml&quot;)
+    readme = _read_text(root / &quot;README.md&quot;, 80_000)
+    project_name = &quot;&quot;
+    if pyproject:
+        match = re.search(r&quot;(?m)^\s*name\s*=\s*[\&quot;&#x27;]([^\&quot;&#x27;]+)[\&quot;&#x27;]&quot;, pyproject)
+        project_name = match.group(1) if match else &quot;&quot;
+    name = package.get(&quot;name&quot;) or project_name or root.name
+    key = re.sub(r&quot;[^a-z0-9_.-]+&quot;, &quot;-&quot;, str(name).lower()).strip(&quot;-.&quot;)
+    runtime: dict[str, Any] = {}
+    install: list[list[str]] = []</code></pre><p class="legion-source-meta">文件 SHA-256：<code>a82e04c32d3ce5edfeaaf92f655349946f1bd4d1b764e56577685a2d9079040c</code></p></details><details class="legion-source"><summary><code>release/legion-service/harness_onboard.py:65–83</code></summary><p>注册先校验manifest并以锁更新目录，让接入有统一入口。</p><p class="legion-source-meta">B工作树 · 所引文件无未提交改动 · HEAD edbc7dad958b；均不自动代表线上版本。</p><pre><code>def _upsert_catalog(key, spec_path):
+    entry = json.loads(pathlib.Path(spec_path).read_text(encoding=&quot;utf-8&quot;))
+    if entry.get(&quot;key&quot;) != key:
+        raise ValueError(&quot;spec.key=%s 与 --key=%s 不一致&quot; % (entry.get(&quot;key&quot;), key))
+    validation = R.agent_manifest.validate(entry)
+    if not validation.get(&quot;ok&quot;):
+        raise ValueError(&quot;spec 不满足 catalog 契约:&quot; + &quot;;&quot;.join(validation.get(&quot;errors&quot;) or []))
+    with R.catalog_lock():
+        items = R.load_catalog()
+        replaced = False
+        for i, x in enumerate(items):
+            if x.get(&quot;key&quot;) == key:
+                items[i] = entry
+                replaced = True
+                break
+        if not replaced:
+            items.append(entry)
+        R._save_catalog(items)
+    return &quot;catalog %s:%s (total=%d)&quot; % (&quot;updated&quot; if replaced else &quot;appended&quot;, key, len(items))</code></pre><p class="legion-source-meta">文件 SHA-256：<code>7b015abc9dedb6591c0af2f0f2c1c5e6d707a97424bb050bd93822c80052a812</code></p></details><details class="legion-source"><summary><code>release/legion-service/external_agent_registry.py:535–538</code></summary><p>可用判断区分版本、探活、凭据、协议和角色；在目录里不等于可执行。</p><p class="legion-source-meta">B工作树 · 所引文件无未提交改动 · HEAD edbc7dad958b；均不自动代表线上版本。</p><pre><code>    credentials = _credentials(item, env)
+    has_transport = bool(item.get(&quot;transports&quot;))
+    executable_role = item.get(&quot;execution_role&quot;) not in (&quot;control-plane&quot;, &quot;ui-platform&quot;, &quot;capability&quot;)
+    execution_ready = bool(revision_ok and available and credentials[&quot;ready&quot;] and has_transport and executable_role)</code></pre><p class="legion-source-meta">文件 SHA-256：<code>5250fcb3d12397047cf4ce3d4c9663147d237afa13f7d40274e24bf3a8de74ac</code></p></details><details class="legion-source"><summary><code>release/legion-service/harness_onboard.py:323–326</code></summary><p>现行总PASS只排除FAIL，SKIP仍可能存在；必须看分步记录。</p><p class="legion-source-meta">B工作树 · 所引文件无未提交改动 · HEAD edbc7dad958b；均不自动代表线上版本。</p><pre><code>    passed = sum(1 for x in steps if x.status == &quot;PASS&quot;)
+    failed = sum(1 for x in steps if x.status == &quot;FAIL&quot;)
+    skipped = sum(1 for x in steps if x.status == &quot;SKIP&quot;)
+    verdict = &quot;PASS&quot; if failed == 0 else &quot;FAIL&quot;</code></pre><p class="legion-source-meta">文件 SHA-256：<code>7b015abc9dedb6591c0af2f0f2c1c5e6d707a97424bb050bd93822c80052a812</code></p></details><h5>已有记录，不是本轮重跑</h5><ul class="legion-records"><li><strong>三家接入的分步旧记录</strong><p>Prime/LoopX/Penguin的入池检查均SKIP；Prime有工具落盘，LoopX按能力角色，Penguin速度FAIL。不是生产全家通过。</p><p class="legion-source-meta">旧记录指纹：<code>58f9d190f386895aad0f3a0664cabafeb0fa5589692b3b574e19023a7f65cb0f</code></p></li></ul><p class="legion-next"><strong>下一步只验证这一点：</strong>下一次获准接入只核该成员的版本/许可、角色、依赖、实际工具读写、小任务与恢复，保留跳过和失败，不重装全家。</p></details></div><div class="explorer-panel" id="legion-explorer--evolution" data-explorer-panel="evolution" hidden><div class="visual-result"><div class="visual-result-copy"><span class="visual-badge">经验与审查有接线；长期增益未证</span><h4>经验不是越存越好，要被下一次真正用上</h4><p>一次摔倒后恢复，和学会避坑不是一件事。只有方法被另一次任务取到、采用，并把结果改好，才有资格谈能力积累。</p><div class=visual-links><a href="#failure-explorer--legion">看组队负例 ↗</a><a href="#racing-work">看原作者采用反馈的作品个案 ↗</a></div></div><div class="visual-result-picture"><div class="ex-diagram"><div class="diagram-node"><strong>真实经历</strong><span>成功／失败／源码</span></div><span class="diagram-arrow" aria-hidden="true">→</span><div class="diagram-node"><strong>可回访经验</strong><span>召回与审查记录</span></div><span class="diagram-arrow" aria-hidden="true">→</span><div class="diagram-node"><strong>下一次采用</strong><span>结果与成本检验</span></div></div></div></div><p class="legion-observation"><strong>目前证据：</strong>收尾结果→经验库→检索→下一次上下文有代码；源码审查能入账与沉淀。另有原作者实际采用同伴意见的个案，但不是这条长期经验链的收益证明。</p><p class="visual-caution">自愈、记忆召回、源码改进、跨成员采用、长期群体增强是五件事。当前采用计数没有完整绑定效果；历史还有11错题进化0救回，不能说越用必然越强。</p><details class="progressive-detail" id="legion-evidence-evolution"><summary><span>展开源码、迭代过程、证据和下一步</span><span class="detail-action" aria-hidden="true">展开 ＋</span></summary><ol class="legion-iterations"><li><strong>经验从记录走向执行上下文</strong><dl class="mechanism-facts"><div><dt>原来卡在哪</dt><dd>存了做法却没有下一位消费者。</dd></div><div><dt>对应动作</dt><dd>让交付结果入库，后续任务按需检索并注入。</dd></div><div><dt>结果与边界</dt><dd>召回接线存在；当前检索仍有词面与片段排序，未证明采用或持续提分。</dd></div></dl></li><li><strong>源码审查与群体采用分开</strong><dl class="mechanism-facts"><div><dt>原来卡在哪</dt><dd>引用源码正确，容易被误写为自动修复已成功。</dd></div><div><dt>对应动作</dt><dd>保留文件/行号/版本、运行证据和独立审查；同伴结果回原作者处理。</dd></div><div><dt>结果与边界</dt><dd>审查允许runtime_not_tested，标签也可能由提交者提供；代码引用不等于根因和补丁效果已证。</dd></div></dl></li></ol><h5>真实源码与调用位置</h5><details class="legion-source"><summary><code>release/legion-service/legion_core.py:8963–8976</code></summary><p>后续任务可检索旧经验；召回是输入事实，不是采用或正确性证明。</p><p class="legion-source-meta">B工作树 · 含本地未提交改动 · HEAD edbc7dad958b；均不自动代表线上版本。</p><pre><code>    try:
+        import legion_memory
+        # user_id 隔离召回(军团自审 P0):只捞本用户归属的经验+全局共享经验(working/procedural),
+        # 不会把别的用户的任务产出召回给当前用户(_visible_to 按 user_id 过滤)。
+        r = legion_memory.search(question, top=2, user_id=user_id or &quot;&quot;)
+    except Exception:
+        return &quot;&quot;
+    exps = r.get(&quot;experiences&quot;) if isinstance(r, dict) else None
+    if not exps:
+        return &quot;&quot;
+    # 用户可见:如实陈述【发生的事实】——给军团注入了 N 条历史经验供参考。★ context not control:
+    # 不替军团断言&quot;参考了/辅助了本次回答&quot;(用没用是军团的事·只有它自己知道·父层绝不替它宣称,
+    # 那正是 adopted 要军团自己回报的原因)。只报&quot;注入了什么·供参考&quot;,效果由军团自己决定。
+    if cb:</code></pre><p class="legion-source-meta">文件 SHA-256：<code>d3f0cd8057e71357cfe3449caccd7c09164ebf869a6dcae50079da64265a683d</code></p></details><details class="legion-source"><summary><code>release/legion-service/legion_core.py:4159–4164</code></summary><p>召回结果进入执行前置上下文，说明存在实际消费接线。</p><p class="legion-source-meta">B工作树 · 含本地未提交改动 · HEAD edbc7dad958b；均不自动代表线上版本。</p><pre><code>            ctx += _dk_block
+    except Exception:
+        pass
+    # 军团跨家经验召回:别家/自己历史上答过的相似问题·供参考(context not control·标明不一定对让模型自判)
+    # 传 cb:召回到经验时给用户 emit 一条可见事件(过程透明·让&quot;军团在学习变强&quot;可感知·用户中心)。
+    ctx += _recall_experience(question, cb=cb, user_id=user_id)</code></pre><p class="legion-source-meta">文件 SHA-256：<code>d3f0cd8057e71357cfe3449caccd7c09164ebf869a6dcae50079da64265a683d</code></p></details><details class="legion-source"><summary><code>release/legion-service/source_audit.py:369–381</code></summary><p>审查记录允许runtime_not_tested；源码引用核对不能替代补丁效果验证。</p><p class="legion-source-meta">B工作树 · 所引文件无未提交改动 · HEAD edbc7dad958b；均不自动代表线上版本。</p><pre><code>        &quot;claim&quot;: str(entry.get(&quot;claim&quot;) or &quot;&quot;),
+        &quot;source_root&quot;: str(_resolve_source_root(str(entry[&quot;source_root&quot;]))),
+        &quot;revision&quot;: str(checked.get(&quot;revision&quot;) or entry[&quot;revision&quot;]),
+        &quot;file&quot;: str(entry[&quot;file&quot;]),
+        &quot;line&quot;: int(entry[&quot;line&quot;]),
+        &quot;quote&quot;: str(entry[&quot;quote&quot;]),
+        &quot;runtime_evidence&quot;: entry.get(&quot;runtime_evidence&quot;) or &quot;runtime_not_tested&quot;,
+        &quot;verifier&quot;: str(entry[&quot;verifier&quot;]),
+        &quot;status&quot;: status,
+        &quot;improvement&quot;: entry.get(&quot;improvement&quot;) or None,
+        &quot;verification&quot;: {&quot;path&quot;: checked[&quot;path&quot;], &quot;actual&quot;: checked[&quot;actual&quot;],
+                         &quot;content_source&quot;: checked.get(&quot;content_source&quot;),
+                         &quot;content_sha256&quot;: checked.get(&quot;content_sha256&quot;)},</code></pre><p class="legion-source-meta">文件 SHA-256：<code>02b4386a4a34686c3aed56b13374cb7be43cf1b20de3dcd0f9f0ec7103ef72bf</code></p></details><h5>已有记录，不是本轮重跑</h5><ul class="legion-records"><li><strong>原请求者采用同伴输入并改回原作品</strong><p>2026-09-20旧本地工程验收；明确要求求助、限定两家，同Astra；不是全自主选优或净提速证明。</p><p class="legion-source-meta">旧记录指纹：<code>0ac332b2cd7d7c9270ba04afb06f7406c9ee2a7082d1aeac47aafece4fc1a12b</code></p></li><li><strong>进化与组队的历史反例</strong><p>已有核查保留11错题自进化0救回；早期组队反例另在失败章节。不作为当前排名，不删负例。</p><p class="legion-source-meta">旧记录指纹：<code>16bbf72fb9a5e4bd06efead9497f15eb4343c4766b405fae8fe642c0d1429cda</code></p></li></ul><p class="legion-next"><strong>下一步只验证这一点：</strong>让同一份经验的产生→送达→实际采用→原作品返工→效果形成一条证据，保留未采用和失败，再看跨任务净收益。</p></details></div><div class="explorer-panel" id="legion-explorer--world" data-explorer-panel="world" hidden><div class="visual-result"><div class="visual-result-copy"><span class="visual-badge">参照与差距可传递；关键代码含WIP</span><h4>先知道好东西长什么样，再决定该补哪一处</h4><p>不是在Prompt里喊“世界级”。执行者应研究当前任务的优秀参照，形成自己的质量目标，并把作品放回真实使用中找最大差距。</p><div class=visual-links><a href="#worldclass-definition">看质量标准与差距 ↗</a><a href="#work-explorer">把标准放回作品 ↗</a></div></div><div class="visual-result-picture"><div class="ex-diagram"><div class="diagram-node"><strong>真实参照</strong><span>原网址／素材／能力</span></div><span class="diagram-arrow" aria-hidden="true">→</span><div class="diagram-node"><strong>当单目标</strong><span>意图／约束／质量</span></div><span class="diagram-arrow" aria-hidden="true">→</span><div class="diagram-node"><strong>原作返工</strong><span>补当前最大差距</span></div></div></div></div><p class="legion-observation"><strong>目前证据：</strong>体验目标可形成参照Context；来源、访问状态、hash、研究结果与gap能进入项目现场。旧档案有抓取响应，但没有本轮完整“研究被采用→作品更好”的验证。</p><p class="visual-caution">关键文件含本地未提交改动，不是线上世界级认证。解析到pass、存了URL或抓取200都不证明阅读与采用；Quick和发送预算也可能省略完整资料。</p><details class="progressive-detail" id="legion-evidence-world"><summary><span>展开源码、迭代过程、证据和下一步</span><span class="detail-action" aria-hidden="true">展开 ＋</span></summary><ol class="legion-iterations"><li><strong>从喊高标准到带出处的参照</strong><dl class="mechanism-facts"><div><dt>原来卡在哪</dt><dd>只有世界级口号，缺可回访原件与具体差距。</dd></div><div><dt>对应动作</dt><dd>把来源、访问状态、摘要和原文位置放进质量Context，供原生执行者自主使用。</dd></div><div><dt>结果与边界</dt><dd>normalize不联网；未知访问仍是未知，代码存在不代表实际研究完成。</dd></div></dl></li><li><strong>从一次验收到原作品持续返工</strong><dl class="mechanism-facts"><div><dt>原来卡在哪</dt><dd>打了pass却可能没改原作品，或换了订单比较。</dd></div><div><dt>对应动作</dt><dd>让评审、失败、锚点观察与gap作为并列事实回到当前工程。</dd></div><div><dt>结果与边界</dt><dd>不同路径的即时落账不完全等同；仍需真实采用和同题质量结果，而非平台总判决。</dd></div></dl></li></ol><h5>真实源码与调用位置</h5><details class="legion-source"><summary><code>release/legion-service/frontier_benchmarks.py:182–210</code></summary><p>体验目标编译成参照Context并保留已有合同；不是给作品颁世界级认证。</p><p class="legion-source-meta">B工作树 · 含本地未提交改动 · HEAD edbc7dad958b；均不自动代表线上版本。</p><pre><code>    research = {
+        &quot;goal&quot;: &quot;与用户预期结果相关的参照资料和观察&quot;,
+        &quot;reference_atlas&quot;: deepcopy(REFERENCE_ATLAS),
+        &quot;experience_intent&quot;: intent,
+        &quot;golden_task&quot;: golden,
+        &quot;reference_requirements&quot;: {},
+        &quot;human_evidence_requirements&quot;: {},
+        &quot;comparison_policy&quot;: {},
+    }
+    compiled = {&quot;quality_profile&quot;: quality_profile, &quot;experience_intent&quot;: intent,
+                &quot;golden_task&quot;: golden, &quot;north_star&quot;: north_star,
+                &quot;critical_dimensions&quot;: critical_dimensions,
+                &quot;claim_ceiling&quot;: &quot;UNVALIDATED&quot;,
+                &quot;frontier_research_contract&quot;: research}
+    # 整份显式合同及其未知字段不重写；按键是否存在保留 False/空值，而非用真值兜底。
+    return {key: deepcopy(source[key] if key in source else value)
+            for key, value in compiled.items()}
+
+
+def augment_plan(plan: dict | None) -&gt; dict:
+    &quot;&quot;&quot;只编译缺失的意图、参考与质量观察 Context，不改写执行计划。&quot;&quot;&quot;
+    source = deepcopy(plan) if isinstance(plan, dict) else {}
+    raw_intent = source.get(&quot;experience_intent&quot;) if isinstance(source.get(&quot;experience_intent&quot;), dict) else {}
+    if not raw_intent:
+        return source
+    # 原始意图、显式策略及历史事实均由调用者拥有；编译结果只补缺失的 Context。
+    # 是否研究、分阶段或设评审节点由用户/规划器决定，不在这里补 DAG 或制造阻断。
+    for key, value in compile_experience_contract(source).items():
+        source.setdefault(key, value)</code></pre><p class="legion-source-meta">文件 SHA-256：<code>fad7733e31b51a5b547cc9b8d121701a707cda5eab6e3541ac5d18e1e26fbaae</code></p></details><details class="legion-source"><summary><code>release/legion-service/project_context.py:344–370</code></summary><p>研究结果可进入共享quality packet；字段形成不等于真的研究或采用。</p><p class="legion-source-meta">B工作树 · 所引文件无未提交改动 · HEAD edbc7dad958b；均不自动代表线上版本。</p><pre><code>def _merge_frontier_context(packet: dict, context: dict, task_id: str) -&gt; None:
+    &quot;&quot;&quot;Persist research authored by the Legion as shared context for downstream nodes.&quot;&quot;&quot;
+    if not context:
+        return
+    research = dict(packet.get(&quot;frontier_context&quot;) or {})
+    research.update(_json_safe(context))
+    research.update({&quot;source_task_id&quot;: str(task_id), &quot;updated_at&quot;: time.time()})
+    packet[&quot;frontier_context&quot;] = research
+    # 概念锚点表(重放#3/#4实锤:研究浅/锚点不结构化→全链自洽地平庸):研究在
+    # LEGION_FRONTIER_CONTEXT 里给出 concept_anchors 数组时,持久化为全军团共同对照事实,
+    # 翻译官任务书/验证契约/首脑协调全部逐锚对照这张表。
+    # P0-3:每锚保留完整 schema(acceptance/evidence_requirements/artifact_refs/source_sha/
+    # revision/is_crown),不再只有损压缩到5字段。
+    anchors = context.get(&quot;concept_anchors&quot;) if isinstance(context.get(&quot;concept_anchors&quot;), list) else None
+    if anchors:
+        rows = [row for row in (_normalize_anchor_row(item) for item in anchors) if row]
+        if rows:
+            _commit_anchor_rows(packet, rows, change_reason=&quot;legion_frontier_research&quot;,
+                                sources=[{&quot;channel&quot;: &quot;protocol_block&quot;, &quot;task_id&quot;: str(task_id),
+                                          &quot;rows&quot;: len(rows), &quot;ingested_at&quot;: time.time()}])
+    quality = dict(packet.get(&quot;quality_context&quot;) or {})
+    quality[&quot;frontier_context&quot;] = research
+    quality[&quot;revision&quot;] = max(1, int(quality.get(&quot;revision&quot;) or 0) + 1)
+    quality[&quot;change_reason&quot;] = &quot;legion_frontier_research&quot;
+    quality[&quot;updated_at&quot;] = time.time()
+    packet[&quot;quality_context&quot;] = quality
+    packet[&quot;quality_context_revision&quot;] = quality[&quot;revision&quot;]</code></pre><p class="legion-source-meta">文件 SHA-256：<code>e22fb78254e2e7fdde771a8be35fbef1e727542f544bf00ca12e75cb3c789c68</code></p></details><details class="legion-source"><summary><code>release/legion-service/legion_core.py:6620–6644</code></summary><p>当前主链按任务取项目快照，经project_context参数交给实际执行入口。</p><p class="legion-source-meta">B工作树 · 含本地未提交改动 · HEAD edbc7dad958b；均不自动代表线上版本。</p><pre><code>        try:
+            from legion_contracts import CapabilityPolicy, TaskFacts
+            _node_spec = raw_tasks.get(k) or {} if isinstance(raw_tasks.get(k), dict) else {}
+            _verification_role = str(_node_spec.get(&quot;verification_role&quot;) or &quot;&quot;)
+            _verification_criteria = list(_node_spec.get(&quot;verification_criteria&quot;) or [])
+            _project_snapshot = (_project_context.snapshot(team_id, k, packet=_project_packet)
+                                 if _project_context else dict(_project_packet or {}))
+            _task_facts = TaskFacts(
+                goal=question, role=role_task or &quot;回答问题&quot;, task_id=k, team_id=team_id,
+                attempt_id=int(attempt or 0), input_hash=str(_node_spec.get(&quot;input_hash&quot;) or &quot;&quot;),
+                idempotency_key=str(_node_spec.get(&quot;idempotency_key&quot;) or &quot;&quot;),
+                delivery_contract=dict(plan.get(&quot;delivery_contract&quot;) or {}),
+                orchestration={**(orchestration_spec.to_dict() if orchestration_spec else {}),
+                               &quot;assignment&quot;: {&quot;task_id&quot;: k, &quot;harness&quot;: harness_key,
+                                              &quot;source&quot;: _node_spec.get(&quot;assignment_source&quot;),
+                                              &quot;native_capabilities&quot;: _node_spec.get(&quot;native_capabilities&quot;) or {}}},
+                deliverables=list((plan.get(&quot;deliverables&quot;) or [])),
+                acceptance=list((plan.get(&quot;acceptance&quot;) or [])) if isinstance(plan.get(&quot;acceptance&quot;), list)
+                           else ([str(plan.get(&quot;acceptance&quot;))] if plan.get(&quot;acceptance&quot;) else []),
+                upstream_artifacts=_upstream_refs,
+                upstream_results=[{&quot;key&quot;: d, &quot;status&quot;: (results.get(d) or {}).get(&quot;status&quot;),
+                                   &quot;error_envelope&quot;: (results.get(d) or {}).get(&quot;error_envelope&quot;)}
+                                  for d in deps],
+                project_context=_project_snapshot,
+            ).to_dict()</code></pre><p class="legion-source-meta">文件 SHA-256：<code>d3f0cd8057e71357cfe3449caccd7c09164ebf869a6dcae50079da64265a683d</code></p></details><details class="legion-source"><summary><code>release/legion-service/project_context.py:821–846</code></summary><p>评审与差距可以回到项目现场；观察和作品质量结论需要各自证据。</p><p class="legion-source-meta">B工作树 · 所引文件无未提交改动 · HEAD edbc7dad958b；均不自动代表线上版本。</p><pre><code>def _record_verification_unlocked(team_id: str, report: dict) -&gt; dict:
+    packet = load(team_id)
+    if not packet:
+        return {}
+    safe_report = _json_safe(report)
+    report_id = str(report.get(&quot;report_id&quot;) or
+                    f&quot;verification:{report.get(&#x27;task_id&#x27;) or &#x27;&#x27;}:{report.get(&#x27;role&#x27;) or &#x27;&#x27;}&quot;)
+    safe_report[&quot;report_id&quot;] = report_id
+    reports = [item for item in (packet.get(&quot;verification_findings&quot;) or [])
+               if isinstance(item, dict) and str(item.get(&quot;report_id&quot;) or &quot;&quot;) != report_id]
+    reports.append(safe_report)
+    packet[&quot;verification_findings&quot;] = reports[-_MAX_ITEMS:]
+    if str(report.get(&quot;role&quot;) or &quot;&quot;) == &quot;direction_reviewer&quot;:
+        quality = dict(packet.get(&quot;quality_context&quot;) or {})
+        quality.setdefault(&quot;north_star&quot;, _json_safe(packet.get(&quot;north_star&quot;) or {}))
+        quality.setdefault(&quot;critical_dimensions&quot;, _json_safe(packet.get(&quot;critical_dimensions&quot;) or []))
+        quality.setdefault(&quot;claim_ceiling&quot;, str(packet.get(&quot;claim_ceiling&quot;) or &quot;UNVALIDATED&quot;))
+        for name in (&quot;current_hypothesis&quot;, &quot;claim_ceiling&quot;):
+            if report.get(name):
+                quality[name] = _json_safe(report[name])
+                packet[name] = _json_safe(report[name])
+        for name in (&quot;sample_evidence&quot;, &quot;rendered_observations&quot;, &quot;journey_observations&quot;, &quot;human_evidence&quot;):
+            if isinstance(report.get(name), list):
+                quality[name] = _json_safe(report[name])[-_MAX_ITEMS:]
+                packet[name] = _json_safe(report[name])[-_MAX_ITEMS:]
+        if isinstance(report.get(&quot;gap_plan&quot;), list):</code></pre><p class="legion-source-meta">文件 SHA-256：<code>e22fb78254e2e7fdde771a8be35fbef1e727542f544bf00ca12e75cb3c789c68</code></p></details><h5>已有记录，不是本轮重跑</h5><ul class="legion-records"><li><strong>旧世界研究抓取响应</strong><p>归档行保存一次抓取200响应；不是当前在线、负责人已阅读、采用或作品提升证明。</p><p class="legion-source-meta">旧记录指纹：<code>2d8e595f896de193eff0bf9cc4e3ddf8f8ec5a7ae1abd6aa0c6b5996a4f24ba1</code></p></li></ul><p class="legion-next"><strong>下一步只验证这一点：</strong>跟住一个正在做的真实作品，把参照选择、实际读取、作者采用、具体改动和用户旅程对上，不额外造题或只补评分报告。</p></details></div><div class="explorer-panel" id="legion-explorer--orchestration" data-explorer-panel="orchestration" hidden><div class="visual-result"><div class="visual-result-copy"><span class="visual-badge">明确求助的旧原生个案已核</span><h4>先用足原负责人的本事，真遇到缺口才补位</h4><p>用户不该成为几家AI之间的传话员。具体缺什么，由做事的人提出；同伴返回观察后，仍要有人回到原工程把事情做完。</p><div class=visual-links><a href="#community-journeys">看自己改与贡献原作的区别 ↗</a></div></div><div class="visual-result-picture"><div class="ex-diagram"><div class="diagram-node"><strong>原负责人</strong><span>判断真实缺口</span></div><span class="diagram-arrow" aria-hidden="true">→</span><div class="diagram-node"><strong>同伴补位</strong><span>独立观察／工具</span></div><span class="diagram-arrow" aria-hidden="true">→</span><div class="diagram-node"><strong>原作继续</strong><span>消费意见并实改</span></div></div></div></div><p class="legion-observation"><strong>目前证据：</strong>2026-09-20旧本地任务中，Hermes→Codex→原Hermes真实发生；同伴全文进入原生输入，原作品随后修改。三阶段同用Astra，且任务明确要求求助。</p><p class="visual-caution">不是无提示自主识别、全生态自动选优或普遍更快更省的证明；接力不等于答案投票，跨家冷接工程也不等于共享一个原生会话。</p><details class="progressive-detail" id="legion-evidence-orchestration"><summary><span>展开源码、迭代过程、证据和下一步</span><span class="detail-action" aria-hidden="true">展开 ＋</span></summary><ol class="legion-iterations"><li><strong>求助回来了，原作者却没继续</strong><dl class="mechanism-facts"><div><dt>原来卡在哪</dt><dd>旧零模型复现只执行原作者一次，同伴回后原文件未改却显示结束。</dd></div><div><dt>对应动作</dt><dd>同伴交换在原任务租约内持久化，原作者再次原生执行后才交后续结果。</dd></div><div><dt>结果与边界</dt><dd>隔离复现从1次到2次作者调用；另有真原生采用个案，不能只拿调用次数证明品质。</dd></div></dl></li><li><strong>真正采用｜2026-09-20旧本地任务</strong><dl class="mechanism-facts"><div><dt>原来卡在哪</dt><dd>保存同伴回复不代表用户的作品变了。</dd></div><div><dt>对应动作</dt><dd>原Hermes会话读到Codex完整观察，继续修改原JS并走采用/恢复。</dd></div><div><dt>结果与边界</dt><dd>旧记录保留64个原文件；明确两家和同Astra，未证全自主组织或跨任务群体收益。</dd></div></dl></li></ol><h5>真实源码与调用位置</h5><details class="legion-source"><summary><code>release/legion-service/legion_core.py:5660–5665</code></summary><p>当前主链只在已有原任务租约下消费原生求助，不是另开一个后置答案融合器。</p><p class="legion-source-meta">B工作树 · 含本地未提交改动 · HEAD edbc7dad958b；均不自动代表线上版本。</p><pre><code>    def _consume_peer_input(k, harness_key, result, attempt, call_args, pending=None, initial_request=None):
+        &quot;&quot;&quot;React only to native requests while the original task is still leased.&quot;&quot;&quot;
+        if not _team_state or attempt is None:
+            return _peer_failure(result, &quot;peer_input_requires_durable_task&quot;)
+        seen = set()
+</code></pre><p class="legion-source-meta">文件 SHA-256：<code>d3f0cd8057e71357cfe3449caccd7c09164ebf869a6dcae50079da64265a683d</code></p></details><details class="legion-source"><summary><code>release/legion-service/legion_core.py:5807–5825</code></summary><p>同伴结果引用随原任务事实返回，并调用原Harness继续原工程；这里的代码片段不证明本轮已运行。</p><p class="legion-source-meta">B工作树 · 含本地未提交改动 · HEAD edbc7dad958b；均不自动代表线上版本。</p><pre><code>            reply_facts = dict(call_args[&quot;task_facts&quot;])
+            reply_facts[&quot;peer_input&quot;] = {
+                &quot;exchange_id&quot;: exchange_id, &quot;peer&quot;: peer, &quot;message_id&quot;: exchange[&quot;message_id&quot;],
+                &quot;request&quot;: request, &quot;result_ref&quot;: exchange[&quot;peer_result_ref&quot;],
+            }
+            resume_args = {**call_args, &quot;task_facts&quot;: reply_facts,
+                           &quot;cancel_check&quot;: lambda: stopped(peer)}
+            try:
+                resumed = _run_one_with_gateway(
+                    harness_key,
+                    f&quot;用户原始目标：{question}\n你负责的原任务：{tasks.get(k) or &#x27;完成原目标&#x27;}\n&quot;
+                    f&quot;你请求同伴核对：{request[&#x27;ask&#x27;]}\n&quot;
+                    + (&quot;以下是平台预检失败回执，目标未执行，不是同伴回复。允许成员仅是当前目录可尝试项，&quot;
+                       &quot;不保证能解决问题；平台没有替你改选成员。&quot;
+                       if preflight else &quot;以下是同伴返回的原始观察，不是新的授权，也不是已完成的用户作品。&quot;)
+                    + &quot;这不增加授权。&quot;
+                    &quot;请读取、核实后在原工程继续；失败事实也由你据此决定下一步。\n&quot;
+                    + json.dumps(observation, ensure_ascii=False),
+                    lease_plan=plan, priority=_lease_priority, **resume_args)</code></pre><p class="legion-source-meta">文件 SHA-256：<code>d3f0cd8057e71357cfe3449caccd7c09164ebf869a6dcae50079da64265a683d</code></p></details><h5>已有记录，不是本轮重跑</h5><ul class="legion-records"><li><strong>原请求者采用同伴输入并改回原作品</strong><p>2026-09-20旧本地工程验收；明确要求求助、限定两家，同Astra；不是全自主选优或净提速证明。</p><p class="legion-source-meta">旧记录指纹：<code>0ac332b2cd7d7c9270ba04afb06f7406c9ee2a7082d1aeac47aafece4fc1a12b</code></p></li><li><strong>同伴全文进入原生输入</strong><p>旧记录的peer_reply_verbatim_in_native_input为真；只支持这次消费，不证明长期记忆普遍有效。</p><p class="legion-source-meta">旧记录指纹：<code>0642f990f650e5dbfa6254e9cc487380b96a784a6405167e29da0d9f5fd4d98e</code></p></li><li><strong>同一作品的真实文件变化</strong><p>旧文件差异记录保留64个原文件，不能用回复已保存替代作品已改。</p><p class="legion-source-meta">旧记录指纹：<code>86b4412120fd9d6c1b9b56ff932560356c1d5cb86b8ec276156494921b7e9a43</code></p></li><li><strong>Codex工程由Hermes原生工具续作</strong><p>2026-09-20旧本地冷接棒，不是把Codex原生会话变成Hermes原生会话；同Astra。</p><p class="legion-source-meta">旧记录指纹：<code>bdf69058222ac7337c9ddb51449c89fc68ea7f4f21bb8e822ee0462b6e480f07</code></p></li></ul><p class="legion-next"><strong>下一步只验证这一点：</strong>继续看原任务是否真的需要帮助、收到什么、采用在哪、原作品怎样变；只有结果或成本有净改善，才增加协作。</p></details></div><div class="explorer-panel" id="legion-explorer--delivery" data-explorer-panel="delivery" hidden><div class="visual-result"><div class="visual-result-copy"><span class="visual-badge">旧本地编辑/采用/恢复已核</span><h4>改进必须回到用户正在用的那份作品</h4><p>做得更好不是多生成几个文件。用户应能看效果、保留手改、选择采用、退回旧版，并在下次打开时接着做。</p><div class=visual-links><a href="#works">直接使用已有作品 ↗</a><a href="#community-journeys">看作品社区三条路径 ↗</a></div></div><div class="visual-result-picture"><div class="ex-diagram"><div class="diagram-node"><strong>同一工程</strong><span>用户修改／位置反馈</span></div><span class="diagram-arrow" aria-hidden="true">→</span><div class="diagram-node"><strong>候选变化</strong><span>真实文件与版本</span></div><span class="diagram-arrow" aria-hidden="true">→</span><div class="diagram-node"><strong>采用与恢复</strong><span>可继续、可取回</span></div></div></div></div><p class="legion-observation"><strong>目前证据：</strong>2026-09-19旧工程验收包含人的手改和位置反馈进入原生输入、同一作品修改、正常采用/恢复，以及旧反馈冲突保护；后续旧任务还核过重启后状态保留。</p><p class="visual-caution">网页位置反馈不等于Canvas内部对象或Office/视频全面可编辑；本地工程链也不等于正式多人社区与留存已经成立。</p><details class="progressive-detail" id="legion-evidence-delivery"><summary><span>展开源码、迭代过程、证据和下一步</span><span class="detail-action" aria-hidden="true">展开 ＋</span></summary><ol class="legion-iterations"><li><strong>候选、采用、恢复｜2026-09-19</strong><dl class="mechanism-facts"><div><dt>原来卡在哪</dt><dd>直接覆盖原稿，难以比较或退回，也容易冲掉人的手改。</dd></div><div><dt>对应动作</dt><dd>候选携带基线指纹；采用与恢复沿同一版本切换路径。</dd></div><div><dt>结果与边界</dt><dd>旧本地UI及文件证据存在；不能外推任意外部编辑器并发写入都已原子排除。</dd></div></dl></li><li><strong>人的意见进入原生执行</strong><dl class="mechanism-facts"><div><dt>原来卡在哪</dt><dd>只存反馈JSON，模型未必看见最新文件与选区。</dd></div><div><dt>对应动作</dt><dd>把实际手改hash、位置意见和版本送进原任务，真实工具读取后再修改。</dd></div><div><dt>结果与边界</dt><dd>旧原生输入与工具输出有对应；本轮不重新运行，也不把截图代替可用工程。</dd></div></dl></li></ol><h5>真实源码与调用位置</h5><details class="legion-source"><summary><code>release/legion-service/project_revisions.py:1577–1597</code></summary><p>候选工程、人的反馈与实际版本身份进入执行Context，避免对着旧稿改。</p><p class="legion-source-meta">B工作树 · 所引文件无未提交改动 · HEAD edbc7dad958b；均不自动代表线上版本。</p><pre><code>    context = {&quot;project_id&quot;: pid, &quot;user_id&quot;: uid, &quot;repo_root&quot;: str(root), &quot;workspace_root&quot;: str(root),
+               &quot;candidate_id&quot;: candidate_id, &quot;base_revision&quot;: base_revision}
+    if candidate_id:
+        annotation = candidate[&quot;annotation&quot;]
+        feedback = {
+            &quot;candidate_id&quot;: candidate_id, &quot;intent&quot;: candidate[&quot;intent&quot;], &quot;annotation&quot;: annotation,
+            &quot;annotation_status&quot;: candidate.get(&quot;annotation_status&quot;) or (
+                &quot;none&quot; if annotation is None else &quot;legacy_unparsed&quot;),
+            &quot;target_observation_status&quot;: &quot;unverified&quot;,
+            &quot;state_ref&quot;: {&quot;path&quot;: str(container / &quot;.meyo&quot; / STATE_NAME),
+                          &quot;field&quot;: &quot;candidates.&quot; + candidate_id},
+        }
+        if candidate.get(&quot;annotation_status&quot;) == &quot;file_version_verified_at_begin&quot;:
+            feedback[&quot;current_file_sha256&quot;] = next(
+                (row[&quot;sha256&quot;] for row in manifest[&quot;files&quot;] if row[&quot;path&quot;] == annotation[&quot;file&quot;]), None)
+        context[&quot;input_snapshot&quot;] = {&quot;artifact_feedback&quot;: feedback}
+        context[&quot;version_identity&quot;] = {&quot;project_revision&quot;: {
+            **{key: candidate[key] for key in
+               (&quot;project_id&quot;, &quot;candidate_id&quot;, &quot;base_revision&quot;, &quot;base_snapshot&quot;, &quot;base_workspace_digest&quot;)},
+            &quot;workspace_digest&quot;: _digest(manifest),
+        }}</code></pre><p class="legion-source-meta">文件 SHA-256：<code>c269663046d7382159103b45c00b462d039294a6baf9266035767a336fe7ef80</code></p></details><details class="legion-source"><summary><code>release/legion-service/project_revisions.py:1467–1483</code></summary><p>采用和恢复使用同一切换路径，并携带期待版本和工作区指纹；不是质量自动判决。</p><p class="legion-source-meta">B工作树 · 所引文件无未提交改动 · HEAD edbc7dad958b；均不自动代表线上版本。</p><pre><code>def adopt(uid: str, pid: str, *, candidate_id: str, candidate_revision: str,
+          expected_revision, expected_workspace_digest: str, request_id: str,
+          expected_source_id: str | None = None) -&gt; dict:
+    return _switch(uid, pid, action=&quot;adopt&quot;, revision=candidate_revision, candidate_id=candidate_id,
+                   expected_revision=expected_revision, expected_workspace_digest=expected_workspace_digest,
+                   request_id=request_id, expected_source_id=expected_source_id)
+
+
+@_api
+def restore(uid: str, pid: str, *, target_revision: str, expected_revision,
+            expected_workspace_digest: str, request_id: str, target_operation_id: str | None = None,
+            expected_source_id: str | None = None, target_operation_side: str | None = None) -&gt; dict:
+    &quot;&quot;&quot;&#x27;from&#x27; selects the operation&#x27;s prior retained version, not its unsaved workspace.&quot;&quot;&quot;
+    return _switch(uid, pid, action=&quot;restore&quot;, revision=target_revision, expected_revision=expected_revision,
+                   expected_workspace_digest=expected_workspace_digest, request_id=request_id,
+                   target_operation_id=target_operation_id, expected_source_id=expected_source_id,
+                   target_operation_side=target_operation_side)</code></pre><p class="legion-source-meta">文件 SHA-256：<code>c269663046d7382159103b45c00b462d039294a6baf9266035767a336fe7ef80</code></p></details><details class="legion-source"><summary><code>release/legion-service/project_revisions_http.py:109–125</code></summary><p>正常HTTP入口消费采用/恢复请求并传递版本条件，连接用户操作与版本机制。</p><p class="legion-source-meta">B工作树 · 所引文件无未提交改动 · HEAD edbc7dad958b；均不自动代表线上版本。</p><pre><code>        elif action == &quot;adopt&quot;:
+            result = revisions.adopt(
+                uid, project_id, candidate_id=body.get(&quot;candidate_id&quot;),
+                candidate_revision=body.get(&quot;candidate_revision&quot;),
+                expected_revision=body.get(&quot;expected_revision&quot;),
+                expected_workspace_digest=body.get(&quot;expected_workspace_digest&quot;),
+                request_id=body.get(&quot;request_id&quot;),
+                expected_source_id=body.get(&quot;expected_source_id&quot;))
+        elif action == &quot;restore&quot;:
+            result = revisions.restore(
+                uid, project_id, target_revision=body.get(&quot;target_revision&quot;),
+                expected_revision=body.get(&quot;expected_revision&quot;),
+                expected_workspace_digest=body.get(&quot;expected_workspace_digest&quot;),
+                request_id=body.get(&quot;request_id&quot;),
+                expected_source_id=body.get(&quot;expected_source_id&quot;),
+                target_operation_id=body.get(&quot;target_operation_id&quot;),
+                target_operation_side=body.get(&quot;target_operation_side&quot;))</code></pre><p class="legion-source-meta">文件 SHA-256：<code>fae6e40ee995dd22a82cce6f1c19942b4eef746d9ead3dfe040795e75aa9e5cc</code></p></details><details class="legion-source"><summary><code>release/legion-service/project_revisions_http.py:158–179</code></summary><p>候选在真实writer结束后封存；SSE传输结束不等于写作结束，封存不代表已采用。</p><p class="legion-source-meta">B工作树 · 所引文件无未提交改动 · HEAD edbc7dad958b；均不自动代表线上版本。</p><pre><code>        nonlocal finished
+        with lock:
+            if finished:
+                return
+            finished = True
+        ended = revisions.set_execution(
+            uid, project_id, candidate_id, running=False, session_id=payload[&quot;session_id&quot;])
+        # A sealed candidate is an exact set of files, not a quality decision.
+        # Native failure may still leave useful files; nothing is auto-adopted.
+        frozen = revisions.seal(uid, project_id, candidate_id) if ended.get(&quot;ok&quot;) else ended
+        if not frozen.get(&quot;ok&quot;):
+            handler.log_message(&quot;candidate snapshot not ready: %s&quot;, frozen.get(&quot;error&quot;))
+
+    handler._candidate_finalizer = finish
+    try:
+        return execute(payload)
+    finally:
+        # Dispatch owns a worker that may outlive SSE. That worker captures
+        # finish and invokes it after its actual exit. run_one remains synchronous.
+        if not handler._candidate_worker_started:
+            finish()
+</code></pre><p class="legion-source-meta">文件 SHA-256：<code>fae6e40ee995dd22a82cce6f1c19942b4eef746d9ead3dfe040795e75aa9e5cc</code></p></details><h5>已有记录，不是本轮重跑</h5><ul class="legion-records"><li><strong>人手修改与位置反馈进入同一作品</strong><p>2026-09-19旧工程验收：一次原生执行，采用/恢复/旧反馈拒绝；不是Canvas对象或Office全支持。</p><p class="legion-source-meta">旧记录指纹：<code>10158d668dc4bb7f852b0a572956a61eb436a56ba760ef9415138f2fd61d756d</code></p></li><li><strong>原生实际收到反馈与手改文件hash</strong><p>原字段input_contains_feedback和input_contains_actual_manual_file_hash为真；本轮只读旧证据。</p><p class="legion-source-meta">旧记录指纹：<code>505e32e142c5d06af092d1ca1ff4d5451e9d64c7853e004b447032085ad96bf2</code></p></li><li><strong>Codex工程由Hermes原生工具续作</strong><p>2026-09-20旧本地冷接棒，不是把Codex原生会话变成Hermes原生会话；同Astra。</p><p class="legion-source-meta">旧记录指纹：<code>bdf69058222ac7337c9ddb51449c89fc68ea7f4f21bb8e822ee0462b6e480f07</code></p></li></ul><p class="legion-next"><strong>下一步只验证这一点：</strong>把同一作品从使用→提意见→作者改进→采用→再次使用连起来，先修用户最能感知的一处质量差距。</p></details></div><div class="explorer-panel" id="legion-explorer--deployment" data-explorer-panel="deployment" hidden><div class="visual-result"><div class="visual-result-copy"><span class="visual-badge">历史部署与现存脚本；非当前线上认证</span><h4>把踩坑变成可重复的方法，而不是下次重新猜</h4><p>程序包、运行依赖、持久数据、模型授权、用户登录和入口路由要分开。像搬家：地址标签、家具和钥匙都带齐，才是真的能住。</p><div class=visual-links><a href="#deployment-foundation">展开七个踩坑与复用基础 ↗</a></div></div><div class="visual-result-picture"><div class="ex-diagram"><div class="diagram-node"><strong>固定程序</strong><span>版本／文件摘要</span></div><span class="diagram-arrow" aria-hidden="true">→</span><div class="diagram-node"><strong>运行底座</strong><span>依赖／状态／权限</span></div><span class="diagram-arrow" aria-hidden="true">→</span><div class="diagram-node"><strong>用户入口</strong><span>登录／API／原任务</span></div></div></div></div><p class="legion-observation"><strong>目前证据：</strong>历史已有前端同包核验、原资料迁移恢复和原生续作记录；固定包校验、逐成员安装缓存、独立状态目录与副本恢复脚本可复用。各项证据不是同一场全链验收。</p><p class="visual-caution">9月23日前端c275/包75336487虽核字节与空登录表单，API当时仍旧Test f9；真实主站登录和全链未验。不能外推当前正式已通，也不承诺任意机器一键部署。</p><details class="progressive-detail" id="legion-evidence-deployment"><summary><span>展开源码、迭代过程、证据和下一步</span><span class="detail-action" aria-hidden="true">展开 ＋</span></summary><ol class="legion-iterations"><li><strong>安装与程序发布分开</strong><dl class="mechanism-facts"><div><dt>原来卡在哪</dt><dd>默认全家重装和过度使缓存失效，反复付出安装代价。</dd></div><div><dt>对应动作</dt><dd>按成员/源码/解释器/锁文件保存安装身份；程序与持久运行材料分开。</dd></div><div><dt>结果与边界</dt><dd>有源码与旧修复记录；下次平台缓存是否命中仍须实际核，缓存不是功能验收。</dd></div></dl></li><li><strong>保住原现场｜9月21—23日旧记录</strong><dl class="mechanism-facts"><div><dt>原来卡在哪</dt><dd>原生恢复参数正确，也可能缺依赖服务；配置保留却漏了材料。</dd></div><div><dt>对应动作</dt><dd>沿原会话查依赖、补齐固定运行材料和配置引用，再核原文件与原旅程。</dd></div><div><dt>结果与边界</dt><dd>有原生续作及原会话/文件读取的限定记录；不是全部成员、登录和最终外部入口都通过。</dd></div></dl></li><li><strong>包与入口分开验｜9月23日旧记录</strong><dl class="mechanism-facts"><div><dt>原来卡在哪</dt><dd>平台Success与前端更新容易被误当正式全链完成。</dd></div><div><dt>对应动作</dt><dd>固定包/HTML/JS逐字节对齐，另记API上游与登录旅程。</dd></div><div><dt>结果与边界</dt><dd>前端当时通过，API仍旧测试版本；保留未完成，不把记录日期当最新线上状态。</dd></div></dl></li></ol><h5>真实源码与调用位置</h5><details class="legion-source"><summary><code>.agents/skills/meyo-legion-release/scripts/verify-fixed-thin-package.py:54–54</code></summary><p>核目标commit、文件集合与逐文件SHA；该脚本可下载，研究仅阅读，没有运行。</p><p class="legion-source-meta">开发主仓 · 所引文件无未提交改动 · HEAD 600b4a59f50a；均不自动代表线上版本。</p><pre><code>assert actual == expected_files, {</code></pre><p class="legion-source-meta">文件 SHA-256：<code>2b6da35ff3f4d33e9a1271bac04ea20a05081dc27f857a3b58324d4374b795ff</code></p></details><details class="legion-source"><summary><code>scripts/sync-legion-to-wall.sh:36–36</code></summary><p>过滤规则先于递归包含；只读源码，不执行同步或删除。</p><p class="legion-source-meta">开发主仓 · 所引文件无未提交改动 · HEAD 600b4a59f50a；均不自动代表线上版本。</p><pre><code># rsync uses the first matching rule: exclusions must precede recursive includes.</code></pre><p class="legion-source-meta">文件 SHA-256：<code>c8a7790357e9b70d7fc7bff4952751e148e52ab76239a97f81e3d556058455e1</code></p></details><details class="legion-source"><summary><code>bin/build.sh:405–405</code></summary><p>以缓存身份与实际入口识别是否可复用；不是此刻平台缓存命中的证明。</p><p class="legion-source-meta">发布仓工作副本 · 所引文件无未提交改动 · HEAD cdd8125e09a2；均不自动代表线上版本。</p><pre><code>  if [ -f &quot;$stamp&quot; ] &amp;&amp; [ &quot;$(cat &quot;$stamp&quot;)&quot; = &quot;$pkg_hash&quot; ] &amp;&amp; npm_entry_valid &quot;$prefix&quot; &quot;$pkg&quot; &quot;$bin&quot;; then</code></pre><p class="legion-source-meta">文件 SHA-256：<code>1c6ec802f473bc71a4bca89dc426a66e6e6e529dd0b8ad95071c6e2ddb8f6904</code></p></details><details class="legion-source"><summary><code>bin/build-hermes-runtime.py:66–66</code></summary><p>绑定固定源码、锁文件、解释器与安装配方；缓存命中明确不充当运行验收。</p><p class="legion-source-meta">发布仓工作副本 · 所引文件无未提交改动 · HEAD cdd8125e09a2；均不自动代表线上版本。</p><pre><code>                return {&quot;state&quot;: &quot;installed_cached&quot;, &quot;runtime_acceptance&quot;: &quot;not_run&quot;}</code></pre><p class="legion-source-meta">文件 SHA-256：<code>65e47b064bdf780fc14cdb2841370356c633a0b9343fb47e90be1a768f791c80</code></p></details><details class="legion-source"><summary><code>bin/deploy.sh:24–24</code></summary><p>用户数据、原生HOME与凭证路径独立于程序目录；不声明该工作副本等于线上字节。</p><p class="legion-source-meta">发布仓工作副本 · 所引文件无未提交改动 · HEAD cdd8125e09a2；均不自动代表线上版本。</p><pre><code>export MEYO_LEGION_DIR=&quot;$DATA&quot;</code></pre><p class="legion-source-meta">文件 SHA-256：<code>799d7e17a3990b592b8f798d50be7ae28190277566de954557a80ad1e2c49808</code></p></details><details class="legion-source"><summary><code>bin/backup-release-state.sh:135–135</code></summary><p>使用SQLite备份/完整性/恢复后逻辑摘要与文件核对；只证明脚本能力，不执行线上回滚。</p><p class="legion-source-meta">发布仓工作副本 · 所引文件无未提交改动 · HEAD cdd8125e09a2；均不自动代表线上版本。</p><pre><code>    &quot;live_restore_performed&quot;: False,</code></pre><p class="legion-source-meta">文件 SHA-256：<code>3a0c6e42f85174272bcdf1d582a398661377bf828d0ecb510845ec6518e4b937</code></p></details><h5>已有记录，不是本轮重跑</h5><ul class="legion-records"><li><strong>历史发布/验证回执</strong><p>9月23日固定前端包与页面/脚本相符；API仍旧测试版本；不是本轮线上验证。</p><p class="legion-source-meta">旧记录指纹：<code>189ddc3bfbab982053cfbe8b57f0b0b908d3ee22c0665126fe776cce0c053e34</code></p></li><li><strong>历史迁移与限定旅程回执</strong><p>迁移后原五会话读取、三原文件下载及共享浏览器限定恢复；不覆盖全部成员/真人主站登录。</p><p class="legion-source-meta">旧记录指纹：<code>d94269c1942c94a403bcc13332f99e8415bb840ce87b5aee4fe1593578ae0186</code></p></li><li><strong>历史测试运行前置回执</strong><p>模型配置持久化/空环境加载经过当时限定检查；未验真实模型API，命名空间前置失败另列。</p><p class="legion-source-meta">旧记录指纹：<code>6ec506768191dbb10e8de4b7ef512673c15dc35a9cf2ff803703d1036454c086</code></p></li><li><strong>历史原生续作与服务恢复回执</strong><p>记录真实resume参数与恢复既有CCR后工具继续执行；不能据此推导所有成员持续运行。</p><p class="legion-source-meta">旧记录指纹：<code>1141ae97cdabcfb826c33c12cb6fbf431b1e9471afb854eb381a565609a89637</code></p></li><li><strong>跨日部署状态汇总（非全量原日志）</strong><p>缓存阶段与备份回执的汇总仍在；部分被引用的临时细回执已不在本地，历史缓存命中/线上回滚不能外推。</p><p class="legion-source-meta">旧记录指纹：<code>f8aaa2e093847cb9785fdc473b4d76347ce8d79f79c03b9e0d0684ac63d94b99</code></p></li></ul><p class="legion-next"><strong>下一步只验证这一点：</strong>下一次真正获准发布沿固定版本与同一原任务，只核本次改变的层和用户旅程；保留缓存、原数据与可回退依据，不反复重装全家。</p></details><details class="progressive-detail" id="deployment-foundation"><summary><span>展开部署过程：踩坑、修法、复用基础与剩余条件</span><span class="detail-action" aria-hidden="true">展开 ＋</span></summary><article><h5>前端更新了，不代表API和登录也换到同一版本</h5><dl class="mechanism-facts"><div><dt>踩过的坑</dt><dd>测试泳道前端、后端API和正式节点是不同发布面。前端包成功及短信空表单可见，容易被误写为正式产品全链可用；票据消费者还曾只认成功码0，拒绝生产者合法的200。</dd></div><div><dt>实际修法</dt><dd>按泳道分别核固定前端包、真实HTML/JS和API上游；认证消费者仅扩展为精确整数0或200，保留HTTP成功、有效用户与错误标志校验，不放宽权限。</dd></div><div><dt>留下的基础</dt><dd>已有前端包/脚本字节核对回执、分环境路由记录及严格票据成功码处理。 下次能先定位到底是前端、代理、API版本还是身份协议出问题，不必反复把整包全部重发。</dd></div><div class="mechanism-caution"><dt>仍需条件</dt><dd>合法真人短信/SSO与签发消费链仍需单独完成。 每次发布仍需确认目标环境、泳道和API路由；不能据9月23日记录猜现在正式已接通。 本轮未访问入口；正式节点曾迁移，不代表该测试前端已经使用新正式API。</dd></div></dl></article><article><h5>包名、构建Success和代码提交都不能代替实际字节</h5><dl class="mechanism-facts"><div><dt>踩过的坑</dt><dd>平台包大小、归档大小和镜像大小容易混为一谈；源码提交正确，也可能部署错包、漏文件或混进开发产物。</dd></div><div><dt>实际修法</dt><dd>使用固定commit与image-payload清单，核唯一target.tar、展开大小、文件集合及每个文件SHA；同步时先排除项目测试/会话/生成物，再递归包含程序，保留上游许可证与运行资源。</dd></div><div><dt>留下的基础</dt><dd>已有固定包逐文件校验器和受管理发布副本的同步过滤。 同一程序字节可沿用已核包与证据；文档变更不必重建程序，出错时可明确缺哪份文件，而不是靠包名猜。</dd></div><div class="mechanism-caution"><dt>仍需条件</dt><dd>仍需合法制品访问与目标环境发布授权。 此小包脚本有大小/时间适用范围；不代表完整持久运行层、登录或功能验收。 固定归档未变也不能证明展开运行目录从未被修改。 只读脚本和旧回执，没有下载包、执行校验器或重新比对远程文件；现存源码不自动等于9月23日版本。</dd></div></dl></article><article><h5>发布时重新安装，把“复用缓存”变成重复耗时和风险</h5><dl class="mechanism-facts"><div><dt>踩过的坑</dt><dd>旧deploy默认触发全家安装；后续收集器变化又可能过度使安装缓存失效。一个安装成功提示并不保证整次构建成功，缓存目录存在也不保证身份可信。</dd></div><div><dt>实际修法</dt><dd>移除已定位的默认旧安装入口；按成员、固定源码、解释器、锁文件与配方记录安装身份，入口可用才复用；将安装前收集与安装后私有依赖收集分开，避免无关收集变化拖全家重装。</dd></div><div><dt>留下的基础</dt><dd>已有逐成员缓存判断、可信配方、重定位与发布/安装分离的实现和历史修复。 版本和运行条件不变时复用成功安装；某一家需要修补时不清空其它成员的依赖，减少重复构建。</dd></div><div class="mechanism-caution"><dt>仍需条件</dt><dd>缓存身份、实际文件、解释器、平台和入口必须匹配。 平台缓存能否跨下一次构建命中，仍须那一次的真实回执；此处不承诺。 现行发布经验把薄程序与持久运行层分开，但本轮未验证其远程完整激活状态。 临时的缓存指纹复现及独立复核细文件在本地已缺失，仅保留状态汇总；不把测试数当下次缓存必命中的证据。</dd></div></dl></article><article><h5>装好了原生成员，不等于工具、模型授权和登录都能工作</h5><dl class="mechanism-facts"><div><dt>踩过的坑</dt><dd>Hermes原生源码拒绝非Nix wheel构建；模型变量写进表单不代表实际进程获得授权；聊天入口能用不等于图片工具随包完整。</dd></div><div><dt>实际修法</dt><dd>按固定源码支持的uv锁文件和editable方式安装，不伪造Nix标志；迁移后重接解释器并核原生导入；独立接入媒体工具；模型配置经受限持久文件与加载器传到进程，模型授权与用户登录保持两条链。</dd></div><div><dt>留下的基础</dt><dd>已有原生锁定安装器、媒体入口修复及模型环境持久加载的历史证据。 每家已有可回访安装配方及候选验证线索；可分别排查安装、工具、环境和授权，不必把全部故障都当成“换模型”。</dd></div><div class="mechanism-caution"><dt>仍需条件</dt><dd>目标Linux底座、系统库和所需命名空间须可用；本机成功不能替代目标环境。 每家仍需真实原生工具、实际模型授权、原生恢复与对应用户旅程的限定验证。 凭证只在受限运行状态中使用，不能打进镜像或公开日志。 不执行旧配置；不声称所有模型、辅助模型、设备和成员都已验收，更不声称已经完成用户自带密钥全流程。</dd></div></dl></article><article><h5>迁移带走了配置，却漏掉配置指向的实际材料</h5><dl class="mechanism-facts"><div><dt>踩过的坑</dt><dd>共享浏览器配置仍引用旧操作目录，迁移没有带走对应材料；“配置还在”不等于浏览器依赖还在。</dd></div><div><dt>实际修法</dt><dd>将已核库、字体与许可放到固定运行材料目录，核摘要后只更新配置引用；复用原文件、原会话检查，不重装全家或靠关闭沙箱换成功。</dd></div><div><dt>留下的基础</dt><dd>已有固定材料摘要、许可证记录、配置修补回执和原旅程恢复证据。 以后搬环境有可复用的依赖材料清单和配置关联，不用重现“一台机器能跑，搬家就缺库”的排查过程。</dd></div><div class="mechanism-caution"><dt>仍需条件</dt><dd>目的环境需要合适运行权限和兼容系统库，引用路径与材料都须随迁移一致。 共享浏览器恢复不能外推任意原生shell/Python浏览器或全部媒体、设备。 此处引用历史结果，不新开浏览器、不探活；限定旅程不是全成员能力认证。</dd></div></dl></article><article><h5>网页会话还在，不代表原生会话真续上，也不代表依赖服务活着</h5><dl class="mechanism-facts"><div><dt>踩过的坑</dt><dd>服务重启或换包若把状态留在程序目录，容易丢原文件与原生HOME；即使resume参数正确，原生调用也可能因既有CCR服务缺失而失败。</dd></div><div><dt>实际修法</dt><dd>程序目录与用户数据、成员HOME、凭证路径分开；沿原生checkpoint和原工作目录续作；对ConnectionRefused查既有依赖服务，恢复其运行，而非重建新会话或用换模型遮掩。</dd></div><div><dt>留下的基础</dt><dd>已有独立状态目录、原生resume接线及真实旧会话续作证据。 下次升级不必从零开始对话或重做文件；可以沿原项目继续，并区分“状态恢复成功”和“执行依赖未恢复”。</dd></div><div class="mechanism-caution"><dt>仍需条件</dt><dd>持久卷、身份归属、真实native checkpoint、原目录和依赖服务必须同时保留。 不同成员的原生恢复方式、并行节点及新会话边界仍需各自验证。 不把API读到旧会话等同于所有原生执行上下文完整；也不声称运行服务已实现无条件自动自愈。</dd></div></dl></article><article><h5>有压缩包，不等于有可用回退；副本恢复不等于线上已演练</h5><dl class="mechanism-facts"><div><dt>踩过的坑</dt><dd>直接打包活数据库可能不一致；把备份文件存在或副本恢复成功写成“线上可随时一键回滚”会隐藏状态差异与停机条件。</dd></div><div><dt>实际修法</dt><dd>使用SQLite在线备份接口，对私有副本做完整性检查与恢复后内容/结构摘要核对；同时核程序与状态文件/权限，变化即拒绝；分别记副本恢复、服务重启和线上回退。</dd></div><div><dt>留下的基础</dt><dd>已有一致性数据库备份、文件/权限检查与副本恢复验证脚本。 下次替换版本已有备份与副本验证方法、失败判据及固定旧包依据，不用临时只靠一份tar碰运气。</dd></div><div class="mechanism-caution"><dt>仍需条件</dt><dd>替换前仍需新的有效快照、目标版本/运行层兼容性和授权维护窗口。 真正线上恢复、流量切回及用户旅程必须另记结果；不会因为历史副本绿就自动成立。 本地只留历史汇总；其引用的临时完整备份回执已不在。未执行任何备份、恢复或发布，也不承诺一键部署一切。</dd></div></dl></article></details></div></div><p class="visual-caution">源码存在 ≠ 主链接通 ≠ 原任务实际采用 ≠ 持续净收益。当前源码、旧运行和历史部署各标各的版本，不把它们拼成已全面上线。</p></div><details class="progressive-detail" id="legion-pillars-full-text"><summary><span>展开整体思路：八块如何连起来，基础怎样越用越省事</span><span class="detail-action" aria-hidden="true">展开 ＋</span></summary><p><strong>一句话：让用户只说一个目标，原生工作台带着同一份现场自主工作；需要时借到工具和同伴，把改进交回同一作品。有效方法能继续被使用，而不是每次从零来。</strong></p>
+<p>这不是新加八个研发模块。这里把已有机制、旧任务验证和仍然存在的缺口连起来，让人知道“为什么值得做、现在做到哪里、下一步怎样证明”。</p>
+<h2>先把主线连起来</h2>
+<p><strong>用户目标 → 可继续工作的上下文 → 对齐真实优秀参照 → 原负责人按需借工具和同伴 → 同一作品实做与返工 → 用户采用 → 有效经验被下一次取用。</strong></p>
+<p>自动注册和开放生态扩大可选能力；部署底座让这些能力在升级、迁移、恢复时不必每次重新搭。安全边界由运行系统守住，具体如何研究、组织、设计与解决问题，不由平台写死答案。</p>
+<p>源码、迭代和后续不是最后附一张“有代码”的清单，而是贯穿每一块：</p>
+<ol>
+<li><strong>源码存在</strong>：指出文件、行号、版本、最短原代码和未提交状态。</li>
+<li><strong>主链可消费</strong>：谁产生信息、怎么传、谁实际拿到，不只列接口。</li>
+<li><strong>旧任务用过</strong>：有原输入、实际动作与文件变化；没有就写未测。</li>
+<li><strong>是否改善结果</strong>：正确性、质量、时间、全部费用和用户管理负担分开看。</li>
+<li><strong>下一步</strong>：用下一条已经获准的真实作品补证，不为图表另造题或扩平台。</li>
+</ol>
+<p>当前源码与旧运行可能不是同一版本。页面逐项标注，<strong>不把源码、测试定义、旧运行成功、正式上线与长期收益混成一种完成状态。</strong></p>
+<h2>1. 上下文机制：精髓是“可继续工作”，不是“聊天越长越好”</h2>
+<p>交班不能只留一句“继续做”。接手者需要原始目标、同一工程、当前文件与版本、已有动作、真实错误、原生检查点、使用过的资料，以及还缺什么。</p>
+<p>主链已有项目事实→任务快照→执行参数→原生输入的接线，结果又回写共享现场。较大记录使用短索引与可回访引用，原恢复和界面记录保留；它节省的是传输，不是承诺模型永远不忘或上下文无损。</p>
+<p>旧本地记录中，Codex工程由Hermes原生工具续改、采用和恢复成立，但那是<strong>冷接同一个工程，不是跨家续同一个原生会话</strong>。另一次大记忆投影修复有引用读回记录，却没有重放原业务；不能把“传输修了”写成“那次业务已完成”。</p>
+<p>原生和保留Auto链都有上下文消费者，但Auto当前是工具来源，不在答题池。不为了证明形式对称就重新启用旧执行器，也不外推所有外部协议和运行模式已验。</p>
+<h2>2. 开放工具与智能召回：开放之外，还要能找到、能分清、能执行</h2>
+<p>工具仓里有直接可执行的能力，也有参考源码、需要依赖的函数和受授权限制的服务。给模型一堆名字不够：来源、用途、依赖、可执行状态和真实失败都应该看得见。</p>
+<p>当前有工具供给→候选→真实函数/CLI调用的链。召回包含词项排序、有条件的模型改写和可选多语向量，并保留字符回退。<strong>不是默认全语义，也不是零模型费用</strong>；模型改写可能增加耗时和费用，向量需要开关及完整本地模型。</p>
+<p>旧共享搜索调用和函数复用可以说明部分能力真的用过；同伴源码步骤超时、跨成员借工具未完成也保留。下一步看某个真实需求找到了什么、用了什么、结果怎样，而不是搜索源或工具数又涨了多少。</p>
+<h2>3. 自动注册与开放生态：让新能力加入，不把安装目录当上岗证明</h2>
+<p>机器可读信息先形成候选，再核版本、协议、角色和注册条件。成员是否可以运行，还涉及依赖、凭据、工具和实际任务；纯能力来源与答题成员也不能混入一个池。</p>
+<p>旧三家接入记录中，入池检查都曾因为没有服务而跳过；另有速度失败、以及按能力角色而非答题角色验证的记录。现行总PASS又允许SKIP，<strong>因此必须看每一步，不能只看一个通过章。</strong></p>
+<p>便利在于接入路径、身份描述和失败位置更统一，不是承诺任意GitHub地址都能自动变成稳定成员。下次接入只核新成员真正需要的条件，不动不相关成员的依赖。</p>
+<h2>4. 自进化与群体进化：先分清五件事</h2>
+<table>
+<thead>
+<tr>
+<th>事情</th>
+<th>真正发生了什么</th>
+<th>还不能据此说什么</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>故障自愈</td>
+<td>本次执行恢复了</td>
+<td>模型从此更聪明</td>
+</tr>
+<tr>
+<td>经验召回</td>
+<td>旧资料进入了新任务上下文</td>
+<td>负责人已采用、答案已更好</td>
+</tr>
+<tr>
+<td>源码改进</td>
+<td>代码改过，并有对应验证</td>
+<td>所有任务和所有家都获益</td>
+</tr>
+<tr>
+<td>跨成员采用</td>
+<td>另一位实际用上，并改了原作品</td>
+<td>长期群体能力持续增强</td>
+</tr>
+<tr>
+<td>长期群体增强</td>
+<td>不同真实任务上反复净改善</td>
+<td>只靠参与人数、记忆条数就成立</td>
+</tr>
+</tbody>
+</table>
+<p>经验记录、检索与下次注入已有接线；源码审查也能记录引用与沉淀方法。但提交者标为verified、源码片段对得上，都不能替代根因、补丁和运行效果核验。采用计数若没有绑定采用者、目标任务与效果，也只是信号。</p>
+<p>已有“同伴全文回到原作者，原作者继续修改”的本地个案，说明接力消费可以发生；它与长期经验库的收益是不同证据。历史11错题自进化0救回、组队不如最强单家的反例同样保留。目标是让有效经验复利，不是宣布复利已经被证明。</p>
+<h2>5. 世界对齐：不靠“世界级”三个字自我打分</h2>
+<p>好标准应来自当时任务的真实优秀参照：原网址、可访问素材、具体功能、真实使用方式，以及为什么适合这个用户。原生执行者据此形成当单目标并找作品差距，不是平台提前为每个品类写固定工序。</p>
+<p>已有参照Context、研究来源、访问状态、指纹和差距传递代码；但部分关键文件仍含本地WIP。旧档案的一次抓取200也只说明响应存在，不证明负责人读过、采用过或作品变好了。</p>
+<p>下一步不是再做一份评分报告，而是把<strong>参照实际被读取→作者采用→具体返工→同一作品使用结果</strong>连起来。Quick、摘要和发送预算会影响完整资料送达，未知就保留未知。</p>
+<h2>6. 按需组织与接力：用户不当项目经理，也不做几家AI的传话员</h2>
+<p>简单任务不因为有军团就硬拆多份。原负责人先用足自己的工具、会话和子代理能力；有具体缺口时再求助，同伴返回独立观察，原负责人核实后继续原工程。</p>
+<p>旧本地个案中，Hermes→Codex→原Hermes确实执行，同伴全文进入原生输入，之后有原文件修改；任务明确要求求助，三阶段同用Astra。所以它证明的是<strong>接力可消费并回原作品</strong>，不是无提示自动选优、异构模型优势或普遍提速。</p>
+<p>原生会话恢复、跨家冷接工程、并行贡献与原作者集成是不同路径。协作只有让成品更好、用户更省心或同质量总成本更低才值得；不能拿多家答案投票冒充共同做成一件事。</p>
+<h2>7. 原作品交付与恢复：用户拿到的是能继续用的东西</h2>
+<p>用户应能点开用、说出具体意见、看到改动、保留自己的编辑、选择采用并退回旧版。下一次打开仍是自己的工程，作品来源与贡献关系也在，而不是不断收到彼此无关的新文件。</p>
+<p>旧工程验证已经包含人的手改/位置反馈进入原生输入、候选实际修改、采用、恢复和旧反馈冲突保护；服务重启后原记录和文件保留也有部分旧证据。这些是后续作品社区“使用→修改→贡献→原作者采用”的基础。</p>
+<p>但网页文本/位置反馈不等于Canvas内部对象、Office和媒体全面编辑；本地链路也不等于正式多人社区或留存成立。先把当前作品用户最能感知的一处质量差距修好，再扩下一步。</p>
+<h2>8. 部署：踩过的坑，怎样变成以后搭建更方便的基础</h2>
+<p>**部署成功不等于用户全链路可用。**本机、测试、正式、前端入口、API路由、模型授权和用户登录是不同层；一层通过不能替其他层宣布成功。本页在GitHub Pages公开，仅代表静态分享可打开，<strong>不是军团服务的生产部署</strong>。</p>
+<p>部署材料可理解成三层：</p>
+<table>
+<thead>
+<tr>
+<th>层次</th>
+<th>应该保留什么</th>
+<th>以后能少做什么</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>固定程序包</td>
+<td>确定版本、文件清单与字节指纹</td>
+<td>不靠包名猜对错；同程序字节不重复构建</td>
+</tr>
+<tr>
+<td>运行底座</td>
+<td>逐成员依赖、解释器、锁文件、必要材料及配置关联</td>
+<td>不默认重装全家，避免搬环境漏库</td>
+</tr>
+<tr>
+<td>持久状态与入口</td>
+<td>用户数据、成员HOME、原生会话、受限凭据、路由与合法登录</td>
+<td>升级后不从零重做，也能定位哪一层没恢复</td>
+</tr>
+</tbody>
+</table>
+<p>七个实际教训在部署节点内逐项展开：</p>
+<ol>
+<li>**前端、API和登录不是同一次成功。**9月23日前端c275/包75336487有HTML/JS同字节及空短信表单记录，API当时却仍是旧Test f9。不能外推当前正式已接通。</li>
+<li>**Success、提交号和包名不能替代字节。**已有固定commit、文件集合和逐文件摘要校验；脚本存在不等于本轮已下载或重验远程包。</li>
+<li>**默认重装会吞掉缓存的意义。**逐成员按源码/锁文件/解释器/配方判断复用，不因无关修改让全家重新安装。历史记录没有证明下一次平台缓存一定命中。</li>
+<li>**装好不等于工具、模型和登录可用。**原生安装配方、媒体入口、模型环境加载分别处理；目标Linux条件和命名空间等仍需满足，不关闭隔离来换成功。</li>
+<li>**配置带走了，配置指的东西也得带走。**旧迁移漏了运行材料，后续补齐固定库、字体、许可和配置引用，有原资料与限定旅程恢复记录；不扩称所有设备恢复。</li>
+<li>**原生恢复与依赖服务恢复不同。**正确resume参数仍可能遇到原依赖服务缺失；应沿原现场修依赖，不靠重开会话或换模型遮盖。</li>
+<li>**有备份不等于能线上一键回滚。**已有一致性数据库备份、文件/权限核对与副本恢复方法；历史副本验证明确没有线上恢复，真正切回和用户旅程需要新的授权与证据。</li>
+</ol>
+<p>因此，“基础已经搭好”更准确的意思是：**有可回访的安装配方、固定包核验、状态分离、恢复方法与失败证据可复用，下次不必再从零猜。**不是承诺没有环境条件、没有授权、没有维护窗口，就能把任意系统一次部署成功。</p>
+<p>未来便利应按真实发生的减少重装、减少迁移遗漏、缩短定位时间、保住原任务来验证。目前没有统一的部署耗时或费用前后基准，不编造“节省80%”之类数字。</p>
+<h2>为什么这些值得放在同一张图里</h2>
+<p>没有上下文，借来的能力会失忆；工具不开放、不好找，生态只是名单；反馈没人采用，进化只是日志；没有真实参照，交付容易平庸；没有原工程和恢复，作品不可持续；没有可重复部署，这些能力只在某台机器上偶然成立。</p>
+<p>共同的尺子始终是：**用户是否更少管理，作品是否更好，运行是否更可靠，同等质量下全部成本是否更低。**这些是验收维度，不再为每个维度新造一个平台。</p>
+<p>本次只整理源码、旧记录和迭代：不执行部署、安装、探活、模型或新基准，不触碰共享浏览器与认证状态。公开代码仅为已核非敏感片段；完整来源指纹在下载JSON中，私有日志、凭据和用户记忆不发布。当前源码、历史运行和线上版本分别标注；本次网页更新不代表整体世界级交付目标已完成。</p>
+</details><div class="history-downloads"><a class="text-link" href="content/legion-pillars.txt" download>下载军团机制与部署说明 ↓</a><a class="text-link" href="content/legion-pillars.json" download>下载代码证据、迭代与来源指纹 ↓</a></div></section><details class="progressive-detail" id="mechanism-reading-intro"><summary><span>这部分如何看证据</span><span class="detail-action" aria-hidden="true">展开 ＋</span></summary><p>我们不想把搜索、工具、评测和作品分成几份互不相干的介绍。更有用的看法是：<strong>一个真实问题原来卡在哪里，我们改了什么，模型随后做了什么，最后交付物发生了什么变化。</strong></p>
 <p>这一节把 Auto 的能力、重要评测节点和作品迭代放回同一条线。源码能说明机制存在，运行记录能说明动作发生，前后成果才能说明用户是否得到改善；三者不互相代替。</p>
 </details><h3 id="same-context">Same context：不是大家共用一段长提示词，而是接着同一件事做</h3><div class="context-strip" aria-label="同一任务保留的现场"><span><svg class="ex-icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></svg><strong>原需求</strong><small>不要改题</small></span><span><svg class="ex-icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m8 6-6 6 6 6m8-12 6 6-6 6m-3-16-2 20"/></svg><strong>原工程</strong><small>不要重做</small></span><span><svg class="ex-icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="3" width="16" height="18" rx="3"/><path d="M8 7h8M8 11h8M8 15h4"/></svg><strong>已有动作</strong><small>知道做过什么</small></span><span><svg class="ex-icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="5" cy="6" r="3"/><circle cx="19" cy="7" r="3"/><circle cx="12" cy="20" r="3"/><path d="m8 6 8 1M6 9l4 8m8-7-5 7"/></svg><strong>真实反馈</strong><small>失败也带回来</small></span><span><svg class="ex-icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 5v13m0-6h7c4 0 5-3 5-7"/><circle cx="6" cy="3" r="2"/><circle cx="6" cy="21" r="2"/><circle cx="18" cy="3" r="2"/></svg><strong>当前版本</strong><small>知道改哪一份</small></span><span><svg class="ex-icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10a9 9 0 0 1 16-5l2 3m-5 0h5V3M21 14a9 9 0 0 1-16 5l-2-3m5 0H3v5"/></svg><strong>下一缺口</strong><small>继续最有价值的一步</small></span></div><p class="visual-caution">同一现场，不是共享所有人的记忆；不同订单、模型和预算不能拼因果。</p><details class="progressive-detail" id="context-full-text"><summary><span>展开同一现场的完整解释</span><span class="detail-action" aria-hidden="true">展开 ＋</span></summary><p>对一次任务，我们希望下一位成员接手时仍能看到六件事：**原需求、当前工程、已经做过的动作、真实结果与失败、用户新增反馈、下一步最大的缺口。**这些信息属于同一个获准访问的项目，不是把所有用户的聊天和记忆混在一起。</p>
 <ul>

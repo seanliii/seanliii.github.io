@@ -1,0 +1,1226 @@
+{
+  "title": "军团靠哪几块真正发挥作用？",
+  "lead": "不是把更多AI放在一起，而是让它们带着同一现场，找到需要的能力，围绕同一作品继续做。七块机制，加上一套能复用的部署基础。",
+  "proofPrinciple": "每块都带四样东西：真实源码、已核记录、迭代过程、下一步。代码存在不等于已上线，已经采用也不等于持续胜出。",
+  "checkedAt": "2026-09-28T03:25:19.759464+08:00",
+  "rawPrivateSourcesPublished": false,
+  "newBusinessModelCalls": false,
+  "newServiceDeployment": false,
+  "newBrowserVerification": false,
+  "sourceIdentityNote": "按文件标注B工作树、开发主仓与发布仓工作副本；现存代码与旧运行/部署各有版本。片段经本地读回，不公开私有日志、凭据或用户记忆。",
+  "pillars": [
+    {
+      "key": "context",
+      "label": "上下文机制",
+      "sub": "接棒不失忆",
+      "icon": "memory",
+      "statusLabel": "主链接线＋旧本地个案",
+      "thesis": "不只是记住聊天，而是保住可继续工作的现场",
+      "why": "像交班时把原工程、文件版本、做过的动作、失败和下一处缺口一起留下。该带的能找到，而不是每次重讲，或把所有日志硬塞过去。",
+      "nodes": [
+        [
+          "原始目标",
+          "工程／版本／资料"
+        ],
+        [
+          "按需现场",
+          "完整记录＋短索引"
+        ],
+        [
+          "下一位执行",
+          "拿原文件继续做"
+        ]
+      ],
+      "currentEvidence": "当前源码有产出→快照→原生输入的消费者；旧本地任务证明Codex工程可由Hermes原生工具续改。另有大记忆投影与引用读回记录。",
+      "limit": "跨家接工程不是跨家续同一个原生会话；上下文有预算，不是无限或无损。Auto保留链可读，但当前是tools-only，不为证明对称而重新启用。",
+      "next": "在下一条获准原作品中，把实际发出的现场、引用读回、接手工具动作和成果变化串起来，分别确认进程内与子进程。",
+      "codeRefs": [
+        "CTX-PRODUCE",
+        "CTX-SEND",
+        "CTX-CONSUME",
+        "CTX-PROJECTION"
+      ],
+      "recordRefs": [
+        "R-TAKEOVER",
+        "R-PROJECTION"
+      ],
+      "iterations": [
+        {
+          "label": "原工程接棒｜2026-09-20旧验收",
+          "before": "换成员容易丢工程与版本，变成另做一份。",
+          "action": "把原文件、候选和来源交给Hermes原生工具续作。",
+          "result": "旧本地采用/恢复成立；同Astra、冷接项目，不是所有家或线上已验。"
+        },
+        {
+          "label": "大上下文传输｜2026-09-21旧隔离记录",
+          "before": "把完整大记录塞进启动参数触发E2BIG。",
+          "action": "大节点转为可回访引用，原恢复/UI记录保留。",
+          "result": "环境投影与62引用读回有记录；未重放原业务，不冒称已恢复该业务。"
+        }
+      ],
+      "links": [
+        [
+          "#same-context",
+          "看同一现场的组成"
+        ],
+        [
+          "#auto-explorer",
+          "看Auto积累如何保留"
+        ]
+      ]
+    },
+    {
+      "key": "tools",
+      "label": "开放工具与召回",
+      "sub": "找到、分清、真能用",
+      "icon": "tools",
+      "statusLabel": "工具调用有旧记录；召回收益待证",
+      "thesis": "工具开放出来，还要让执行者找得到、用得对",
+      "why": "像工具仓里既有能直接拿来用的扳手，也有参考图纸。系统要说明来源、依赖和可执行性，再按需求给候选，不能只展示一长串工具名。",
+      "nodes": [
+        [
+          "开放供给",
+          "CLI／函数／参考源码"
+        ],
+        [
+          "按需召回",
+          "词项／改写／可选向量"
+        ],
+        [
+          "真实调用",
+          "看结果与失败"
+        ]
+      ],
+      "currentEvidence": "供给→候选→调用有源码；旧记录有共享搜索CLI和函数复用，也保留超时。向量与模型改写组合的实际提准、提速或降本没有在本轮验证。",
+      "limit": "不是默认全语义：向量受开关与模型条件影响，改写可能调用模型，空候选仍可字符回退。目录可用不等于任务正确，部分跨成员工具执行仍未完成。",
+      "next": "在真实需求自然发生时，记录召回路径、候选、选中工具、执行结果及费用；比较各路贡献，不靠工具数量宣称进步。",
+      "codeRefs": [
+        "TOOLS-RANK",
+        "TOOLS-CONDITION",
+        "TOOLS-FALLBACK",
+        "TOOLS-CALL"
+      ],
+      "recordRefs": [
+        "R-TOOL-REUSE"
+      ],
+      "iterations": [
+        {
+          "label": "从清单到可执行候选",
+          "before": "找得到源码，但并不知道能否直接执行。",
+          "action": "标明来源/path/runnable，调用前检查依赖；未适配项返回不可执行。",
+          "result": "已有函数复用与失败回执，不等于全部旧Auto能力都可直接借用。"
+        },
+        {
+          "label": "从词项到有条件的智能召回",
+          "before": "中文或跨语言需求可能找不到合适工具。",
+          "action": "保留词项排序，按条件加入查询改写、真实多语向量与回退。",
+          "result": "当前组合未作本轮运行；模型改写的费用和延迟不能藏起来。"
+        }
+      ],
+      "links": [
+        [
+          "#auto-capability-detail",
+          "看工具与搜索来源"
+        ],
+        [
+          "#failures-to-legion",
+          "看为什么搜得多仍会错"
+        ]
+      ]
+    },
+    {
+      "key": "ecosystem",
+      "label": "自动注册与生态",
+      "sub": "接入不靠手维护",
+      "icon": "branch",
+      "statusLabel": "统一入口有源码；分步SKIP/FAIL保留",
+      "thesis": "新工作台能加入，但不能把目录存在当成能力",
+      "why": "接入像入职：先知道它是谁、版本和角色是什么，再确认装得起、能读写、能做任务。不能因为仓库下载成功，就宣布它已上岗。",
+      "nodes": [
+        [
+          "发现候选",
+          "版本／协议／角色"
+        ],
+        [
+          "统一注册",
+          "安装与分步检查"
+        ],
+        [
+          "可用选项",
+          "按运行条件入池"
+        ]
+      ],
+      "currentEvidence": "自动候选、manifest校验、加锁注册与运行条件有接线。旧三家接入记录并不全绿：入池均跳过，一家速度失败，一家只按能力角色验。",
+      "limit": "总PASS允许SKIP；候选池可有乐观目录项。在册、已安装、可执行、完成真实任务必须分开，不承诺任意GitHub一键变可用成员。",
+      "next": "下一次获准接入只核该成员的版本/许可、角色、依赖、实际工具读写、小任务与恢复，保留跳过和失败，不重装全家。",
+      "codeRefs": [
+        "ECO-CANDIDATE",
+        "ECO-REGISTER",
+        "ECO-READY",
+        "ECO-PASS"
+      ],
+      "recordRefs": [
+        "R-ONBOARD"
+      ],
+      "iterations": [
+        {
+          "label": "统一接入代替多张名单",
+          "before": "人工改目录、安装位置和编排名单容易不同步。",
+          "action": "候选先经manifest校验，再由onboard流程注册。",
+          "result": "自动发现是候选生成，不代替源码、许可或安全确认。"
+        },
+        {
+          "label": "旧三家接入｜2026-09-11记录",
+          "before": "一个总PASS会掩盖未跑入池或性能失败。",
+          "action": "按成员角色分别记安装、工具、模式、速度和入池。",
+          "result": "Prime有工具落盘；LoopX按能力动作；Penguin速度FAIL；三者入池SKIP，不能宣传全家上线。"
+        }
+      ],
+      "links": [
+        [
+          "#ecosystem-adaptation",
+          "看生态、插件与原工作习惯"
+        ]
+      ]
+    },
+    {
+      "key": "evolution",
+      "label": "自进化与群体进化",
+      "sub": "采用才有价值",
+      "icon": "cycle",
+      "statusLabel": "经验与审查有接线；长期增益未证",
+      "thesis": "经验不是越存越好，要被下一次真正用上",
+      "why": "一次摔倒后恢复，和学会避坑不是一件事。只有方法被另一次任务取到、采用，并把结果改好，才有资格谈能力积累。",
+      "nodes": [
+        [
+          "真实经历",
+          "成功／失败／源码"
+        ],
+        [
+          "可回访经验",
+          "召回与审查记录"
+        ],
+        [
+          "下一次采用",
+          "结果与成本检验"
+        ]
+      ],
+      "currentEvidence": "收尾结果→经验库→检索→下一次上下文有代码；源码审查能入账与沉淀。另有原作者实际采用同伴意见的个案，但不是这条长期经验链的收益证明。",
+      "limit": "自愈、记忆召回、源码改进、跨成员采用、长期群体增强是五件事。当前采用计数没有完整绑定效果；历史还有11错题进化0救回，不能说越用必然越强。",
+      "next": "让同一份经验的产生→送达→实际采用→原作品返工→效果形成一条证据，保留未采用和失败，再看跨任务净收益。",
+      "codeRefs": [
+        "EVO-RECALL",
+        "EVO-INJECT",
+        "EVO-RECORD"
+      ],
+      "recordRefs": [
+        "R-PEER",
+        "R-EVOLUTION-NEGATIVE"
+      ],
+      "iterations": [
+        {
+          "label": "经验从记录走向执行上下文",
+          "before": "存了做法却没有下一位消费者。",
+          "action": "让交付结果入库，后续任务按需检索并注入。",
+          "result": "召回接线存在；当前检索仍有词面与片段排序，未证明采用或持续提分。"
+        },
+        {
+          "label": "源码审查与群体采用分开",
+          "before": "引用源码正确，容易被误写为自动修复已成功。",
+          "action": "保留文件/行号/版本、运行证据和独立审查；同伴结果回原作者处理。",
+          "result": "审查允许runtime_not_tested，标签也可能由提交者提供；代码引用不等于根因和补丁效果已证。"
+        }
+      ],
+      "links": [
+        [
+          "#failure-explorer--legion",
+          "看组队负例"
+        ],
+        [
+          "#racing-work",
+          "看原作者采用反馈的作品个案"
+        ]
+      ]
+    },
+    {
+      "key": "world",
+      "label": "世界对齐",
+      "sub": "高标准来自真实参照",
+      "icon": "target",
+      "statusLabel": "参照与差距可传递；关键代码含WIP",
+      "thesis": "先知道好东西长什么样，再决定该补哪一处",
+      "why": "不是在Prompt里喊“世界级”。执行者应研究当前任务的优秀参照，形成自己的质量目标，并把作品放回真实使用中找最大差距。",
+      "nodes": [
+        [
+          "真实参照",
+          "原网址／素材／能力"
+        ],
+        [
+          "当单目标",
+          "意图／约束／质量"
+        ],
+        [
+          "原作返工",
+          "补当前最大差距"
+        ]
+      ],
+      "currentEvidence": "体验目标可形成参照Context；来源、访问状态、hash、研究结果与gap能进入项目现场。旧档案有抓取响应，但没有本轮完整“研究被采用→作品更好”的验证。",
+      "limit": "关键文件含本地未提交改动，不是线上世界级认证。解析到pass、存了URL或抓取200都不证明阅读与采用；Quick和发送预算也可能省略完整资料。",
+      "next": "跟住一个正在做的真实作品，把参照选择、实际读取、作者采用、具体改动和用户旅程对上，不额外造题或只补评分报告。",
+      "codeRefs": [
+        "WORLD-REFERENCE",
+        "WORLD-CONTEXT",
+        "CTX-SEND",
+        "WORLD-GAP"
+      ],
+      "recordRefs": [
+        "R-WORLD-FETCH"
+      ],
+      "iterations": [
+        {
+          "label": "从喊高标准到带出处的参照",
+          "before": "只有世界级口号，缺可回访原件与具体差距。",
+          "action": "把来源、访问状态、摘要和原文位置放进质量Context，供原生执行者自主使用。",
+          "result": "normalize不联网；未知访问仍是未知，代码存在不代表实际研究完成。"
+        },
+        {
+          "label": "从一次验收到原作品持续返工",
+          "before": "打了pass却可能没改原作品，或换了订单比较。",
+          "action": "让评审、失败、锚点观察与gap作为并列事实回到当前工程。",
+          "result": "不同路径的即时落账不完全等同；仍需真实采用和同题质量结果，而非平台总判决。"
+        }
+      ],
+      "links": [
+        [
+          "#worldclass-definition",
+          "看质量标准与差距"
+        ],
+        [
+          "#work-explorer",
+          "把标准放回作品"
+        ]
+      ]
+    },
+    {
+      "key": "orchestration",
+      "label": "按需组织与接力",
+      "sub": "不是答案拼盘",
+      "icon": "team",
+      "statusLabel": "明确求助的旧原生个案已核",
+      "thesis": "先用足原负责人的本事，真遇到缺口才补位",
+      "why": "用户不该成为几家AI之间的传话员。具体缺什么，由做事的人提出；同伴返回观察后，仍要有人回到原工程把事情做完。",
+      "nodes": [
+        [
+          "原负责人",
+          "判断真实缺口"
+        ],
+        [
+          "同伴补位",
+          "独立观察／工具"
+        ],
+        [
+          "原作继续",
+          "消费意见并实改"
+        ]
+      ],
+      "currentEvidence": "2026-09-20旧本地任务中，Hermes→Codex→原Hermes真实发生；同伴全文进入原生输入，原作品随后修改。三阶段同用Astra，且任务明确要求求助。",
+      "limit": "不是无提示自主识别、全生态自动选优或普遍更快更省的证明；接力不等于答案投票，跨家冷接工程也不等于共享一个原生会话。",
+      "next": "继续看原任务是否真的需要帮助、收到什么、采用在哪、原作品怎样变；只有结果或成本有净改善，才增加协作。",
+      "codeRefs": [
+        "ORG-REQUEST",
+        "ORG-CONSUME"
+      ],
+      "recordRefs": [
+        "R-PEER",
+        "R-PEER-INPUT",
+        "R-PEER-DIFF",
+        "R-TAKEOVER"
+      ],
+      "iterations": [
+        {
+          "label": "求助回来了，原作者却没继续",
+          "before": "旧零模型复现只执行原作者一次，同伴回后原文件未改却显示结束。",
+          "action": "同伴交换在原任务租约内持久化，原作者再次原生执行后才交后续结果。",
+          "result": "隔离复现从1次到2次作者调用；另有真原生采用个案，不能只拿调用次数证明品质。"
+        },
+        {
+          "label": "真正采用｜2026-09-20旧本地任务",
+          "before": "保存同伴回复不代表用户的作品变了。",
+          "action": "原Hermes会话读到Codex完整观察，继续修改原JS并走采用/恢复。",
+          "result": "旧记录保留64个原文件；明确两家和同Astra，未证全自主组织或跨任务群体收益。"
+        }
+      ],
+      "links": [
+        [
+          "#community-journeys",
+          "看自己改与贡献原作的区别"
+        ]
+      ]
+    },
+    {
+      "key": "delivery",
+      "label": "原作品交付与恢复",
+      "sub": "能用、能改、能退回",
+      "icon": "play",
+      "statusLabel": "旧本地编辑/采用/恢复已核",
+      "thesis": "改进必须回到用户正在用的那份作品",
+      "why": "做得更好不是多生成几个文件。用户应能看效果、保留手改、选择采用、退回旧版，并在下次打开时接着做。",
+      "nodes": [
+        [
+          "同一工程",
+          "用户修改／位置反馈"
+        ],
+        [
+          "候选变化",
+          "真实文件与版本"
+        ],
+        [
+          "采用与恢复",
+          "可继续、可取回"
+        ]
+      ],
+      "currentEvidence": "2026-09-19旧工程验收包含人的手改和位置反馈进入原生输入、同一作品修改、正常采用/恢复，以及旧反馈冲突保护；后续旧任务还核过重启后状态保留。",
+      "limit": "网页位置反馈不等于Canvas内部对象或Office/视频全面可编辑；本地工程链也不等于正式多人社区与留存已经成立。",
+      "next": "把同一作品从使用→提意见→作者改进→采用→再次使用连起来，先修用户最能感知的一处质量差距。",
+      "codeRefs": [
+        "DELIVERY-CONTEXT",
+        "DELIVERY-VERSION",
+        "DELIVERY-HTTP",
+        "DELIVERY-WRITER"
+      ],
+      "recordRefs": [
+        "R-FEEDBACK",
+        "R-FEEDBACK-INPUT",
+        "R-TAKEOVER"
+      ],
+      "iterations": [
+        {
+          "label": "候选、采用、恢复｜2026-09-19",
+          "before": "直接覆盖原稿，难以比较或退回，也容易冲掉人的手改。",
+          "action": "候选携带基线指纹；采用与恢复沿同一版本切换路径。",
+          "result": "旧本地UI及文件证据存在；不能外推任意外部编辑器并发写入都已原子排除。"
+        },
+        {
+          "label": "人的意见进入原生执行",
+          "before": "只存反馈JSON，模型未必看见最新文件与选区。",
+          "action": "把实际手改hash、位置意见和版本送进原任务，真实工具读取后再修改。",
+          "result": "旧原生输入与工具输出有对应；本轮不重新运行，也不把截图代替可用工程。"
+        }
+      ],
+      "links": [
+        [
+          "#works",
+          "直接使用已有作品"
+        ],
+        [
+          "#community-journeys",
+          "看作品社区三条路径"
+        ]
+      ]
+    },
+    {
+      "key": "deployment",
+      "label": "部署与复用基础",
+      "sub": "搭一次，下次少重来",
+      "icon": "code",
+      "statusLabel": "历史部署与现存脚本；非当前线上认证",
+      "thesis": "把踩坑变成可重复的方法，而不是下次重新猜",
+      "why": "程序包、运行依赖、持久数据、模型授权、用户登录和入口路由要分开。像搬家：地址标签、家具和钥匙都带齐，才是真的能住。",
+      "nodes": [
+        [
+          "固定程序",
+          "版本／文件摘要"
+        ],
+        [
+          "运行底座",
+          "依赖／状态／权限"
+        ],
+        [
+          "用户入口",
+          "登录／API／原任务"
+        ]
+      ],
+      "currentEvidence": "历史已有前端同包核验、原资料迁移恢复和原生续作记录；固定包校验、逐成员安装缓存、独立状态目录与副本恢复脚本可复用。各项证据不是同一场全链验收。",
+      "limit": "9月23日前端c275/包75336487虽核字节与空登录表单，API当时仍旧Test f9；真实主站登录和全链未验。不能外推当前正式已通，也不承诺任意机器一键部署。",
+      "next": "下一次真正获准发布沿固定版本与同一原任务，只核本次改变的层和用户旅程；保留缓存、原数据与可回退依据，不反复重装全家。",
+      "codeRefs": [
+        "DEP-C1",
+        "DEP-C2",
+        "DEP-C3",
+        "DEP-C4",
+        "DEP-C5",
+        "DEP-C6"
+      ],
+      "recordRefs": [
+        "DEP-S1",
+        "DEP-S2",
+        "DEP-S4",
+        "DEP-S5",
+        "DEP-S6"
+      ],
+      "iterations": [
+        {
+          "label": "安装与程序发布分开",
+          "before": "默认全家重装和过度使缓存失效，反复付出安装代价。",
+          "action": "按成员/源码/解释器/锁文件保存安装身份；程序与持久运行材料分开。",
+          "result": "有源码与旧修复记录；下次平台缓存是否命中仍须实际核，缓存不是功能验收。"
+        },
+        {
+          "label": "保住原现场｜9月21—23日旧记录",
+          "before": "原生恢复参数正确，也可能缺依赖服务；配置保留却漏了材料。",
+          "action": "沿原会话查依赖、补齐固定运行材料和配置引用，再核原文件与原旅程。",
+          "result": "有原生续作及原会话/文件读取的限定记录；不是全部成员、登录和最终外部入口都通过。"
+        },
+        {
+          "label": "包与入口分开验｜9月23日旧记录",
+          "before": "平台Success与前端更新容易被误当正式全链完成。",
+          "action": "固定包/HTML/JS逐字节对齐，另记API上游与登录旅程。",
+          "result": "前端当时通过，API仍旧测试版本；保留未完成，不把记录日期当最新线上状态。"
+        }
+      ],
+      "links": [
+        [
+          "#deployment-foundation",
+          "展开七个踩坑与复用基础"
+        ]
+      ]
+    }
+  ],
+  "codeProofs": [
+    {
+      "id": "CTX-PRODUCE",
+      "workspace": "B",
+      "workspaceLabel": "B工作树",
+      "path": "release/legion-service/project_context.py",
+      "startLine": 139,
+      "endLine": 162,
+      "sha256": "e22fb78254e2e7fdde771a8be35fbef1e727542f544bf00ca12e75cb3c789c68",
+      "snippet": "def _initialize_locked(team_id: str, objective: str, plan: dict, *, mode: str,\n                       user_id: str = \"\", conversation_id: str = \"\") -> dict:\n    \"\"\"调用者已持有 _packet_lock；合并原有项目事实，不另建执行现场。\"\"\"\n    source = plan.get(\"project_context\") if isinstance(plan.get(\"project_context\"), dict) else {}\n    packet = _json_safe(source) if source else {}\n    previous = load(team_id)\n    conversation = str(conversation_id or packet.get(\"conversation_id\") or\n                       previous.get(\"conversation_id\") or team_id)\n    require_owner(previous, user_id, conversation)\n    # 显式调用沿本次身份表示传给 workdir；未指定用户的维护调用保留原归属。\n    owner = str(user_id or previous.get(\"user_id\") or packet.get(\"user_id\") or \"\")\n    same_context = bool(previous and str(previous.get(\"conversation_id\") or \"\") == conversation)\n    if same_context:\n        for key in (\"decisions\", \"completed\", \"open_gaps\", \"verification_findings\", \"artifacts\", \"attempts\",\n                    \"source_ref\", \"input_snapshot\", \"version_identity\", \"execution_role\", \"quality_context\",\n                    \"visibility\", \"reference_atlas\", \"frontier_research_contract\"):\n            if key not in packet and previous.get(key) not in (None, \"\", [], {}):\n                packet[key] = _json_safe(previous[key])\n        # 续做计划可能只携带任务状态，工程现场仍以该会话的持久 packet 为准。\n        # 两个路径别名成组继承：显式给新 workspace 时不能再补回旧 repo_root。\n        if not any(key in packet for key in (\"repo_root\", \"workspace_root\")):\n            for key in (\"repo_root\", \"workspace_root\"):\n                if previous.get(key):\n                    packet[key] = _json_safe(previous[key])",
+      "revision": "edbc7dad958bd33cb2c9104e73574c47dd96a9a4",
+      "wip": false,
+      "supports": "项目初始化保留同会话已有事实；不是每次只从最新一句话重来。"
+    },
+    {
+      "id": "CTX-SEND",
+      "workspace": "B",
+      "workspaceLabel": "B工作树",
+      "path": "release/legion-service/legion_core.py",
+      "startLine": 6620,
+      "endLine": 6644,
+      "sha256": "d3f0cd8057e71357cfe3449caccd7c09164ebf869a6dcae50079da64265a683d",
+      "snippet": "        try:\n            from legion_contracts import CapabilityPolicy, TaskFacts\n            _node_spec = raw_tasks.get(k) or {} if isinstance(raw_tasks.get(k), dict) else {}\n            _verification_role = str(_node_spec.get(\"verification_role\") or \"\")\n            _verification_criteria = list(_node_spec.get(\"verification_criteria\") or [])\n            _project_snapshot = (_project_context.snapshot(team_id, k, packet=_project_packet)\n                                 if _project_context else dict(_project_packet or {}))\n            _task_facts = TaskFacts(\n                goal=question, role=role_task or \"回答问题\", task_id=k, team_id=team_id,\n                attempt_id=int(attempt or 0), input_hash=str(_node_spec.get(\"input_hash\") or \"\"),\n                idempotency_key=str(_node_spec.get(\"idempotency_key\") or \"\"),\n                delivery_contract=dict(plan.get(\"delivery_contract\") or {}),\n                orchestration={**(orchestration_spec.to_dict() if orchestration_spec else {}),\n                               \"assignment\": {\"task_id\": k, \"harness\": harness_key,\n                                              \"source\": _node_spec.get(\"assignment_source\"),\n                                              \"native_capabilities\": _node_spec.get(\"native_capabilities\") or {}}},\n                deliverables=list((plan.get(\"deliverables\") or [])),\n                acceptance=list((plan.get(\"acceptance\") or [])) if isinstance(plan.get(\"acceptance\"), list)\n                           else ([str(plan.get(\"acceptance\"))] if plan.get(\"acceptance\") else []),\n                upstream_artifacts=_upstream_refs,\n                upstream_results=[{\"key\": d, \"status\": (results.get(d) or {}).get(\"status\"),\n                                   \"error_envelope\": (results.get(d) or {}).get(\"error_envelope\")}\n                                  for d in deps],\n                project_context=_project_snapshot,\n            ).to_dict()",
+      "revision": "edbc7dad958bd33cb2c9104e73574c47dd96a9a4",
+      "wip": true,
+      "supports": "当前主链按任务取项目快照，经project_context参数交给实际执行入口。"
+    },
+    {
+      "id": "CTX-CONSUME",
+      "workspace": "B",
+      "workspaceLabel": "B工作树",
+      "path": "harness_baselines/meyo-orchestrator/harness_registry.py",
+      "startLine": 1493,
+      "endLine": 1512,
+      "sha256": "336aea7d8259df32058fe89390ed8cbcac94c4eba99775a87a6a00632cb384f1",
+      "snippet": "    # project_context 有独立高权重 section；从 task_facts 删除同名副本，避免同一项目现场双写计费。\n    prompt_facts = dict(ctx.task_facts or {})\n    prompt_facts.pop(\"project_context\", None)\n    # 文件起点索引只供运行时观察；不改变模型看到的项目语义，也不产生无项目的伪项目块。\n    prompt_project = {key: value for key, value in (ctx.project_context or {}).items()\n                      if key != \"_artifact_input_baseline\"}\n    if quick and prompt_project:\n        for duplicate in (\"goal\", \"team_id\", \"delivery_contract\", \"acceptance\", \"deliverables\"):\n            prompt_facts.pop(duplicate, None)\n        prompt_facts = {key: value for key, value in prompt_facts.items()\n                        if value not in (None, \"\", [], {}, 0)}\n    facts_block = (\"\\n\\nTASK_FACTS_JSON\\n\" + _json.dumps(prompt_facts, ensure_ascii=False, separators=(\",\", \":\"))\n                   if prompt_facts else \"\")\n    policy_block = (\"\\n\\nCAPABILITY_POLICY_JSON\\n\" + _json.dumps(ctx.capability_policy, ensure_ascii=False, separators=(\",\", \":\"))\n                    if ctx.capability_policy and not quick else \"\")\n    memory_block = (\"\\n\\nTASK_MEMORY_JSON\\n\" + _json.dumps(ctx.task_memory, ensure_ascii=False, separators=(\",\", \":\"))\n                    if ctx.task_memory else \"\")\n    project_block = (\"\\n\\nPROJECT_CONTEXT_JSON\\n\" +\n                     _json.dumps(prompt_project, ensure_ascii=False, separators=(\",\", \":\"))\n                     if prompt_project else \"\")",
+      "revision": "edbc7dad958bd33cb2c9104e73574c47dd96a9a4",
+      "wip": false,
+      "supports": "原生上下文装配有PROJECT_CONTEXT_JSON消费者；收到不等于理解或采用。"
+    },
+    {
+      "id": "CTX-PROJECTION",
+      "workspace": "B",
+      "workspaceLabel": "B工作树",
+      "path": "release/legion-service/task_memory.py",
+      "startLine": 59,
+      "endLine": 83,
+      "sha256": "f4bf200018f519a44ac376df3f6dc51c69081ea8e59d60ed6dfcc7be8f9f29e4",
+      "snippet": "def native_context(team_id: str, key: str) -> dict:\n    \"\"\"仅给原生执行入口的读取投影；恢复/UI仍使用完整context和原记录。\"\"\"\n    with _LOCK:\n        view = context(team_id, key)\n        state = load(team_id, key)\n        if not view or state.get(\"team_id\") != team_id or state.get(\"key\") != key:\n            return view\n        path = _path(team_id, key)\n        if path.is_symlink() or path.parent.is_symlink() or ROOT.is_symlink():\n            return view\n        view = dict(view)\n        import project_context\n        if isinstance(view.get(\"artifacts\"), list):\n            view[\"artifacts\"] = project_context._snapshot_artifacts(\n                team_id, state, view[\"artifacts\"], source_path=path)\n        # 完整原生历史和工具事实仍在本请求原节点；只省传输，不删事实，\n        # 不改变native checkpoint、工作目录或失败状态。\n        nodes = {\"/\" + name: view[name] for name in (\"completed_steps\", \"native_facts\")\n                 if name in view}\n        refs = project_context._snapshot_references(path, state, nodes)\n        for name in (\"completed_steps\", \"native_facts\"):\n            if \"/\" + name in refs:\n                view.pop(name, None)\n                view[name + \"_ref\"] = refs[\"/\" + name]\n        return view",
+      "revision": "edbc7dad958bd33cb2c9104e73574c47dd96a9a4",
+      "wip": false,
+      "supports": "原生传输使用有界投影与原文引用，保留完整恢复记录；不是无限上下文。"
+    },
+    {
+      "id": "TOOLS-RANK",
+      "workspace": "B",
+      "workspaceLabel": "B工作树",
+      "path": "release/legion-service/legion_tool.py",
+      "startLine": 173,
+      "endLine": 179,
+      "sha256": "d85583d5b124599bd440ccc19ecc99cb91d5b1795f56bf97698f3dee702b5507",
+      "snippet": "    # 字符 n-gram 不是跨语言语义：中英零交集时仍会因泛中文描述产生噪声。只有真正的多语言\n    # embedding 才参与混排；否则诚实保留 BM25，交给 harness 读 manifest 后自行改写重搜。\n    semantic_weight = 0.55 if semantic_backend == \"multilingual_embedding\" else 0.0\n    lexical_weight = 1.0 - semantic_weight\n    for item in catalog:\n        score = (lexical_weight * lexical.get(item[\"id\"], 0.0) / lex_max\n                 + semantic_weight * max(0.0, semantic.get(item[\"id\"], 0.0)))",
+      "revision": "edbc7dad958bd33cb2c9104e73574c47dd96a9a4",
+      "wip": false,
+      "supports": "只有真实多语向量模式才进入对应混排，不能把所有回退都称语义召回。"
+    },
+    {
+      "id": "TOOLS-CONDITION",
+      "workspace": "B",
+      "workspaceLabel": "B工作树",
+      "path": "release/legion-service/tool_semantic_index.py",
+      "startLine": 53,
+      "endLine": 69,
+      "sha256": "1ea6d92a16ca85cbb2cba80beca096a6c01c843b4a2f97b16faac6358ce5f6ce",
+      "snippet": "    if os.environ.get(\"LEGION_TOOL_LOCAL_EMBEDDING\", \"0\") != \"1\":\n        return None\n    return _embedding_scores(items, query)\n\n\ndef _embedding_scores(items: list[dict], query: str) -> list[float] | None:\n    # 下载/修复 embedding 模型属于显式安装动作，绝不能在每次工具检索时偷偷联网重试。\n    # 只有本地快照完整且缓存索引已存在时才启用；否则立即回退字符 n-gram。\n    model_cache = Path.home() / \".cache\" / \"huggingface\" / \"hub\" / \\\n        \"models--sentence-transformers--paraphrase-multilingual-MiniLM-L12-v2\"\n    snapshots = model_cache / \"snapshots\"\n    required = (\"modules.json\", \"config.json\", \"tokenizer.json\", \"model.safetensors\")\n    complete_snapshot = next((p for p in snapshots.glob(\"*\")\n                              if p.is_dir() and all((p / name).exists() for name in required)), None) \\\n        if snapshots.is_dir() else None\n    if not CACHE.is_file() or complete_snapshot is None:\n        return None",
+      "revision": "edbc7dad958bd33cb2c9104e73574c47dd96a9a4",
+      "wip": false,
+      "supports": "向量召回依赖开关与完整本地模型条件；源码存在不代表当前启用。"
+    },
+    {
+      "id": "TOOLS-FALLBACK",
+      "workspace": "B",
+      "workspaceLabel": "B工作树",
+      "path": "release/legion-service/legion_tool.py",
+      "startLine": 239,
+      "endLine": 248,
+      "sha256": "d85583d5b124599bd440ccc19ecc99cb91d5b1795f56bf97698f3dee702b5507",
+      "snippet": "    fallback_semantic = False\n    # 模型改写不可用/超时时，通用字符向量只作为“避免交白卷”的最后候选源；仅收正分项，\n    # 不随机塞零相关工具，也不覆盖已有 BM25 候选。\n    if not supply_pool and semantic_backend == \"character_ngram_fallback\":\n        semantic_ranked = sorted(\n            ((score, item) for item, score in zip(catalog, sem_scores) if score > 0),\n            key=lambda pair: -pair[0])\n        supply_pool = [item for _score, item in semantic_ranked[:max(top * 3, top)]]\n        hits = supply_pool[:top]\n        fallback_semantic = bool(supply_pool)",
+      "revision": "edbc7dad958bd33cb2c9104e73574c47dd96a9a4",
+      "wip": false,
+      "supports": "没有候选时仍可走字符片段正分回退；这是回退，不是跨语言语义证明。"
+    },
+    {
+      "id": "TOOLS-CALL",
+      "workspace": "B",
+      "workspaceLabel": "B工作树",
+      "path": "release/legion-service/capstack_bridge.py",
+      "startLine": 115,
+      "endLine": 139,
+      "sha256": "bcab53ce886b2ee04c5552b192781f19c1fa70cd70473fd8637859eeeffbe238",
+      "snippet": "                names.add(n[2:])\n    return sorted(names)\n\n\ndef call(tool_name: str, path: str = \"\", question: str = \"\", timeout_s: int = 120) -> dict:\n    \"\"\"无状态桥调 auto 的 t_<tool_name>(跨 capability_stack+qa_tool_impls)·stub session·绕开 auto pipeline.\n\n    path: 本地文件路径(OCR/PDF/图像类解析它);question: 覆盖式问题(优先于path).\n    返回 {ok, result, tool, via:'capstack_bridge'}。核心工具无状态·session 用空 dict 承接记录。\n    \"\"\"\n    fn = _find_fn(tool_name)\n    if not callable(fn):\n        return {\"ok\": False, \"runnable\": False,\n                \"error\": f\"工具源码仅供参考或无状态桥/随包依赖未就绪: t_{tool_name}\",\n                \"hint\": f\"可桥调的: {list_bridged_tools()[:20]}\"}\n    # 构造 question(工具内 _parse_local_path 从 question 提路径)+ stub session(空dict即可)\n    q = question or (path or \"\")\n    stub_session: dict = {\"extracted_values\": [], \"_budget\": {}}\n    try:\n        result = fn(q, stub_session)\n        return {\"ok\": True, \"result\": str(result), \"tool\": tool_name,\n                \"via\": \"capstack_bridge\",\n                \"extracted_values\": stub_session.get(\"extracted_values\", [])}\n    except Exception as e:\n        return {\"ok\": False, \"error\": f\"桥调 t_{tool_name} 失败: {type(e).__name__}: {e}\",",
+      "revision": "edbc7dad958bd33cb2c9104e73574c47dd96a9a4",
+      "wip": false,
+      "supports": "可执行能力调用要核依赖并落到真实函数；参考源码不自动成为工具。"
+    },
+    {
+      "id": "ECO-CANDIDATE",
+      "workspace": "B",
+      "workspaceLabel": "B工作树",
+      "path": "release/legion-service/agent_manifest.py",
+      "startLine": 186,
+      "endLine": 202,
+      "sha256": "a82e04c32d3ce5edfeaaf92f655349946f1bd4d1b764e56577685a2d9079040c",
+      "snippet": "def discover_local(path: str, url: str = \"\", ref: str = \"HEAD\") -> dict:\n    \"\"\"读取项目自述元数据形成候选 manifest；不自动执行、不猜未声明协议。\"\"\"\n    root = pathlib.Path(path).expanduser().resolve()\n    if not root.is_dir():\n        return {\"ok\": False, \"error\": f\"目录不存在:{root}\"}\n    package = _read_json(root / \"package.json\")\n    pyproject = _read_text(root / \"pyproject.toml\")\n    cargo = _read_text(root / \"Cargo.toml\")\n    readme = _read_text(root / \"README.md\", 80_000)\n    project_name = \"\"\n    if pyproject:\n        match = re.search(r\"(?m)^\\s*name\\s*=\\s*[\\\"']([^\\\"']+)[\\\"']\", pyproject)\n        project_name = match.group(1) if match else \"\"\n    name = package.get(\"name\") or project_name or root.name\n    key = re.sub(r\"[^a-z0-9_.-]+\", \"-\", str(name).lower()).strip(\"-.\")\n    runtime: dict[str, Any] = {}\n    install: list[list[str]] = []",
+      "revision": "edbc7dad958bd33cb2c9104e73574c47dd96a9a4",
+      "wip": false,
+      "supports": "自动发现先形成候选描述，不把任意GitHub目录直接视为可运行成员。"
+    },
+    {
+      "id": "ECO-REGISTER",
+      "workspace": "B",
+      "workspaceLabel": "B工作树",
+      "path": "release/legion-service/harness_onboard.py",
+      "startLine": 65,
+      "endLine": 83,
+      "sha256": "7b015abc9dedb6591c0af2f0f2c1c5e6d707a97424bb050bd93822c80052a812",
+      "snippet": "def _upsert_catalog(key, spec_path):\n    entry = json.loads(pathlib.Path(spec_path).read_text(encoding=\"utf-8\"))\n    if entry.get(\"key\") != key:\n        raise ValueError(\"spec.key=%s 与 --key=%s 不一致\" % (entry.get(\"key\"), key))\n    validation = R.agent_manifest.validate(entry)\n    if not validation.get(\"ok\"):\n        raise ValueError(\"spec 不满足 catalog 契约:\" + \";\".join(validation.get(\"errors\") or []))\n    with R.catalog_lock():\n        items = R.load_catalog()\n        replaced = False\n        for i, x in enumerate(items):\n            if x.get(\"key\") == key:\n                items[i] = entry\n                replaced = True\n                break\n        if not replaced:\n            items.append(entry)\n        R._save_catalog(items)\n    return \"catalog %s:%s (total=%d)\" % (\"updated\" if replaced else \"appended\", key, len(items))",
+      "revision": "edbc7dad958bd33cb2c9104e73574c47dd96a9a4",
+      "wip": false,
+      "supports": "注册先校验manifest并以锁更新目录，让接入有统一入口。"
+    },
+    {
+      "id": "ECO-READY",
+      "workspace": "B",
+      "workspaceLabel": "B工作树",
+      "path": "release/legion-service/external_agent_registry.py",
+      "startLine": 535,
+      "endLine": 538,
+      "sha256": "5250fcb3d12397047cf4ce3d4c9663147d237afa13f7d40274e24bf3a8de74ac",
+      "snippet": "    credentials = _credentials(item, env)\n    has_transport = bool(item.get(\"transports\"))\n    executable_role = item.get(\"execution_role\") not in (\"control-plane\", \"ui-platform\", \"capability\")\n    execution_ready = bool(revision_ok and available and credentials[\"ready\"] and has_transport and executable_role)",
+      "revision": "edbc7dad958bd33cb2c9104e73574c47dd96a9a4",
+      "wip": false,
+      "supports": "可用判断区分版本、探活、凭据、协议和角色；在目录里不等于可执行。"
+    },
+    {
+      "id": "ECO-PASS",
+      "workspace": "B",
+      "workspaceLabel": "B工作树",
+      "path": "release/legion-service/harness_onboard.py",
+      "startLine": 323,
+      "endLine": 326,
+      "sha256": "7b015abc9dedb6591c0af2f0f2c1c5e6d707a97424bb050bd93822c80052a812",
+      "snippet": "    passed = sum(1 for x in steps if x.status == \"PASS\")\n    failed = sum(1 for x in steps if x.status == \"FAIL\")\n    skipped = sum(1 for x in steps if x.status == \"SKIP\")\n    verdict = \"PASS\" if failed == 0 else \"FAIL\"",
+      "revision": "edbc7dad958bd33cb2c9104e73574c47dd96a9a4",
+      "wip": false,
+      "supports": "现行总PASS只排除FAIL，SKIP仍可能存在；必须看分步记录。"
+    },
+    {
+      "id": "EVO-RECALL",
+      "workspace": "B",
+      "workspaceLabel": "B工作树",
+      "path": "release/legion-service/legion_core.py",
+      "startLine": 8963,
+      "endLine": 8976,
+      "sha256": "d3f0cd8057e71357cfe3449caccd7c09164ebf869a6dcae50079da64265a683d",
+      "snippet": "    try:\n        import legion_memory\n        # user_id 隔离召回(军团自审 P0):只捞本用户归属的经验+全局共享经验(working/procedural),\n        # 不会把别的用户的任务产出召回给当前用户(_visible_to 按 user_id 过滤)。\n        r = legion_memory.search(question, top=2, user_id=user_id or \"\")\n    except Exception:\n        return \"\"\n    exps = r.get(\"experiences\") if isinstance(r, dict) else None\n    if not exps:\n        return \"\"\n    # 用户可见:如实陈述【发生的事实】——给军团注入了 N 条历史经验供参考。★ context not control:\n    # 不替军团断言\"参考了/辅助了本次回答\"(用没用是军团的事·只有它自己知道·父层绝不替它宣称,\n    # 那正是 adopted 要军团自己回报的原因)。只报\"注入了什么·供参考\",效果由军团自己决定。\n    if cb:",
+      "revision": "edbc7dad958bd33cb2c9104e73574c47dd96a9a4",
+      "wip": true,
+      "supports": "后续任务可检索旧经验；召回是输入事实，不是采用或正确性证明。"
+    },
+    {
+      "id": "EVO-INJECT",
+      "workspace": "B",
+      "workspaceLabel": "B工作树",
+      "path": "release/legion-service/legion_core.py",
+      "startLine": 4159,
+      "endLine": 4164,
+      "sha256": "d3f0cd8057e71357cfe3449caccd7c09164ebf869a6dcae50079da64265a683d",
+      "snippet": "            ctx += _dk_block\n    except Exception:\n        pass\n    # 军团跨家经验召回:别家/自己历史上答过的相似问题·供参考(context not control·标明不一定对让模型自判)\n    # 传 cb:召回到经验时给用户 emit 一条可见事件(过程透明·让\"军团在学习变强\"可感知·用户中心)。\n    ctx += _recall_experience(question, cb=cb, user_id=user_id)",
+      "revision": "edbc7dad958bd33cb2c9104e73574c47dd96a9a4",
+      "wip": true,
+      "supports": "召回结果进入执行前置上下文，说明存在实际消费接线。"
+    },
+    {
+      "id": "EVO-RECORD",
+      "workspace": "B",
+      "workspaceLabel": "B工作树",
+      "path": "release/legion-service/source_audit.py",
+      "startLine": 369,
+      "endLine": 381,
+      "sha256": "02b4386a4a34686c3aed56b13374cb7be43cf1b20de3dcd0f9f0ec7103ef72bf",
+      "snippet": "        \"claim\": str(entry.get(\"claim\") or \"\"),\n        \"source_root\": str(_resolve_source_root(str(entry[\"source_root\"]))),\n        \"revision\": str(checked.get(\"revision\") or entry[\"revision\"]),\n        \"file\": str(entry[\"file\"]),\n        \"line\": int(entry[\"line\"]),\n        \"quote\": str(entry[\"quote\"]),\n        \"runtime_evidence\": entry.get(\"runtime_evidence\") or \"runtime_not_tested\",\n        \"verifier\": str(entry[\"verifier\"]),\n        \"status\": status,\n        \"improvement\": entry.get(\"improvement\") or None,\n        \"verification\": {\"path\": checked[\"path\"], \"actual\": checked[\"actual\"],\n                         \"content_source\": checked.get(\"content_source\"),\n                         \"content_sha256\": checked.get(\"content_sha256\")},",
+      "revision": "edbc7dad958bd33cb2c9104e73574c47dd96a9a4",
+      "wip": false,
+      "supports": "审查记录允许runtime_not_tested；源码引用核对不能替代补丁效果验证。"
+    },
+    {
+      "id": "WORLD-REFERENCE",
+      "workspace": "B",
+      "workspaceLabel": "B工作树",
+      "path": "release/legion-service/frontier_benchmarks.py",
+      "startLine": 182,
+      "endLine": 210,
+      "sha256": "fad7733e31b51a5b547cc9b8d121701a707cda5eab6e3541ac5d18e1e26fbaae",
+      "snippet": "    research = {\n        \"goal\": \"与用户预期结果相关的参照资料和观察\",\n        \"reference_atlas\": deepcopy(REFERENCE_ATLAS),\n        \"experience_intent\": intent,\n        \"golden_task\": golden,\n        \"reference_requirements\": {},\n        \"human_evidence_requirements\": {},\n        \"comparison_policy\": {},\n    }\n    compiled = {\"quality_profile\": quality_profile, \"experience_intent\": intent,\n                \"golden_task\": golden, \"north_star\": north_star,\n                \"critical_dimensions\": critical_dimensions,\n                \"claim_ceiling\": \"UNVALIDATED\",\n                \"frontier_research_contract\": research}\n    # 整份显式合同及其未知字段不重写；按键是否存在保留 False/空值，而非用真值兜底。\n    return {key: deepcopy(source[key] if key in source else value)\n            for key, value in compiled.items()}\n\n\ndef augment_plan(plan: dict | None) -> dict:\n    \"\"\"只编译缺失的意图、参考与质量观察 Context，不改写执行计划。\"\"\"\n    source = deepcopy(plan) if isinstance(plan, dict) else {}\n    raw_intent = source.get(\"experience_intent\") if isinstance(source.get(\"experience_intent\"), dict) else {}\n    if not raw_intent:\n        return source\n    # 原始意图、显式策略及历史事实均由调用者拥有；编译结果只补缺失的 Context。\n    # 是否研究、分阶段或设评审节点由用户/规划器决定，不在这里补 DAG 或制造阻断。\n    for key, value in compile_experience_contract(source).items():\n        source.setdefault(key, value)",
+      "revision": "edbc7dad958bd33cb2c9104e73574c47dd96a9a4",
+      "wip": true,
+      "supports": "体验目标编译成参照Context并保留已有合同；不是给作品颁世界级认证。"
+    },
+    {
+      "id": "WORLD-CONTEXT",
+      "workspace": "B",
+      "workspaceLabel": "B工作树",
+      "path": "release/legion-service/project_context.py",
+      "startLine": 344,
+      "endLine": 370,
+      "sha256": "e22fb78254e2e7fdde771a8be35fbef1e727542f544bf00ca12e75cb3c789c68",
+      "snippet": "def _merge_frontier_context(packet: dict, context: dict, task_id: str) -> None:\n    \"\"\"Persist research authored by the Legion as shared context for downstream nodes.\"\"\"\n    if not context:\n        return\n    research = dict(packet.get(\"frontier_context\") or {})\n    research.update(_json_safe(context))\n    research.update({\"source_task_id\": str(task_id), \"updated_at\": time.time()})\n    packet[\"frontier_context\"] = research\n    # 概念锚点表(重放#3/#4实锤:研究浅/锚点不结构化→全链自洽地平庸):研究在\n    # LEGION_FRONTIER_CONTEXT 里给出 concept_anchors 数组时,持久化为全军团共同对照事实,\n    # 翻译官任务书/验证契约/首脑协调全部逐锚对照这张表。\n    # P0-3:每锚保留完整 schema(acceptance/evidence_requirements/artifact_refs/source_sha/\n    # revision/is_crown),不再只有损压缩到5字段。\n    anchors = context.get(\"concept_anchors\") if isinstance(context.get(\"concept_anchors\"), list) else None\n    if anchors:\n        rows = [row for row in (_normalize_anchor_row(item) for item in anchors) if row]\n        if rows:\n            _commit_anchor_rows(packet, rows, change_reason=\"legion_frontier_research\",\n                                sources=[{\"channel\": \"protocol_block\", \"task_id\": str(task_id),\n                                          \"rows\": len(rows), \"ingested_at\": time.time()}])\n    quality = dict(packet.get(\"quality_context\") or {})\n    quality[\"frontier_context\"] = research\n    quality[\"revision\"] = max(1, int(quality.get(\"revision\") or 0) + 1)\n    quality[\"change_reason\"] = \"legion_frontier_research\"\n    quality[\"updated_at\"] = time.time()\n    packet[\"quality_context\"] = quality\n    packet[\"quality_context_revision\"] = quality[\"revision\"]",
+      "revision": "edbc7dad958bd33cb2c9104e73574c47dd96a9a4",
+      "wip": false,
+      "supports": "研究结果可进入共享quality packet；字段形成不等于真的研究或采用。"
+    },
+    {
+      "id": "WORLD-GAP",
+      "workspace": "B",
+      "workspaceLabel": "B工作树",
+      "path": "release/legion-service/project_context.py",
+      "startLine": 821,
+      "endLine": 846,
+      "sha256": "e22fb78254e2e7fdde771a8be35fbef1e727542f544bf00ca12e75cb3c789c68",
+      "snippet": "def _record_verification_unlocked(team_id: str, report: dict) -> dict:\n    packet = load(team_id)\n    if not packet:\n        return {}\n    safe_report = _json_safe(report)\n    report_id = str(report.get(\"report_id\") or\n                    f\"verification:{report.get('task_id') or ''}:{report.get('role') or ''}\")\n    safe_report[\"report_id\"] = report_id\n    reports = [item for item in (packet.get(\"verification_findings\") or [])\n               if isinstance(item, dict) and str(item.get(\"report_id\") or \"\") != report_id]\n    reports.append(safe_report)\n    packet[\"verification_findings\"] = reports[-_MAX_ITEMS:]\n    if str(report.get(\"role\") or \"\") == \"direction_reviewer\":\n        quality = dict(packet.get(\"quality_context\") or {})\n        quality.setdefault(\"north_star\", _json_safe(packet.get(\"north_star\") or {}))\n        quality.setdefault(\"critical_dimensions\", _json_safe(packet.get(\"critical_dimensions\") or []))\n        quality.setdefault(\"claim_ceiling\", str(packet.get(\"claim_ceiling\") or \"UNVALIDATED\"))\n        for name in (\"current_hypothesis\", \"claim_ceiling\"):\n            if report.get(name):\n                quality[name] = _json_safe(report[name])\n                packet[name] = _json_safe(report[name])\n        for name in (\"sample_evidence\", \"rendered_observations\", \"journey_observations\", \"human_evidence\"):\n            if isinstance(report.get(name), list):\n                quality[name] = _json_safe(report[name])[-_MAX_ITEMS:]\n                packet[name] = _json_safe(report[name])[-_MAX_ITEMS:]\n        if isinstance(report.get(\"gap_plan\"), list):",
+      "revision": "edbc7dad958bd33cb2c9104e73574c47dd96a9a4",
+      "wip": false,
+      "supports": "评审与差距可以回到项目现场；观察和作品质量结论需要各自证据。"
+    },
+    {
+      "id": "ORG-REQUEST",
+      "workspace": "B",
+      "workspaceLabel": "B工作树",
+      "path": "release/legion-service/legion_core.py",
+      "startLine": 5660,
+      "endLine": 5665,
+      "sha256": "d3f0cd8057e71357cfe3449caccd7c09164ebf869a6dcae50079da64265a683d",
+      "snippet": "    def _consume_peer_input(k, harness_key, result, attempt, call_args, pending=None, initial_request=None):\n        \"\"\"React only to native requests while the original task is still leased.\"\"\"\n        if not _team_state or attempt is None:\n            return _peer_failure(result, \"peer_input_requires_durable_task\")\n        seen = set()\n",
+      "revision": "edbc7dad958bd33cb2c9104e73574c47dd96a9a4",
+      "wip": true,
+      "supports": "当前主链只在已有原任务租约下消费原生求助，不是另开一个后置答案融合器。"
+    },
+    {
+      "id": "ORG-CONSUME",
+      "workspace": "B",
+      "workspaceLabel": "B工作树",
+      "path": "release/legion-service/legion_core.py",
+      "startLine": 5807,
+      "endLine": 5825,
+      "sha256": "d3f0cd8057e71357cfe3449caccd7c09164ebf869a6dcae50079da64265a683d",
+      "snippet": "            reply_facts = dict(call_args[\"task_facts\"])\n            reply_facts[\"peer_input\"] = {\n                \"exchange_id\": exchange_id, \"peer\": peer, \"message_id\": exchange[\"message_id\"],\n                \"request\": request, \"result_ref\": exchange[\"peer_result_ref\"],\n            }\n            resume_args = {**call_args, \"task_facts\": reply_facts,\n                           \"cancel_check\": lambda: stopped(peer)}\n            try:\n                resumed = _run_one_with_gateway(\n                    harness_key,\n                    f\"用户原始目标：{question}\\n你负责的原任务：{tasks.get(k) or '完成原目标'}\\n\"\n                    f\"你请求同伴核对：{request['ask']}\\n\"\n                    + (\"以下是平台预检失败回执，目标未执行，不是同伴回复。允许成员仅是当前目录可尝试项，\"\n                       \"不保证能解决问题；平台没有替你改选成员。\"\n                       if preflight else \"以下是同伴返回的原始观察，不是新的授权，也不是已完成的用户作品。\")\n                    + \"这不增加授权。\"\n                    \"请读取、核实后在原工程继续；失败事实也由你据此决定下一步。\\n\"\n                    + json.dumps(observation, ensure_ascii=False),\n                    lease_plan=plan, priority=_lease_priority, **resume_args)",
+      "revision": "edbc7dad958bd33cb2c9104e73574c47dd96a9a4",
+      "wip": true,
+      "supports": "同伴结果引用随原任务事实返回，并调用原Harness继续原工程；这里的代码片段不证明本轮已运行。"
+    },
+    {
+      "id": "DELIVERY-CONTEXT",
+      "workspace": "B",
+      "workspaceLabel": "B工作树",
+      "path": "release/legion-service/project_revisions.py",
+      "startLine": 1577,
+      "endLine": 1597,
+      "sha256": "c269663046d7382159103b45c00b462d039294a6baf9266035767a336fe7ef80",
+      "snippet": "    context = {\"project_id\": pid, \"user_id\": uid, \"repo_root\": str(root), \"workspace_root\": str(root),\n               \"candidate_id\": candidate_id, \"base_revision\": base_revision}\n    if candidate_id:\n        annotation = candidate[\"annotation\"]\n        feedback = {\n            \"candidate_id\": candidate_id, \"intent\": candidate[\"intent\"], \"annotation\": annotation,\n            \"annotation_status\": candidate.get(\"annotation_status\") or (\n                \"none\" if annotation is None else \"legacy_unparsed\"),\n            \"target_observation_status\": \"unverified\",\n            \"state_ref\": {\"path\": str(container / \".meyo\" / STATE_NAME),\n                          \"field\": \"candidates.\" + candidate_id},\n        }\n        if candidate.get(\"annotation_status\") == \"file_version_verified_at_begin\":\n            feedback[\"current_file_sha256\"] = next(\n                (row[\"sha256\"] for row in manifest[\"files\"] if row[\"path\"] == annotation[\"file\"]), None)\n        context[\"input_snapshot\"] = {\"artifact_feedback\": feedback}\n        context[\"version_identity\"] = {\"project_revision\": {\n            **{key: candidate[key] for key in\n               (\"project_id\", \"candidate_id\", \"base_revision\", \"base_snapshot\", \"base_workspace_digest\")},\n            \"workspace_digest\": _digest(manifest),\n        }}",
+      "revision": "edbc7dad958bd33cb2c9104e73574c47dd96a9a4",
+      "wip": false,
+      "supports": "候选工程、人的反馈与实际版本身份进入执行Context，避免对着旧稿改。"
+    },
+    {
+      "id": "DELIVERY-VERSION",
+      "workspace": "B",
+      "workspaceLabel": "B工作树",
+      "path": "release/legion-service/project_revisions.py",
+      "startLine": 1467,
+      "endLine": 1483,
+      "sha256": "c269663046d7382159103b45c00b462d039294a6baf9266035767a336fe7ef80",
+      "snippet": "def adopt(uid: str, pid: str, *, candidate_id: str, candidate_revision: str,\n          expected_revision, expected_workspace_digest: str, request_id: str,\n          expected_source_id: str | None = None) -> dict:\n    return _switch(uid, pid, action=\"adopt\", revision=candidate_revision, candidate_id=candidate_id,\n                   expected_revision=expected_revision, expected_workspace_digest=expected_workspace_digest,\n                   request_id=request_id, expected_source_id=expected_source_id)\n\n\n@_api\ndef restore(uid: str, pid: str, *, target_revision: str, expected_revision,\n            expected_workspace_digest: str, request_id: str, target_operation_id: str | None = None,\n            expected_source_id: str | None = None, target_operation_side: str | None = None) -> dict:\n    \"\"\"'from' selects the operation's prior retained version, not its unsaved workspace.\"\"\"\n    return _switch(uid, pid, action=\"restore\", revision=target_revision, expected_revision=expected_revision,\n                   expected_workspace_digest=expected_workspace_digest, request_id=request_id,\n                   target_operation_id=target_operation_id, expected_source_id=expected_source_id,\n                   target_operation_side=target_operation_side)",
+      "revision": "edbc7dad958bd33cb2c9104e73574c47dd96a9a4",
+      "wip": false,
+      "supports": "采用和恢复使用同一切换路径，并携带期待版本和工作区指纹；不是质量自动判决。"
+    },
+    {
+      "id": "DELIVERY-HTTP",
+      "workspace": "B",
+      "workspaceLabel": "B工作树",
+      "path": "release/legion-service/project_revisions_http.py",
+      "startLine": 109,
+      "endLine": 125,
+      "sha256": "fae6e40ee995dd22a82cce6f1c19942b4eef746d9ead3dfe040795e75aa9e5cc",
+      "snippet": "        elif action == \"adopt\":\n            result = revisions.adopt(\n                uid, project_id, candidate_id=body.get(\"candidate_id\"),\n                candidate_revision=body.get(\"candidate_revision\"),\n                expected_revision=body.get(\"expected_revision\"),\n                expected_workspace_digest=body.get(\"expected_workspace_digest\"),\n                request_id=body.get(\"request_id\"),\n                expected_source_id=body.get(\"expected_source_id\"))\n        elif action == \"restore\":\n            result = revisions.restore(\n                uid, project_id, target_revision=body.get(\"target_revision\"),\n                expected_revision=body.get(\"expected_revision\"),\n                expected_workspace_digest=body.get(\"expected_workspace_digest\"),\n                request_id=body.get(\"request_id\"),\n                expected_source_id=body.get(\"expected_source_id\"),\n                target_operation_id=body.get(\"target_operation_id\"),\n                target_operation_side=body.get(\"target_operation_side\"))",
+      "revision": "edbc7dad958bd33cb2c9104e73574c47dd96a9a4",
+      "wip": false,
+      "supports": "正常HTTP入口消费采用/恢复请求并传递版本条件，连接用户操作与版本机制。"
+    },
+    {
+      "id": "DELIVERY-WRITER",
+      "workspace": "B",
+      "workspaceLabel": "B工作树",
+      "path": "release/legion-service/project_revisions_http.py",
+      "startLine": 158,
+      "endLine": 179,
+      "sha256": "fae6e40ee995dd22a82cce6f1c19942b4eef746d9ead3dfe040795e75aa9e5cc",
+      "snippet": "        nonlocal finished\n        with lock:\n            if finished:\n                return\n            finished = True\n        ended = revisions.set_execution(\n            uid, project_id, candidate_id, running=False, session_id=payload[\"session_id\"])\n        # A sealed candidate is an exact set of files, not a quality decision.\n        # Native failure may still leave useful files; nothing is auto-adopted.\n        frozen = revisions.seal(uid, project_id, candidate_id) if ended.get(\"ok\") else ended\n        if not frozen.get(\"ok\"):\n            handler.log_message(\"candidate snapshot not ready: %s\", frozen.get(\"error\"))\n\n    handler._candidate_finalizer = finish\n    try:\n        return execute(payload)\n    finally:\n        # Dispatch owns a worker that may outlive SSE. That worker captures\n        # finish and invokes it after its actual exit. run_one remains synchronous.\n        if not handler._candidate_worker_started:\n            finish()\n",
+      "revision": "edbc7dad958bd33cb2c9104e73574c47dd96a9a4",
+      "wip": false,
+      "supports": "候选在真实writer结束后封存；SSE传输结束不等于写作结束，封存不代表已采用。"
+    },
+    {
+      "id": "DEP-C1",
+      "workspace": "MAIN",
+      "workspaceLabel": "开发主仓",
+      "path": ".agents/skills/meyo-legion-release/scripts/verify-fixed-thin-package.py",
+      "startLine": 54,
+      "endLine": 54,
+      "sha256": "2b6da35ff3f4d33e9a1271bac04ea20a05081dc27f857a3b58324d4374b795ff",
+      "snippet": "assert actual == expected_files, {",
+      "revision": "600b4a59f50a1b4d7b150ad4e42c2a7e87117a1f",
+      "wip": false,
+      "supports": "核目标commit、文件集合与逐文件SHA；该脚本可下载，研究仅阅读，没有运行。"
+    },
+    {
+      "id": "DEP-C2",
+      "workspace": "MAIN",
+      "workspaceLabel": "开发主仓",
+      "path": "scripts/sync-legion-to-wall.sh",
+      "startLine": 36,
+      "endLine": 36,
+      "sha256": "c8a7790357e9b70d7fc7bff4952751e148e52ab76239a97f81e3d556058455e1",
+      "snippet": "# rsync uses the first matching rule: exclusions must precede recursive includes.",
+      "revision": "600b4a59f50a1b4d7b150ad4e42c2a7e87117a1f",
+      "wip": false,
+      "supports": "过滤规则先于递归包含；只读源码，不执行同步或删除。"
+    },
+    {
+      "id": "DEP-C3",
+      "workspace": "WALL",
+      "workspaceLabel": "发布仓工作副本",
+      "path": "bin/build.sh",
+      "startLine": 405,
+      "endLine": 405,
+      "sha256": "1c6ec802f473bc71a4bca89dc426a66e6e6e529dd0b8ad95071c6e2ddb8f6904",
+      "snippet": "  if [ -f \"$stamp\" ] && [ \"$(cat \"$stamp\")\" = \"$pkg_hash\" ] && npm_entry_valid \"$prefix\" \"$pkg\" \"$bin\"; then",
+      "revision": "cdd8125e09a2cdae854a630206c489b65c5d11a5",
+      "wip": false,
+      "supports": "以缓存身份与实际入口识别是否可复用；不是此刻平台缓存命中的证明。"
+    },
+    {
+      "id": "DEP-C4",
+      "workspace": "WALL",
+      "workspaceLabel": "发布仓工作副本",
+      "path": "bin/build-hermes-runtime.py",
+      "startLine": 66,
+      "endLine": 66,
+      "sha256": "65e47b064bdf780fc14cdb2841370356c633a0b9343fb47e90be1a768f791c80",
+      "snippet": "                return {\"state\": \"installed_cached\", \"runtime_acceptance\": \"not_run\"}",
+      "revision": "cdd8125e09a2cdae854a630206c489b65c5d11a5",
+      "wip": false,
+      "supports": "绑定固定源码、锁文件、解释器与安装配方；缓存命中明确不充当运行验收。"
+    },
+    {
+      "id": "DEP-C5",
+      "workspace": "WALL",
+      "workspaceLabel": "发布仓工作副本",
+      "path": "bin/deploy.sh",
+      "startLine": 24,
+      "endLine": 24,
+      "sha256": "799d7e17a3990b592b8f798d50be7ae28190277566de954557a80ad1e2c49808",
+      "snippet": "export MEYO_LEGION_DIR=\"$DATA\"",
+      "revision": "cdd8125e09a2cdae854a630206c489b65c5d11a5",
+      "wip": false,
+      "supports": "用户数据、原生HOME与凭证路径独立于程序目录；不声明该工作副本等于线上字节。"
+    },
+    {
+      "id": "DEP-C6",
+      "workspace": "WALL",
+      "workspaceLabel": "发布仓工作副本",
+      "path": "bin/backup-release-state.sh",
+      "startLine": 135,
+      "endLine": 135,
+      "sha256": "3a0c6e42f85174272bcdf1d582a398661377bf828d0ecb510845ec6518e4b937",
+      "snippet": "    \"live_restore_performed\": False,",
+      "revision": "cdd8125e09a2cdae854a630206c489b65c5d11a5",
+      "wip": false,
+      "supports": "使用SQLite备份/完整性/恢复后逻辑摘要与文件核对；只证明脚本能力，不执行线上回滚。"
+    }
+  ],
+  "records": [
+    {
+      "id": "R-PEER",
+      "workspace": "B",
+      "path": "dev/upgrade-b-2026-09-18/evidence/peer-consumption/verification.json",
+      "title": "原请求者采用同伴输入并改回原作品",
+      "sha256": "0ac332b2cd7d7c9270ba04afb06f7406c9ee2a7082d1aeac47aafece4fc1a12b",
+      "scope": "2026-09-20旧本地工程验收；明确要求求助、限定两家，同Astra；不是全自主选优或净提速证明。",
+      "rawPublished": false,
+      "newRun": false
+    },
+    {
+      "id": "R-PEER-INPUT",
+      "workspace": "B",
+      "path": "dev/upgrade-b-2026-09-18/evidence/peer-consumption/native-consumption-proof.json",
+      "title": "同伴全文进入原生输入",
+      "sha256": "0642f990f650e5dbfa6254e9cc487380b96a784a6405167e29da0d9f5fd4d98e",
+      "scope": "旧记录的peer_reply_verbatim_in_native_input为真；只支持这次消费，不证明长期记忆普遍有效。",
+      "rawPublished": false,
+      "newRun": false
+    },
+    {
+      "id": "R-PEER-DIFF",
+      "workspace": "B",
+      "path": "dev/upgrade-b-2026-09-18/evidence/peer-consumption/actual-file-diff.json",
+      "title": "同一作品的真实文件变化",
+      "sha256": "86b4412120fd9d6c1b9b56ff932560356c1d5cb86b8ec276156494921b7e9a43",
+      "scope": "旧文件差异记录保留64个原文件，不能用回复已保存替代作品已改。",
+      "rawPublished": false,
+      "newRun": false
+    },
+    {
+      "id": "R-TAKEOVER",
+      "workspace": "B",
+      "path": "dev/upgrade-b-2026-09-18/evidence/native-takeover/verification.json",
+      "title": "Codex工程由Hermes原生工具续作",
+      "sha256": "bdf69058222ac7337c9ddb51449c89fc68ea7f4f21bb8e822ee0462b6e480f07",
+      "scope": "2026-09-20旧本地冷接棒，不是把Codex原生会话变成Hermes原生会话；同Astra。",
+      "rawPublished": false,
+      "newRun": false
+    },
+    {
+      "id": "R-FEEDBACK",
+      "workspace": "B",
+      "path": "dev/upgrade-b-2026-09-18/evidence/artifact-feedback/verification.json",
+      "title": "人手修改与位置反馈进入同一作品",
+      "sha256": "10158d668dc4bb7f852b0a572956a61eb436a56ba760ef9415138f2fd61d756d",
+      "scope": "2026-09-19旧工程验收：一次原生执行，采用/恢复/旧反馈拒绝；不是Canvas对象或Office全支持。",
+      "rawPublished": false,
+      "newRun": false
+    },
+    {
+      "id": "R-FEEDBACK-INPUT",
+      "workspace": "B",
+      "path": "dev/upgrade-b-2026-09-18/evidence/artifact-feedback/native-consumption.json",
+      "title": "原生实际收到反馈与手改文件hash",
+      "sha256": "505e32e142c5d06af092d1ca1ff4d5451e9d64c7853e004b447032085ad96bf2",
+      "scope": "原字段input_contains_feedback和input_contains_actual_manual_file_hash为真；本轮只读旧证据。",
+      "rawPublished": false,
+      "newRun": false
+    },
+    {
+      "id": "CTX-E01",
+      "workspace": "B",
+      "path": "dev/upgrade-b-2026-09-18/evidence/native-takeover/verification.json",
+      "title": "E01",
+      "sha256": "bdf69058222ac7337c9ddb51449c89fc68ea7f4f21bb8e822ee0462b6e480f07",
+      "scope": "旧记录，读取范围见独立侧核；不是本轮运行。",
+      "rawPublished": false,
+      "newRun": false
+    },
+    {
+      "id": "CTX-E02",
+      "workspace": "B",
+      "path": "dev/upgrade-b-2026-09-18/evidence/task-memory-native-projection/verification.json",
+      "title": "E02",
+      "sha256": "a7fd24d4ff6009ed3a506d197ea5ef1f0aa59484eebf038f437ce7ea958b0e44",
+      "scope": "旧记录，读取范围见独立侧核；不是本轮运行。",
+      "rawPublished": false,
+      "newRun": false
+    },
+    {
+      "id": "CTX-E03",
+      "workspace": "B",
+      "path": "harness_baselines/comparison/results/0ba7db6392f3_codex.json",
+      "title": "E03",
+      "sha256": "812ac6db33a3dad32012d8a5884e4d83f1a8feb71d48f78874a25d8f407076c1",
+      "scope": "旧记录，读取范围见独立侧核；不是本轮运行。",
+      "rawPublished": false,
+      "newRun": false
+    },
+    {
+      "id": "CTX-E04",
+      "workspace": "B",
+      "path": "dev/three-harness-onboard-evidence-2026-09-11.json",
+      "title": "E04",
+      "sha256": "58f9d190f386895aad0f3a0664cabafeb0fa5589692b3b574e19023a7f65cb0f",
+      "scope": "旧记录，读取范围见独立侧核；不是本轮运行。",
+      "rawPublished": false,
+      "newRun": false
+    },
+    {
+      "id": "CTX-E05",
+      "workspace": "B",
+      "path": "dev/tool-intelligence-live-source-reuse.json",
+      "title": "E05",
+      "sha256": "cd90dd02df6336dbc3097b48ff63d66625fffe10b49d56e3f3a14045b10ac61f",
+      "scope": "旧记录，读取范围见独立侧核；不是本轮运行。",
+      "rawPublished": false,
+      "newRun": false
+    },
+    {
+      "id": "R-PROJECTION",
+      "workspace": "B",
+      "path": "dev/upgrade-b-2026-09-18/evidence/task-memory-native-projection/verification.json",
+      "title": "大记忆投影与原记录保全",
+      "sha256": "a7fd24d4ff6009ed3a506d197ea5ef1f0aa59484eebf038f437ce7ea958b0e44",
+      "scope": "2026-09-21旧隔离记录：环境体积2,484,227→90,922字节，62引用读回；没有重放原业务，不能把blocked改称done。",
+      "rawPublished": false,
+      "newRun": false
+    },
+    {
+      "id": "R-ONBOARD",
+      "workspace": "B",
+      "path": "dev/three-harness-onboard-evidence-2026-09-11.json",
+      "title": "三家接入的分步旧记录",
+      "sha256": "58f9d190f386895aad0f3a0664cabafeb0fa5589692b3b574e19023a7f65cb0f",
+      "scope": "Prime/LoopX/Penguin的入池检查均SKIP；Prime有工具落盘，LoopX按能力角色，Penguin速度FAIL。不是生产全家通过。",
+      "rawPublished": false,
+      "newRun": false
+    },
+    {
+      "id": "R-TOOL-REUSE",
+      "workspace": "B",
+      "path": "dev/tool-intelligence-live-source-reuse.json",
+      "title": "工具函数复用与同伴源码步骤的混合结果",
+      "sha256": "cd90dd02df6336dbc3097b48ff63d66625fffe10b49d56e3f3a14045b10ac61f",
+      "scope": "旧记录同时保留函数复用通过与同伴源码步骤超时；不是向量召回精度或成本实验。",
+      "rawPublished": false,
+      "newRun": false
+    },
+    {
+      "id": "R-EVOLUTION-NEGATIVE",
+      "workspace": "B",
+      "path": "dev/boss-report-2026-09-23/mechanism-story-20260927/evaluation-lineage.md",
+      "title": "进化与组队的历史反例",
+      "sha256": "16bbf72fb9a5e4bd06efead9497f15eb4343c4766b405fae8fe642c0d1429cda",
+      "scope": "已有核查保留11错题自进化0救回；早期组队反例另在失败章节。不作为当前排名，不删负例。",
+      "rawPublished": false,
+      "newRun": false
+    },
+    {
+      "id": "R-WORLD-FETCH",
+      "workspace": "B",
+      "path": "dev/ultimate-interview-2026-09-03/deliverables/002_codex_bc/main_codex/evidence/frontier_google.jsonl",
+      "title": "旧世界研究抓取响应",
+      "sha256": "2d8e595f896de193eff0bf9cc4e3ddf8f8ec5a7ae1abd6aa0c6b5996a4f24ba1",
+      "scope": "归档行保存一次抓取200响应；不是当前在线、负责人已阅读、采用或作品提升证明。",
+      "rawPublished": false,
+      "newRun": false
+    },
+    {
+      "id": "DEP-S1",
+      "workspace": "MAIN",
+      "path": "dev/frontend-lane-deployed-verified-2026-09-23.json",
+      "title": "历史发布/验证回执",
+      "sha256": "189ddc3bfbab982053cfbe8b57f0b0b908d3ee22c0665126fe776cce0c053e34",
+      "scope": "9月23日固定前端包与页面/脚本相符；API仍旧测试版本；不是本轮线上验证。",
+      "rawPublished": false,
+      "newRun": false
+    },
+    {
+      "id": "DEP-S2",
+      "workspace": "MAIN",
+      "path": "dev/production-migration-browser-verified-2026-09-23.json",
+      "title": "历史迁移与限定旅程回执",
+      "sha256": "d94269c1942c94a403bcc13332f99e8415bb840ce87b5aee4fe1593578ae0186",
+      "scope": "迁移后原五会话读取、三原文件下载及共享浏览器限定恢复；不覆盖全部成员/真人主站登录。",
+      "rawPublished": false,
+      "newRun": false
+    },
+    {
+      "id": "DEP-S3",
+      "workspace": "MAIN",
+      "path": "dev/production-ticket-producer-verified-2026-09-22.json",
+      "title": "历史认证协议修复回执",
+      "sha256": "4c1322849c298d5438343a102900f17bb1202dad431413d554498b51e0282f1b",
+      "scope": "消费者支持精确整数0/200的协议修复，不证明本人短信登录、票据签发到消费已闭环。",
+      "rawPublished": false,
+      "newRun": false
+    },
+    {
+      "id": "DEP-S4",
+      "workspace": "MAIN",
+      "path": "dev/test-runtime-preparation-2026-09-21.json",
+      "title": "历史测试运行前置回执",
+      "sha256": "6ec506768191dbb10e8de4b7ef512673c15dc35a9cf2ff803703d1036454c086",
+      "scope": "模型配置持久化/空环境加载经过当时限定检查；未验真实模型API，命名空间前置失败另列。",
+      "rawPublished": false,
+      "newRun": false
+    },
+    {
+      "id": "DEP-S5",
+      "workspace": "MAIN",
+      "path": "dev/native-recovery-and-ccr-runtime-2026-09-21.json",
+      "title": "历史原生续作与服务恢复回执",
+      "sha256": "1141ae97cdabcfb826c33c12cb6fbf431b1e9471afb854eb381a565609a89637",
+      "scope": "记录真实resume参数与恢复既有CCR后工具继续执行；不能据此推导所有成员持续运行。",
+      "rawPublished": false,
+      "newRun": false
+    },
+    {
+      "id": "DEP-S6",
+      "workspace": "MAIN",
+      "path": "dev/deployment-runtime-verified-2026-09-16.json",
+      "title": "跨日部署状态汇总（非全量原日志）",
+      "sha256": "f8aaa2e093847cb9785fdc473b4d76347ce8d79f79c03b9e0d0684ac63d94b99",
+      "scope": "缓存阶段与备份回执的汇总仍在；部分被引用的临时细回执已不在本地，历史缓存命中/线上回滚不能外推。",
+      "rawPublished": false,
+      "newRun": false
+    },
+    {
+      "id": "DEP-S7",
+      "workspace": "MAIN",
+      "path": "dev/deployment-checkpoint-2026-09-11.json",
+      "title": "跨日部署checkpoint（逐项时间未完全绑定）",
+      "sha256": "88d2feb630238fc72f66c9b087f3b3a5f6c7317bd13cf6f1d645627634cf6fe4",
+      "scope": "保留默认重装、原生安装、媒体候选等历史修复；文件名日期不是所有条目的执行日。",
+      "rawPublished": false,
+      "newRun": false
+    }
+  ],
+  "deploymentPitfalls": [
+    {
+      "id": "D1",
+      "title": "前端更新了，不代表API和登录也换到同一版本",
+      "historicalTime": "2026-09-23：发布完成记录23:03；API核对23:16:06 +08:00；另有9月22日票据消费修复",
+      "problem": "测试泳道前端、后端API和正式节点是不同发布面。前端包成功及短信空表单可见，容易被误写为正式产品全链可用；票据消费者还曾只认成功码0，拒绝生产者合法的200。",
+      "action": "按泳道分别核固定前端包、真实HTML/JS和API上游；认证消费者仅扩展为精确整数0或200，保留HTTP成功、有效用户与错误标志校验，不放宽权限。",
+      "foundation": "已有前端包/脚本字节核对回执、分环境路由记录及严格票据成功码处理。 下次能先定位到底是前端、代理、API版本还是身份协议出问题，不必反复把整包全部重发。",
+      "remaining": "合法真人短信/SSO与签发消费链仍需单独完成。 每次发布仍需确认目标环境、泳道和API路由；不能据9月23日记录猜现在正式已接通。 本轮未访问入口；正式节点曾迁移，不代表该测试前端已经使用新正式API。",
+      "codeRefs": [
+        "DEP-C1"
+      ],
+      "recordRefs": [
+        "DEP-S1",
+        "DEP-S3"
+      ]
+    },
+    {
+      "id": "D2",
+      "title": "包名、构建Success和代码提交都不能代替实际字节",
+      "historicalTime": "2026-09-23前端同包验证；校验脚本为本轮读到的现存源码，未绑定其首次落地日期",
+      "problem": "平台包大小、归档大小和镜像大小容易混为一谈；源码提交正确，也可能部署错包、漏文件或混进开发产物。",
+      "action": "使用固定commit与image-payload清单，核唯一target.tar、展开大小、文件集合及每个文件SHA；同步时先排除项目测试/会话/生成物，再递归包含程序，保留上游许可证与运行资源。",
+      "foundation": "已有固定包逐文件校验器和受管理发布副本的同步过滤。 同一程序字节可沿用已核包与证据；文档变更不必重建程序，出错时可明确缺哪份文件，而不是靠包名猜。",
+      "remaining": "仍需合法制品访问与目标环境发布授权。 此小包脚本有大小/时间适用范围；不代表完整持久运行层、登录或功能验收。 固定归档未变也不能证明展开运行目录从未被修改。 只读脚本和旧回执，没有下载包、执行校验器或重新比对远程文件；现存源码不自动等于9月23日版本。",
+      "codeRefs": [
+        "DEP-C1",
+        "DEP-C2"
+      ],
+      "recordRefs": [
+        "DEP-S1"
+      ]
+    },
+    {
+      "id": "D3",
+      "title": "发布时重新安装，把“复用缓存”变成重复耗时和风险",
+      "historicalTime": "2026-09-17部署状态汇总；旧默认重装修复条目未单独绑定执行日",
+      "problem": "旧deploy默认触发全家安装；后续收集器变化又可能过度使安装缓存失效。一个安装成功提示并不保证整次构建成功，缓存目录存在也不保证身份可信。",
+      "action": "移除已定位的默认旧安装入口；按成员、固定源码、解释器、锁文件与配方记录安装身份，入口可用才复用；将安装前收集与安装后私有依赖收集分开，避免无关收集变化拖全家重装。",
+      "foundation": "已有逐成员缓存判断、可信配方、重定位与发布/安装分离的实现和历史修复。 版本和运行条件不变时复用成功安装；某一家需要修补时不清空其它成员的依赖，减少重复构建。",
+      "remaining": "缓存身份、实际文件、解释器、平台和入口必须匹配。 平台缓存能否跨下一次构建命中，仍须那一次的真实回执；此处不承诺。 现行发布经验把薄程序与持久运行层分开，但本轮未验证其远程完整激活状态。 临时的缓存指纹复现及独立复核细文件在本地已缺失，仅保留状态汇总；不把测试数当下次缓存必命中的证据。",
+      "codeRefs": [
+        "DEP-C3",
+        "DEP-C4"
+      ],
+      "recordRefs": [
+        "DEP-S6",
+        "DEP-S7"
+      ]
+    },
+    {
+      "id": "D4",
+      "title": "装好了原生成员，不等于工具、模型授权和登录都能工作",
+      "historicalTime": "模型前置回执2026-09-21T22:14:56Z；Hermes和媒体修复为跨日checkpoint条目，具体跑批日未独立绑定",
+      "problem": "Hermes原生源码拒绝非Nix wheel构建；模型变量写进表单不代表实际进程获得授权；聊天入口能用不等于图片工具随包完整。",
+      "action": "按固定源码支持的uv锁文件和editable方式安装，不伪造Nix标志；迁移后重接解释器并核原生导入；独立接入媒体工具；模型配置经受限持久文件与加载器传到进程，模型授权与用户登录保持两条链。",
+      "foundation": "已有原生锁定安装器、媒体入口修复及模型环境持久加载的历史证据。 每家已有可回访安装配方及候选验证线索；可分别排查安装、工具、环境和授权，不必把全部故障都当成“换模型”。",
+      "remaining": "目标Linux底座、系统库和所需命名空间须可用；本机成功不能替代目标环境。 每家仍需真实原生工具、实际模型授权、原生恢复与对应用户旅程的限定验证。 凭证只在受限运行状态中使用，不能打进镜像或公开日志。 不执行旧配置；不声称所有模型、辅助模型、设备和成员都已验收，更不声称已经完成用户自带密钥全流程。",
+      "codeRefs": [
+        "DEP-C4"
+      ],
+      "recordRefs": [
+        "DEP-S7",
+        "DEP-S4"
+      ]
+    },
+    {
+      "id": "D5",
+      "title": "迁移带走了配置，却漏掉配置指向的实际材料",
+      "historicalTime": "2026-09-23迁移后恢复回执，记录时间14:43:29 +08:00",
+      "problem": "共享浏览器配置仍引用旧操作目录，迁移没有带走对应材料；“配置还在”不等于浏览器依赖还在。",
+      "action": "将已核库、字体与许可放到固定运行材料目录，核摘要后只更新配置引用；复用原文件、原会话检查，不重装全家或靠关闭沙箱换成功。",
+      "foundation": "已有固定材料摘要、许可证记录、配置修补回执和原旅程恢复证据。 以后搬环境有可复用的依赖材料清单和配置关联，不用重现“一台机器能跑，搬家就缺库”的排查过程。",
+      "remaining": "目的环境需要合适运行权限和兼容系统库，引用路径与材料都须随迁移一致。 共享浏览器恢复不能外推任意原生shell/Python浏览器或全部媒体、设备。 此处引用历史结果，不新开浏览器、不探活；限定旅程不是全成员能力认证。",
+      "codeRefs": [
+        "DEP-C5"
+      ],
+      "recordRefs": [
+        "DEP-S2"
+      ]
+    },
+    {
+      "id": "D6",
+      "title": "网页会话还在，不代表原生会话真续上，也不代表依赖服务活着",
+      "historicalTime": "2026-09-21原生恢复记录16:08:53 +08:00；9月23日迁移后原资料读取回执",
+      "problem": "服务重启或换包若把状态留在程序目录，容易丢原文件与原生HOME；即使resume参数正确，原生调用也可能因既有CCR服务缺失而失败。",
+      "action": "程序目录与用户数据、成员HOME、凭证路径分开；沿原生checkpoint和原工作目录续作；对ConnectionRefused查既有依赖服务，恢复其运行，而非重建新会话或用换模型遮掩。",
+      "foundation": "已有独立状态目录、原生resume接线及真实旧会话续作证据。 下次升级不必从零开始对话或重做文件；可以沿原项目继续，并区分“状态恢复成功”和“执行依赖未恢复”。",
+      "remaining": "持久卷、身份归属、真实native checkpoint、原目录和依赖服务必须同时保留。 不同成员的原生恢复方式、并行节点及新会话边界仍需各自验证。 不把API读到旧会话等同于所有原生执行上下文完整；也不声称运行服务已实现无条件自动自愈。",
+      "codeRefs": [
+        "DEP-C5"
+      ],
+      "recordRefs": [
+        "DEP-S5",
+        "DEP-S2"
+      ]
+    },
+    {
+      "id": "D7",
+      "title": "有压缩包，不等于有可用回退；副本恢复不等于线上已演练",
+      "historicalTime": "2026-09-17T04:09:46Z的备份副本回执摘要",
+      "problem": "直接打包活数据库可能不一致；把备份文件存在或副本恢复成功写成“线上可随时一键回滚”会隐藏状态差异与停机条件。",
+      "action": "使用SQLite在线备份接口，对私有副本做完整性检查与恢复后内容/结构摘要核对；同时核程序与状态文件/权限，变化即拒绝；分别记副本恢复、服务重启和线上回退。",
+      "foundation": "已有一致性数据库备份、文件/权限检查与副本恢复验证脚本。 下次替换版本已有备份与副本验证方法、失败判据及固定旧包依据，不用临时只靠一份tar碰运气。",
+      "remaining": "替换前仍需新的有效快照、目标版本/运行层兼容性和授权维护窗口。 真正线上恢复、流量切回及用户旅程必须另记结果；不会因为历史副本绿就自动成立。 本地只留历史汇总；其引用的临时完整备份回执已不在。未执行任何备份、恢复或发布，也不承诺一键部署一切。",
+      "codeRefs": [
+        "DEP-C6"
+      ],
+      "recordRefs": [
+        "DEP-S6"
+      ]
+    }
+  ]
+}
