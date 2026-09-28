@@ -1,0 +1,139 @@
+{
+  "title": "GAIA主账本复核：累计解出162／165，约98.2%",
+  "checkedAt": "2026-09-28T19:19:08.408004+08:00",
+  "measurement": "历史研发持续迭代、多轮重试后的累计曾解出率（ever_correct）",
+  "caution": "98.2%是这份历史主账本的累计曾解出率，不是同模型、同预算、单次全量运行的准确率，也未证明全部胜局无污染；本轮只核账，未重新判题。",
+  "rawLedgerRows": 166,
+  "rawMarkedSolved": 163,
+  "officialQuestionCount": 165,
+  "officialRecordCount": 165,
+  "cumulativeSolved": 162,
+  "remaining": 3,
+  "cumulativePercent": 98.18181818181819,
+  "displayPercent": "98.2%",
+  "missingOfficialCount": 0,
+  "duplicateOfficialCount": 0,
+  "excludedRecords": [
+    {
+      "qid": "TID",
+      "markedSolved": true,
+      "reason": "不在官方题单；历史writer也明确排除evolve_backtest测试占位。"
+    }
+  ],
+  "primaryCopiesMatch": true,
+  "firstShot": {
+    "hit": 65,
+    "known": 165,
+    "percent": 39.39393939393939,
+    "meaning": "最初单轮基线，不是研发迭代后的最新单轮能力。"
+  },
+  "ledgerRowDates": {
+    "2026-08-18": 165
+  },
+  "remainingOfficialPrefixes": [
+    "0b260a57",
+    "384d0dd8",
+    "bec74516"
+  ],
+  "sourceSupport": [
+    {
+      "source": ".gaia_auto_100miss_rerun.jsonl",
+      "creditedQuestions": 143,
+      "matchingHistoricalHitFound": 143
+    },
+    {
+      "source": ".gaia_full165_rescored.jsonl",
+      "creditedQuestions": 16,
+      "matchingHistoricalHitFound": 16
+    }
+  ],
+  "registryReverifiedLabels": 3,
+  "registryBoundary": "另3题由主账标注registry答案复判；本次没有再次执行当时评分器或模型，不能升格为独立重新判题。",
+  "traceReferenceRows": 159,
+  "traceBoundary": "159个胜局行有trace引用；这里没有宣称全部引用现在可打开，或每局都已重新做污染鉴定。",
+  "quarantineComparison": {
+    "rows": 7,
+    "officialQuestions": 4,
+    "currentLedgerMarkedSolved": 2,
+    "currentLedgerNotSolved": 2,
+    "scope": "只对照官方题号与主账状态；隔离的是历史尝试，不因曾有假胜就永久删掉整题，也不据此证明后来的胜局都已独立鉴定。"
+  },
+  "independentReviewNote": "独立核对同样得到162/165；现存8d46胜局输入比官方原题多692字符补充，未判定是否含答案线索，不作为原题无提示单次成功证明。另一隔离后计对题仍缺完整条件与独立复判。",
+  "earlierCorrectExport": {
+    "rows": 164,
+    "uniqueQuestionPrefixes": 161,
+    "duplicateGroups": 2,
+    "meaning": "这份164条/163独立题的旧导出，不是本次找到的主账本。"
+  },
+  "historyBoundary": "161/165来自旧周报，164/165是更早峰值自述；不同历史口径保留。当前复核结果来自官方题单与主账，不用摘要覆盖它，也不编造161到162的单一原因。",
+  "newBenchmarkRun": false,
+  "newScoringRun": false,
+  "originalLedgersModified": false,
+  "rawQuestionsOrAnswersPublished": false,
+  "sources": [
+    {
+      "id": "original-ledger",
+      "title": "Auto原工作目录主账本",
+      "logicalPath": "v11/.gaia_ledger.jsonl",
+      "kind": "primary_ledger",
+      "sha256": "f2fa63d9db617f13e559360f4c54d33afd120ebd2f147e72b03a432803ec1b1d",
+      "rawPublished": false
+    },
+    {
+      "id": "archive-ledger",
+      "title": "主仓证据归档副本",
+      "logicalPath": "seed-users-system/evidence/ledgers/gaia_ledger.jsonl",
+      "kind": "primary_ledger",
+      "sha256": "f2fa63d9db617f13e559360f4c54d33afd120ebd2f147e72b03a432803ec1b1d",
+      "rawPublished": false
+    },
+    {
+      "id": "official",
+      "title": "官方题单的本地原件",
+      "logicalPath": "v11/.gaia_official.jsonl",
+      "kind": "official_identity",
+      "sha256": "04e5cf4b209ff6e23601e1555b636a04bcf76ad136dda6db4168c0d8dd548d05",
+      "rawPublished": false
+    },
+    {
+      "id": "writer",
+      "title": "原台账的身份与双口径规则",
+      "logicalPath": "v11/evolution/gaia_ledger.py",
+      "kind": "writer_source",
+      "sha256": "0180d6ec96a0f8cf6eb4bb650c653cb41ba87b7f3e15f6db6baa61e0d63a29e3",
+      "rawPublished": false
+    },
+    {
+      "id": "quarantine",
+      "title": "假胜隔离记录",
+      "logicalPath": "v11/.gaia_fake_win_quarantine.jsonl",
+      "kind": "historical_quarantine",
+      "sha256": "029209f193776669c78cb70ffe7cdd1f9f4876e17ef9fc9449df482d0bc5079b",
+      "rawPublished": false
+    },
+    {
+      "id": "correct-export",
+      "title": "较早的正确题导出清单",
+      "logicalPath": "v11/.gaia_correct_ledger.json",
+      "kind": "earlier_export",
+      "sha256": "0072b7435f5f6aededc2644653fc690d9a47876c73798c82c6aa3f09766aa697",
+      "rawPublished": false
+    },
+    {
+      "id": "auto-results",
+      "title": "Auto历史多轮结果",
+      "logicalPath": "v11/.gaia_auto_100miss_rerun.jsonl",
+      "kind": "historical_results",
+      "sha256": "af57d476321f5aff7d12be4fd62cbc1eeeb548c2f1c281fab32f94a6e11915ed",
+      "rawPublished": false
+    },
+    {
+      "id": "baseline-results",
+      "title": "原始单轮基线结果",
+      "logicalPath": "v11/.gaia_full165_rescored.jsonl",
+      "kind": "baseline_results",
+      "sha256": "2a14d8362f617047b5d7031028ca76d22914b6d6c58fff8474f8ce9efe3b9ba7",
+      "rawPublished": false
+    }
+  ]
+}
