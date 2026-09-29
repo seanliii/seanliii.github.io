@@ -10,7 +10,7 @@
   <link rel="canonical" href="https://seanliii.github.io/meyo-report/">
   <title>Meyo｜让想法变成作品</title>
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="styles.css?v=dea3f95c46fb">
+  <link rel="stylesheet" href="styles.css?v=c28d089ba5f2">
   <script src="budget-core.js?v=ff8bb161bfe7" defer></script>
   <script src="visual-explorers.js?v=ec6c019db6ec" defer></script>
   <script src="report.js?v=df5cc3cce042" defer></script>
@@ -1117,7 +1117,541 @@ def restore(uid: str, pid: str, *, target_revision: str, expected_revision,
 <p>没有上下文，借来的能力会失忆；工具不开放、不好找，生态只是名单；反馈没人采用，进化只是日志；没有真实参照，交付容易平庸；没有原工程和恢复，作品不可持续；没有可重复部署，这些能力只在某台机器上偶然成立。</p>
 <p>共同的尺子始终是：**用户是否更少管理，作品是否更好，运行是否更可靠，同等质量下全部成本是否更低。**这些是验收维度，不再为每个维度新造一个平台。</p>
 <p>本次只整理源码、旧记录和迭代：不执行部署、安装、探活、模型或新基准，不触碰共享浏览器与认证状态。公开代码仅为已核非敏感片段；完整来源指纹在下载JSON中，私有日志、凭据和用户记忆不发布。当前源码、历史运行和线上版本分别标注；本次网页更新不代表整体世界级交付目标已完成。</p>
-</details><div class="history-downloads"><a class="text-link" href="content/legion-pillars.txt" download>下载军团机制与部署说明 ↓</a><a class="text-link" href="content/legion-pillars.json" download>下载代码证据、迭代与来源指纹 ↓</a></div></section><section id="cloud-devices" class="device-delivery" aria-labelledby="cloud-devices-title"><h3 id="cloud-devices-title">云电脑和云手机：真正做过什么，怎么做到？</h3><p>本次核到的有限旧演示、系统级验收和原物，不宣称穷尽历史任务或已经全面生产可用。</p><div class="visual-explorer " id="device-explorer" data-explorer><div class="explorer-toolbar"><span>点一个节点，往下看</span><div><button type="button" data-explorer-prev aria-label="云电脑与云手机的目标和证据：上一项">←</button><button type="button" data-explorer-next aria-label="云电脑与云手机的目标和证据：下一项">→</button></div></div><div class="explorer-choices" role="group" aria-label="云电脑与云手机的目标和证据"><button type="button" data-explorer-select="desktop" aria-controls="device-explorer--desktop" aria-pressed="false"><span class="choice-step">01</span><svg class="ex-icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m8 6-6 6 6 6m8-12 6 6-6 6m-3-16-2 20"/></svg><span class="choice-name">云电脑做过什么</span><small>软件、文件与真实缺口</small></button><button type="button" data-explorer-select="mobile" aria-controls="device-explorer--mobile" aria-pressed="true"><span class="choice-step">02</span><svg class="ex-icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="18" rx="3"/><path d="m10 8 6 4-6 4Z"/></svg><span class="choice-name">云手机做过什么</span><small>三个系统级小任务</small></button><button type="button" data-explorer-select="method" aria-controls="device-explorer--method" aria-pressed="false"><span class="choice-step">03</span><svg class="ex-icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="5" cy="6" r="3"/><circle cx="19" cy="7" r="3"/><circle cx="12" cy="20" r="3"/><path d="m8 6 8 1M6 9l4 8m8-7-5 7"/></svg><span class="choice-name">怎么实现</span><small>环境、动作、状态、结果</small></button><button type="button" data-explorer-select="limits" aria-controls="device-explorer--limits" aria-pressed="false"><span class="choice-step">04</span><svg class="ex-icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></svg><span class="choice-name">不能算完成的</span><small>原反例不藏起来</small></button></div><div class="explorer-display"><div class="explorer-panel" id="device-explorer--desktop" data-explorer-panel="desktop" hidden><p class="device-goal"><strong>要实现的目标：</strong>在持久工作区使用浏览器、IDE、Office和设计软件，交回可用文件；不是只展示远程屏幕。</p><div class="device-case-grid"><article class="device-case" id="device-case-desktop-geany" data-device="desktop"><span class="visual-badge">有限桌面动作与原物</span><h4>写并运行猜数字脚本</h4><figure><button class="image-button" data-zoom="assets/device-desktop-geany.png" data-caption="旧图：Geany打开猜数字脚本，终端可见低／高／猜中与正常退出；不是新设备测试。" aria-label="放大旧截图：旧图：Geany打开猜数字脚本，终端可见低／高／猜中与正常退出；不是新设备测试。"><img src="assets/device-desktop-geany.png" alt="旧图：Geany打开猜数字脚本，终端可见低／高／猜中与正常退出；不是新设备测试。" loading="lazy"></button><figcaption>旧图：Geany打开猜数字脚本，终端可见低／高／猜中与正常退出；不是新设备测试。</figcaption></figure><p>原截图与951字节脚本都在；屏幕可见三次尝试后猜中并正常退出。</p><p class="visual-caution">完整工具trace不足，不能宣称逐键操作可重放、所有输入分支已测或商业用户成效；这是有限桌面演示。</p><details class="progressive-detail" id="device-detail-desktop-geany"><summary><span>展开目标、方式和依据</span><span class="detail-action" aria-hidden="true">展开 ＋</span></summary><dl class="mechanism-facts"><div><dt>当时目标</dt><dd>在受管云桌面里用Geany打开、保存Python猜数字程序，运行后留下画面和源码。</dd></div><div><dt>实际方式</dt><dd>旧画面对应Linux/XFCE桌面，Geany中打开guess_game.py，终端展示低／高／猜中与退出；没有把这次旧操作重新跑一遍。</dd></div><div><dt>日期与依据</dt><dd>2026-09-02旧演示；原件指纹见本节下载索引的D-GEANY。</dd></div></dl></details><div class="visual-links"><a class="text-link" href="downloads/device-guess-game.py" download>下载原Python脚本 ↓</a></div></article><article class="device-case" id="device-case-desktop-resonance" data-device="desktop"><span class="visual-badge">已见首屏，不算整体完成</span><h4>在桌面打开中文应用</h4><figure><button class="image-button" data-zoom="assets/device-desktop-resonance.png" data-caption="较后旧图：受管Linux桌面的Chromium显示中文应用首屏；地址只属当时环境，不是公开试玩链接。" aria-label="放大旧截图：较后旧图：受管Linux桌面的Chromium显示中文应用首屏；地址只属当时环境，不是公开试玩链接。"><img src="assets/device-desktop-resonance.png" alt="较后旧图：受管Linux桌面的Chromium显示中文应用首屏；地址只属当时环境，不是公开试玩链接。" loading="lazy"></button><figcaption>较后旧图：受管Linux桌面的Chromium显示中文应用首屏；地址只属当时环境，不是公开试玩链接。</figcaption></figure><p>可以核到中文首屏与旧原物，证明发生过桌面打开；不是本轮新运行。</p><p class="visual-caution">完整参数/导出等验收还含宿主file://证据，不能全部算云端。示范参数不是现实城市预测；字体再分发许可未核，不复制字体或伪造可玩深链。</p><details class="progressive-detail" id="device-detail-desktop-resonance"><summary><span>展开目标、方式和依据</span><span class="detail-action" aria-hidden="true">展开 ＋</span></summary><dl class="mechanism-facts"><div><dt>当时目标</dt><dd>把RESONANCE城市系统演示应用放进受管桌面，并实际打开查看，而不只生成一个HTML文件。</dd></div><div><dt>实际方式</dt><dd>旧记录有CUA打开、点击、截屏回执；较后图显示XFCE中的Chromium与中文应用，早期条款窗口不再当成功图。</dd></div><div><dt>日期与依据</dt><dd>2026-09-05较后旧画面；原件指纹见本节下载索引的D-RESONANCE。</dd></div></dl></details><div class="visual-links"></div></article><article class="device-case" id="device-case-desktop-design" data-device="desktop"><span class="visual-badge">文件与软件画面相符</span><h4>在Inkscape查看设计图</h4><figure><button class="image-button" data-zoom="assets/device-desktop-inkscape.png" data-caption="旧图：Inkscape中可见workflow.svg；只证明打开该设计图，不证明整个跨软件项目完成。" aria-label="放大旧截图：旧图：Inkscape中可见workflow.svg；只证明打开该设计图，不证明整个跨软件项目完成。"><img src="assets/device-desktop-inkscape.png" alt="旧图：Inkscape中可见workflow.svg；只证明打开该设计图，不证明整个跨软件项目完成。" loading="lazy"></button><figcaption>旧图：Inkscape中可见workflow.svg；只证明打开该设计图，不证明整个跨软件项目完成。</figcaption></figure><p>原SVG、PNG和Inkscape窗口画面可查看；这是一个有限图形交付例子。</p><p class="visual-caution">同项目的Office图报文件不存在，测试记录平台为macOS；不能把这一项推广为四软件全流程完成或云端12测通过。</p><details class="progressive-detail" id="device-detail-desktop-design"><summary><span>展开目标、方式和依据</span><span class="detail-action" aria-hidden="true">展开 ＋</span></summary><dl class="mechanism-facts"><div><dt>当时目标</dt><dd>生成一张可编辑流程图，在真实图形软件中查看，并留存SVG和PNG作为交付物。</dd></div><div><dt>实际方式</dt><dd>留存SVG/PNG与旧清单摘要一致，旧截图可见Inkscape打开workflow.svg；不从截图推断所有内容都由鼠标逐项绘制。</dd></div><div><dt>日期与依据</dt><dd>2026-09-04旧工程验收；原件指纹见本节下载索引的D-MANIFEST、D-TESTS。</dd></div></dl></details><div class="visual-links"><a class="text-link" href="downloads/device-workflow.svg" download>查看原SVG ↓</a><a class="text-link" href="downloads/device-workflow.png" download>下载原设计图 ↓</a></div></article></div></div><div class="explorer-panel" id="device-explorer--mobile" data-explorer-panel="mobile"><p class="device-goal"><strong>要实现的目标：</strong>在真实Android应用环境里完成操作、保留状态与结果；不把安装或截图当成全能生活助手。</p><div class="device-case-grid"><article class="device-case" id="device-case-mobile-lifecycle" data-device="mobile"><span class="visual-badge">生命周期有原件支持</span><h4>安装、启动并回滚Klooni</h4><figure><button class="image-button" data-zoom="assets/device-phone-klooni.png" data-caption="旧Android截图：Klooni主菜单；配合安装／回滚原件看，不作为完整玩法或真实账号业务证明。" aria-label="放大旧截图：旧Android截图：Klooni主菜单；配合安装／回滚原件看，不作为完整玩法或真实账号业务证明。"><img src="assets/device-phone-klooni.png" alt="旧Android截图：Klooni主菜单；配合安装／回滚原件看，不作为完整玩法或真实账号业务证明。" loading="lazy"></button><figcaption>旧Android截图：Klooni主菜单；配合安装／回滚原件看，不作为完整玩法或真实账号业务证明。</figcaption></figure><p>4323项旧目录、0.8.6/860安装记录与快照均在；目录预期、安装APK和回滚APK摘要一致，旧屏幕可见Klooni主菜单。</p><p class="visual-caution">这是开源App生命周期演练，不是游戏玩法、付款或真实账号流程通过。Redroid是Android容器，不冒充已验证的远程物理真机；不公开APK或安装令牌。</p><details class="progressive-detail" id="device-detail-mobile-lifecycle"><summary><span>展开目标、方式和依据</span><span class="detail-action" aria-hidden="true">展开 ＋</span></summary><dl class="mechanism-facts"><div><dt>当时目标</dt><dd>从可追溯的软件目录取得开源App，核包和版本，安装启动，再保留数据卸载并从快照回滚。</dd></div><div><dt>实际方式</dt><dd>旧F-Droid镜像目录→APK摘要与包名/版本核对→Redroid安装与Activity复检→卸载→原APK快照回滚；不是本轮运行安装器。</dd></div><div><dt>日期与依据</dt><dd>2026-09-04旧系统级验收；原件指纹见本节下载索引的M-LIFECYCLE、M-REVIEW。</dd></div></dl></details><div class="visual-links"></div></article><article class="device-case" id="device-case-mobile-alarm" data-device="mobile"><span class="visual-badge">旧状态与屏幕对应</span><h4>创建测试闹钟并检查重启保留</h4><figure><button class="image-button" data-zoom="assets/device-phone-alarm.png" data-caption="重启后旧图：07:35测试闹钟可见；画面有两条07:35，不证明只创建一条、幂等或实际响铃。" aria-label="放大旧截图：重启后旧图：07:35测试闹钟可见；画面有两条07:35，不证明只创建一条、幂等或实际响铃。"><img src="assets/device-phone-alarm.png" alt="重启后旧图：07:35测试闹钟可见；画面有两条07:35，不证明只创建一条、幂等或实际响铃。" loading="lazy"></button><figcaption>重启后旧图：07:35测试闹钟可见；画面有两条07:35，不证明只创建一条、幂等或实际响铃。</figcaption></figure><p>旧档记录系统/UI双重核验与重启保留，现存图能看到对应时间和标签。</p><p class="visual-caution">截图有两条07:35，不能宣称只创建一条或幂等已证；没有验证实际到点响铃、当前设备或长期可靠性。</p><details class="progressive-detail" id="device-detail-mobile-alarm"><summary><span>展开目标、方式和依据</span><span class="detail-action" aria-hidden="true">展开 ＋</span></summary><dl class="mechanism-facts"><div><dt>当时目标</dt><dd>创建07:35“起床喝水”测试闹钟，核对系统和界面状态，并在Android重启后确认仍保留。</dd></div><div><dt>实际方式</dt><dd>旧runner是android-alarm-intent，结合系统状态与前后截图记录结果；不是纯视觉MobileRun自主操作的新测评。</dd></div><div><dt>日期与依据</dt><dd>2026-09-04旧系统级验收；原件指纹见本节下载索引的M-ALARM、M-REVIEW。</dd></div></dl></details><div class="visual-links"></div></article><article class="device-case" id="device-case-mobile-gallery" data-device="mobile"><span class="visual-badge">测试图片可见</span><h4>登记文件并在图库打开</h4><figure><button class="image-button" data-zoom="assets/device-phone-gallery.png" data-caption="旧图：图库显示MEYO LIFE PROOF测试图片；没有分享、删除或处理私人照片。" aria-label="放大旧截图：旧图：图库显示MEYO LIFE PROOF测试图片；没有分享、删除或处理私人照片。"><img src="assets/device-phone-gallery.png" alt="旧图：图库显示MEYO LIFE PROOF测试图片；没有分享、删除或处理私人照片。" loading="lazy"></button><figcaption>旧图：图库显示MEYO LIFE PROOF测试图片；没有分享、删除或处理私人照片。</figcaption></figure><p>原截图显示MEYO LIFE PROOF测试图片；档案明确未分享、未删除。</p><p class="visual-caution">这是文件与图库小任务，不是社交发图、真实客户照片管理、拍摄或相机硬件流程完成。</p><details class="progressive-detail" id="device-detail-mobile-gallery"><summary><span>展开目标、方式和依据</span><span class="detail-action" aria-hidden="true">展开 ＋</span></summary><dl class="mechanism-facts"><div><dt>当时目标</dt><dd>把无私人信息的测试图片放到Downloads，登记到MediaStore，再用系统图库打开预览。</dd></div><div><dt>实际方式</dt><dd>旧runner为adb-mediastore-gallery，任务记录文件、媒体库与图库前台事实；没有从现用手机读取相册。</dd></div><div><dt>日期与依据</dt><dd>2026-09-04旧系统级验收；原件指纹见本节下载索引的M-GALLERY、M-REVIEW。</dd></div></dl></details><div class="visual-links"></div></article></div></div><div class="explorer-panel" id="device-explorer--method" data-explorer-panel="method" hidden><div class="ex-diagram"><div class="diagram-node"><strong>原目标与现场</strong><span>按需选择设备和软件</span></div><span class="diagram-arrow" aria-hidden="true">→</span><div class="diagram-node"><strong>授权内执行</strong><span>工具／系统接口／GUI</span></div><span class="diagram-arrow" aria-hidden="true">→</span><div class="diagram-node"><strong>结果回原任务</strong><span>文件、状态、证据与恢复</span></div></div><div class="device-method-grid"><article><h4>持久现场，不是临时遥控</h4><p>云电脑保存用户/项目/任务和文件，手机保存原目标、App、尝试、状态和结果；换人或重启后能定位原现场。代码存在与全部恢复成功分开。</p><details class="progressive-detail" id="device-method-C1"><summary><span>查看实现位置</span><span class="detail-action" aria-hidden="true">展开 ＋</span></summary><ul><li><code>release/legion-service/desktop_workspace.py:220–256</code><p class="legion-source-meta">SHA-256 9de5a884594c42becd926ca454aa24c7e2507f68b70d5b46726466f3c69d1544；只读源码，不代表当前线上验证。</p></li><li><code>release/legion-service/mobile_tasks.py:93–116</code><p class="legion-source-meta">SHA-256 0aff6c64964752f7ce138d0b8530164e8119d180534bf5459a65dced4ffbb997；只读源码，不代表当前线上验证。</p></li></ul></details></article><article><h4>给原生执行者眼睛和手</h4><p>电脑通过绑定用户的MCP/命令/键鼠/截图入口工作；手机可用ADB、系统接口或MobileRun。工具退出成功不等于目标完成，也不要求每一步都用多成员。</p><details class="progressive-detail" id="device-method-C3"><summary><span>查看实现位置</span><span class="detail-action" aria-hidden="true">展开 ＋</span></summary><ul><li><code>release/legion-service/desktop_fs.py:829–854</code><p class="legion-source-meta">SHA-256 68eabb27aa22a7b1d4492990dab7f6f4555ca9a69c3081cee3966eb210438ce8；只读源码，不代表当前线上验证。</p></li><li><code>release/legion-service/mobile_device.py:373–450</code><p class="legion-source-meta">SHA-256 4d4eead230fb94c4fa97e2da9e06f4e6ec932e612fa5c108b7bc1df070789b69；只读源码，不代表当前线上验证。</p></li></ul></details></article><article><h4>软件准备与授权有单独状态</h4><p>APK先核来源、摘要、包名和版本，再按确认安装和复检；账号/MFA等保留为待处理条件。确认应回到同一任务，不能丢上下文另开一单。</p><details class="progressive-detail" id="device-method-C5"><summary><span>查看实现位置</span><span class="detail-action" aria-hidden="true">展开 ＋</span></summary><ul><li><code>release/legion-service/mobile_apps.py:323–356</code><p class="legion-source-meta">SHA-256 b4cf557d8c3f1e8f72213a945ceb869e0aca311d0dba0302239f2b3978031faa；只读源码，不代表当前线上验证。</p></li><li><code>release/legion-service/mobile_tasks.py:177–242</code><p class="legion-source-meta">SHA-256 0aff6c64964752f7ce138d0b8530164e8119d180534bf5459a65dced4ffbb997；只读源码，不代表当前线上验证。</p></li></ul></details></article><article><h4>把实际文件和业务状态带回来</h4><p>动作结果、来源、文件摘要、系统事实与屏幕回到任务；状态或runner提供的verification.ok仍需原物支撑。此次图片反证正说明不能只信一个pass。</p><details class="progressive-detail" id="device-method-C7"><summary><span>查看实现位置</span><span class="detail-action" aria-hidden="true">展开 ＋</span></summary><ul><li><code>release/legion-service/mobile_tasks.py:271–300</code><p class="legion-source-meta">SHA-256 0aff6c64964752f7ce138d0b8530164e8119d180534bf5459a65dced4ffbb997；只读源码，不代表当前线上验证。</p></li><li><code>release/legion-service/desktop_production_matrix.py:68–105</code><p class="legion-source-meta">SHA-256 29f5fb478cb946cc78e738323cf8fb47f3a6f3bb8789a92ca53ff7c1d272a384；只读源码，不代表当前线上验证。</p></li></ul></details></article></div></div><div class="explorer-panel" id="device-explorer--limits" data-explorer-panel="limits" hidden><ul class="device-gap-list"><li><strong>确认恢复只作机制演练</strong><p>旧档有两次尝试、七事件和确认决定，但action_performed=false；不能算真实账号/MFA/付款/发消息已完成。</p></li><li><strong>地图没有产出路线</strong><p>所核mobile-browser-e2e仍ready、零次尝试；其他OsmAnd操作与安装不等于真实路线出现。</p></li><li><strong>电脑完整跨软件链仍缺证</strong><p>Office图报does not exist，研究图仍为Terms of Service，12测试回执在macOS；有文件和部分软件动作，不等于全部云端流程完成。</p></li><li><strong>展示测试不能替代业务</strong><p>device-business-proof在测试代码里直接写done/saved=true；TidyDeck是macOS原生作品，手机宽度截图是网页适配，都不冒充云设备新任务。</p></li><li><strong>真实账号、跨设备和长期运行</strong><p>商业App、相机/扫码/硬件、电脑与手机整单接力、离开页面后的长期可靠性及世界级质量仍要独立举证；不由本页案例外推。</p></li></ul><div class="device-counterexamples"><figure><button class="image-button" data-zoom="assets/device-desktop-office-blocked.png" data-caption="反例原图：LibreOffice提示frontier-report.odt does not exist，不能当成功打开的证据。" aria-label="放大旧截图：反例原图：LibreOffice提示frontier-report.odt does not exist，不能当成功打开的证据。"><img src="assets/device-desktop-office-blocked.png" alt="反例原图：LibreOffice提示frontier-report.odt does not exist，不能当成功打开的证据。" loading="lazy"></button><figcaption>反例原图：LibreOffice提示frontier-report.odt does not exist，不能当成功打开的证据。</figcaption></figure><figure><button class="image-button" data-zoom="assets/device-desktop-browser-blocked.png" data-caption="反例原图：仅有Chromium Terms of Service窗口，没有回执声称的IANA页面。" aria-label="放大旧截图：反例原图：仅有Chromium Terms of Service窗口，没有回执声称的IANA页面。"><img src="assets/device-desktop-browser-blocked.png" alt="反例原图：仅有Chromium Terms of Service窗口，没有回执声称的IANA页面。" loading="lazy"></button><figcaption>反例原图：仅有Chromium Terms of Service窗口，没有回执声称的IANA页面。</figcaption></figure></div></div></div><p class="visual-caution">旧屏幕、原文件与任务记录分别核对。这里是有限旧案例，不是新设备演示；done、工具退出码和图片文件名不能代替业务完成。</p></div><details class="progressive-detail" id="device-full-text"><summary><span>展开完整说明：已有目标、实现方式、任务证据与未完成项</span><span class="detail-action" aria-hidden="true">展开 ＋</span></summary><p><strong>之前只介绍了设备和工具，没有把完成过的具体任务、目标、方式、原物与缺口一起说清。这里补上本次能核到的有限旧案例，不宣称穷尽全部历史任务，也不把工程演练当成全面生产成功。</strong></p>
+</details><div class="history-downloads"><a class="text-link" href="content/legion-pillars.txt" download>下载军团机制与部署说明 ↓</a><a class="text-link" href="content/legion-pillars.json" download>下载代码证据、迭代与来源指纹 ↓</a></div></section><section id="members-organization" aria-labelledby="members-organization-title"><h3 id="members-organization-title">军团有哪些家，又怎样真正一起工作？</h3><p>先看有哪些原生工作台，再看为什么保留差异、如何分工，以及原作品究竟改变了什么。登记数量不是能力证明，原生特点也不是固定岗位。</p><div class="visual-explorer " id="members-explorer" data-explorer><div class="explorer-toolbar"><span>点一个节点，往下看</span><div><button type="button" data-explorer-prev aria-label="成员与组织方式：上一项">←</button><button type="button" data-explorer-next aria-label="成员与组织方式：下一项">→</button></div></div><div class="explorer-choices" role="group" aria-label="成员与组织方式"><button type="button" data-explorer-select="members" aria-controls="members-explorer--members" aria-pressed="true"><span class="choice-step">01</span><svg class="ex-icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="7" r="3"/><circle cx="18" cy="9" r="2"/><path d="M2 21v-4a6 6 0 0 1 12 0v4m2-7a4 4 0 0 1 6 4v3"/></svg><span class="choice-name">有哪些家</span><small>完整分层名单</small></button><button type="button" data-explorer-select="traits" aria-controls="members-explorer--traits" aria-pressed="false"><span class="choice-step">02</span><svg class="ex-icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m5 4 5 5-3 3-5-5c-1 5 3 9 7 7l7 7 4-4-7-7c2-4-2-8-7-7"/></svg><span class="choice-name">为什么这样</span><small>特点要服务结果</small></button><button type="button" data-explorer-select="planning" aria-controls="members-explorer--planning" aria-pressed="false"><span class="choice-step">03</span><svg class="ex-icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="5" cy="6" r="3"/><circle cx="19" cy="7" r="3"/><circle cx="12" cy="20" r="3"/><path d="m8 6 8 1M6 9l4 8m8-7-5 7"/></svg><span class="choice-name">如何规划组织</span><small>谁决定、谁执行</small></button><button type="button" data-explorer-select="effects" aria-controls="members-explorer--effects" aria-pressed="false"><span class="choice-step">04</span><svg class="ex-icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10a9 9 0 0 1 16-5l2 3m-5 0h5V3M21 14a9 9 0 0 1-16 5l-2-3m5 0H3v5"/></svg><span class="choice-name">实际配合效果</span><small>原作品有没有改变</small></button><button type="button" data-explorer-select="boundaries" aria-controls="members-explorer--boundaries" aria-pressed="false"><span class="choice-step">05</span><svg class="ex-icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></svg><span class="choice-name">失败与未证明</span><small>不靠人数讲故事</small></button></div><div class="explorer-display"><div class="explorer-panel" id="members-explorer--members" data-explorer-panel="members"><div class="member-counts"><div><strong>38</strong><span>登记入口，不是在线家数</span></div><div><strong>28</strong><span>执行角色声明，仍需运行条件</span></div><div><strong>10</strong><span>工具与平台层，不混入答题池</span></div></div><h4>先认识9个内置执行入口 · 点名字看特点与证据</h4><div class="member-native-grid"><details class="member-card" id="member-feature-cc"><summary><strong>Claude Code</strong><span class="detail-action" aria-hidden="true">展开 ＋</span></summary><dl class="mechanism-facts"><div><dt>原生特点</dt><dd>原生Claude Code CLI以stream-json返回事件，原会话用--resume继续，不由军团拼接多份答案代替。</dd></div><div><dt>为什么保留</dt><dd>保留编码工作台与会话连续性，进度/工具结果可回流。</dd></div><div><dt>已有证据</dt><dd>本轮未新验运行；本轮仅核适配器与本地公开仓说明。</dd></div><div><dt>限制</dt><dd>公开claude-code-oss目录是文档/插件材料，不冒称掌握闭源核心。当前适配器--bare会跳过hooks/插件/自动记忆等，不能宣传全部原生扩展都原样启用。</dd></div></dl><details class="progressive-detail" id="member-code-cc"><summary><span>查看源码范围与证据口径</span><span class="detail-action" aria-hidden="true">展开 ＋</span></summary><div class="member-code"><p><code>B/harness_baselines/meyo-orchestrator/harness_registry.py</code></p><p class="legion-source-meta">SHA-256 336aea7d8259df32058fe89390ed8cbcac94c4eba99775a87a6a00632cb384f1 · 所读文件无未提交改动；源码快照，不自动代表当前执行二进制</p><p class="legion-source-meta">行 1677–1680</p><pre><code>        _checkpoint = (ctx.task_memory or {}).get(&quot;native_checkpoint&quot;) or {}
+        _resume_id = str(_checkpoint.get(&quot;session_id&quot;) or &quot;&quot;) if isinstance(_checkpoint, dict) else &quot;&quot;
+        prompt = _legion_prompt(_prior_attempts_prelude(ctx.prior_attempts) + question, ctx)
+        cmd = [&quot;claude&quot;, &quot;-p&quot;, prompt, &quot;--output-format&quot;, &quot;stream-json&quot;, &quot;--verbose&quot;]</code></pre><p class="legion-source-meta">行 1689–1695</p><pre><code>        cmd.insert(1, &quot;--bare&quot;)
+        _native_sid = str(_resume_id)          # resume 路径:native sid=resume id(撞锁重试要替换它)
+        if _resume_id:
+            cmd += [&quot;--resume&quot;, _resume_id]
+        else:
+            # Claude Code 要 UUID；首轮显式固定 session_id，下一进程才能原生 --resume 同一对话。
+            import uuid as _uuid</code></pre></div><div class="member-code"><p><code>MAIN/harness_baselines/claude-code-oss/README.md</code></p><p class="legion-source-meta">SHA-256 aa0d8b80ac083e1591be0789273f447058cc9187b4331634a5614155da27778d · 含未提交改动；源码快照，不自动代表当前执行二进制</p><p class="legion-source-meta">行 1–9</p><pre><code># Claude Code
+
+![](https://img.shields.io/badge/Node.js-18%2B-brightgreen?style=flat-square) [![npm]](https://www.npmjs.com/package/@anthropic-ai/claude-code)
+
+[npm]: https://img.shields.io/npm/v/@anthropic-ai/claude-code.svg?style=flat-square
+
+Claude Code is an agentic coding tool that lives in your terminal, understands your codebase, and helps you code faster by executing routine tasks, explaining complex code, and handling git workflows -- all through natural language commands. Use it in your terminal, IDE, or tag @claude on Github.
+
+**Learn more in the [official documentation](https://code.claude.com/docs/en/overview)**.</code></pre><p class="legion-source-meta">行 46–50</p><pre><code>2. Navigate to your project directory and run `claude`.
+
+## Plugins
+
+This repository includes several Claude Code plugins that extend functionality with custom commands and agents. See the [plugins directory](./plugins/README.md) for detailed documentation on available plugins.</code></pre></div></details></details><details class="member-card" id="member-feature-codex"><summary><strong>Codex</strong><span class="detail-action" aria-hidden="true">展开 ＋</span></summary><dl class="mechanism-facts"><div><dt>原生特点</dt><dd>以原生thread和exec resume恢复；在持久工作目录执行并回收文件/原生事件。</dd></div><div><dt>为什么保留</dt><dd>旧工程与线程不用仅靠摘要重建。</dd></div><div><dt>已有证据</dt><dd>TAKEOVER：旧本地同工程后续可交Hermes继续。</dd></div><div><dt>限制</dt><dd>MAIN源码快照不等于当前部署二进制；同Astra冷接项目不代表跨家无损迁移。</dd></div></dl><details class="progressive-detail" id="member-code-codex"><summary><span>查看源码范围与证据口径</span><span class="detail-action" aria-hidden="true">展开 ＋</span></summary><div class="member-code"><p><code>B/harness_baselines/meyo-orchestrator/harness_registry.py</code></p><p class="legion-source-meta">SHA-256 336aea7d8259df32058fe89390ed8cbcac94c4eba99775a87a6a00632cb384f1 · 所读文件无未提交改动；源码快照，不自动代表当前执行二进制</p><p class="legion-source-meta">行 2112–2116</p><pre><code>            # Codex 原生续会话：首轮 JSONL 的 thread.started 给出 thread_id；后续 attempt 用
+            # `codex exec resume &lt;thread_id&gt; &lt;prompt&gt;`，让工具结果/history/checkpoint 留在原线程，
+            # 不再只靠失败文本重建提示。源码依据 exec/src/cli.rs:143-186、exec_events.rs:13,42。
+            _checkpoint = (ctx.task_memory or {}).get(&quot;native_checkpoint&quot;) or {}
+            _resume_id = str(_checkpoint.get(&quot;session_id&quot;) or &quot;&quot;) if isinstance(_checkpoint, dict) else &quot;&quot;</code></pre><p class="legion-source-meta">行 2131–2137</p><pre><code>            cmd = [binp, &quot;exec&quot;, *common]
+            if _resume_id:
+                cmd += [&quot;resume&quot;, _resume_id]
+            cmd += [_legion_prompt(codex_question, ctx)]
+            r = _run_task(cmd, _WALL_S, env=env, cwd=str(codex_ws), tag=&quot;codex&quot;)
+        final = out.read_text().strip() if out.exists() else &quot;&quot;
+        _thread_id, _codex_usage, _codex_native_events, _native_facts = _native_output(</code></pre></div><div class="member-code"><p><code>MAIN/harness_baselines/codex/codex-rs/exec/src/lib.rs</code></p><p class="legion-source-meta">SHA-256 9b112c6e245c409c1395e4b41d4bbcd9fdbafd787cdf6873277084ed3c509b2c · 含未提交改动；源码快照，不自动代表当前执行二进制</p><p class="legion-source-meta">行 814–832</p><pre><code>    // Resolve resume and fork through existing app-server thread lifecycle APIs.
+    let (primary_thread_id, fallback_session_configured) = if let Some(ExecCommand::Resume(args)) =
+        command.as_ref()
+    {
+        if let Some(thread_id) =
+            resolve_resume_thread_id(&amp;client, &amp;config, state_db.as_ref(), args).await?
+        {
+            let response: ThreadResumeResponse = send_request_with_response(
+                &amp;client,
+                ClientRequest::ThreadResume {
+                    request_id: request_ids.next(),
+                    params: thread_resume_params_from_config(
+                        &amp;config,
+                        thread_id,
+                        resume_approvals_reviewer_override,
+                    ),
+                },
+                &quot;thread/resume&quot;,
+            )</code></pre></div></details></details><details class="member-card" id="member-feature-hermes"><summary><strong>Hermes</strong><span class="detail-action" aria-hidden="true">展开 ＋</span></summary><dl class="mechanism-facts"><div><dt>原生特点</dt><dd>直接调AIAgent.run_conversation(history)，原生工具start/complete callback形成执行事实，不是让Codex代答。</dd></div><div><dt>为什么保留</dt><dd>自己的工具执行与会话历史可接到同一项目上。</dd></div><div><dt>已有证据</dt><dd>TAKEOVER：原生工具修改与采用/恢复旧记录。</dd></div><div><dt>限制</dt><dd>只证一个本地项目；不外推全家稳定或所有SDK版本一致。</dd></div></dl><details class="progressive-detail" id="member-code-hermes"><summary><span>查看源码范围与证据口径</span><span class="detail-action" aria-hidden="true">展开 ＋</span></summary><div class="member-code"><p><code>B/harness_baselines/meyo-orchestrator/harness_registry.py</code></p><p class="legion-source-meta">SHA-256 336aea7d8259df32058fe89390ed8cbcac94c4eba99775a87a6a00632cb384f1 · 所读文件无未提交改动；源码快照，不自动代表当前执行二进制</p><p class="legion-source-meta">行 2520–2524</p><pre><code>    with lock:
+        started[call_id]=time.monotonic()
+        meta={{&quot;_hermes_callback&quot;:True,&quot;sid&quot;:getattr(a,&quot;session_id&quot;,None) or sid,&quot;ok&quot;:None,&quot;ms&quot;:None}}
+        emit({{&quot;type&quot;:&quot;assistant&quot;,&quot;message&quot;:{{&quot;content&quot;:[{{&quot;type&quot;:&quot;tool_use&quot;,&quot;id&quot;:call_id,&quot;name&quot;:name,&quot;input&quot;:meta}}]}}}})
+        snapshot(&quot;tool_started&quot;,{{&quot;call_id&quot;:call_id,&quot;name&quot;:name,&quot;ok&quot;:None,&quot;ms&quot;:None,&quot;source_ref&quot;:{{&quot;kind&quot;:&quot;hermes_session_tool&quot;,&quot;session_id&quot;:meta[&quot;sid&quot;],&quot;tool_call_id&quot;:call_id}}}})</code></pre><p class="legion-source-meta">行 2531–2536</p><pre><code>        try:
+            parsed=json.loads(result) if isinstance(result,str) else result
+            if isinstance(parsed,dict):
+                ec=parsed.get(&quot;exit_code&quot;)
+                if parsed.get(&quot;error&quot;) or type(ec) is int and ec!=0:ok=False
+                elif type(ec) is int and native_error is not True:ok=True</code></pre><p class="legion-source-meta">行 2569–2573</p><pre><code>    before={{attr:getattr(a,attr,None) for attr in (*fields.values(),&quot;session_estimated_cost_usd&quot;)}}
+    snapshot(&quot;started&quot;)
+    r=a.run_conversation({_legion_prompt(_q, ctx)!r},conversation_history=history)
+except Exception as exc:
+    snapshot(&quot;native_exception&quot;,exception_type=type(exc).__name__)</code></pre></div><div class="member-code"><p><code>MAIN/harness_baselines/hermes-agent/run_agent.py</code></p><p class="legion-source-meta">SHA-256 468b701bebf56a4735141ebc3ae43797a06e68ef03c35d01fc42324969b499e1 · 含未提交改动；源码快照，不自动代表当前执行二进制</p><p class="legion-source-meta">行 412–418</p><pre><code>class AIAgent:
+    &quot;&quot;&quot;
+    AI Agent with tool calling capabilities.
+
+    This class manages the conversation flow, tool execution, and response handling
+    for AI models that support function calling.
+    &quot;&quot;&quot;</code></pre><p class="legion-source-meta">行 555–560</p><pre><code>            session_id=session_id,
+            tool_progress_callback=tool_progress_callback,
+            tool_start_callback=tool_start_callback,
+            tool_complete_callback=tool_complete_callback,
+            thinking_callback=thinking_callback,
+            reasoning_callback=reasoning_callback,</code></pre></div></details></details><details class="member-card" id="member-feature-deepseek"><summary><strong>DeepSeek Harness</strong><span class="detail-action" aria-hidden="true">展开 ＋</span></summary><dl class="mechanism-facts"><div><dt>原生特点</dt><dd>DSH桥先查持久session，再用agents.resume/create与followup；从事件取final及失败。</dd></div><div><dt>为什么保留</dt><dd>保留事件化推理/工具循环和恢复入口。</dd></div><div><dt>已有证据</dt><dd>本轮未新验运行；未重放会话。</dd></div><div><dt>限制</dt><dd>源码桥需对应依赖/源码；缺失时有旧CLI回退，不能将所有执行都标native resume或最快。</dd></div></dl><details class="progressive-detail" id="member-code-deepseek"><summary><span>查看源码范围与证据口径</span><span class="detail-action" aria-hidden="true">展开 ＋</span></summary><div class="member-code"><p><code>B/harness_baselines/deepseek-harness/examples/headless-agent/legion-resume.ts</code></p><p class="legion-source-meta">SHA-256 9ec55fba23d5f1081639306b68e6a2707a6d45f6d2ddcc3ccf6281f2ed0e70f3 · 所读文件无未提交改动；源码快照，不自动代表当前执行二进制</p><p class="legion-source-meta">行 43–57</p><pre><code>}
+try {
+  let resumed = false
+  let agent
+  // persistence backend 是路径事实源；不要猜它的编码目录名。先 inspect，存在才 resume，
+  // 不存在直接 create，避免“首轮先抛异常再创建”留下半初始化 agent。
+  try {
+    await (ctx as any).sessionPersistence.inspect(sessionId)
+    agent = (await ctx.agents.resume({ resumeSessionId: sessionId, agentOptions })).agent
+    resumed = true
+  } catch {
+    agent = (await ctx.agents.create({ sessionId, agentOptions })).agent
+  }
+  agent.followup(createUserMessage({ content: [{ type: &#x27;text&#x27;, text: task }], source: { kind: &#x27;user&#x27; } }))
+  await waitForIdle(ctx, agent)</code></pre></div><div class="member-code"><p><code>B/harness_baselines/meyo-orchestrator/harness_registry.py</code></p><p class="legion-source-meta">SHA-256 336aea7d8259df32058fe89390ed8cbcac94c4eba99775a87a6a00632cb384f1 · 所读文件无未提交改动；源码快照，不自动代表当前执行二进制</p><p class="legion-source-meta">行 2744–2754</p><pre><code>        # 生产原生恢复：完整源码环境使用 DeepSeek 的 agents.resume + JSONL persistence bridge。
+        # 依据 examples/headless-agent/tests/resume.e2e.ts:40-62；每轮固定 session_id，进程退出后
+        # 下一轮从同一 persistence root 真恢复 event log。精简发布缺源码时才退旧 headless CLI。
+        _resume_bridge = _P(__file__).resolve().parents[1] / &quot;deepseek-harness&quot; / &quot;examples&quot; / &quot;headless-agent&quot; / &quot;legion-resume.ts&quot;
+        _checkpoint = (ctx.task_memory or {}).get(&quot;native_checkpoint&quot;) or {}
+        _native_sid = str(_checkpoint.get(&quot;session_id&quot;) or ctx.session_id or f&quot;legion-{qhash}&quot;)
+        _persist_root = str(_P(ctx.memory_dir or _wd) / &quot;deepseek-sessions&quot;)
+        _source = _resume_bridge.parents[2] if _resume_bridge.exists() else None
+        if _resume_bridge.exists() and _sh.which(&quot;pnpm&quot;):
+            _cmd = [&quot;pnpm&quot;, &quot;exec&quot;, &quot;tsx&quot;, str(_resume_bridge), _wd, _persist_root,
+                    _native_sid, _legion_prompt(_prior_attempts_prelude(ctx.prior_attempts) + question, ctx)]</code></pre></div></details></details><details class="member-card" id="member-feature-deepagents"><summary><strong>DeepAgents</strong><span class="detail-action" aria-hidden="true">展开 ＋</span></summary><dl class="mechanism-facts"><div><dt>原生特点</dt><dd>当前worker用create_deep_agent＋SqliteSaver保存thread图状态，携带原生todos及未完节点。</dd></div><div><dt>为什么保留</dt><dd>把原生图/工具与持久检查点用于继续工作，不仅复写文本消息。</dd></div><div><dt>已有证据</dt><dd>本轮未新验运行。</dd></div><div><dt>限制</dt><dd>B manifest旧spec仍cold_replay/compaction none，与当前worker存在差异；这里按实现说明，不把声明当运行证明。</dd></div></dl><details class="progressive-detail" id="member-code-deepagents"><summary><span>查看源码范围与证据口径</span><span class="detail-action" aria-hidden="true">展开 ＋</span></summary><div class="member-code"><p><code>B/release/legion-service/deepagents_checkpoint.py</code></p><p class="legion-source-meta">SHA-256 b9cf344ec26ce91b1f2cccb7e1ea3c9175a9b57d67b624fde9d3141ba0b1df51 · 所读文件无未提交改动；源码快照，不自动代表当前执行二进制</p><p class="legion-source-meta">行 206–214</p><pre><code>    config = {&quot;configurable&quot;: {&quot;thread_id&quot;: thread_id}}
+    reference = {&quot;kind&quot;: &quot;deepagents_langgraph_sqlite&quot;, &quot;session_id&quot;: thread_id,
+                 &quot;path&quot;: str(path), &quot;workdir&quot;: str(workdir), &quot;qhash&quot;: request.get(&quot;qhash&quot;)}
+    try:
+        with closing(sqlite3.connect(str(path), check_same_thread=False)) as connection:
+            saver = SqliteSaver(connection)
+            existing = saver.get_tuple(config)
+            if kind == &quot;deepagents_langgraph_sqlite&quot; and existing is None:
+                result[&quot;native_resume_error&quot;] = {&quot;stage&quot;: &quot;checkpoint_load&quot;}</code></pre><p class="legion-source-meta">行 276–290</p><pre><code>            agent = create_deep_agent(
+                model=model, backend=backend, checkpointer=saver, tools=tools,
+                middleware=[TodoListMiddleware(), NativeHistoryProjection()])
+            previous = agent.get_state(config)
+            result[&quot;resumed_native&quot;] = existing is not None
+            if legacy and existing is None:
+                facts[&quot;legacy_messages_imported&quot;] = True
+            question = request[&quot;question&quot;]
+            question = (f&quot;Runtime filesystem: virtual / maps to {workdir}; &quot;
+                        &quot;execute uses this real working directory.\n&quot; + question)
+            incoming = {&quot;messages&quot;: ([] if existing else legacy) +
+                        [HumanMessage(content=question, id=str(uuid.uuid4()))]}
+            # Resume an unfinished graph only for the same parent request.
+            if previous.next and checkpoint.get(&quot;qhash&quot;) == request.get(&quot;qhash&quot;):
+                incoming = None</code></pre></div><div class="member-code"><p><code>B/harness_baselines/meyo-orchestrator/harness_registry.py</code></p><p class="legion-source-meta">SHA-256 336aea7d8259df32058fe89390ed8cbcac94c4eba99775a87a6a00632cb384f1 · 所读文件无未提交改动；源码快照，不自动代表当前执行二进制</p><p class="legion-source-meta">行 2843–2848</p><pre><code>    legion_tool = _legion_tool_path()
+    worker = _P(legion_tool).with_name(&quot;deepagents_checkpoint.py&quot;)
+    if not worker.is_file():
+        return {&quot;status&quot;: &quot;unavailable&quot;, &quot;final&quot;: &quot;&quot;, &quot;error&quot;: &quot;DeepAgents native worker 未打包&quot;}
+    request = {
+        &quot;qhash&quot;: qhash, &quot;question&quot;: _legion_prompt(_prior_attempts_prelude(ctx.prior_attempts) + question, ctx),</code></pre><p class="legion-source-meta">行 2857–2859</p><pre><code>    code = (f&quot;import sys,json;sys.path.insert(0,{str(worker.parent)!r});&quot;
+            &quot;import deepagents_checkpoint;&quot;
+            &quot;print(json.dumps(deepagents_checkpoint.run_native(json.load(sys.stdin)),ensure_ascii=False))&quot;)</code></pre></div></details></details><details class="member-card" id="member-feature-jcode"><summary><strong>JCode</strong><span class="detail-action" aria-hidden="true">展开 ＋</span></summary><dl class="mechanism-facts"><div><dt>原生特点</dt><dd>原生run --json/--resume保存session_id；本地Rust源码有会话快照/日志和拒空覆盖保护。</dd></div><div><dt>为什么保留</dt><dd>保留长任务本身的持久状态与工程路径。</dd></div><div><dt>已有证据</dt><dd>本轮未新验运行；MAIN与B的接入/模型声明不同，未绑定当前安装版本。</dd></div><div><dt>限制</dt><dd>Rust源码存在不证明此刻执行的是这版；不固定成“只负责某职业”。</dd></div></dl><details class="progressive-detail" id="member-code-jcode"><summary><span>查看源码范围与证据口径</span><span class="detail-action" aria-hidden="true">展开 ＋</span></summary><div class="member-code"><p><code>B/harness_baselines/meyo-orchestrator/harness_registry.py</code></p><p class="legion-source-meta">SHA-256 336aea7d8259df32058fe89390ed8cbcac94c4eba99775a87a6a00632cb384f1 · 所读文件无未提交改动；源码快照，不自动代表当前执行二进制</p><p class="legion-source-meta">行 2265–2278</p><pre><code>        _checkpoint = (ctx.task_memory or {}).get(&quot;native_checkpoint&quot;) or {}
+        _resume_id = str(_checkpoint.get(&quot;session_id&quot;) or &quot;&quot;) if isinstance(_checkpoint, dict) else &quot;&quot;
+        cmd = [binp, &quot;run&quot;, _legion_prompt(_prior_attempts_prelude(ctx.prior_attempts) + question, ctx),
+               &quot;--json&quot;, &quot;--provider-profile&quot;, &quot;meyo-aigc&quot;, &quot;-m&quot;, ctx.model]
+        if ctx.workdir:
+            cmd += [&quot;-C&quot;, ctx.workdir]
+        if _resume_id:
+            cmd += [&quot;--resume&quot;, _resume_id]
+        r = _run_task(cmd, _WALL_S, tag=&quot;jcode&quot;)
+        final = &quot;&quot;
+        _native_sid = _resume_id
+        try:
+            obj = _json.loads(r.stdout)
+            _native_sid = str(obj.get(&quot;session_id&quot;) or obj.get(&quot;sessionId&quot;) or _native_sid)</code></pre></div><div class="member-code"><p><code>LOCAL_JCODE/crates/jcode-base/src/session/persistence.rs</code></p><p class="legion-source-meta">SHA-256 eb196ec60153f1b311902d7ee75ba3b3a85ab816859dc9b8cf089333c40e5f64 · 所读文件无未提交改动；源码快照，不自动代表当前执行二进制</p><p class="legion-source-meta">行 188–200</p><pre><code>    fn checkpoint_snapshot(&amp;mut self, snapshot_path: &amp;Path, journal_path: &amp;Path) -&gt; Result&lt;()&gt; {
+        let destructive_empty_checkpoint = self.messages.is_empty()
+            &amp;&amp; self.persist_state.messages_len &gt; 0
+            &amp;&amp; snapshot_path.exists();
+        if destructive_empty_checkpoint {
+            self.guard_snapshot_shrink(snapshot_path, journal_path);
+            bail!(
+                &quot;refusing to replace non-empty persisted transcript for session {} with an empty checkpoint&quot;,
+                self.id
+            );
+        }
+        self.guard_snapshot_shrink(snapshot_path, journal_path);
+        storage::write_json_fast(snapshot_path, self)?;</code></pre><p class="legion-source-meta">行 300–303</p><pre><code>    pub fn load(session_id: &amp;str) -&gt; Result&lt;Self&gt; {
+        let path = session_path(session_id)?;
+        Self::load_from_path(&amp;path)
+    }</code></pre></div></details></details><details class="member-card" id="member-feature-penguin"><summary><strong>Penguin</strong><span class="detail-action" aria-hidden="true">展开 ＋</span></summary><dl class="mechanism-facts"><div><dt>原生特点</dt><dd>首轮run、续作chat --resume；原生续作保留原会话的模型/工作目录。</dd></div><div><dt>为什么保留</dt><dd>沿用原会话而不是每次重开工程。</dd></div><div><dt>已有证据</dt><dd>ONBOARD：penguin-harness旧工具落盘通过，但速度阶段FAIL。</dd></div><div><dt>限制</dt><dd>penguin与penguin-harness同源，不是两家独立公司；两配置/版本及当前二进制不能据此认定完全相同。</dd></div></dl><details class="progressive-detail" id="member-code-penguin"><summary><span>查看源码范围与证据口径</span><span class="detail-action" aria-hidden="true">展开 ＋</span></summary><div class="member-code"><p><code>B/harness_baselines/meyo-orchestrator/harness_registry.py</code></p><p class="legion-source-meta">SHA-256 336aea7d8259df32058fe89390ed8cbcac94c4eba99775a87a6a00632cb384f1 · 所读文件无未提交改动；源码快照，不自动代表当前执行二进制</p><p class="legion-source-meta">行 2188–2201</p><pre><code>        _checkpoint = (ctx.task_memory or {}).get(&quot;native_checkpoint&quot;) or {}
+        _resume_id = str(_checkpoint.get(&quot;session_id&quot;) or &quot;&quot;) if isinstance(_checkpoint, dict) else &quot;&quot;
+        _trace_root, _trace_offsets = _penguin_trace_offsets(_resume_id)
+        if _resume_id:
+            # 续跑:走 chat --resume(penguin 原生 session 恢复的唯一入口)·灌 prompt+/exit
+            cmd = [binp, &quot;chat&quot;, &quot;--resume&quot;, _resume_id, &quot;--approve&quot;, &quot;allow-all&quot;]
+            r = _run_task(cmd, _WALL_S, input=prompt + &quot;\n/exit\n&quot;, tag=&quot;penguin&quot;)
+        else:
+            # 首轮:单发 run·prompt 作 -m arg·彻底避开交互 REPL 时序竞态
+            cmd = [binp, &quot;run&quot;, &quot;-m&quot;, prompt, &quot;--provider&quot;, &quot;custom&quot;, &quot;--model-id&quot;, ctx.model,
+                   &quot;--approve&quot;, &quot;allow-all&quot;]
+            if ctx.workdir:
+                cmd += [&quot;--workspace&quot;, ctx.workdir]
+            r = _run_task(cmd, _WALL_S, tag=&quot;penguin&quot;)   # 不灌 stdin(run 不需要)</code></pre></div><div class="member-code"><p><code>MAIN/harness_baselines/penguin-harness/packages/cli/src/commands/chat.ts</code></p><p class="legion-source-meta">SHA-256 d81cd72b333ddc9a322ab33adf4bc62bbf25a082ad5cec0114e1caedb9d61862 · 含未提交改动；源码快照，不自动代表当前执行二进制</p><p class="legion-source-meta">行 115–135</p><pre><code>      // --resume: resumes an existing Session. Workspace and
+      // Model follow the original Session and cannot be overridden; when omitted, resumes
+      // the current Agent&#x27;s most recent Session. Annotated (not inferred) because /clear
+      // reassigns it mid-REPL, after the closures below have captured it.
+      let session: Session;
+      if (opts.resume !== undefined) {
+        if (opts.workspace || opts.modelId || opts.provider) {
+          out.write(`${t.error(t.resumeNoOverride())}\n`);
+          process.exitCode = 1;
+          return;
+        }
+        const sessionId =
+          typeof opts.resume === &quot;string&quot; ? opts.resume : await agent.latestSessionId();
+        if (!sessionId) {
+          out.write(`${t.error(t.resumeNoSession())}\n`);
+          process.exitCode = 1;
+          return;
+        }
+        session = await agent.resumeSession({ sessionId });
+      } else {
+        session = await agent.createSession({</code></pre></div><div class="member-code"><p><code>MAIN/harness_baselines/penguin-harness/packages/cli/package.json</code></p><p class="legion-source-meta">SHA-256 10a8a0caba423f5d6e81eae55f07f290376fe444de5edbd45153ba91b4be69f3 · 含未提交改动；源码快照，不自动代表当前执行二进制</p><p class="legion-source-meta">行 1–7</p><pre><code>{
+  &quot;name&quot;: &quot;@prismshadow/penguin-cli&quot;,
+  &quot;version&quot;: &quot;0.2.4&quot;,
+  &quot;type&quot;: &quot;module&quot;,
+  &quot;description&quot;: &quot;PenguinHarness CLI: interactive REPL and single-task runner over @prismshadow/penguin-core.&quot;,
+  &quot;license&quot;: &quot;Apache-2.0&quot;,
+  &quot;repository&quot;: {</code></pre><p class="legion-source-meta">行 8–11</p><pre><code>    &quot;type&quot;: &quot;git&quot;,
+    &quot;url&quot;: &quot;git+https://github.com/Prism-Shadow/penguin-harness.git&quot;,
+    &quot;directory&quot;: &quot;packages/cli&quot;
+  },</code></pre></div></details></details><details class="member-card" id="member-feature-prime"><summary><strong>Prime</strong><span class="detail-action" aria-hidden="true">展开 ＋</span></summary><dl class="mechanism-facts"><div><dt>原生特点</dt><dd>旧prime兼容key转接prime-intellect，使用Prime JSONL v3会话原格式，坏checkpoint不伪造恢复。</dd></div><div><dt>为什么保留</dt><dd>既有入口可继续用，原生会话格式有可核验边界。</dd></div><div><dt>已有证据</dt><dd>ONBOARD：Prime旧短工具和模式记录通过，但server pool未验。</dd></div><div><dt>限制</dt><dd>两个key同一Prime生态；不是独立成员数量翻倍，更不是pi重复品牌计算。</dd></div></dl><details class="progressive-detail" id="member-code-prime"><summary><span>查看源码范围与证据口径</span><span class="detail-action" aria-hidden="true">展开 ＋</span></summary><div class="member-code"><p><code>B/harness_baselines/meyo-orchestrator/harness_registry.py</code></p><p class="legion-source-meta">SHA-256 336aea7d8259df32058fe89390ed8cbcac94c4eba99775a87a6a00632cb384f1 · 所读文件无未提交改动；源码快照，不自动代表当前执行二进制</p><p class="legion-source-meta">行 2303–2306</p><pre><code>def _prime_adapter(qhash, question, gold=&quot;&quot;, ctx=None):
+    &quot;&quot;&quot;旧 key 薄接官方 Prime Intellect；prime_message 费用由专属事件读取器提供。&quot;&quot;&quot;
+    ctx = ctx or HarnessCtx.from_env()
+    checkpoint = (ctx.task_memory or {}).get(&quot;native_checkpoint&quot;) or {}</code></pre><p class="legion-source-meta">行 2316–2322</p><pre><code>        from external_adapters.prime_native import SESSION_FORMAT, prepare_resume, unwrap_result
+        prepare_resume(checkpoint)
+        item = next((x for x in registry.load_catalog() if x[&quot;key&quot;] == &quot;prime-intellect&quot;), {})
+        transports = item.get(&quot;transports&quot;) or []
+        if len(transports) != 1 or transports[0].get(&quot;native_session_format&quot;) != SESSION_FORMAT:
+            raise ValueError(&quot;prime_native_spec_not_registered: 请经 harness_onboard 持锁 upsert Prime spec&quot;)
+        result = unwrap_result(_external_adapter(&quot;prime-intellect&quot;)(qhash, question, gold, ctx))</code></pre></div><div class="member-code"><p><code>B/release/legion-service/external_adapters/prime_native.py</code></p><p class="legion-source-meta">SHA-256 d2725b2eaf494008c5030dd353e6f70809958cbbd9bb37a46ed9b72f00d6584a · 所读文件无未提交改动；源码快照，不自动代表当前执行二进制</p><p class="legion-source-meta">行 16–27</p><pre><code>SESSION_FORMAT = &quot;prime_jsonl_v3&quot;
+
+
+class PrimeSessionError(ValueError):
+    pass
+
+
+def read_session(path: str, expected_id: str = &quot;&quot;) -&gt; tuple[dict, bool]:
+    &quot;&quot;&quot;严格只读；native 的修复/新建行为不得掩盖坏 checkpoint。&quot;&quot;&quot;
+    file = Path(path)
+    if not file.is_absolute() or file.suffix != &quot;.jsonl&quot; or file.is_symlink() or not file.is_file():
+        raise PrimeSessionError(&quot;prime_checkpoint_missing_or_unsafe&quot;)</code></pre><p class="legion-source-meta">行 92–105</p><pre><code>def prepare_resume(checkpoint: dict) -&gt; tuple[str, str]:
+    checkpoint = checkpoint_details(checkpoint)
+    if not checkpoint:
+        return &quot;&quot;, &quot;&quot;
+    path = checkpoint[&quot;session_path&quot;]
+    header, used_kernel = read_session(path, checkpoint[&quot;session_id&quot;])
+    artifact_dir = Path(path).parent.parent / &quot;session-artifacts&quot; / header[&quot;id&quot;]
+    snapshot = artifact_dir / &quot;kernel-state.dill&quot;
+    manifest = artifact_dir / &quot;kernel-state.json&quot;
+    # 0.8 已有自动 snapshot/restore；不能假设换新进程就不需要迁移状态。
+    if checkpoint.get(&quot;runtime_revision&quot;) != REVISION and (
+            snapshot.exists() or manifest.exists() or used_kernel):
+        raise PrimeSessionError(&quot;prime_legacy_kernel_resume_unverified: 保留旧会话及快照，未启动新版&quot;)
+    if used_kernel and not snapshot.is_file():</code></pre></div><div class="member-code"><p><code>LOCAL_PRIME/packages/coding-agent/src/core/session-manager.ts</code></p><p class="legion-source-meta">SHA-256 6f3fa5a019ee48c8c26433aec0f420761ead8a4a7b8f141e318bd89eecadef67 · 所读文件无未提交改动；源码快照，不自动代表当前执行二进制</p><p class="legion-source-meta">行 40–44</p><pre><code>export const CURRENT_SESSION_VERSION = 3;
+const SESSION_LIST_SEARCH_TEXT_MAX_CHARS = 64 * 1024;
+const SESSION_LIST_PARSE_MAX_LINE_CHARS = 1024 * 1024;
+const SESSION_LIST_LARGE_MESSAGE_PREVIEW_MAX_CHARS = 256;
+const SESSION_STREAMING_LOAD_THRESHOLD_BYTES = 128 * 1024 * 1024;</code></pre><p class="legion-source-meta">行 1433–1445</p><pre><code>export class SessionManager {
+	private sessionId: string = &quot;&quot;;
+	private sessionFile: string | undefined;
+	private sessionDir: string;
+	private cwd: string;
+	private persist: boolean;
+	private flushed: boolean = false;
+	private fileEntries: FileEntry[] = [];
+	private byId: Map&lt;string, SessionEntry&gt; = new Map();
+	private labelsById: Map&lt;string, string&gt; = new Map();
+	private labelTimestampsById: Map&lt;string, string&gt; = new Map();
+	private leafId: string | null = null;
+	private persistListeners = new Set&lt;SessionPersistListener&gt;();</code></pre><p class="legion-source-meta">行 2290–2304</p><pre><code>	static create(cwd: string, sessionDir?: string): SessionManager {
+		const dir = sessionDir ?? getDefaultSessionDir(cwd);
+		return new SessionManager(cwd, dir, undefined, true);
+	}
+
+	static open(path: string, sessionDir?: string, cwdOverride?: string): SessionManager {
+		// Only the header&#x27;s cwd is needed to construct the manager; the constructor
+		// (setSessionFile) performs the full parse. Read just the first line here
+		// instead of parsing the entire file a second time — that double parse is a
+		// needless O(n) cost on open and is noticeable for long sessions.
+		let cwd = cwdOverride;
+		if (cwd === undefined) {
+			let header: Partial&lt;SessionHeader&gt; | undefined;
+			try {
+				header = readSessionHeader(path);</code></pre></div></details></details><details class="member-card" id="member-feature-omnigent"><summary><strong>Omnigent</strong><span class="detail-action" aria-hidden="true">展开 ＋</span></summary><dl class="mechanism-facts"><div><dt>原生特点</dt><dd>原生框架按会话启动harness进程并有插件注册表；Meyo后端从原生信息读子harness，保留完整绑定和resume参数。</dd></div><div><dt>为什么保留</dt><dd>可利用其他工作台的原生执行入口，而非把所有家改成同一种Agent。</dd></div><div><dt>已有证据</dt><dd>本轮未新验运行；未枚举/调用实际子家。</dd></div><div><dt>限制</dt><dd>旧profile“18子家”不作为当前数量；Omnigent不等于外接OmniAgent，嵌套也不自动证明集体更强。</dd></div></dl><details class="progressive-detail" id="member-code-omnigent"><summary><span>查看源码范围与证据口径</span><span class="detail-action" aria-hidden="true">展开 ＋</span></summary><div class="member-code"><p><code>B/harness_baselines/meyo-orchestrator/harness_registry.py</code></p><p class="legion-source-meta">SHA-256 336aea7d8259df32058fe89390ed8cbcac94c4eba99775a87a6a00632cb384f1 · 所读文件无未提交改动；源码快照，不自动代表当前执行二进制</p><p class="legion-source-meta">行 2937–2950</p><pre><code>def _omnigent_adapter(qhash, question, gold=&quot;&quot;, ctx=None):
+    &quot;&quot;&quot;显式 ctx 原样交给 backend；不能用丢参重试或默认模型冒充请求绑定。&quot;&quot;&quot;
+    _explicit_ctx = ctx is not None
+    ctx = ctx or HarnessCtx.from_env()
+    question = _prior_attempts_prelude(ctx.prior_attempts) + question
+    _checkpoint = (ctx.task_memory or {}).get(&quot;native_checkpoint&quot;) or {}
+    _resume_id = str(_checkpoint.get(&quot;session_id&quot;) or &quot;&quot;) if isinstance(_checkpoint, dict) else &quot;&quot;
+    try:
+        import inspect as _inspect
+        import os as _os
+        _mh = _os.path.join(_os.path.dirname(_os.path.abspath(__file__)), &quot;meyo_harnesses&quot;)
+        if _mh not in _sys.path:
+            _sys.path.insert(0, _mh)
+        from backends import omnigent_backend as _ob</code></pre><p class="legion-source-meta">行 2971–2985</p><pre><code>            _kwargs.update(appid=ctx.appid, gateway=ctx.gateway, native_checkpoint=_checkpoint)
+        _params = _inspect.signature(_ob.run).parameters
+        if not any(p.kind == p.VAR_KEYWORD for p in _params.values()):
+            _unsupported = set(_kwargs) - set(_params)
+            if _unsupported and _explicit_ctx:
+                return {
+                    &quot;final&quot;: &quot;&quot;, &quot;status&quot;: &quot;error&quot;, &quot;elapsed&quot;: 0.0, &quot;resumed_native&quot;: False,
+                    &quot;native_checkpoint&quot;: _checkpoint or None,
+                    &quot;error&quot;: &quot;当前 Omnigent backend 不支持完整请求绑定；未丢参执行&quot;,
+                    &quot;error_envelope&quot;: {&quot;category&quot;: &quot;harness_runtime&quot;, &quot;scope&quot;: &quot;harness&quot;,
+                                       &quot;retryable&quot;: False, &quot;code&quot;: &quot;backend_binding_unsupported&quot;},
+                }
+            # 仅老式无 ctx 调用兼容旧签名，执行一次；不捕获内部 TypeError 后重派任务。
+            _kwargs = {k: v for k, v in _kwargs.items() if k in _params}
+        return _ob.run(qhash, _legion_prompt(question, ctx), gold, **_kwargs)</code></pre></div><div class="member-code"><p><code>B/harness_baselines/meyo-orchestrator/meyo_harnesses/backends/omnigent_backend.py</code></p><p class="legion-source-meta">SHA-256 8bd1fb8359ef781e4b361635927fc0c116a8cdf75a1449780e33284d076cf4b4 · 所读文件无未提交改动；源码快照，不自动代表当前执行二进制</p><p class="legion-source-meta">行 54–76</p><pre><code>def list_sub_harnesses() -&gt; list[str]:
+    &quot;&quot;&quot;动态读 omnigent registry 的子harness清单(不硬编码·量大管饱的来源)。
+
+    军团纳入omnigent后·可经它代跑这些子家(cursor/kimi/goose/qwen…军团本来没有的)。
+    过滤 native/别名变体·只留干净可选名。依据:omnigent runtime/harnesses/__init__.py 动态registry。&quot;&quot;&quot;
+    try:
+        names = _native_info().get(&quot;sub_harnesses&quot;, [])
+    except Exception:
+        return []
+    return _clean_sub_harnesses(names)
+
+
+def _clean_sub_harnesses(names):
+    clean, seen = [], set()
+    for n in sorted(names):
+        if &quot;native&quot; in n:
+            continue
+        base = n.replace(&quot;-sdk&quot;, &quot;&quot;).replace(&quot;-code&quot;, &quot;&quot;).replace(&quot;-build&quot;, &quot;&quot;)
+        if base in seen:
+            continue
+        seen.add(base)
+        clean.append(n)
+    return clean</code></pre><p class="legion-source-meta">行 245–253</p><pre><code>        # 闭环由 omnigent cli `_materialize_harness_launcher_file(..., client_tools=tools)` 实现；
+        # 不设置无人读取的额外 env，避免把“写了配置”误当成“运行时已接通”。
+        cmd = [b, &quot;run&quot;]
+        if explicit:
+            cmd.append(str(native_path))
+        cmd += [&quot;--harness&quot;, sub, &quot;--tools&quot;, &quot;coding&quot;]
+        if resume_id:
+            cmd += [&quot;--resume&quot;, resume_id]
+        if model:</code></pre></div><div class="member-code"><p><code>MAIN/harness_baselines/ecosystem/omnigent/omnigent/runtime/harnesses/__init__.py</code></p><p class="legion-source-meta">SHA-256 b0432565d786e05df31159ab33569c4ffb60f8d6089fb18a54f0a1e924659a05 · 含未提交改动；源码快照，不自动代表当前执行二进制</p><p class="legion-source-meta">行 1–8</p><pre><code>&quot;&quot;&quot;
+Harness package — per-conversation subprocesses that implement a
+subset of the Omnigent REST API.
+
+See ``designs/SERVER_HARNESS_CONTRACT.md`` for the full contract.
+The harness IS an HTTP service speaking the same Pydantic models AP
+serves to external clients (re-use ``omnigent.server.schemas`` —
+there is no separate protocol module).</code></pre><p class="legion-source-meta">行 27–40</p><pre><code>from omnigent.harness_plugins import harness_modules
+
+# Harness-name -&gt; fully-qualified module path, sourced from the harness
+# registry (built-ins + installed community plugins). Each module must
+# export ``create_app() -&gt; FastAPI``; the runner imports the module, calls
+# the factory, and serves the result over a Unix socket. The historical
+# mutable-dict surface is preserved (tests inject fixture entries by dict
+# mutation), but the contents come from the dynamic registry, not a literal.
+
+# Keep the historical mutable dict surface while sourcing builtins and
+# community plugins from the dynamic registry.
+_HARNESS_MODULES = harness_modules()
+
+__all__ = [&quot;_HARNESS_MODULES&quot;]</code></pre></div><div class="member-code"><p><code>MAIN/harness_baselines/ecosystem/omnigent/pyproject.toml</code></p><p class="legion-source-meta">SHA-256 080206f20321603527b8c58f1097fe58273b05ed39ca4d77ece6397fc8a1eeac · 含未提交改动；源码快照，不自动代表当前执行二进制</p><p class="legion-source-meta">行 5–15</p><pre><code>[project]
+name = &quot;omnigent&quot;
+# Keep in sync with omnigent/version.py&#x27;s VERSION constant.
+version = &quot;0.11.0.dev0&quot;
+description = &quot;Omnigent: declarative agent authoring and runtime framework&quot;
+readme = &quot;README.md&quot;
+requires-python = &quot;&gt;=3.12&quot;
+authors = [
+    { name = &quot;Databricks, Inc.&quot; },
+]
+keywords = [&quot;agents&quot;, &quot;llm&quot;, &quot;ai&quot;, &quot;databricks&quot;, &quot;cli&quot;]</code></pre></div></details></details></div><p class="visual-caution">Auto是工具库，执行引擎停用；Grok Bot重建版是平台层。Prime与Penguin的同源入口不重复算独立厂家。这里只说明登记和已有证据，不报在线数量。</p><details class="progressive-detail" id="members-complete-roster"><summary><span>展开全部38条登记：含外接成员、工具与平台</span><span class="detail-action" aria-hidden="true">展开 ＋</span></summary><div class="integration-table-scroll" tabindex="0" aria-label="全部成员登记表，可横向滚动"><table class="members-roster"><thead><tr><th>登记入口</th><th>在Meyo中的角色</th><th>接入声明</th><th>不能外推的状态</th></tr></thead><tbody><tr data-roster-key="auto"><th scope="row">Auto 工具库（引擎停用）<small><code>auto</code> · 内置</small></th><td>工具／能力来源</td><td>sdk-subprocess</td><td>本轮未逐家探活<small>源码/工具保留；引擎退出答题、接力和首脑竞选，不能当第十个当前执行者。</small></td></tr><tr data-roster-key="cc"><th scope="row">Claude Code<small><code>cc</code> · 内置</small></th><td>执行角色声明</td><td>cli-subprocess</td><td>本轮未逐家探活<small>仅登记和角色口径；不保证安装、授权、协议、平台、工作目录、实际工具成功或当前在线。</small></td></tr><tr data-roster-key="codex"><th scope="row">Codex<small><code>codex</code> · 内置</small></th><td>执行角色声明</td><td>cli-subprocess</td><td>本轮未逐家探活<small>仅登记和角色口径；不保证安装、授权、协议、平台、工作目录、实际工具成功或当前在线。</small></td></tr><tr data-roster-key="deepagents"><th scope="row">DeepAgents<small><code>deepagents</code> · 内置</small></th><td>执行角色声明</td><td>sdk-subprocess</td><td>本轮未逐家探活<small>manifest仍写resume=cold_replay/compaction=none，但当前worker实现SqliteSaver原生图checkpoint；不能只照抄profile/specs，也不据源码断言运行已使用。</small></td></tr><tr data-roster-key="deepseek"><th scope="row">DeepSeek Harness<small><code>deepseek</code> · 内置</small></th><td>执行角色声明</td><td>sdk-subprocess</td><td>本轮未逐家探活<small>仅登记和角色口径；不保证安装、授权、协议、平台、工作目录、实际工具成功或当前在线。</small></td></tr><tr data-roster-key="hermes"><th scope="row">Hermes<small><code>hermes</code> · 内置</small></th><td>执行角色声明</td><td>sdk-subprocess</td><td>本轮未逐家探活<small>仅登记和角色口径；不保证安装、授权、协议、平台、工作目录、实际工具成功或当前在线。</small></td></tr><tr data-roster-key="jcode"><th scope="row">JCode<small><code>jcode</code> · 内置</small></th><td>执行角色声明</td><td>cli-subprocess</td><td>本轮未逐家探活<small>仅登记和角色口径；不保证安装、授权、协议、平台、工作目录、实际工具成功或当前在线。</small></td></tr><tr data-roster-key="omnigent"><th scope="row">Omnigent<small><code>omnigent</code> · 内置</small></th><td>执行角色声明</td><td>meta-harness</td><td>本轮未逐家探活<small>仅登记和角色口径；不保证安装、授权、协议、平台、工作目录、实际工具成功或当前在线。</small></td></tr><tr data-roster-key="penguin"><th scope="row">Penguin<small><code>penguin</code> · 内置</small></th><td>执行角色声明</td><td>cli-subprocess</td><td>本轮未逐家探活<small>仅登记和角色口径；不保证安装、授权、协议、平台、工作目录、实际工具成功或当前在线。</small></td></tr><tr data-roster-key="prime"><th scope="row">Prime<small><code>prime</code> · 内置</small></th><td>执行角色声明</td><td>cli-subprocess</td><td>本轮未逐家探活<small>兼容key转接prime-intellect，不是第二个独立Prime生态。</small></td></tr><tr data-roster-key="cowagent"><th scope="row">CowAgent<small><code>cowagent</code> · 外接</small></th><td>执行角色声明</td><td>cli</td><td>本轮未逐家探活<small>仅登记和角色口径；不保证安装、授权、协议、平台、工作目录、实际工具成功或当前在线。</small></td></tr><tr data-roster-key="paperclip"><th scope="row">Paperclip<small><code>paperclip</code> · 外接</small></th><td>控制平台</td><td>http</td><td>本轮未逐家探活<small>仅登记和角色口径；不保证安装、授权、协议、平台、工作目录、实际工具成功或当前在线。</small></td></tr><tr data-roster-key="deer-flow"><th scope="row">DeerFlow<small><code>deer-flow</code> · 外接</small></th><td>执行角色声明</td><td>sdk</td><td>本轮未逐家探活<small>kind=orchestrator，但当前normalized role默认agent；不能只按kind移出agent声明组。</small></td></tr><tr data-roster-key="cline"><th scope="row">Cline<small><code>cline</code> · 外接</small></th><td>执行角色声明</td><td>cli</td><td>本轮未逐家探活<small>仅登记和角色口径；不保证安装、授权、协议、平台、工作目录、实际工具成功或当前在线。</small></td></tr><tr data-roster-key="goose"><th scope="row">Goose<small><code>goose</code> · 外接</small></th><td>执行角色声明</td><td>cli</td><td>本轮未逐家探活<small>仅登记和角色口径；不保证安装、授权、协议、平台、工作目录、实际工具成功或当前在线。</small></td></tr><tr data-roster-key="openclaw"><th scope="row">OpenClaw<small><code>openclaw</code> · 外接</small></th><td>执行角色声明</td><td>cli</td><td>本轮未逐家探活<small>仅登记和角色口径；不保证安装、授权、协议、平台、工作目录、实际工具成功或当前在线。</small></td></tr><tr data-roster-key="pi"><th scope="row">pi Coding Agent<small><code>pi</code> · 外接</small></th><td>执行角色声明</td><td>cli</td><td>本轮未逐家探活<small>仅登记和角色口径；不保证安装、授权、协议、平台、工作目录、实际工具成功或当前在线。</small></td></tr><tr data-roster-key="nanobot"><th scope="row">nanobot<small><code>nanobot</code> · 外接</small></th><td>执行角色声明</td><td>cli</td><td>本轮未逐家探活<small>仅登记和角色口径；不保证安装、授权、协议、平台、工作目录、实际工具成功或当前在线。</small></td></tr><tr data-roster-key="genericagent"><th scope="row">GenericAgent<small><code>genericagent</code> · 外接</small></th><td>执行角色声明</td><td>cli</td><td>本轮未逐家探活<small>仅登记和角色口径；不保证安装、授权、协议、平台、工作目录、实际工具成功或当前在线。</small></td></tr><tr data-roster-key="omniagent"><th scope="row">OmniAgent<small><code>omniagent</code> · 外接</small></th><td>执行角色声明</td><td>cli</td><td>本轮未逐家探活<small>仅登记和角色口径；不保证安装、授权、协议、平台、工作目录、实际工具成功或当前在线。</small></td></tr><tr data-roster-key="kimi-code"><th scope="row">Kimi Code CLI<small><code>kimi-code</code> · 外接</small></th><td>执行角色声明</td><td>cli</td><td>本轮未逐家探活<small>仅登记和角色口径；不保证安装、授权、协议、平台、工作目录、实际工具成功或当前在线。</small></td></tr><tr data-roster-key="ironclaw"><th scope="row">IronClaw<small><code>ironclaw</code> · 外接</small></th><td>执行角色声明</td><td>cli</td><td>本轮未逐家探活<small>仅登记和角色口径；不保证安装、授权、协议、平台、工作目录、实际工具成功或当前在线。</small></td></tr><tr data-roster-key="aeon"><th scope="row">Aeon<small><code>aeon</code> · 外接</small></th><td>控制平台</td><td>未声明任务transport</td><td>本轮未逐家探活<small>仅登记和角色口径；不保证安装、授权、协议、平台、工作目录、实际工具成功或当前在线。</small></td></tr><tr data-roster-key="qwen-code"><th scope="row">Qwen Code CLI<small><code>qwen-code</code> · 外接</small></th><td>执行角色声明</td><td>cli</td><td>本轮未逐家探活<small>仅登记和角色口径；不保证安装、授权、协议、平台、工作目录、实际工具成功或当前在线。</small></td></tr><tr data-roster-key="aider"><th scope="row">Aider<small><code>aider</code> · 外接</small></th><td>执行角色声明</td><td>sdk</td><td>本轮未逐家探活<small>仅登记和角色口径；不保证安装、授权、协议、平台、工作目录、实际工具成功或当前在线。</small></td></tr><tr data-roster-key="opencode"><th scope="row">OpenCode<small><code>opencode</code> · 外接</small></th><td>执行角色声明</td><td>cli</td><td>本轮未逐家探活<small>仅登记和角色口径；不保证安装、授权、协议、平台、工作目录、实际工具成功或当前在线。</small></td></tr><tr data-roster-key="browser-use"><th scope="row">Browser Use<small><code>browser-use</code> · 外接</small></th><td>工具／能力来源</td><td>cli</td><td>本轮未逐家探活<small>仅登记和角色口径；不保证安装、授权、协议、平台、工作目录、实际工具成功或当前在线。</small></td></tr><tr data-roster-key="gnhf"><th scope="row">GNHF Good Night Have Fun<small><code>gnhf</code> · 外接</small></th><td>执行角色声明</td><td>cli</td><td>本轮未逐家探活<small>仅登记和角色口径；不保证安装、授权、协议、平台、工作目录、实际工具成功或当前在线。</small></td></tr><tr data-roster-key="macos-harness"><th scope="row">macOS Harness (browser-use)<small><code>macos-harness</code> · 外接</small></th><td>工具／能力来源</td><td>cli</td><td>本轮未逐家探活<small>仅登记和角色口径；不保证安装、授权、协议、平台、工作目录、实际工具成功或当前在线。</small></td></tr><tr data-roster-key="headlong"><th scope="row">Headlong llm<small><code>headlong</code> · 外接</small></th><td>执行角色声明</td><td>cli</td><td>本轮未逐家探活<small>仅登记和角色口径；不保证安装、授权、协议、平台、工作目录、实际工具成功或当前在线。</small></td></tr><tr data-roster-key="harness-anything"><th scope="row">Harness Anything<small><code>harness-anything</code> · 外接</small></th><td>工具／能力来源</td><td>未声明任务transport</td><td>本轮未逐家探活<small>仅登记和角色口径；不保证安装、授权、协议、平台、工作目录、实际工具成功或当前在线。</small></td></tr><tr data-roster-key="hass-agent"><th scope="row">HASS.Agent<small><code>hass-agent</code> · 外接</small></th><td>工具／能力来源</td><td>未声明任务transport</td><td>本轮未逐家探活<small>仅登记和角色口径；不保证安装、授权、协议、平台、工作目录、实际工具成功或当前在线。</small></td></tr><tr data-roster-key="loopx"><th scope="row">LoopX<small><code>loopx</code> · 外接</small></th><td>工具／能力来源</td><td>cli</td><td>本轮未逐家探活<small>仅登记和角色口径；不保证安装、授权、协议、平台、工作目录、实际工具成功或当前在线。</small></td></tr><tr data-roster-key="openhands"><th scope="row">OpenHands<small><code>openhands</code> · 外接</small></th><td>执行角色声明</td><td>cli</td><td>本轮未逐家探活<small>仅登记和角色口径；不保证安装、授权、协议、平台、工作目录、实际工具成功或当前在线。</small></td></tr><tr data-roster-key="mobilerun"><th scope="row">mobilerun<small><code>mobilerun</code> · 外接</small></th><td>工具／能力来源</td><td>未声明任务transport</td><td>本轮未逐家探活<small>仅登记和角色口径；不保证安装、授权、协议、平台、工作目录、实际工具成功或当前在线。</small></td></tr><tr data-roster-key="grok-bot-reconstructed"><th scope="row">Grok Bot 0.18 Reconstructed<small><code>grok-bot-reconstructed</code> · 外接</small></th><td>桌面平台</td><td>未声明任务transport</td><td>本轮未逐家探活<small>非官方source-oriented reconstruction；ui-platform，无任务transport；不能写成xAI/Grok官方模型或答题成员。</small></td></tr><tr data-roster-key="prime-intellect"><th scope="row">Prime Agent (Prime Intellect)<small><code>prime-intellect</code> · 外接</small></th><td>执行角色声明</td><td>cli</td><td>本轮未逐家探活<small>仅登记和角色口径；不保证安装、授权、协议、平台、工作目录、实际工具成功或当前在线。</small></td></tr><tr data-roster-key="penguin-harness"><th scope="row">Penguin Harness (Prism-Shadow)<small><code>penguin-harness</code> · 外接</small></th><td>执行角色声明</td><td>cli</td><td>本轮未逐家探活<small>与builtin penguin同一Prism-Shadow代码生态，两个接入/版本声明，不作独立厂商翻倍。</small></td></tr></tbody></table></div></details><details class="progressive-detail" id="members-identity-notes"><summary><span>名字、别名与未登记生态，不混为一谈</span><span class="detail-action" aria-hidden="true">展开 ＋</span></summary><ul><li>prime是转接prime-intellect的兼容入口，不是两家独立Prime。</li><li>penguin与penguin-harness同源；两入口和两份配置不等于两个独立厂家，也不证明运行版本相同。</li><li>Omnigent与OmniAgent不是同一个项目：前者是元Harness入口，后者是另一外接声明。</li><li>Grok Bot 0.18 Reconstructed在此为ui-platform，不能当Grok官方模型或独立答题成员。</li></ul><p><strong>Orca：</strong>MAIN有生态IDE源码，当前两个名册未登记；不能把本地目录等同所有同名Orcha项目，更不说明已可派单。</p><p><strong>Multica：</strong>当前未登记；限定目录核查尚无精确本地源码指针，不宣称全机不存在，也不充作已接入成员。</p></details></div><div class="explorer-panel" id="members-explorer--traits" data-explorer-panel="traits" hidden><div class="visual-result"><div class="visual-result-copy"><span class="visual-badge">设计原因；收益仍看具体任务</span><h4>家是工作台，模型是它使用的大脑</h4><p>不同Harness可以同用Astra，但原生工具、文件、会话、插件和恢复方式不同。保留这些差异是为了少重做、能补位，不是把品牌写成固定职业或实力排行。</p><div class=visual-links><a href="#legion-pillars">看军团机制与已知缺口 ↗</a></div></div><div class="visual-result-picture"><div class="ex-diagram"><div class="diagram-node"><strong>原生工作方式</strong><span>不同工具与会话</span></div><span class="diagram-arrow" aria-hidden="true">→</span><div class="diagram-node"><strong>同一项目现场</strong><span>授权资料和文件</span></div><span class="diagram-arrow" aria-hidden="true">→</span><div class="diagram-node"><strong>用户结果</strong><span>少管理、可继续改</span></div></div></div></div><div class="member-why-grid"><article><h4>保留不同原生工作方式</h4><p>各家会话、工具循环、插件和恢复方式不同；先复用它们已有能力，不把全部削成一个通用聊天接口。</p><p class="visual-caution">这是设计取舍，不是品牌实力排行榜；适配也可能裁掉扩展，例如当前CC的--bare。</p></article><article><h4>共享同一项目现场</h4><p>接力要带原目标、工程、版本、来源与真实失败，减少重复解释和另做一份。</p><p class="visual-caution">共享的是获授权的必要现场，不是所有人的私聊、凭据或全部原生内部状态。</p></article><article><h4>帮助必须被原作者消费</h4><p>同伴意见有用的终点是原文件真的改变，不是多收到一段总结。</p><p class="visual-caution">有求助回执不等于采用；需要原作者续作、工具动作和文件差异。</p></article><article><h4>并行要有独立写面和收口者</h4><p>可拆任务可以同时做，但要共同基线、独立工作副本，由原作者处理差异与集成。</p><p class="visual-caution">分支多不等于贡献都成功；项目锁也不是任意原生shell的完整OS隔离。</p></article><article><h4>把失败和全部开销留下</h4><p>知道哪里失败、换了谁、是否重复工作，才能判断协作究竟有没有净收益。</p><p class="visual-caution">接力不能掩盖第一家的失败；不同任务时间不横向排名，费用不完整就不宣称更便宜。</p></article></div></div><div class="explorer-panel" id="members-explorer--planning" data-explorer-panel="planning" hidden><p class="legion-observation"><strong>现实是混合机制：</strong>当前是混合机制：模型提出计划，候选/用户偏好/静态排序/运行条件参与；竞选按_bid_strength规则经max选取，不是全生态自由盲选，也不能照抄旧注释说首个完整提案必当选。</p><div class="ex-diagram"><div class="diagram-node"><strong>目标与原工程</strong><span>带上真实约束</span></div><span class="diagram-arrow" aria-hidden="true">→</span><div class="diagram-node"><strong>计划与负责人</strong><span>入口和规则会参与</span></div><span class="diagram-arrow" aria-hidden="true">→</span><div class="diagram-node"><strong>原生执行与补位</strong><span>按需要调整</span></div><span class="diagram-arrow" aria-hidden="true">→</span><div class="diagram-node"><strong>原作品收口</strong><span>采用、恢复、交付</span></div></div><p class="visual-caution">这是职责连接图，不是每单强制流水线。简单任务可以直接单家完成，角色与分工随任务变化。</p><div class="member-why-grid"><article><h4>模型规划，不是平台替原作者解题</h4><p>目标/附件/允许成员与能力状态 → 模型规划CLI → _parse_planner_json → typed任务</p><p class="visual-caution">成员池和显式限制先由平台给定；规划失败可换模型重试，最多三轮，最后仍可能返回失败。计划生成不证明最佳组织，更不是已交付。</p><details class="progressive-detail" id="member-mechanism-M1"><summary><span>查看源码范围与证据口径</span><span class="detail-action" aria-hidden="true">展开 ＋</span></summary><div class="member-code"><p><code>B/release/legion-service/legion_core.py</code></p><p class="legion-source-meta">SHA-256 d3f0cd8057e71357cfe3449caccd7c09164ebf869a6dcae50079da64265a683d · 含未提交改动；上下文范围 729–770；当前源码与旧运行分开</p><p class="legion-source-meta">行 748–748</p><pre><code>pool = _harness_keys()</code></pre></div><div class="member-code"><p><code>B/release/legion-service/legion_core.py</code></p><p class="legion-source-meta">SHA-256 d3f0cd8057e71357cfe3449caccd7c09164ebf869a6dcae50079da64265a683d · 含未提交改动；上下文范围 898–967；当前源码与旧运行分开</p><p class="legion-source-meta">行 954–954</p><pre><code>_parsed = _parse_planner_json(m.group(0))</code></pre></div><div class="member-code"><p><code>B/release/legion-service/legion_core.py</code></p><p class="legion-source-meta">SHA-256 d3f0cd8057e71357cfe3449caccd7c09164ebf869a6dcae50079da64265a683d · 含未提交改动；上下文范围 5204–5245；当前源码与旧运行分开</p><p class="legion-source-meta">行 5215–5215</p><pre><code>plan, orchestration_spec = compile_orchestration_plan(plan, mode)</code></pre></div></details></article><article><h4>选负责人有模型提案，也有静态顺序与规则评分</h4><p>角色过滤/可运行集合 → cost_class/偏好/历史适任度排序 → 显式任命或竞选 → 规则择优</p><p class="visual-caution">默认竞选只截取排序前3家；另有显式负责人/偏好和直接取首位的任命函数。实际winner=max(_bid_strength)，包含任务/方向/图数量、方案字段、场景/静态成绩等启发式，不是全生态最优证明；函数注释不等于每次主链都执行竞选。</p><details class="progressive-detail" id="member-mechanism-M2"><summary><span>查看源码范围与证据口径</span><span class="detail-action" aria-hidden="true">展开 ＋</span></summary><div class="member-code"><p><code>B/release/legion-service/legion_core.py</code></p><p class="legion-source-meta">SHA-256 d3f0cd8057e71357cfe3449caccd7c09164ebf869a6dcae50079da64265a683d · 含未提交改动；上下文范围 317–322；当前源码与旧运行分开</p><p class="legion-source-meta">行 321–321</p><pre><code>and ((a.get(&quot;runtime&quot;) or {}).get(&quot;execution_role&quot;)</code></pre></div><div class="member-code"><p><code>B/release/legion-service/legion_core.py</code></p><p class="legion-source-meta">SHA-256 d3f0cd8057e71357cfe3449caccd7c09164ebf869a6dcae50079da64265a683d · 含未提交改动；上下文范围 342–390；当前源码与旧运行分开</p><p class="legion-source-meta">行 364–364</p><pre><code>_pref_order = [&quot;cc&quot;, &quot;hermes&quot;, &quot;jcode&quot;, &quot;deepseek&quot;, &quot;penguin&quot;, &quot;prime&quot;, &quot;codex&quot;, &quot;deepagents&quot;, &quot;omnigent&quot;]</code></pre></div><div class="member-code"><p><code>B/release/legion-service/legion_core.py</code></p><p class="legion-source-meta">SHA-256 d3f0cd8057e71357cfe3449caccd7c09164ebf869a6dcae50079da64265a683d · 含未提交改动；上下文范围 393–409；当前源码与旧运行分开</p><p class="legion-source-meta">行 409–409</p><pre><code>return ranked[0] if ranked else &quot;&quot;</code></pre></div><div class="member-code"><p><code>B/release/legion-service/legion_core.py</code></p><p class="legion-source-meta">SHA-256 d3f0cd8057e71357cfe3449caccd7c09164ebf869a6dcae50079da64265a683d · 含未提交改动；上下文范围 423–455；当前源码与旧运行分开</p><p class="legion-source-meta">行 454–454</p><pre><code>_candidate_cap = max(1, int(os.environ.get(&quot;LEGION_CAPTAIN_CANDIDATE_CAP&quot;, &quot;3&quot;)))</code></pre></div><div class="member-code"><p><code>B/release/legion-service/legion_core.py</code></p><p class="legion-source-meta">SHA-256 d3f0cd8057e71357cfe3449caccd7c09164ebf869a6dcae50079da64265a683d · 含未提交改动；上下文范围 613–652；当前源码与旧运行分开</p><p class="legion-source-meta">行 645–645</p><pre><code>winner = max(eligible, key=_bid_strength)</code></pre></div></details></article><article><h4>平台执行依赖、绑定和恢复，不承担作品质量最优决策</h4><p>typed DAG → runnable绑定 → 租约/取消/并行执行 → 项目packet与结果</p><p class="visual-caution">无显式任务时仍有配置/固定快家顺序回退；任务名不等于实际成员名。把工程与用户约束交给原生负责人，不意味着调度没有固定策略或运行限制。</p><details class="progressive-detail" id="member-mechanism-M3"><summary><span>查看源码范围与证据口径</span><span class="detail-action" aria-hidden="true">展开 ＋</span></summary><div class="member-code"><p><code>B/release/legion-service/legion_core.py</code></p><p class="legion-source-meta">SHA-256 d3f0cd8057e71357cfe3449caccd7c09164ebf869a6dcae50079da64265a683d · 含未提交改动；上下文范围 5204–5245；当前源码与旧运行分开</p><p class="legion-source-meta">行 5215–5215</p><pre><code>plan, orchestration_spec = compile_orchestration_plan(plan, mode)</code></pre></div><div class="member-code"><p><code>B/release/legion-service/legion_core.py</code></p><p class="legion-source-meta">SHA-256 d3f0cd8057e71357cfe3449caccd7c09164ebf869a6dcae50079da64265a683d · 含未提交改动；上下文范围 5276–5314；当前源码与旧运行分开</p><p class="legion-source-meta">行 5308–5308</p><pre><code>plan, assignment_decisions = _collaboration.bind_plan(</code></pre></div><div class="member-code"><p><code>B/release/legion-service/legion_core.py</code></p><p class="legion-source-meta">SHA-256 d3f0cd8057e71357cfe3449caccd7c09164ebf869a6dcae50079da64265a683d · 含未提交改动；上下文范围 5315–5339；当前源码与旧运行分开</p><p class="legion-source-meta">行 5321–5321</p><pre><code>fast_order = [&quot;codex&quot;, &quot;hermes&quot;, &quot;cc&quot;, &quot;jcode&quot;, &quot;penguin&quot;]</code></pre></div></details></article><article><h4>求同伴输入后，让原作者原生继续</h4><p>成员need_peer → 冻结请求/持久exchange → 同伴或平台预检回执 → 原harness续作 → 返回真实续作结果</p><p class="visual-caution">同伴回复不是最终作品；当前源码也明确不凭已启动无终态再派写者。预检失败须标平台未执行，不伪装同伴意见；最终是否采用仍需原生工具/文件证据。</p><details class="progressive-detail" id="member-mechanism-M4"><summary><span>查看源码范围与证据口径</span><span class="detail-action" aria-hidden="true">展开 ＋</span></summary><div class="member-code"><p><code>B/release/legion-service/legion_core.py</code></p><p class="legion-source-meta">SHA-256 d3f0cd8057e71357cfe3449caccd7c09164ebf869a6dcae50079da64265a683d · 含未提交改动；上下文范围 5660–5717；当前源码与旧运行分开</p><p class="legion-source-meta">行 5683–5683</p><pre><code>request = initial_request or _pending_peer_request(result)</code></pre></div><div class="member-code"><p><code>B/release/legion-service/legion_core.py</code></p><p class="legion-source-meta">SHA-256 d3f0cd8057e71357cfe3449caccd7c09164ebf869a6dcae50079da64265a683d · 含未提交改动；上下文范围 5781–5840；当前源码与旧运行分开</p><p class="legion-source-meta">行 5815–5815</p><pre><code>resumed = _run_one_with_gateway(</code></pre></div><div class="member-code"><p><code>B/release/legion-service/legion_core.py</code></p><p class="legion-source-meta">SHA-256 d3f0cd8057e71357cfe3449caccd7c09164ebf869a6dcae50079da64265a683d · 含未提交改动；上下文范围 5614–5636；当前源码与旧运行分开</p><p class="legion-source-meta">行 5616–5616</p><pre><code>result = dict(resumed)</code></pre></div></details></article><article><h4>转交与分叉分工不同，最终集成仍归原作者</h4><p>handoff移交执行者并带项目现场；fork固定共同基线→独立可写候选→子结果/差异→原生父继续读文件集成</p><p class="visual-caution">换家不保证原生会话格式互通；handoff只带过渡文本和项目snapshot，不宣称完整原生历史转换。fork有容量/可运行限制，未建议成员时仍有回退；平台不自动合并、采用或发布。 begin_parallel核父会话/基线并逐子创建工作副本，捕获前后检查源是否变化；依赖可信调用方暂停父写者，项目锁不隔离任意原生shell写入。</p><details class="progressive-detail" id="member-mechanism-M5"><summary><span>查看源码范围与证据口径</span><span class="detail-action" aria-hidden="true">展开 ＋</span></summary><div class="member-code"><p><code>B/release/legion-service/legion_core.py</code></p><p class="legion-source-meta">SHA-256 d3f0cd8057e71357cfe3449caccd7c09164ebf869a6dcae50079da64265a683d · 含未提交改动；上下文范围 7340–7395；当前源码与旧运行分开</p><p class="legion-source-meta">行 7394–7394</p><pre><code>&quot;project_context&quot;: (_project_context.snapshot(team_id, f&quot;captain_handoff_{_to}&quot;, packet=_project_packet)</code></pre></div><div class="member-code"><p><code>B/release/legion-service/legion_core.py</code></p><p class="legion-source-meta">SHA-256 d3f0cd8057e71357cfe3449caccd7c09164ebf869a6dcae50079da64265a683d · 含未提交改动；上下文范围 7510–7546；当前源码与旧运行分开</p><p class="legion-source-meta">行 7537–7537</p><pre><code>&quot;project_context&quot;: (_project_context.snapshot(team_id, k, packet=_project_packet)</code></pre></div><div class="member-code"><p><code>B/release/legion-service/legion_core.py</code></p><p class="legion-source-meta">SHA-256 d3f0cd8057e71357cfe3449caccd7c09164ebf869a6dcae50079da64265a683d · 含未提交改动；上下文范围 6019–6062；当前源码与旧运行分开</p><p class="legion-source-meta">行 6029–6029</p><pre><code>chosen = preferred or _pick_relay_harness(harness_key, set(), valid) or harness_key</code></pre></div><div class="member-code"><p><code>B/release/legion-service/legion_core.py</code></p><p class="legion-source-meta">SHA-256 d3f0cd8057e71357cfe3449caccd7c09164ebf869a6dcae50079da64265a683d · 含未提交改动；上下文范围 6037–6062；当前源码与旧运行分开</p><p class="legion-source-meta">行 6046–6046</p><pre><code>separated = revisions.begin_parallel(</code></pre></div><div class="member-code"><p><code>B/release/legion-service/legion_core.py</code></p><p class="legion-source-meta">SHA-256 d3f0cd8057e71357cfe3449caccd7c09164ebf869a6dcae50079da64265a683d · 含未提交改动；上下文范围 6117–6137；当前源码与旧运行分开</p><p class="legion-source-meta">行 6130–6130</p><pre><code>&quot;你在同一固定基线的独立工作副本中，当前目录是你的写面。&quot;</code></pre></div><div class="member-code"><p><code>B/release/legion-service/legion_core.py</code></p><p class="legion-source-meta">SHA-256 d3f0cd8057e71357cfe3449caccd7c09164ebf869a6dcae50079da64265a683d · 含未提交改动；上下文范围 6205–6245；当前源码与旧运行分开</p><p class="legion-source-meta">行 6213–6213</p><pre><code>th = threading.Thread(target=run_child, args=(row,), daemon=True)</code></pre></div><div class="member-code"><p><code>B/release/legion-service/legion_core.py</code></p><p class="legion-source-meta">SHA-256 d3f0cd8057e71357cfe3449caccd7c09164ebf869a6dcae50079da64265a683d · 含未提交改动；上下文范围 6240–6268；当前源码与旧运行分开</p><p class="legion-source-meta">行 6254–6254</p><pre><code>&quot;平台没有替你合并任何文件。请读取共同基线和各成员固定快照/差异、核查冲突和失败事实，&quot;</code></pre></div><div class="member-code"><p><code>B/release/legion-service/project_revisions.py</code></p><p class="legion-source-meta">SHA-256 c269663046d7382159103b45c00b462d039294a6baf9266035767a336fe7ef80 · 所读文件无未提交改动；上下文范围 1233–1310；当前源码与旧运行分开</p><p class="legion-source-meta">行 1279–1279</p><pre><code>cid, child_root = _new_workspace(container, frozen, manifest)</code></pre></div></details></article></div></div><div class="explorer-panel" id="members-explorer--effects" data-explorer-panel="effects" hidden><article class="member-effect" id="member-case-C1"><div class="visual-result"><div class="visual-result-copy"><span class="visual-badge">旧记录图解 · 同Astra · 非新实验</span><h4>同一工程从Codex交给Hermes续改</h4><p>已有2048练习工程需增加撤销快捷键并保留作者修改、资料和许可证。</p></div><div class="visual-result-picture"><div class="ex-diagram"><div class="diagram-node"><strong>Codex</strong><span>既有工程与版本</span></div><span class="diagram-arrow" aria-hidden="true">→</span><div class="diagram-node"><strong>Hermes</strong><span>原生工具冷接续改</span></div><span class="diagram-arrow" aria-hidden="true">→</span><div class="diagram-node"><strong>原工程</strong><span>采用与恢复有旧记录</span></div></div></div></div><p class="legion-observation"><strong>原作品变化：</strong>旧验收记录：Ctrl/Command+Z单步撤销可用，输入区域不误触撤销；同工程采用/恢复/重启后保留。</p><p class="visual-caution">同模型跨Harness不能证明异构模型互补收益；不是同条件比单家更快或更好；原导出ZIP本轮不存在，未重新核最终文件或浏览器效果；不证明全部成员稳定或全部项目可换家</p><details class="progressive-detail" id="member-case-detail-C1"><summary><span>展开实际参与者、动作、时间与来源</span><span class="detail-action" aria-hidden="true">展开 ＋</span></summary><p>Codex / gpt-6-astra：前一已采用版本作者；Hermes / gpt-6-astra：用自身原生工具读取并修改同一项目</p><p>cold_project_takeover=true；新Hermes原生会话，不是接着Codex原生thread恢复；未借Codex CLI替Hermes答题。</p><ul><li>原生工具摘录含search_files/execute_code/patch/write_file/terminal</li><li>差异记录列index.html、keyboard_input_manager.js及快捷键测试文件</li></ul><p class="legion-source-meta">记录时间：2026-09-20T01:27:39.347236+08:00；来源：TAKEOVER、TAKEOVER_NATIVE、TAKEOVER_DIFF。</p><p>下面是该次旧记录的开销，不是跨任务速度排名，也没有完整费用对照。</p><pre class="member-cost">{
+  &quot;wall_seconds_recorded&quot;: 182.35,
+  &quot;native_runs_recorded&quot;: 1,
+  &quot;native_api_calls_recorded&quot;: 14,
+  &quot;money_cost&quot;: &quot;not_established&quot;
+}</pre></details></article><article class="member-effect" id="member-case-C2"><div class="visual-result"><div class="visual-result-copy"><span class="visual-badge">旧记录图解 · 同Astra · 非新实验</span><h4>Hermes求Codex只读意见，再由原Hermes修原文件</h4><p>输入/可编辑目标里的普通键仍会误动棋盘，需修同一作品而不新增游戏功能。</p></div><div class="visual-result-picture"><div class="ex-diagram"><div class="diagram-node"><strong>Hermes</strong><span>提出具体只读问题</span></div><span class="diagram-arrow" aria-hidden="true">→</span><div class="diagram-node"><strong>Codex</strong><span>提供独立观察</span></div><span class="diagram-arrow" aria-hidden="true">→</span><div class="diagram-node"><strong>原Hermes</strong><span>读意见后继续修改</span></div></div></div></div><p class="legion-observation"><strong>原作品变化：</strong>旧验收：5类编辑目标不再误动棋盘；原有移动/撤销保留，可采用与恢复。</p><p class="visual-caution">本单显式要求不同视角且限制两家，不是无需提示的全生态自主选优；全文输入与后续修改比done强，但本轮未取回原原生数据库或成品ZIP重做端到端验证；同为Astra，不证明异构模型收益、降本或长期互学</p><details class="progressive-detail" id="member-case-detail-C2"><summary><span>展开实际参与者、动作、时间与来源</span><span class="detail-action" aria-hidden="true">展开 ＋</span></summary><p>Hermes / gpt-6-astra：请求者和续作者；同一原生会话；Codex / gpt-6-astra：提供代码路径只读意见</p><p>同一Hermes原生会话读取同伴结果后继续；原始输入标记与工具记录见下方。</p><ul><li>原档保留peer_reply_verbatim_in_native_input=true及输入SHA</li><li>同Hermes原生会话resumed_native=true</li><li>回复后15条实际工具记录，包括read_file/execute_code/write_file/patch</li><li>差异记录：只改1个原JS，64个原文件保留，并另增验证材料</li></ul><p class="legion-source-meta">记录时间：2026-09-20T03:36:29.286351+08:00；来源：PEER、PEER_NATIVE、PEER_DIFF。</p><p>下面是该次旧记录的开销，不是跨任务速度排名，也没有完整费用对照。</p><pre class="member-cost">{
+  &quot;wall_seconds_recorded&quot;: 399.32,
+  &quot;requester_native_runs_recorded&quot;: 2,
+  &quot;peer_native_runs_recorded&quot;: 1,
+  &quot;hermes_api_calls_recorded&quot;: 16,
+  &quot;codex_api_calls&quot;: &quot;not_separately_reported&quot;,
+  &quot;money_cost&quot;: &quot;unknown&quot;
+}</pre></details></article><article class="member-effect" id="member-case-C3"><div class="visual-result"><div class="visual-result-copy"><span class="visual-badge">旧记录图解 · 同Astra · 非新实验</span><h4>共同基线分叉与原作者集成：局部成功，不包装全绿</h4><p>同一2048作品的390px布局与本地README需改进，并显式验证独立并行写面。</p></div><div class="visual-result-picture"><div class="ex-diagram"><div class="diagram-node"><strong>原Hermes</strong><span>同一固定基线</span></div><span class="diagram-arrow" aria-hidden="true">→</span><div class="diagram-node"><strong>Hermes＋Codex</strong><span>不同写面并行</span></div><span class="diagram-arrow" aria-hidden="true">→</span><div class="diagram-node"><strong>原Hermes</strong><span>集成一份贡献并补做</span></div></div></div></div><p class="legion-observation"><strong>原作品变化：</strong>旧验收：README中文本地说明被原Hermes集成；手机样式由原负责人补做，改README/main.css/main.scss。不是两个子成员都成功贡献代码。</p><p class="visual-caution">完整并行协作仍未证成；不是两份成功成果自动合并；新result_ref索引发生于真实原生试验之后，仅有替身测试，不外推为原生读取或提速已验；旧固定子结果/快照和导出ZIP当前缺失，不能重新逐字核采用关系</p><details class="progressive-detail" id="member-case-detail-C3"><summary><span>展开实际参与者、动作、时间与来源</span><span class="detail-action" aria-hidden="true">展开 ＋</span></summary><p>父Hermes / gpt-6-astra（原请求限定；完整当前原始结果未恢复）：提出分工、读取贡献并负责集成；子Hermes / 原记录限定Astra，逐子实际模型收据未独立恢复：README贡献，记录done并被采用；子Codex / 原记录限定Astra，逐子实际模型收据未独立恢复：手机布局任务timeout，只留下baseline证据；未完成布局代码</p><p>归档记录含两个不同workspace/candidate、相同base_snapshot；执行窗口重叠229.653秒。不等于已核所有运行时硬隔离。</p><ul><li>归档记录含两个不同workspace/candidate、相同base_snapshot；执行窗口重叠229.653秒。不等于已核所有运行时硬隔离。</li></ul><p class="legion-source-meta">记录时间：2026-09-20T05:54:36.892011+08:00；来源：FORK、FORK_BROWSER。</p><p>下面是该次旧记录的开销，不是跨任务速度排名，也没有完整费用对照。</p><pre class="member-cost">{
+  &quot;wall_seconds_recorded&quot;: 538.11,
+  &quot;overlap_seconds_recorded&quot;: 229.653,
+  &quot;caller_attempt_budget_seconds&quot;: 240,
+  &quot;parent_status&quot;: &quot;timeout&quot;,
+  &quot;codex_child_status&quot;: &quot;timeout&quot;,
+  &quot;hermes_child_status&quot;: &quot;done&quot;,
+  &quot;money_cost&quot;: &quot;unknown; timed-out usage incomplete&quot;
+}</pre></details></article><p class="visual-caution">三份旧完整ZIP及部分fork子快照本轮未找回；只能引用保留的运行/差异/验收记录，不伪造当次版本下载或试玩链接。</p></div><div class="explorer-panel" id="members-explorer--boundaries" data-explorer-panel="boundaries" hidden><div class="member-why-grid"><article><h4>借到入口，不等于工具执行成功</h4><p>旧能力借用修过上下文与JSON传递，子原生也启动；但沙箱返回Operation not permitted (71)，指定文件读取未证，原作品未改。</p><p class="visual-caution">不能把outer ok/done包装成能力借用完成，更不能绕过沙箱来把失败改成成功。</p></article><article><h4>组队有过不如单家的记录</h4><p>旧10题自述中组队v1/v2/v3为4/4/2，最强单家为5/10。</p><p class="visual-caution">不是当前排名，但不支持“人多必胜”。三个协作个案也没有同条件最强单家与完整费用对照。</p></article></div><p class="legion-observation">旧DeepAgents声明为cold_replay，但当前worker已有create_deep_agent与SqliteSaver图checkpoint；JCode等在两树声明也不同。声明、实现、安装版本与真实运行要分别核。</p><p>另有原Codex收到不可执行回执后自己改选Hermes的旧记录，但请求者在该记录中仍working/running；不当第四个作品完成例。</p><p>B目录规范投影；主仓同key/角色但配置不同，不能当实时在线名单或当前生产版本。</p><p class="visual-caution">未来价值仍要以用足工具、子代理和会话的完整原生单家作对照，看同一真实任务的质量、可靠性、全部成本与用户管理负担。登记数、长回答和多家参加都不等于净胜。</p></div></div><p class="visual-caution">名册角色、源码设计、旧运行记录和当前在线状态分别说明。原生特点不是固定职业分工，也不是谁永远更强的保证。</p></div><details class="progressive-detail" id="members-full-text"><summary><span>展开完整说明：全名单、特点、规划、分工、效果与边界</span><span class="detail-action" aria-hidden="true">展开 ＋</span></summary><p><strong>军团不是让一堆模型同时回答，而是让不同原生工作台带着同一项目现场，按需要接管、求助或并行，由明确的负责人把原作品做完。</strong></p>
+<p>“有哪些家”和“每家现在都能用”是两件事；“有人参与”和“成果因此变好”也是两件事。下面把名册、设计原因、运行机制与旧案例分别说明，不拿数量替代效果。</p>
+<h2>1. 目前名册里有哪些</h2>
+<p>本次只读的两份核心登记表共有<strong>38个入口：内置10、外接28</strong>。按它们在Meyo中的角色，分为<strong>执行角色28、工具/能力7、控制平台2、桌面平台1</strong>。这是登记条目，不是独立厂商数，也不是实时在线数。</p>
+<h3>内置执行入口9个</h3>
+<p><strong>Claude Code、Codex、Hermes、DeepSeek Harness、DeepAgents、JCode、Penguin、Prime、Omnigent。</strong></p>
+<p>另一个内置条目是<strong>Auto工具库</strong>：工具资产和源码保留，当前执行引擎停用，不进答题、接力或首脑池。历史GAIA研发结果并没有因此被抹掉，但不能把Auto再算成当前多出来的一位答题者。</p>
+<h3>外接执行角色19个</h3>
+<p><strong>CowAgent、DeerFlow、Cline、Goose、OpenClaw、pi Coding Agent、nanobot、GenericAgent、OmniAgent、Kimi Code CLI、IronClaw、Qwen Code CLI、Aider、OpenCode、GNHF、Headlong llm、OpenHands、Prime Agent、Penguin Harness。</strong></p>
+<p>这些有各自的CLI、SDK或其他接入声明。是否已安装、依赖与授权是否满足、原生工具能否工作，仍需实际运行证据；不能由role=agent直接宣布可用。</p>
+<h3>工具、能力与平台层</h3>
+<ul>
+<li>**工具/能力：**Auto、Browser Use、macOS Harness、Harness Anything、HASS.Agent、LoopX、MobileRun。</li>
+<li>**控制平台：**Paperclip、Aeon。</li>
+<li>**桌面平台：**Grok Bot 0.18 Reconstructed。</li>
+</ul>
+<p>这是它们在Meyo中的角色，不是评价其原产品只能做什么。比如DeerFlow的kind叫orchestrator，但规范角色仍是执行agent；Grok重建版则是平台层，<strong>不是Grok官方模型或独立答题成员</strong>。</p>
+<h3>不重复算、不擅自算入</h3>
+<ul>
+<li><code>prime → prime-intellect</code>是明确的兼容转接，不算两家独立Prime。</li>
+<li><code>penguin</code>与<code>penguin-harness</code>同源，入口/配置与运行版本仍要分别核。</li>
+<li><strong>Omnigent ≠ OmniAgent</strong>，不能因名字相近合并。</li>
+<li><strong>Orca</strong>本地有生态IDE源码，但当前两个名册没有登记；目录身份也不自动等于所有叫Orcha的项目。</li>
+<li><strong>Multica</strong>当前未登记，限定核查尚未找到精确本地源码指针；不是断言全机不存在，也不把它充作已经接入。</li>
+<li>Omnigent的嵌套子后端也不能再与主名册简单相加，凑成更多“已验成员”。</li>
+</ul>
+<p>两工作树的key和角色集合一致，但配置指纹不同。页面的接入列是声明，不是当前生产状态；完整38条安全名册和源文件指纹可展开或下载，不含env、凭据和安装令牌。</p>
+<h2>2. 为什么保留不同特点，而不是统一成一种Agent</h2>
+<p>**家是工作台，模型是它使用的“大脑”。**同一Astra可以被不同Harness使用，区别还在原生工具、文件工作方式、会话、插件、上下文处理与恢复协议。</p>
+<table>
+<thead>
+<tr>
+<th>入口</th>
+<th>保留的可靠特征</th>
+<th>对用户可能有什么价值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Claude Code</td>
+<td>CLI事件与原生session resume</td>
+<td>延续自己的工作方式与会话，工具进度可回流</td>
+</tr>
+<tr>
+<td>Codex</td>
+<td>原生thread/exec resume与持久工程</td>
+<td>接着已有项目做，不只靠短摘要重建</td>
+</tr>
+<tr>
+<td>Hermes</td>
+<td>自己的AIAgent会话、history与工具回调</td>
+<td>真正由自己的工具执行，不是挂名后让另一家代答</td>
+</tr>
+<tr>
+<td>DeepSeek Harness</td>
+<td>持久事件session的inspect、resume/create与followup</td>
+<td>保留事件化工具循环与恢复入口</td>
+</tr>
+<tr>
+<td>DeepAgents</td>
+<td>当前worker有图thread、todos及SQLite checkpoint</td>
+<td>继续未完图节点，而不只是重发消息</td>
+</tr>
+<tr>
+<td>JCode</td>
+<td>run JSON/resume及原生持久状态</td>
+<td>保留长任务与工程状态</td>
+</tr>
+<tr>
+<td>Penguin</td>
+<td>首轮run、续作chat resume</td>
+<td>沿用原会话的模型和工作目录</td>
+</tr>
+<tr>
+<td>Prime</td>
+<td>兼容入口接Prime原会话格式</td>
+<td>旧入口可用，坏checkpoint不伪造恢复</td>
+</tr>
+<tr>
+<td>Omnigent</td>
+<td>会话绑定、子Harness插件与执行入口</td>
+<td>在需要时借到其他工作台，而不是全部重写</td>
+</tr>
+</tbody>
+</table>
+<p>这些是有源码位置可查的机制特点，<strong>不是固定职业分工或实力排名</strong>。同一家可能写代码、研究、检查或集成，角色应随任务变化。</p>
+<p>也不能说所有原生能力都已完整保留：当前CC的<code>--bare</code>会跳过部分扩展；旧DeepAgents manifest仍写<code>cold_replay</code>，当前worker却已有<code>create_deep_agent</code>与<code>SqliteSaver</code>；JCode在两树的声明也不同。源码、声明、安装版本、实际执行不能混成一个“已完成”。</p>
+<p>旧profile里的高低、快慢和绝对化标签不作为本页性能事实。没有同题、同模型/预算和真实交付比较，就不声称哪家永远更强。</p>
+<h2>3. 我们为什么需要这些组织特征</h2>
+<ol>
+<li>**保留原生工作方式：**不把各家削成同一个聊天接口，才有机会复用它们的原生长处。</li>
+<li>**共享同一项目现场：**接手者知道目标、文件、版本、来源和失败，减少搬运与重做；不是共享所有人的私聊。</li>
+<li>**让原作者真正消费帮助：**同伴回复不是成品，必须回到原任务，发生实际修改或明确取舍。</li>
+<li>**并行有独立写面和收口者：**共同基线、分离副本、固定差异，再由原负责人集成，避免互相覆盖。</li>
+<li>**保留失败与全部开销：**知道用了谁、错在哪、是否重做，才能判断有无净收益。</li>
+</ol>
+<p>这些机制最终都要服务同一个结果：**用户少管理，作品更好，或者同质量下全成本更低。**不是为了让一个任务看起来有很多角色。</p>
+<h2>4. 谁规划、谁组织、谁把作品做完</h2>
+<p>可以理解为五种职责，但不是每个请求都强制走五道工序：</p>
+<table>
+<thead>
+<tr>
+<th>职责</th>
+<th>当前怎样衔接</th>
+<th>不能误解成什么</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>计划提出</td>
+<td>模型读取目标、附件、候选与能力状态，返回任务与关系</td>
+<td>并非平台已知道唯一最佳答案</td>
+</tr>
+<tr>
+<td>负责人选择</td>
+<td>用户指定、候选条件、静态偏好、历史信号和提案评分共同作用</td>
+<td>不是每次38家全体开会，也不是全自主全生态最优</td>
+</tr>
+<tr>
+<td>运行执行</td>
+<td>调度器管理依赖、绑定、租约、取消、工作目录和状态</td>
+<td>调度成功不等于作品完成</td>
+</tr>
+<tr>
+<td>原生工作</td>
+<td>负责人使用自己的工具做事，遇到具体缺口提出帮助或交接</td>
+<td>不固定哪一品牌只能做某职业</td>
+</tr>
+<tr>
+<td>最终收口</td>
+<td>原作者核同伴结果、读差异、修改原文件并交付，用户决定采用</td>
+<td>不是平台投票后把几段答案拼起来</td>
+</tr>
+</tbody>
+</table>
+<p>当前选负责人还有明确代码规则：候选先排序，默认竞选范围有限，再按<code>_bid_strength</code>经<code>max</code>选取；分数涉及提案结构、任务/方向/图数量及历史信号。<strong>不能照抄旧注释说“首个完整提案一定当选”，也不能把规则评分当成已经证明选到最强执行者。</strong></p>
+<p>当前也仍有平台侧模型规划和评分逻辑，不能宣传成所有质量决策已经完全下放到原生Harness。图解表达的是职责与可能的连接，实际入口和任务会跳过或调整其中步骤。</p>
+<h3>几种配合方式，不是一回事</h3>
+<ul>
+<li>**单家直接做：**完整原生能力足够时，不为了军团而拆队。</li>
+<li>**<code>need_peer</code>请教：**提出具体问题，同伴返回原始观察，原负责人真正续作；平台失败回执也要如实带回。</li>
+<li>**<code>handoff</code>交接：**换负责人并带上同一工程与现场，不保证任意两家的原生会话历史无损互通。</li>
+<li>**<code>fork</code>并行：**共同基线、独立工作副本、收回固定结果与差异，最后由原生父成员集成。两个分支不等于两份成功贡献。</li>
+<li>**失败接力：**某个运行路径失败后补位，同时保留原失败和费用，不能用后来成功遮住前面的缺口。</li>
+<li>**同题比较：**需要时再比较不同方案；不以一致投票或答案融合替代真实作品。</li>
+</ul>
+<h2>5. 实际工作效果：三条可追查的旧记录</h2>
+<h3>例一：原工程从Codex交给Hermes</h3>
+<p>已有2048工程需要撤销快捷键。Codex/Astra留下原版本，Hermes/Astra用自己的原生工具读取和修改同一项目。旧记录有快捷键、采用/恢复、重启保留等结果。</p>
+<p>这是<strong>同Astra、跨Harness冷接项目</strong>，不是继续Codex的原生thread，也不是证明异构模型增益。旧记录用时182.35秒，不能与另一任务直接做速度排名；本轮未重跑。</p>
+<h3>例二：同伴意见被原作者真正采用</h3>
+<p>Hermes/Astra针对原代码提出只读问题，Codex/Astra给出观察；同一个Hermes原生会话读到完整回复，再进行真实工具操作与修改。</p>
+<p>旧差异记录只有一个原JS改变，64个原文件保持。旧验收里五类编辑目标不再误动棋盘，正常移动和撤销保留。这比“同伴回答了”更接近有效协作。</p>
+<p>但任务明确要求不同视角并限定两家。399.32秒是该记录的三阶段时间，费用未完整单列；不声称无提示自动选优、所有任务更快或更省。</p>
+<h3>例三：并行确实发生，但并不是两家都成功</h3>
+<p>原Hermes让Hermes与Codex在同一固定基线的独立写面中处理README和手机布局。旧时间窗有重叠，子Hermes的README被父成员实际集成。</p>
+<p>**子Codex未完成布局代码，原负责人补做；子Codex和父运行都曾超时。**后来作品的手机说明、操作区和中文使用文档有改善，但不能宣传“两份成功代码自动合并”或“比最强单家更快”。</p>
+<p>三例都是旧工程验收，<strong>同Astra</strong>，没有完整的同条件最强单家对照或长期群体净收益证明。三份旧完整ZIP与部分fork子快照原路径本轮未找回，因此只引用保留的原生提取、文件差异与验收记录，不伪造当次版本的即时试玩或下载地址。已有公开作品可另看本页作品区，但版本证据不能混用。</p>
+<h2>6. 失败和未证明的部分也必须说</h2>
+<ul>
+<li>**能力借用未闭环：**上下文/JSON传递修过，子原生启动过，但沙箱返回<code>Operation not permitted (71)</code>，指定文件读取未证，原作品没改。outer ok/done不能当工具成功。</li>
+<li><strong>组队不保证胜过单家：<strong>旧10题自述中组队为</strong>4/4/2</strong>，最强单家为<strong>5/10</strong>。不是当前排名，却不支持“多家天然更强”。</li>
+<li>**预检失败回流不等于作品已完成：**有原Codex自行改选Hermes的旧记录，但当时请求者仍在工作；只证明失败事实与选择回到原作者，不作为第四个作品成功例。</li>
+<li>**在目录不等于可用：**依赖、平台、权限、工具、原目录与会话都要成立；工具能力和控制平台不应混进答题池。</li>
+<li>**有记忆不等于群体进化：**要看下一次实际采用与效果，不拿注入次数或源代码被读过一次代替长期增强。</li>
+</ul>
+<p>下一步应跟住一条已获准的真实任务，记录实际成员和模型、计划变更、工具、原文件变化、失败与全部成本。只在结果、可靠性或管理负担出现净改善时，才把方法继续推广。不能为了凑名单或给报告提分新跑一轮。</p>
+<p>本次只更新分享网页：未安装成员、逐家探活、调用业务模型、重跑基准、操作浏览器、修改生产配置或部署服务。名册、源码、旧运行与当前线上状态分别说明。</p>
+</details><div class="history-downloads"><a class="text-link" href="content/members-organization.txt" download>下载成员与组织说明 ↓</a><a class="text-link" href="content/members-organization.json" download>下载安全名册与源码证据索引 ↓</a></div></section><section id="cloud-devices" class="device-delivery" aria-labelledby="cloud-devices-title"><h3 id="cloud-devices-title">云电脑和云手机：真正做过什么，怎么做到？</h3><p>本次核到的有限旧演示、系统级验收和原物，不宣称穷尽历史任务或已经全面生产可用。</p><div class="visual-explorer " id="device-explorer" data-explorer><div class="explorer-toolbar"><span>点一个节点，往下看</span><div><button type="button" data-explorer-prev aria-label="云电脑与云手机的目标和证据：上一项">←</button><button type="button" data-explorer-next aria-label="云电脑与云手机的目标和证据：下一项">→</button></div></div><div class="explorer-choices" role="group" aria-label="云电脑与云手机的目标和证据"><button type="button" data-explorer-select="desktop" aria-controls="device-explorer--desktop" aria-pressed="false"><span class="choice-step">01</span><svg class="ex-icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m8 6-6 6 6 6m8-12 6 6-6 6m-3-16-2 20"/></svg><span class="choice-name">云电脑做过什么</span><small>软件、文件与真实缺口</small></button><button type="button" data-explorer-select="mobile" aria-controls="device-explorer--mobile" aria-pressed="true"><span class="choice-step">02</span><svg class="ex-icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="18" rx="3"/><path d="m10 8 6 4-6 4Z"/></svg><span class="choice-name">云手机做过什么</span><small>三个系统级小任务</small></button><button type="button" data-explorer-select="method" aria-controls="device-explorer--method" aria-pressed="false"><span class="choice-step">03</span><svg class="ex-icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="5" cy="6" r="3"/><circle cx="19" cy="7" r="3"/><circle cx="12" cy="20" r="3"/><path d="m8 6 8 1M6 9l4 8m8-7-5 7"/></svg><span class="choice-name">怎么实现</span><small>环境、动作、状态、结果</small></button><button type="button" data-explorer-select="limits" aria-controls="device-explorer--limits" aria-pressed="false"><span class="choice-step">04</span><svg class="ex-icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></svg><span class="choice-name">不能算完成的</span><small>原反例不藏起来</small></button></div><div class="explorer-display"><div class="explorer-panel" id="device-explorer--desktop" data-explorer-panel="desktop" hidden><p class="device-goal"><strong>要实现的目标：</strong>在持久工作区使用浏览器、IDE、Office和设计软件，交回可用文件；不是只展示远程屏幕。</p><div class="device-case-grid"><article class="device-case" id="device-case-desktop-geany" data-device="desktop"><span class="visual-badge">有限桌面动作与原物</span><h4>写并运行猜数字脚本</h4><figure><button class="image-button" data-zoom="assets/device-desktop-geany.png" data-caption="旧图：Geany打开猜数字脚本，终端可见低／高／猜中与正常退出；不是新设备测试。" aria-label="放大旧截图：旧图：Geany打开猜数字脚本，终端可见低／高／猜中与正常退出；不是新设备测试。"><img src="assets/device-desktop-geany.png" alt="旧图：Geany打开猜数字脚本，终端可见低／高／猜中与正常退出；不是新设备测试。" loading="lazy"></button><figcaption>旧图：Geany打开猜数字脚本，终端可见低／高／猜中与正常退出；不是新设备测试。</figcaption></figure><p>原截图与951字节脚本都在；屏幕可见三次尝试后猜中并正常退出。</p><p class="visual-caution">完整工具trace不足，不能宣称逐键操作可重放、所有输入分支已测或商业用户成效；这是有限桌面演示。</p><details class="progressive-detail" id="device-detail-desktop-geany"><summary><span>展开目标、方式和依据</span><span class="detail-action" aria-hidden="true">展开 ＋</span></summary><dl class="mechanism-facts"><div><dt>当时目标</dt><dd>在受管云桌面里用Geany打开、保存Python猜数字程序，运行后留下画面和源码。</dd></div><div><dt>实际方式</dt><dd>旧画面对应Linux/XFCE桌面，Geany中打开guess_game.py，终端展示低／高／猜中与退出；没有把这次旧操作重新跑一遍。</dd></div><div><dt>日期与依据</dt><dd>2026-09-02旧演示；原件指纹见本节下载索引的D-GEANY。</dd></div></dl></details><div class="visual-links"><a class="text-link" href="downloads/device-guess-game.py" download>下载原Python脚本 ↓</a></div></article><article class="device-case" id="device-case-desktop-resonance" data-device="desktop"><span class="visual-badge">已见首屏，不算整体完成</span><h4>在桌面打开中文应用</h4><figure><button class="image-button" data-zoom="assets/device-desktop-resonance.png" data-caption="较后旧图：受管Linux桌面的Chromium显示中文应用首屏；地址只属当时环境，不是公开试玩链接。" aria-label="放大旧截图：较后旧图：受管Linux桌面的Chromium显示中文应用首屏；地址只属当时环境，不是公开试玩链接。"><img src="assets/device-desktop-resonance.png" alt="较后旧图：受管Linux桌面的Chromium显示中文应用首屏；地址只属当时环境，不是公开试玩链接。" loading="lazy"></button><figcaption>较后旧图：受管Linux桌面的Chromium显示中文应用首屏；地址只属当时环境，不是公开试玩链接。</figcaption></figure><p>可以核到中文首屏与旧原物，证明发生过桌面打开；不是本轮新运行。</p><p class="visual-caution">完整参数/导出等验收还含宿主file://证据，不能全部算云端。示范参数不是现实城市预测；字体再分发许可未核，不复制字体或伪造可玩深链。</p><details class="progressive-detail" id="device-detail-desktop-resonance"><summary><span>展开目标、方式和依据</span><span class="detail-action" aria-hidden="true">展开 ＋</span></summary><dl class="mechanism-facts"><div><dt>当时目标</dt><dd>把RESONANCE城市系统演示应用放进受管桌面，并实际打开查看，而不只生成一个HTML文件。</dd></div><div><dt>实际方式</dt><dd>旧记录有CUA打开、点击、截屏回执；较后图显示XFCE中的Chromium与中文应用，早期条款窗口不再当成功图。</dd></div><div><dt>日期与依据</dt><dd>2026-09-05较后旧画面；原件指纹见本节下载索引的D-RESONANCE。</dd></div></dl></details><div class="visual-links"></div></article><article class="device-case" id="device-case-desktop-design" data-device="desktop"><span class="visual-badge">文件与软件画面相符</span><h4>在Inkscape查看设计图</h4><figure><button class="image-button" data-zoom="assets/device-desktop-inkscape.png" data-caption="旧图：Inkscape中可见workflow.svg；只证明打开该设计图，不证明整个跨软件项目完成。" aria-label="放大旧截图：旧图：Inkscape中可见workflow.svg；只证明打开该设计图，不证明整个跨软件项目完成。"><img src="assets/device-desktop-inkscape.png" alt="旧图：Inkscape中可见workflow.svg；只证明打开该设计图，不证明整个跨软件项目完成。" loading="lazy"></button><figcaption>旧图：Inkscape中可见workflow.svg；只证明打开该设计图，不证明整个跨软件项目完成。</figcaption></figure><p>原SVG、PNG和Inkscape窗口画面可查看；这是一个有限图形交付例子。</p><p class="visual-caution">同项目的Office图报文件不存在，测试记录平台为macOS；不能把这一项推广为四软件全流程完成或云端12测通过。</p><details class="progressive-detail" id="device-detail-desktop-design"><summary><span>展开目标、方式和依据</span><span class="detail-action" aria-hidden="true">展开 ＋</span></summary><dl class="mechanism-facts"><div><dt>当时目标</dt><dd>生成一张可编辑流程图，在真实图形软件中查看，并留存SVG和PNG作为交付物。</dd></div><div><dt>实际方式</dt><dd>留存SVG/PNG与旧清单摘要一致，旧截图可见Inkscape打开workflow.svg；不从截图推断所有内容都由鼠标逐项绘制。</dd></div><div><dt>日期与依据</dt><dd>2026-09-04旧工程验收；原件指纹见本节下载索引的D-MANIFEST、D-TESTS。</dd></div></dl></details><div class="visual-links"><a class="text-link" href="downloads/device-workflow.svg" download>查看原SVG ↓</a><a class="text-link" href="downloads/device-workflow.png" download>下载原设计图 ↓</a></div></article></div></div><div class="explorer-panel" id="device-explorer--mobile" data-explorer-panel="mobile"><p class="device-goal"><strong>要实现的目标：</strong>在真实Android应用环境里完成操作、保留状态与结果；不把安装或截图当成全能生活助手。</p><div class="device-case-grid"><article class="device-case" id="device-case-mobile-lifecycle" data-device="mobile"><span class="visual-badge">生命周期有原件支持</span><h4>安装、启动并回滚Klooni</h4><figure><button class="image-button" data-zoom="assets/device-phone-klooni.png" data-caption="旧Android截图：Klooni主菜单；配合安装／回滚原件看，不作为完整玩法或真实账号业务证明。" aria-label="放大旧截图：旧Android截图：Klooni主菜单；配合安装／回滚原件看，不作为完整玩法或真实账号业务证明。"><img src="assets/device-phone-klooni.png" alt="旧Android截图：Klooni主菜单；配合安装／回滚原件看，不作为完整玩法或真实账号业务证明。" loading="lazy"></button><figcaption>旧Android截图：Klooni主菜单；配合安装／回滚原件看，不作为完整玩法或真实账号业务证明。</figcaption></figure><p>4323项旧目录、0.8.6/860安装记录与快照均在；目录预期、安装APK和回滚APK摘要一致，旧屏幕可见Klooni主菜单。</p><p class="visual-caution">这是开源App生命周期演练，不是游戏玩法、付款或真实账号流程通过。Redroid是Android容器，不冒充已验证的远程物理真机；不公开APK或安装令牌。</p><details class="progressive-detail" id="device-detail-mobile-lifecycle"><summary><span>展开目标、方式和依据</span><span class="detail-action" aria-hidden="true">展开 ＋</span></summary><dl class="mechanism-facts"><div><dt>当时目标</dt><dd>从可追溯的软件目录取得开源App，核包和版本，安装启动，再保留数据卸载并从快照回滚。</dd></div><div><dt>实际方式</dt><dd>旧F-Droid镜像目录→APK摘要与包名/版本核对→Redroid安装与Activity复检→卸载→原APK快照回滚；不是本轮运行安装器。</dd></div><div><dt>日期与依据</dt><dd>2026-09-04旧系统级验收；原件指纹见本节下载索引的M-LIFECYCLE、M-REVIEW。</dd></div></dl></details><div class="visual-links"></div></article><article class="device-case" id="device-case-mobile-alarm" data-device="mobile"><span class="visual-badge">旧状态与屏幕对应</span><h4>创建测试闹钟并检查重启保留</h4><figure><button class="image-button" data-zoom="assets/device-phone-alarm.png" data-caption="重启后旧图：07:35测试闹钟可见；画面有两条07:35，不证明只创建一条、幂等或实际响铃。" aria-label="放大旧截图：重启后旧图：07:35测试闹钟可见；画面有两条07:35，不证明只创建一条、幂等或实际响铃。"><img src="assets/device-phone-alarm.png" alt="重启后旧图：07:35测试闹钟可见；画面有两条07:35，不证明只创建一条、幂等或实际响铃。" loading="lazy"></button><figcaption>重启后旧图：07:35测试闹钟可见；画面有两条07:35，不证明只创建一条、幂等或实际响铃。</figcaption></figure><p>旧档记录系统/UI双重核验与重启保留，现存图能看到对应时间和标签。</p><p class="visual-caution">截图有两条07:35，不能宣称只创建一条或幂等已证；没有验证实际到点响铃、当前设备或长期可靠性。</p><details class="progressive-detail" id="device-detail-mobile-alarm"><summary><span>展开目标、方式和依据</span><span class="detail-action" aria-hidden="true">展开 ＋</span></summary><dl class="mechanism-facts"><div><dt>当时目标</dt><dd>创建07:35“起床喝水”测试闹钟，核对系统和界面状态，并在Android重启后确认仍保留。</dd></div><div><dt>实际方式</dt><dd>旧runner是android-alarm-intent，结合系统状态与前后截图记录结果；不是纯视觉MobileRun自主操作的新测评。</dd></div><div><dt>日期与依据</dt><dd>2026-09-04旧系统级验收；原件指纹见本节下载索引的M-ALARM、M-REVIEW。</dd></div></dl></details><div class="visual-links"></div></article><article class="device-case" id="device-case-mobile-gallery" data-device="mobile"><span class="visual-badge">测试图片可见</span><h4>登记文件并在图库打开</h4><figure><button class="image-button" data-zoom="assets/device-phone-gallery.png" data-caption="旧图：图库显示MEYO LIFE PROOF测试图片；没有分享、删除或处理私人照片。" aria-label="放大旧截图：旧图：图库显示MEYO LIFE PROOF测试图片；没有分享、删除或处理私人照片。"><img src="assets/device-phone-gallery.png" alt="旧图：图库显示MEYO LIFE PROOF测试图片；没有分享、删除或处理私人照片。" loading="lazy"></button><figcaption>旧图：图库显示MEYO LIFE PROOF测试图片；没有分享、删除或处理私人照片。</figcaption></figure><p>原截图显示MEYO LIFE PROOF测试图片；档案明确未分享、未删除。</p><p class="visual-caution">这是文件与图库小任务，不是社交发图、真实客户照片管理、拍摄或相机硬件流程完成。</p><details class="progressive-detail" id="device-detail-mobile-gallery"><summary><span>展开目标、方式和依据</span><span class="detail-action" aria-hidden="true">展开 ＋</span></summary><dl class="mechanism-facts"><div><dt>当时目标</dt><dd>把无私人信息的测试图片放到Downloads，登记到MediaStore，再用系统图库打开预览。</dd></div><div><dt>实际方式</dt><dd>旧runner为adb-mediastore-gallery，任务记录文件、媒体库与图库前台事实；没有从现用手机读取相册。</dd></div><div><dt>日期与依据</dt><dd>2026-09-04旧系统级验收；原件指纹见本节下载索引的M-GALLERY、M-REVIEW。</dd></div></dl></details><div class="visual-links"></div></article></div></div><div class="explorer-panel" id="device-explorer--method" data-explorer-panel="method" hidden><div class="ex-diagram"><div class="diagram-node"><strong>原目标与现场</strong><span>按需选择设备和软件</span></div><span class="diagram-arrow" aria-hidden="true">→</span><div class="diagram-node"><strong>授权内执行</strong><span>工具／系统接口／GUI</span></div><span class="diagram-arrow" aria-hidden="true">→</span><div class="diagram-node"><strong>结果回原任务</strong><span>文件、状态、证据与恢复</span></div></div><div class="device-method-grid"><article><h4>持久现场，不是临时遥控</h4><p>云电脑保存用户/项目/任务和文件，手机保存原目标、App、尝试、状态和结果；换人或重启后能定位原现场。代码存在与全部恢复成功分开。</p><details class="progressive-detail" id="device-method-C1"><summary><span>查看实现位置</span><span class="detail-action" aria-hidden="true">展开 ＋</span></summary><ul><li><code>release/legion-service/desktop_workspace.py:220–256</code><p class="legion-source-meta">SHA-256 9de5a884594c42becd926ca454aa24c7e2507f68b70d5b46726466f3c69d1544；只读源码，不代表当前线上验证。</p></li><li><code>release/legion-service/mobile_tasks.py:93–116</code><p class="legion-source-meta">SHA-256 0aff6c64964752f7ce138d0b8530164e8119d180534bf5459a65dced4ffbb997；只读源码，不代表当前线上验证。</p></li></ul></details></article><article><h4>给原生执行者眼睛和手</h4><p>电脑通过绑定用户的MCP/命令/键鼠/截图入口工作；手机可用ADB、系统接口或MobileRun。工具退出成功不等于目标完成，也不要求每一步都用多成员。</p><details class="progressive-detail" id="device-method-C3"><summary><span>查看实现位置</span><span class="detail-action" aria-hidden="true">展开 ＋</span></summary><ul><li><code>release/legion-service/desktop_fs.py:829–854</code><p class="legion-source-meta">SHA-256 68eabb27aa22a7b1d4492990dab7f6f4555ca9a69c3081cee3966eb210438ce8；只读源码，不代表当前线上验证。</p></li><li><code>release/legion-service/mobile_device.py:373–450</code><p class="legion-source-meta">SHA-256 4d4eead230fb94c4fa97e2da9e06f4e6ec932e612fa5c108b7bc1df070789b69；只读源码，不代表当前线上验证。</p></li></ul></details></article><article><h4>软件准备与授权有单独状态</h4><p>APK先核来源、摘要、包名和版本，再按确认安装和复检；账号/MFA等保留为待处理条件。确认应回到同一任务，不能丢上下文另开一单。</p><details class="progressive-detail" id="device-method-C5"><summary><span>查看实现位置</span><span class="detail-action" aria-hidden="true">展开 ＋</span></summary><ul><li><code>release/legion-service/mobile_apps.py:323–356</code><p class="legion-source-meta">SHA-256 b4cf557d8c3f1e8f72213a945ceb869e0aca311d0dba0302239f2b3978031faa；只读源码，不代表当前线上验证。</p></li><li><code>release/legion-service/mobile_tasks.py:177–242</code><p class="legion-source-meta">SHA-256 0aff6c64964752f7ce138d0b8530164e8119d180534bf5459a65dced4ffbb997；只读源码，不代表当前线上验证。</p></li></ul></details></article><article><h4>把实际文件和业务状态带回来</h4><p>动作结果、来源、文件摘要、系统事实与屏幕回到任务；状态或runner提供的verification.ok仍需原物支撑。此次图片反证正说明不能只信一个pass。</p><details class="progressive-detail" id="device-method-C7"><summary><span>查看实现位置</span><span class="detail-action" aria-hidden="true">展开 ＋</span></summary><ul><li><code>release/legion-service/mobile_tasks.py:271–300</code><p class="legion-source-meta">SHA-256 0aff6c64964752f7ce138d0b8530164e8119d180534bf5459a65dced4ffbb997；只读源码，不代表当前线上验证。</p></li><li><code>release/legion-service/desktop_production_matrix.py:68–105</code><p class="legion-source-meta">SHA-256 29f5fb478cb946cc78e738323cf8fb47f3a6f3bb8789a92ca53ff7c1d272a384；只读源码，不代表当前线上验证。</p></li></ul></details></article></div></div><div class="explorer-panel" id="device-explorer--limits" data-explorer-panel="limits" hidden><ul class="device-gap-list"><li><strong>确认恢复只作机制演练</strong><p>旧档有两次尝试、七事件和确认决定，但action_performed=false；不能算真实账号/MFA/付款/发消息已完成。</p></li><li><strong>地图没有产出路线</strong><p>所核mobile-browser-e2e仍ready、零次尝试；其他OsmAnd操作与安装不等于真实路线出现。</p></li><li><strong>电脑完整跨软件链仍缺证</strong><p>Office图报does not exist，研究图仍为Terms of Service，12测试回执在macOS；有文件和部分软件动作，不等于全部云端流程完成。</p></li><li><strong>展示测试不能替代业务</strong><p>device-business-proof在测试代码里直接写done/saved=true；TidyDeck是macOS原生作品，手机宽度截图是网页适配，都不冒充云设备新任务。</p></li><li><strong>真实账号、跨设备和长期运行</strong><p>商业App、相机/扫码/硬件、电脑与手机整单接力、离开页面后的长期可靠性及世界级质量仍要独立举证；不由本页案例外推。</p></li></ul><div class="device-counterexamples"><figure><button class="image-button" data-zoom="assets/device-desktop-office-blocked.png" data-caption="反例原图：LibreOffice提示frontier-report.odt does not exist，不能当成功打开的证据。" aria-label="放大旧截图：反例原图：LibreOffice提示frontier-report.odt does not exist，不能当成功打开的证据。"><img src="assets/device-desktop-office-blocked.png" alt="反例原图：LibreOffice提示frontier-report.odt does not exist，不能当成功打开的证据。" loading="lazy"></button><figcaption>反例原图：LibreOffice提示frontier-report.odt does not exist，不能当成功打开的证据。</figcaption></figure><figure><button class="image-button" data-zoom="assets/device-desktop-browser-blocked.png" data-caption="反例原图：仅有Chromium Terms of Service窗口，没有回执声称的IANA页面。" aria-label="放大旧截图：反例原图：仅有Chromium Terms of Service窗口，没有回执声称的IANA页面。"><img src="assets/device-desktop-browser-blocked.png" alt="反例原图：仅有Chromium Terms of Service窗口，没有回执声称的IANA页面。" loading="lazy"></button><figcaption>反例原图：仅有Chromium Terms of Service窗口，没有回执声称的IANA页面。</figcaption></figure></div></div></div><p class="visual-caution">旧屏幕、原文件与任务记录分别核对。这里是有限旧案例，不是新设备演示；done、工具退出码和图片文件名不能代替业务完成。</p></div><details class="progressive-detail" id="device-full-text"><summary><span>展开完整说明：已有目标、实现方式、任务证据与未完成项</span><span class="detail-action" aria-hidden="true">展开 ＋</span></summary><p><strong>之前只介绍了设备和工具，没有把完成过的具体任务、目标、方式、原物与缺口一起说清。这里补上本次能核到的有限旧案例，不宣称穷尽全部历史任务，也不把工程演练当成全面生产成功。</strong></p>
 <p>云电脑和云手机是军团可持续使用的软件环境，不只是两张远程屏幕。设备按任务需要使用；API、系统接口或脚本能可靠完成时，不为表演而强制鼠标点击。</p>
 <h2>云电脑要实现什么</h2>
 <p>目标是让执行者在持久工程里使用浏览器、IDE、Office、设计软件，保存文件、来源和操作结果，遇到需要本人处理的身份或确认时保住原现场，最终把可用成果交回来。</p>

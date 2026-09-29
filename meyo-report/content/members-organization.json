@@ -1,0 +1,2095 @@
+{
+  "title": "军团有哪些家，又怎样真正一起工作？",
+  "checkedAt": "2026-09-29T12:25:00.263057+08:00",
+  "counts": {
+    "entries": 38,
+    "builtin": 10,
+    "external": 28,
+    "roles": {
+      "capability": 7,
+      "agent": 28,
+      "control-plane": 2,
+      "ui-platform": 1
+    },
+    "online": null,
+    "independentVendors": null
+  },
+  "roster": [
+    {
+      "key": "auto",
+      "name": "Auto 工具库（引擎停用）",
+      "source": "builtin",
+      "role": "capability",
+      "roleLabel": "工具／能力来源",
+      "integration": [
+        "sdk-subprocess"
+      ],
+      "resumeDeclaration": "checkpoint",
+      "onlineState": "本轮未逐家探活",
+      "boundary": "源码/工具保留；引擎退出答题、接力和首脑竞选，不能当第十个当前执行者。",
+      "sourceLocator": "release/legion-service/harness_manifest.json:8",
+      "sourceSha256": "da565783215e2943ab8043df1599d8f771930aaf4efbda15c74e0d197b366a5e"
+    },
+    {
+      "key": "cc",
+      "name": "Claude Code",
+      "source": "builtin",
+      "role": "agent",
+      "roleLabel": "执行角色声明",
+      "integration": [
+        "cli-subprocess"
+      ],
+      "resumeDeclaration": "native",
+      "onlineState": "本轮未逐家探活",
+      "boundary": "仅登记和角色口径；不保证安装、授权、协议、平台、工作目录、实际工具成功或当前在线。",
+      "sourceLocator": "release/legion-service/harness_manifest.json:64",
+      "sourceSha256": "da565783215e2943ab8043df1599d8f771930aaf4efbda15c74e0d197b366a5e"
+    },
+    {
+      "key": "codex",
+      "name": "Codex",
+      "source": "builtin",
+      "role": "agent",
+      "roleLabel": "执行角色声明",
+      "integration": [
+        "cli-subprocess"
+      ],
+      "resumeDeclaration": "native",
+      "onlineState": "本轮未逐家探活",
+      "boundary": "仅登记和角色口径；不保证安装、授权、协议、平台、工作目录、实际工具成功或当前在线。",
+      "sourceLocator": "release/legion-service/harness_manifest.json:117",
+      "sourceSha256": "da565783215e2943ab8043df1599d8f771930aaf4efbda15c74e0d197b366a5e"
+    },
+    {
+      "key": "deepagents",
+      "name": "DeepAgents",
+      "source": "builtin",
+      "role": "agent",
+      "roleLabel": "执行角色声明",
+      "integration": [
+        "sdk-subprocess"
+      ],
+      "resumeDeclaration": "cold_replay",
+      "onlineState": "本轮未逐家探活",
+      "boundary": "manifest仍写resume=cold_replay/compaction=none，但当前worker实现SqliteSaver原生图checkpoint；不能只照抄profile/specs，也不据源码断言运行已使用。",
+      "sourceLocator": "release/legion-service/harness_manifest.json:171",
+      "sourceSha256": "da565783215e2943ab8043df1599d8f771930aaf4efbda15c74e0d197b366a5e"
+    },
+    {
+      "key": "deepseek",
+      "name": "DeepSeek Harness",
+      "source": "builtin",
+      "role": "agent",
+      "roleLabel": "执行角色声明",
+      "integration": [
+        "sdk-subprocess"
+      ],
+      "resumeDeclaration": "native",
+      "onlineState": "本轮未逐家探活",
+      "boundary": "仅登记和角色口径；不保证安装、授权、协议、平台、工作目录、实际工具成功或当前在线。",
+      "sourceLocator": "release/legion-service/harness_manifest.json:222",
+      "sourceSha256": "da565783215e2943ab8043df1599d8f771930aaf4efbda15c74e0d197b366a5e"
+    },
+    {
+      "key": "hermes",
+      "name": "Hermes",
+      "source": "builtin",
+      "role": "agent",
+      "roleLabel": "执行角色声明",
+      "integration": [
+        "sdk-subprocess"
+      ],
+      "resumeDeclaration": "native",
+      "onlineState": "本轮未逐家探活",
+      "boundary": "仅登记和角色口径；不保证安装、授权、协议、平台、工作目录、实际工具成功或当前在线。",
+      "sourceLocator": "release/legion-service/harness_manifest.json:281",
+      "sourceSha256": "da565783215e2943ab8043df1599d8f771930aaf4efbda15c74e0d197b366a5e"
+    },
+    {
+      "key": "jcode",
+      "name": "JCode",
+      "source": "builtin",
+      "role": "agent",
+      "roleLabel": "执行角色声明",
+      "integration": [
+        "cli-subprocess"
+      ],
+      "resumeDeclaration": "native",
+      "onlineState": "本轮未逐家探活",
+      "boundary": "仅登记和角色口径；不保证安装、授权、协议、平台、工作目录、实际工具成功或当前在线。",
+      "sourceLocator": "release/legion-service/harness_manifest.json:334",
+      "sourceSha256": "da565783215e2943ab8043df1599d8f771930aaf4efbda15c74e0d197b366a5e"
+    },
+    {
+      "key": "omnigent",
+      "name": "Omnigent",
+      "source": "builtin",
+      "role": "agent",
+      "roleLabel": "执行角色声明",
+      "integration": [
+        "meta-harness"
+      ],
+      "resumeDeclaration": "native",
+      "onlineState": "本轮未逐家探活",
+      "boundary": "仅登记和角色口径；不保证安装、授权、协议、平台、工作目录、实际工具成功或当前在线。",
+      "sourceLocator": "release/legion-service/harness_manifest.json:388",
+      "sourceSha256": "da565783215e2943ab8043df1599d8f771930aaf4efbda15c74e0d197b366a5e"
+    },
+    {
+      "key": "penguin",
+      "name": "Penguin",
+      "source": "builtin",
+      "role": "agent",
+      "roleLabel": "执行角色声明",
+      "integration": [
+        "cli-subprocess"
+      ],
+      "resumeDeclaration": "native",
+      "onlineState": "本轮未逐家探活",
+      "boundary": "仅登记和角色口径；不保证安装、授权、协议、平台、工作目录、实际工具成功或当前在线。",
+      "sourceLocator": "release/legion-service/harness_manifest.json:438",
+      "sourceSha256": "da565783215e2943ab8043df1599d8f771930aaf4efbda15c74e0d197b366a5e"
+    },
+    {
+      "key": "prime",
+      "name": "Prime",
+      "source": "builtin",
+      "role": "agent",
+      "roleLabel": "执行角色声明",
+      "integration": [
+        "cli-subprocess"
+      ],
+      "resumeDeclaration": "native",
+      "onlineState": "本轮未逐家探活",
+      "boundary": "兼容key转接prime-intellect，不是第二个独立Prime生态。",
+      "sourceLocator": "release/legion-service/harness_manifest.json:491",
+      "sourceSha256": "da565783215e2943ab8043df1599d8f771930aaf4efbda15c74e0d197b366a5e"
+    },
+    {
+      "key": "cowagent",
+      "name": "CowAgent",
+      "source": "external",
+      "role": "agent",
+      "roleLabel": "执行角色声明",
+      "integration": [
+        "cli"
+      ],
+      "resumeDeclaration": "native",
+      "onlineState": "本轮未逐家探活",
+      "boundary": "仅登记和角色口径；不保证安装、授权、协议、平台、工作目录、实际工具成功或当前在线。",
+      "sourceLocator": "release/legion-service/external_agents.json:6",
+      "sourceSha256": "6b4b2f0ea345f2b4ba178a3a6a09a2eecd50425f6f5d06ccbc9f4b83c541205c"
+    },
+    {
+      "key": "paperclip",
+      "name": "Paperclip",
+      "source": "external",
+      "role": "control-plane",
+      "roleLabel": "控制平台",
+      "integration": [
+        "http"
+      ],
+      "resumeDeclaration": "cold_replay default",
+      "onlineState": "本轮未逐家探活",
+      "boundary": "仅登记和角色口径；不保证安装、授权、协议、平台、工作目录、实际工具成功或当前在线。",
+      "sourceLocator": "release/legion-service/external_agents.json:91",
+      "sourceSha256": "6b4b2f0ea345f2b4ba178a3a6a09a2eecd50425f6f5d06ccbc9f4b83c541205c"
+    },
+    {
+      "key": "deer-flow",
+      "name": "DeerFlow",
+      "source": "external",
+      "role": "agent",
+      "roleLabel": "执行角色声明",
+      "integration": [
+        "sdk"
+      ],
+      "resumeDeclaration": "native",
+      "onlineState": "本轮未逐家探活",
+      "boundary": "kind=orchestrator，但当前normalized role默认agent；不能只按kind移出agent声明组。",
+      "sourceLocator": "release/legion-service/external_agents.json:180",
+      "sourceSha256": "6b4b2f0ea345f2b4ba178a3a6a09a2eecd50425f6f5d06ccbc9f4b83c541205c"
+    },
+    {
+      "key": "cline",
+      "name": "Cline",
+      "source": "external",
+      "role": "agent",
+      "roleLabel": "执行角色声明",
+      "integration": [
+        "cli"
+      ],
+      "resumeDeclaration": "native",
+      "onlineState": "本轮未逐家探活",
+      "boundary": "仅登记和角色口径；不保证安装、授权、协议、平台、工作目录、实际工具成功或当前在线。",
+      "sourceLocator": "release/legion-service/external_agents.json:260",
+      "sourceSha256": "6b4b2f0ea345f2b4ba178a3a6a09a2eecd50425f6f5d06ccbc9f4b83c541205c"
+    },
+    {
+      "key": "goose",
+      "name": "Goose",
+      "source": "external",
+      "role": "agent",
+      "roleLabel": "执行角色声明",
+      "integration": [
+        "cli"
+      ],
+      "resumeDeclaration": "native",
+      "onlineState": "本轮未逐家探活",
+      "boundary": "仅登记和角色口径；不保证安装、授权、协议、平台、工作目录、实际工具成功或当前在线。",
+      "sourceLocator": "release/legion-service/external_agents.json:343",
+      "sourceSha256": "6b4b2f0ea345f2b4ba178a3a6a09a2eecd50425f6f5d06ccbc9f4b83c541205c"
+    },
+    {
+      "key": "openclaw",
+      "name": "OpenClaw",
+      "source": "external",
+      "role": "agent",
+      "roleLabel": "执行角色声明",
+      "integration": [
+        "cli"
+      ],
+      "resumeDeclaration": "native",
+      "onlineState": "本轮未逐家探活",
+      "boundary": "仅登记和角色口径；不保证安装、授权、协议、平台、工作目录、实际工具成功或当前在线。",
+      "sourceLocator": "release/legion-service/external_agents.json:461",
+      "sourceSha256": "6b4b2f0ea345f2b4ba178a3a6a09a2eecd50425f6f5d06ccbc9f4b83c541205c"
+    },
+    {
+      "key": "pi",
+      "name": "pi Coding Agent",
+      "source": "external",
+      "role": "agent",
+      "roleLabel": "执行角色声明",
+      "integration": [
+        "cli"
+      ],
+      "resumeDeclaration": "native",
+      "onlineState": "本轮未逐家探活",
+      "boundary": "仅登记和角色口径；不保证安装、授权、协议、平台、工作目录、实际工具成功或当前在线。",
+      "sourceLocator": "release/legion-service/external_agents.json:574",
+      "sourceSha256": "6b4b2f0ea345f2b4ba178a3a6a09a2eecd50425f6f5d06ccbc9f4b83c541205c"
+    },
+    {
+      "key": "nanobot",
+      "name": "nanobot",
+      "source": "external",
+      "role": "agent",
+      "roleLabel": "执行角色声明",
+      "integration": [
+        "cli"
+      ],
+      "resumeDeclaration": "cold_replay",
+      "onlineState": "本轮未逐家探活",
+      "boundary": "仅登记和角色口径；不保证安装、授权、协议、平台、工作目录、实际工具成功或当前在线。",
+      "sourceLocator": "release/legion-service/external_agents.json:703",
+      "sourceSha256": "6b4b2f0ea345f2b4ba178a3a6a09a2eecd50425f6f5d06ccbc9f4b83c541205c"
+    },
+    {
+      "key": "genericagent",
+      "name": "GenericAgent",
+      "source": "external",
+      "role": "agent",
+      "roleLabel": "执行角色声明",
+      "integration": [
+        "cli"
+      ],
+      "resumeDeclaration": "cold_replay",
+      "onlineState": "本轮未逐家探活",
+      "boundary": "仅登记和角色口径；不保证安装、授权、协议、平台、工作目录、实际工具成功或当前在线。",
+      "sourceLocator": "release/legion-service/external_agents.json:816",
+      "sourceSha256": "6b4b2f0ea345f2b4ba178a3a6a09a2eecd50425f6f5d06ccbc9f4b83c541205c"
+    },
+    {
+      "key": "omniagent",
+      "name": "OmniAgent",
+      "source": "external",
+      "role": "agent",
+      "roleLabel": "执行角色声明",
+      "integration": [
+        "cli"
+      ],
+      "resumeDeclaration": "cold_replay",
+      "onlineState": "本轮未逐家探活",
+      "boundary": "仅登记和角色口径；不保证安装、授权、协议、平台、工作目录、实际工具成功或当前在线。",
+      "sourceLocator": "release/legion-service/external_agents.json:902",
+      "sourceSha256": "6b4b2f0ea345f2b4ba178a3a6a09a2eecd50425f6f5d06ccbc9f4b83c541205c"
+    },
+    {
+      "key": "kimi-code",
+      "name": "Kimi Code CLI",
+      "source": "external",
+      "role": "agent",
+      "roleLabel": "执行角色声明",
+      "integration": [
+        "cli"
+      ],
+      "resumeDeclaration": "cold_replay",
+      "onlineState": "本轮未逐家探活",
+      "boundary": "仅登记和角色口径；不保证安装、授权、协议、平台、工作目录、实际工具成功或当前在线。",
+      "sourceLocator": "release/legion-service/external_agents.json:987",
+      "sourceSha256": "6b4b2f0ea345f2b4ba178a3a6a09a2eecd50425f6f5d06ccbc9f4b83c541205c"
+    },
+    {
+      "key": "ironclaw",
+      "name": "IronClaw",
+      "source": "external",
+      "role": "agent",
+      "roleLabel": "执行角色声明",
+      "integration": [
+        "cli"
+      ],
+      "resumeDeclaration": "cold_replay",
+      "onlineState": "本轮未逐家探活",
+      "boundary": "仅登记和角色口径；不保证安装、授权、协议、平台、工作目录、实际工具成功或当前在线。",
+      "sourceLocator": "release/legion-service/external_agents.json:1096",
+      "sourceSha256": "6b4b2f0ea345f2b4ba178a3a6a09a2eecd50425f6f5d06ccbc9f4b83c541205c"
+    },
+    {
+      "key": "aeon",
+      "name": "Aeon",
+      "source": "external",
+      "role": "control-plane",
+      "roleLabel": "控制平台",
+      "integration": [
+        "未声明任务transport"
+      ],
+      "resumeDeclaration": "cold_replay default",
+      "onlineState": "本轮未逐家探活",
+      "boundary": "仅登记和角色口径；不保证安装、授权、协议、平台、工作目录、实际工具成功或当前在线。",
+      "sourceLocator": "release/legion-service/external_agents.json:1180",
+      "sourceSha256": "6b4b2f0ea345f2b4ba178a3a6a09a2eecd50425f6f5d06ccbc9f4b83c541205c"
+    },
+    {
+      "key": "qwen-code",
+      "name": "Qwen Code CLI",
+      "source": "external",
+      "role": "agent",
+      "roleLabel": "执行角色声明",
+      "integration": [
+        "cli"
+      ],
+      "resumeDeclaration": "cold_replay",
+      "onlineState": "本轮未逐家探活",
+      "boundary": "仅登记和角色口径；不保证安装、授权、协议、平台、工作目录、实际工具成功或当前在线。",
+      "sourceLocator": "release/legion-service/external_agents.json:1273",
+      "sourceSha256": "6b4b2f0ea345f2b4ba178a3a6a09a2eecd50425f6f5d06ccbc9f4b83c541205c"
+    },
+    {
+      "key": "aider",
+      "name": "Aider",
+      "source": "external",
+      "role": "agent",
+      "roleLabel": "执行角色声明",
+      "integration": [
+        "sdk"
+      ],
+      "resumeDeclaration": "cold_replay default",
+      "onlineState": "本轮未逐家探活",
+      "boundary": "仅登记和角色口径；不保证安装、授权、协议、平台、工作目录、实际工具成功或当前在线。",
+      "sourceLocator": "release/legion-service/external_agents.json:1358",
+      "sourceSha256": "6b4b2f0ea345f2b4ba178a3a6a09a2eecd50425f6f5d06ccbc9f4b83c541205c"
+    },
+    {
+      "key": "opencode",
+      "name": "OpenCode",
+      "source": "external",
+      "role": "agent",
+      "roleLabel": "执行角色声明",
+      "integration": [
+        "cli"
+      ],
+      "resumeDeclaration": "cold_replay default",
+      "onlineState": "本轮未逐家探活",
+      "boundary": "仅登记和角色口径；不保证安装、授权、协议、平台、工作目录、实际工具成功或当前在线。",
+      "sourceLocator": "release/legion-service/external_agents.json:1454",
+      "sourceSha256": "6b4b2f0ea345f2b4ba178a3a6a09a2eecd50425f6f5d06ccbc9f4b83c541205c"
+    },
+    {
+      "key": "browser-use",
+      "name": "Browser Use",
+      "source": "external",
+      "role": "capability",
+      "roleLabel": "工具／能力来源",
+      "integration": [
+        "cli"
+      ],
+      "resumeDeclaration": "cold_replay default",
+      "onlineState": "本轮未逐家探活",
+      "boundary": "仅登记和角色口径；不保证安装、授权、协议、平台、工作目录、实际工具成功或当前在线。",
+      "sourceLocator": "release/legion-service/external_agents.json:1564",
+      "sourceSha256": "6b4b2f0ea345f2b4ba178a3a6a09a2eecd50425f6f5d06ccbc9f4b83c541205c"
+    },
+    {
+      "key": "gnhf",
+      "name": "GNHF Good Night Have Fun",
+      "source": "external",
+      "role": "agent",
+      "roleLabel": "执行角色声明",
+      "integration": [
+        "cli"
+      ],
+      "resumeDeclaration": "cold_replay default",
+      "onlineState": "本轮未逐家探活",
+      "boundary": "仅登记和角色口径；不保证安装、授权、协议、平台、工作目录、实际工具成功或当前在线。",
+      "sourceLocator": "release/legion-service/external_agents.json:1639",
+      "sourceSha256": "6b4b2f0ea345f2b4ba178a3a6a09a2eecd50425f6f5d06ccbc9f4b83c541205c"
+    },
+    {
+      "key": "macos-harness",
+      "name": "macOS Harness (browser-use)",
+      "source": "external",
+      "role": "capability",
+      "roleLabel": "工具／能力来源",
+      "integration": [
+        "cli"
+      ],
+      "resumeDeclaration": "cold_replay default",
+      "onlineState": "本轮未逐家探活",
+      "boundary": "仅登记和角色口径；不保证安装、授权、协议、平台、工作目录、实际工具成功或当前在线。",
+      "sourceLocator": "release/legion-service/external_agents.json:1730",
+      "sourceSha256": "6b4b2f0ea345f2b4ba178a3a6a09a2eecd50425f6f5d06ccbc9f4b83c541205c"
+    },
+    {
+      "key": "headlong",
+      "name": "Headlong llm",
+      "source": "external",
+      "role": "agent",
+      "roleLabel": "执行角色声明",
+      "integration": [
+        "cli"
+      ],
+      "resumeDeclaration": "cold_replay default",
+      "onlineState": "本轮未逐家探活",
+      "boundary": "仅登记和角色口径；不保证安装、授权、协议、平台、工作目录、实际工具成功或当前在线。",
+      "sourceLocator": "release/legion-service/external_agents.json:1811",
+      "sourceSha256": "6b4b2f0ea345f2b4ba178a3a6a09a2eecd50425f6f5d06ccbc9f4b83c541205c"
+    },
+    {
+      "key": "harness-anything",
+      "name": "Harness Anything",
+      "source": "external",
+      "role": "capability",
+      "roleLabel": "工具／能力来源",
+      "integration": [
+        "未声明任务transport"
+      ],
+      "resumeDeclaration": "cold_replay default",
+      "onlineState": "本轮未逐家探活",
+      "boundary": "仅登记和角色口径；不保证安装、授权、协议、平台、工作目录、实际工具成功或当前在线。",
+      "sourceLocator": "release/legion-service/external_agents.json:1878",
+      "sourceSha256": "6b4b2f0ea345f2b4ba178a3a6a09a2eecd50425f6f5d06ccbc9f4b83c541205c"
+    },
+    {
+      "key": "hass-agent",
+      "name": "HASS.Agent",
+      "source": "external",
+      "role": "capability",
+      "roleLabel": "工具／能力来源",
+      "integration": [
+        "未声明任务transport"
+      ],
+      "resumeDeclaration": "cold_replay default",
+      "onlineState": "本轮未逐家探活",
+      "boundary": "仅登记和角色口径；不保证安装、授权、协议、平台、工作目录、实际工具成功或当前在线。",
+      "sourceLocator": "release/legion-service/external_agents.json:1933",
+      "sourceSha256": "6b4b2f0ea345f2b4ba178a3a6a09a2eecd50425f6f5d06ccbc9f4b83c541205c"
+    },
+    {
+      "key": "loopx",
+      "name": "LoopX",
+      "source": "external",
+      "role": "capability",
+      "roleLabel": "工具／能力来源",
+      "integration": [
+        "cli"
+      ],
+      "resumeDeclaration": "cold_replay default",
+      "onlineState": "本轮未逐家探活",
+      "boundary": "仅登记和角色口径；不保证安装、授权、协议、平台、工作目录、实际工具成功或当前在线。",
+      "sourceLocator": "release/legion-service/external_agents.json:1980",
+      "sourceSha256": "6b4b2f0ea345f2b4ba178a3a6a09a2eecd50425f6f5d06ccbc9f4b83c541205c"
+    },
+    {
+      "key": "openhands",
+      "name": "OpenHands",
+      "source": "external",
+      "role": "agent",
+      "roleLabel": "执行角色声明",
+      "integration": [
+        "cli"
+      ],
+      "resumeDeclaration": "cold_replay default",
+      "onlineState": "本轮未逐家探活",
+      "boundary": "仅登记和角色口径；不保证安装、授权、协议、平台、工作目录、实际工具成功或当前在线。",
+      "sourceLocator": "release/legion-service/external_agents.json:2077",
+      "sourceSha256": "6b4b2f0ea345f2b4ba178a3a6a09a2eecd50425f6f5d06ccbc9f4b83c541205c"
+    },
+    {
+      "key": "mobilerun",
+      "name": "mobilerun",
+      "source": "external",
+      "role": "capability",
+      "roleLabel": "工具／能力来源",
+      "integration": [
+        "未声明任务transport"
+      ],
+      "resumeDeclaration": "cold_replay default",
+      "onlineState": "本轮未逐家探活",
+      "boundary": "仅登记和角色口径；不保证安装、授权、协议、平台、工作目录、实际工具成功或当前在线。",
+      "sourceLocator": "release/legion-service/external_agents.json:2173",
+      "sourceSha256": "6b4b2f0ea345f2b4ba178a3a6a09a2eecd50425f6f5d06ccbc9f4b83c541205c"
+    },
+    {
+      "key": "grok-bot-reconstructed",
+      "name": "Grok Bot 0.18 Reconstructed",
+      "source": "external",
+      "role": "ui-platform",
+      "roleLabel": "桌面平台",
+      "integration": [
+        "未声明任务transport"
+      ],
+      "resumeDeclaration": "native",
+      "onlineState": "本轮未逐家探活",
+      "boundary": "非官方source-oriented reconstruction；ui-platform，无任务transport；不能写成xAI/Grok官方模型或答题成员。",
+      "sourceLocator": "release/legion-service/external_agents.json:2408",
+      "sourceSha256": "6b4b2f0ea345f2b4ba178a3a6a09a2eecd50425f6f5d06ccbc9f4b83c541205c"
+    },
+    {
+      "key": "prime-intellect",
+      "name": "Prime Agent (Prime Intellect)",
+      "source": "external",
+      "role": "agent",
+      "roleLabel": "执行角色声明",
+      "integration": [
+        "cli"
+      ],
+      "resumeDeclaration": true,
+      "onlineState": "本轮未逐家探活",
+      "boundary": "仅登记和角色口径；不保证安装、授权、协议、平台、工作目录、实际工具成功或当前在线。",
+      "sourceLocator": "release/legion-service/external_agents.json:2540",
+      "sourceSha256": "6b4b2f0ea345f2b4ba178a3a6a09a2eecd50425f6f5d06ccbc9f4b83c541205c"
+    },
+    {
+      "key": "penguin-harness",
+      "name": "Penguin Harness (Prism-Shadow)",
+      "source": "external",
+      "role": "agent",
+      "roleLabel": "执行角色声明",
+      "integration": [
+        "cli"
+      ],
+      "resumeDeclaration": false,
+      "onlineState": "本轮未逐家探活",
+      "boundary": "与builtin penguin同一Prism-Shadow代码生态，两个接入/版本声明，不作独立厂商翻倍。",
+      "sourceLocator": "release/legion-service/external_agents.json:2783",
+      "sourceSha256": "6b4b2f0ea345f2b4ba178a3a6a09a2eecd50425f6f5d06ccbc9f4b83c541205c"
+    }
+  ],
+  "coreFeatures": [
+    {
+      "key": "cc",
+      "feature": "原生Claude Code CLI以stream-json返回事件，原会话用--resume继续，不由军团拼接多份答案代替。",
+      "why": "保留编码工作台与会话连续性，进度/工具结果可回流。",
+      "evidence": "本轮未新验运行；本轮仅核适配器与本地公开仓说明。",
+      "limit": "公开claude-code-oss目录是文档/插件材料，不冒称掌握闭源核心。当前适配器--bare会跳过hooks/插件/自动记忆等，不能宣传全部原生扩展都原样启用。",
+      "sourceRefs": [
+        "R-CC-ADAPTER",
+        "R-CC-PUBLIC-REPO"
+      ]
+    },
+    {
+      "key": "codex",
+      "feature": "以原生thread和exec resume恢复；在持久工作目录执行并回收文件/原生事件。",
+      "why": "旧工程与线程不用仅靠摘要重建。",
+      "evidence": "TAKEOVER：旧本地同工程后续可交Hermes继续。",
+      "limit": "MAIN源码快照不等于当前部署二进制；同Astra冷接项目不代表跨家无损迁移。",
+      "sourceRefs": [
+        "R-CODEX-ADAPTER",
+        "R-CODEX-UPSTREAM"
+      ]
+    },
+    {
+      "key": "hermes",
+      "feature": "直接调AIAgent.run_conversation(history)，原生工具start/complete callback形成执行事实，不是让Codex代答。",
+      "why": "自己的工具执行与会话历史可接到同一项目上。",
+      "evidence": "TAKEOVER：原生工具修改与采用/恢复旧记录。",
+      "limit": "只证一个本地项目；不外推全家稳定或所有SDK版本一致。",
+      "sourceRefs": [
+        "R-HERMES-ADAPTER",
+        "R-HERMES-UPSTREAM"
+      ]
+    },
+    {
+      "key": "deepseek",
+      "feature": "DSH桥先查持久session，再用agents.resume/create与followup；从事件取final及失败。",
+      "why": "保留事件化推理/工具循环和恢复入口。",
+      "evidence": "本轮未新验运行；未重放会话。",
+      "limit": "源码桥需对应依赖/源码；缺失时有旧CLI回退，不能将所有执行都标native resume或最快。",
+      "sourceRefs": [
+        "R-DSH-BRIDGE",
+        "R-DSH-ADAPTER"
+      ]
+    },
+    {
+      "key": "deepagents",
+      "feature": "当前worker用create_deep_agent＋SqliteSaver保存thread图状态，携带原生todos及未完节点。",
+      "why": "把原生图/工具与持久检查点用于继续工作，不仅复写文本消息。",
+      "evidence": "本轮未新验运行。",
+      "limit": "B manifest旧spec仍cold_replay/compaction none，与当前worker存在差异；这里按实现说明，不把声明当运行证明。",
+      "sourceRefs": [
+        "R-DA-WORKER",
+        "R-DA-ADAPTER"
+      ]
+    },
+    {
+      "key": "jcode",
+      "feature": "原生run --json/--resume保存session_id；本地Rust源码有会话快照/日志和拒空覆盖保护。",
+      "why": "保留长任务本身的持久状态与工程路径。",
+      "evidence": "本轮未新验运行；MAIN与B的接入/模型声明不同，未绑定当前安装版本。",
+      "limit": "Rust源码存在不证明此刻执行的是这版；不固定成“只负责某职业”。",
+      "sourceRefs": [
+        "R-JCODE-ADAPTER",
+        "R-JCODE-UPSTREAM"
+      ]
+    },
+    {
+      "key": "penguin",
+      "feature": "首轮run、续作chat --resume；原生续作保留原会话的模型/工作目录。",
+      "why": "沿用原会话而不是每次重开工程。",
+      "evidence": "ONBOARD：penguin-harness旧工具落盘通过，但速度阶段FAIL。",
+      "limit": "penguin与penguin-harness同源，不是两家独立公司；两配置/版本及当前二进制不能据此认定完全相同。",
+      "sourceRefs": [
+        "R-PENGUIN-ADAPTER",
+        "R-PENGUIN-UPSTREAM",
+        "R-PENGUIN-IDENTITY"
+      ]
+    },
+    {
+      "key": "prime",
+      "feature": "旧prime兼容key转接prime-intellect，使用Prime JSONL v3会话原格式，坏checkpoint不伪造恢复。",
+      "why": "既有入口可继续用，原生会话格式有可核验边界。",
+      "evidence": "ONBOARD：Prime旧短工具和模式记录通过，但server pool未验。",
+      "limit": "两个key同一Prime生态；不是独立成员数量翻倍，更不是pi重复品牌计算。",
+      "sourceRefs": [
+        "R-PRIME-ALIAS",
+        "R-PRIME-SESSION",
+        "R-PRIME-UPSTREAM"
+      ]
+    },
+    {
+      "key": "omnigent",
+      "feature": "原生框架按会话启动harness进程并有插件注册表；Meyo后端从原生信息读子harness，保留完整绑定和resume参数。",
+      "why": "可利用其他工作台的原生执行入口，而非把所有家改成同一种Agent。",
+      "evidence": "本轮未新验运行；未枚举/调用实际子家。",
+      "limit": "旧profile“18子家”不作为当前数量；Omnigent不等于外接OmniAgent，嵌套也不自动证明集体更强。",
+      "sourceRefs": [
+        "R-OMNIGENT-ADAPTER",
+        "R-OMNIGENT-BACKEND",
+        "R-OMNIGENT-UPSTREAM",
+        "R-OMNIGENT-IDENTITY"
+      ]
+    }
+  ],
+  "identityNotes": [
+    "prime是转接prime-intellect的兼容入口，不是两家独立Prime。",
+    "penguin与penguin-harness同源；两入口和两份配置不等于两个独立厂家，也不证明运行版本相同。",
+    "Omnigent与OmniAgent不是同一个项目：前者是元Harness入口，后者是另一外接声明。",
+    "Grok Bot 0.18 Reconstructed在此为ui-platform，不能当Grok官方模型或独立答题成员。"
+  ],
+  "BAndMainSameKeysAndRoles": true,
+  "BAndMainIdenticalConfig": false,
+  "catalogScope": "B目录规范投影；主仓同key/角色但配置不同，不能当实时在线名单或当前生产版本。",
+  "catalogSources": [
+    {
+      "root": "B",
+      "path": "release/legion-service/harness_manifest.json",
+      "sha256": "da565783215e2943ab8043df1599d8f771930aaf4efbda15c74e0d197b366a5e",
+      "scope": "只读登记文件，不是运行或生产版本验收"
+    },
+    {
+      "root": "B",
+      "path": "release/legion-service/external_agents.json",
+      "sha256": "6b4b2f0ea345f2b4ba178a3a6a09a2eecd50425f6f5d06ccbc9f4b83c541205c",
+      "scope": "只读登记文件，不是运行或生产版本验收"
+    },
+    {
+      "root": "MAIN",
+      "path": "release/legion-service/harness_manifest.json",
+      "sha256": "2d90fe1d6659d20c855694ce1c6b48b9ff6cb313b44c14dc69935c510e57f920",
+      "scope": "只读登记文件，不是运行或生产版本验收"
+    },
+    {
+      "root": "MAIN",
+      "path": "release/legion-service/external_agents.json",
+      "sha256": "4ea6ce58cbecab82d9b35ee21d2438538812cf08144e9c9c97b108e109c0b358",
+      "scope": "只读登记文件，不是运行或生产版本验收"
+    }
+  ],
+  "ecosystemNotes": [
+    {
+      "name": "Orca",
+      "registered": false,
+      "fact": "MAIN有生态IDE源码，当前两个名册未登记；不能把本地目录等同所有同名Orcha项目，更不说明已可派单。"
+    },
+    {
+      "name": "Multica",
+      "registered": false,
+      "fact": "当前未登记；限定目录核查尚无精确本地源码指针，不宣称全机不存在，也不充作已接入成员。"
+    }
+  ],
+  "whyTheseTraits": [
+    {
+      "title": "保留不同原生工作方式",
+      "reason": "各家会话、工具循环、插件和恢复方式不同；先复用它们已有能力，不把全部削成一个通用聊天接口。",
+      "limit": "这是设计取舍，不是品牌实力排行榜；适配也可能裁掉扩展，例如当前CC的--bare。"
+    },
+    {
+      "title": "共享同一项目现场",
+      "reason": "接力要带原目标、工程、版本、来源与真实失败，减少重复解释和另做一份。",
+      "limit": "共享的是获授权的必要现场，不是所有人的私聊、凭据或全部原生内部状态。"
+    },
+    {
+      "title": "帮助必须被原作者消费",
+      "reason": "同伴意见有用的终点是原文件真的改变，不是多收到一段总结。",
+      "limit": "有求助回执不等于采用；需要原作者续作、工具动作和文件差异。"
+    },
+    {
+      "title": "并行要有独立写面和收口者",
+      "reason": "可拆任务可以同时做，但要共同基线、独立工作副本，由原作者处理差异与集成。",
+      "limit": "分支多不等于贡献都成功；项目锁也不是任意原生shell的完整OS隔离。"
+    },
+    {
+      "title": "把失败和全部开销留下",
+      "reason": "知道哪里失败、换了谁、是否重复工作，才能判断协作究竟有没有净收益。",
+      "limit": "接力不能掩盖第一家的失败；不同任务时间不横向排名，费用不完整就不宣称更便宜。"
+    }
+  ],
+  "mechanisms": [
+    {
+      "id": "M1",
+      "title": "模型规划，不是平台替原作者解题",
+      "chain": [
+        "目标/附件/允许成员与能力状态 → 模型规划CLI → _parse_planner_json → typed任务"
+      ],
+      "sourceRefs": [
+        "O-PLAN_POOL",
+        "O-PLAN_CALL",
+        "O-DAG"
+      ],
+      "limit": "成员池和显式限制先由平台给定；规划失败可换模型重试，最多三轮，最后仍可能返回失败。计划生成不证明最佳组织，更不是已交付。"
+    },
+    {
+      "id": "M2",
+      "title": "选负责人有模型提案，也有静态顺序与规则评分",
+      "chain": [
+        "角色过滤/可运行集合 → cost_class/偏好/历史适任度排序 → 显式任命或竞选 → 规则择优"
+      ],
+      "sourceRefs": [
+        "O-POOL_FILTER",
+        "O-CAPTAIN_ORDER",
+        "O-CAPTAIN_APPOINT",
+        "O-ELECTION_LIMIT",
+        "O-ELECTION_SCORE"
+      ],
+      "limit": "默认竞选只截取排序前3家；另有显式负责人/偏好和直接取首位的任命函数。实际winner=max(_bid_strength)，包含任务/方向/图数量、方案字段、场景/静态成绩等启发式，不是全生态最优证明；函数注释不等于每次主链都执行竞选。"
+    },
+    {
+      "id": "M3",
+      "title": "平台执行依赖、绑定和恢复，不承担作品质量最优决策",
+      "chain": [
+        "typed DAG → runnable绑定 → 租约/取消/并行执行 → 项目packet与结果"
+      ],
+      "sourceRefs": [
+        "O-DAG",
+        "O-BIND",
+        "O-FALLBACK"
+      ],
+      "limit": "无显式任务时仍有配置/固定快家顺序回退；任务名不等于实际成员名。把工程与用户约束交给原生负责人，不意味着调度没有固定策略或运行限制。"
+    },
+    {
+      "id": "M4",
+      "title": "求同伴输入后，让原作者原生继续",
+      "chain": [
+        "成员need_peer → 冻结请求/持久exchange → 同伴或平台预检回执 → 原harness续作 → 返回真实续作结果"
+      ],
+      "sourceRefs": [
+        "O-PEER_START",
+        "O-PEER_CONTINUE",
+        "O-PEER_RESULT"
+      ],
+      "limit": "同伴回复不是最终作品；当前源码也明确不凭已启动无终态再派写者。预检失败须标平台未执行，不伪装同伴意见；最终是否采用仍需原生工具/文件证据。"
+    },
+    {
+      "id": "M5",
+      "title": "转交与分叉分工不同，最终集成仍归原作者",
+      "chain": [
+        "handoff移交执行者并带项目现场；fork固定共同基线→独立可写候选→子结果/差异→原生父继续读文件集成"
+      ],
+      "sourceRefs": [
+        "O-CAPTAIN_HANDOFF",
+        "O-OWNER_HANDOFF",
+        "O-FORK_CHOICE",
+        "O-FORK_COPY",
+        "O-FORK_WRITE",
+        "O-FORK_THREADS",
+        "O-FORK_INTEGRATE",
+        "O-PARALLEL_WORKSPACES"
+      ],
+      "limit": "换家不保证原生会话格式互通；handoff只带过渡文本和项目snapshot，不宣称完整原生历史转换。fork有容量/可运行限制，未建议成员时仍有回退；平台不自动合并、采用或发布。 begin_parallel核父会话/基线并逐子创建工作副本，捕获前后检查源是否变化；依赖可信调用方暂停父写者，项目锁不隔离任意原生shell写入。"
+    }
+  ],
+  "examples": [
+    {
+      "id": "C1",
+      "title": "同一工程从Codex交给Hermes续改",
+      "date": "2026-09-20T01:27:39.347236+08:00",
+      "problem": "已有2048练习工程需增加撤销快捷键并保留作者修改、资料和许可证。",
+      "actors": [
+        {
+          "member": "Codex",
+          "model": "gpt-6-astra",
+          "role": "前一已采用版本作者"
+        },
+        {
+          "member": "Hermes",
+          "model": "gpt-6-astra",
+          "role": "用自身原生工具读取并修改同一项目"
+        }
+      ],
+      "nodes": [
+        [
+          "Codex",
+          "既有工程与版本"
+        ],
+        [
+          "Hermes",
+          "原生工具冷接续改"
+        ],
+        [
+          "原工程",
+          "采用与恢复有旧记录"
+        ]
+      ],
+      "method": "cold_project_takeover=true；新Hermes原生会话，不是接着Codex原生thread恢复；未借Codex CLI替Hermes答题。",
+      "actions": [
+        "原生工具摘录含search_files/execute_code/patch/write_file/terminal",
+        "差异记录列index.html、keyboard_input_manager.js及快捷键测试文件"
+      ],
+      "result": "旧验收记录：Ctrl/Command+Z单步撤销可用，输入区域不误触撤销；同工程采用/恢复/重启后保留。",
+      "cost": {
+        "wall_seconds_recorded": 182.35,
+        "native_runs_recorded": 1,
+        "native_api_calls_recorded": 14,
+        "money_cost": "not_established"
+      },
+      "sourceRefs": [
+        "TAKEOVER",
+        "TAKEOVER_NATIVE",
+        "TAKEOVER_DIFF"
+      ],
+      "limit": "同模型跨Harness不能证明异构模型互补收益；不是同条件比单家更快或更好；原导出ZIP本轮不存在，未重新核最终文件或浏览器效果；不证明全部成员稳定或全部项目可换家",
+      "proofScope": "旧原生、差异与验收记录；本轮只读，原临时完整包未找回"
+    },
+    {
+      "id": "C2",
+      "title": "Hermes求Codex只读意见，再由原Hermes修原文件",
+      "date": "2026-09-20T03:36:29.286351+08:00",
+      "problem": "输入/可编辑目标里的普通键仍会误动棋盘，需修同一作品而不新增游戏功能。",
+      "actors": [
+        {
+          "member": "Hermes",
+          "model": "gpt-6-astra",
+          "role": "请求者和续作者；同一原生会话"
+        },
+        {
+          "member": "Codex",
+          "model": "gpt-6-astra",
+          "model_evidence": "旧verification明确all runs；本轮未另读已丢失的活动原生会话",
+          "role": "提供代码路径只读意见"
+        }
+      ],
+      "nodes": [
+        [
+          "Hermes",
+          "提出具体只读问题"
+        ],
+        [
+          "Codex",
+          "提供独立观察"
+        ],
+        [
+          "原Hermes",
+          "读意见后继续修改"
+        ]
+      ],
+      "method": "同一Hermes原生会话读取同伴结果后继续；原始输入标记与工具记录见下方。",
+      "actions": [
+        "原档保留peer_reply_verbatim_in_native_input=true及输入SHA",
+        "同Hermes原生会话resumed_native=true",
+        "回复后15条实际工具记录，包括read_file/execute_code/write_file/patch",
+        "差异记录：只改1个原JS，64个原文件保留，并另增验证材料"
+      ],
+      "result": "旧验收：5类编辑目标不再误动棋盘；原有移动/撤销保留，可采用与恢复。",
+      "cost": {
+        "wall_seconds_recorded": 399.32,
+        "requester_native_runs_recorded": 2,
+        "peer_native_runs_recorded": 1,
+        "hermes_api_calls_recorded": 16,
+        "codex_api_calls": "not_separately_reported",
+        "money_cost": "unknown"
+      },
+      "sourceRefs": [
+        "PEER",
+        "PEER_NATIVE",
+        "PEER_DIFF"
+      ],
+      "limit": "本单显式要求不同视角且限制两家，不是无需提示的全生态自主选优；全文输入与后续修改比done强，但本轮未取回原原生数据库或成品ZIP重做端到端验证；同为Astra，不证明异构模型收益、降本或长期互学",
+      "proofScope": "旧原生、差异与验收记录；本轮只读，原临时完整包未找回"
+    },
+    {
+      "id": "C3",
+      "title": "共同基线分叉与原作者集成：局部成功，不包装全绿",
+      "date": "2026-09-20T05:54:36.892011+08:00",
+      "problem": "同一2048作品的390px布局与本地README需改进，并显式验证独立并行写面。",
+      "actors": [
+        {
+          "member": "父Hermes",
+          "model": "gpt-6-astra（原请求限定；完整当前原始结果未恢复）",
+          "role": "提出分工、读取贡献并负责集成"
+        },
+        {
+          "member": "子Hermes",
+          "model": "原记录限定Astra，逐子实际模型收据未独立恢复",
+          "role": "README贡献，记录done并被采用"
+        },
+        {
+          "member": "子Codex",
+          "model": "原记录限定Astra，逐子实际模型收据未独立恢复",
+          "role": "手机布局任务timeout，只留下baseline证据；未完成布局代码"
+        }
+      ],
+      "nodes": [
+        [
+          "原Hermes",
+          "同一固定基线"
+        ],
+        [
+          "Hermes＋Codex",
+          "不同写面并行"
+        ],
+        [
+          "原Hermes",
+          "集成一份贡献并补做"
+        ]
+      ],
+      "method": "归档记录含两个不同workspace/candidate、相同base_snapshot；执行窗口重叠229.653秒。不等于已核所有运行时硬隔离。",
+      "actions": [
+        "归档记录含两个不同workspace/candidate、相同base_snapshot；执行窗口重叠229.653秒。不等于已核所有运行时硬隔离。"
+      ],
+      "result": "旧验收：README中文本地说明被原Hermes集成；手机样式由原负责人补做，改README/main.css/main.scss。不是两个子成员都成功贡献代码。",
+      "cost": {
+        "wall_seconds_recorded": 538.11,
+        "overlap_seconds_recorded": 229.653,
+        "caller_attempt_budget_seconds": 240,
+        "parent_status": "timeout",
+        "codex_child_status": "timeout",
+        "hermes_child_status": "done",
+        "money_cost": "unknown; timed-out usage incomplete"
+      },
+      "sourceRefs": [
+        "FORK",
+        "FORK_BROWSER"
+      ],
+      "limit": "完整并行协作仍未证成；不是两份成功成果自动合并；新result_ref索引发生于真实原生试验之后，仅有替身测试，不外推为原生读取或提速已验；旧固定子结果/快照和导出ZIP当前缺失，不能重新逐字核采用关系",
+      "proofScope": "旧原生、差异与验收记录；本轮只读，原临时完整包未找回"
+    }
+  ],
+  "failures": [
+    {
+      "id": "borrow",
+      "title": "借到入口，不等于工具执行成功",
+      "fact": "旧能力借用修过上下文与JSON传递，子原生也启动；但沙箱返回Operation not permitted (71)，指定文件读取未证，原作品未改。",
+      "limit": "不能把outer ok/done包装成能力借用完成，更不能绕过沙箱来把失败改成成功。"
+    },
+    {
+      "id": "team",
+      "title": "组队有过不如单家的记录",
+      "fact": "旧10题自述中组队v1/v2/v3为4/4/2，最强单家为5/10。",
+      "limit": "不是当前排名，但不支持“人多必胜”。三个协作个案也没有同条件最强单家与完整费用对照。"
+    }
+  ],
+  "codeSources": [
+    {
+      "id": "R-NORM",
+      "root": "B",
+      "path": "release/legion-service/runtime_manifest.py",
+      "sha256": "45588d1a3137edfd9748b8c8e8a3a6515d446498a67e3622591de3c65506c9b7",
+      "uncommitted": false,
+      "excerpts": [
+        {
+          "lines": [
+            72,
+            82
+          ],
+          "text": "def _external_definition(item: dict) -> dict:\n    declared = dict(item.get(\"adapter_capabilities\") or {})\n    transports = [row for row in item.get(\"transports\") or [] if isinstance(row, dict)]\n    protocols = [str(row.get(\"type\")) for row in transports if row.get(\"type\")]\n    cost_class = str(declared.get(\"cost_class\") or \"standard\")\n    if cost_class not in _COST_CLASSES:\n        cost_class = \"standard\"\n    specs = {\n        \"integration\": \"+\".join(protocols) or \"external\",\n        \"streaming\": declared.get(\"streaming\", \"events\" if \"cli\" in protocols else \"complete\"),\n        \"resume\": declared.get(\"resume\", \"cold_replay\"),"
+        },
+        {
+          "lines": [
+            95,
+            111
+          ],
+          "text": "    return {\n        \"key\": str(item.get(\"key\") or \"\"),\n        \"name\": str(item.get(\"name\") or item.get(\"key\") or \"\"),\n        \"source\": \"external\",\n        \"adapter\": \"external_transport\",\n        \"direction\": str(item.get(\"direction\") or \"programming\"),\n        \"scenes\": list(item.get(\"scenes\") or []),\n        \"model_picks\": list(item.get(\"model_picks\") or []),\n        \"model_compatibility\": {\n            \"endpoint_types\": [\"chat\"], \"wire_api\": \"self_managed\", \"reasoning_tools\": \"native\",\n            **dict(item.get(\"model_compatibility\") or {}),\n        },\n        \"execution\": execution,\n        \"specs\": specs,\n        \"profile\": dict(item.get(\"profile\") or _default_profile(str(item.get(\"key\") or \"\"), item)),\n        \"runtime\": copy.deepcopy(item),\n    }"
+        },
+        {
+          "lines": [
+            114,
+            129
+          ],
+          "text": "def _builtin_definition(key: str, item: dict) -> dict:\n    out = copy.deepcopy(item)\n    profile = dict(item.get(\"profile\") or {})\n    profile.setdefault(\"name\", key)\n    profile.setdefault(\"intro\", f\"{key} 通过统一运行时 manifest 接入军团。\")\n    profile.setdefault(\"best_for\", \"通用 Agent 任务\")\n    profile.setdefault(\"strengths\", [\"统一运行时契约\"])\n    profile.setdefault(\"style\", \"按自身原生能力执行\")\n    out[\"profile\"] = profile\n    out.update({\"key\": key, \"name\": str(profile[\"name\"]), \"source\": \"builtin\",\n                \"runtime\": dict(item.get(\"runtime\") or {})})\n    # 平台面角色(用户2026-09-08钉死'auto剔除军团'):builtin家的runtime.execution_role如实透出——\n    # capability/control-plane/ui-platform 的家永不进答题池(派单池纯净性铁律);外部catalog\n    # 早有此过滤,内置manifest家现在同源接入。\n    if str((out[\"runtime\"] or {}).get(\"execution_role\") or \"\"):\n        out[\"execution_role\"] = str(out[\"runtime\"][\"execution_role\"])"
+        },
+        {
+          "lines": [
+            239,
+            244
+          ],
+          "text": "def builtin_adapter_specs() -> dict[str, str]:\n    return {key: str(item.get(\"adapter\") or \"\") for key, item in load_definitions().items()\n            if item.get(\"source\") == \"builtin\" and item.get(\"adapter\")\n            and str((item.get(\"runtime\") or {}).get(\"execution_role\")\n                    or item.get(\"execution_role\") or \"agent\")\n            not in {\"capability\", \"control-plane\", \"ui-platform\"}}"
+        }
+      ],
+      "scope": "源码快照，不自动代表当前执行二进制"
+    },
+    {
+      "id": "R-CC-ADAPTER",
+      "root": "B",
+      "path": "harness_baselines/meyo-orchestrator/harness_registry.py",
+      "sha256": "336aea7d8259df32058fe89390ed8cbcac94c4eba99775a87a6a00632cb384f1",
+      "uncommitted": false,
+      "excerpts": [
+        {
+          "lines": [
+            1677,
+            1680
+          ],
+          "text": "        _checkpoint = (ctx.task_memory or {}).get(\"native_checkpoint\") or {}\n        _resume_id = str(_checkpoint.get(\"session_id\") or \"\") if isinstance(_checkpoint, dict) else \"\"\n        prompt = _legion_prompt(_prior_attempts_prelude(ctx.prior_attempts) + question, ctx)\n        cmd = [\"claude\", \"-p\", prompt, \"--output-format\", \"stream-json\", \"--verbose\"]"
+        },
+        {
+          "lines": [
+            1689,
+            1695
+          ],
+          "text": "        cmd.insert(1, \"--bare\")\n        _native_sid = str(_resume_id)          # resume 路径:native sid=resume id(撞锁重试要替换它)\n        if _resume_id:\n            cmd += [\"--resume\", _resume_id]\n        else:\n            # Claude Code 要 UUID；首轮显式固定 session_id，下一进程才能原生 --resume 同一对话。\n            import uuid as _uuid"
+        }
+      ],
+      "scope": "源码快照，不自动代表当前执行二进制"
+    },
+    {
+      "id": "R-CODEX-ADAPTER",
+      "root": "B",
+      "path": "harness_baselines/meyo-orchestrator/harness_registry.py",
+      "sha256": "336aea7d8259df32058fe89390ed8cbcac94c4eba99775a87a6a00632cb384f1",
+      "uncommitted": false,
+      "excerpts": [
+        {
+          "lines": [
+            2112,
+            2116
+          ],
+          "text": "            # Codex 原生续会话：首轮 JSONL 的 thread.started 给出 thread_id；后续 attempt 用\n            # `codex exec resume <thread_id> <prompt>`，让工具结果/history/checkpoint 留在原线程，\n            # 不再只靠失败文本重建提示。源码依据 exec/src/cli.rs:143-186、exec_events.rs:13,42。\n            _checkpoint = (ctx.task_memory or {}).get(\"native_checkpoint\") or {}\n            _resume_id = str(_checkpoint.get(\"session_id\") or \"\") if isinstance(_checkpoint, dict) else \"\""
+        },
+        {
+          "lines": [
+            2131,
+            2137
+          ],
+          "text": "            cmd = [binp, \"exec\", *common]\n            if _resume_id:\n                cmd += [\"resume\", _resume_id]\n            cmd += [_legion_prompt(codex_question, ctx)]\n            r = _run_task(cmd, _WALL_S, env=env, cwd=str(codex_ws), tag=\"codex\")\n        final = out.read_text().strip() if out.exists() else \"\"\n        _thread_id, _codex_usage, _codex_native_events, _native_facts = _native_output("
+        }
+      ],
+      "scope": "源码快照，不自动代表当前执行二进制"
+    },
+    {
+      "id": "R-CODEX-UPSTREAM",
+      "root": "MAIN",
+      "path": "harness_baselines/codex/codex-rs/exec/src/lib.rs",
+      "sha256": "9b112c6e245c409c1395e4b41d4bbcd9fdbafd787cdf6873277084ed3c509b2c",
+      "uncommitted": true,
+      "excerpts": [
+        {
+          "lines": [
+            814,
+            832
+          ],
+          "text": "    // Resolve resume and fork through existing app-server thread lifecycle APIs.\n    let (primary_thread_id, fallback_session_configured) = if let Some(ExecCommand::Resume(args)) =\n        command.as_ref()\n    {\n        if let Some(thread_id) =\n            resolve_resume_thread_id(&client, &config, state_db.as_ref(), args).await?\n        {\n            let response: ThreadResumeResponse = send_request_with_response(\n                &client,\n                ClientRequest::ThreadResume {\n                    request_id: request_ids.next(),\n                    params: thread_resume_params_from_config(\n                        &config,\n                        thread_id,\n                        resume_approvals_reviewer_override,\n                    ),\n                },\n                \"thread/resume\",\n            )"
+        }
+      ],
+      "scope": "源码快照，不自动代表当前执行二进制"
+    },
+    {
+      "id": "R-CC-PUBLIC-REPO",
+      "root": "MAIN",
+      "path": "harness_baselines/claude-code-oss/README.md",
+      "sha256": "aa0d8b80ac083e1591be0789273f447058cc9187b4331634a5614155da27778d",
+      "uncommitted": true,
+      "excerpts": [
+        {
+          "lines": [
+            1,
+            9
+          ],
+          "text": "# Claude Code\n\n![](https://img.shields.io/badge/Node.js-18%2B-brightgreen?style=flat-square) [![npm]](https://www.npmjs.com/package/@anthropic-ai/claude-code)\n\n[npm]: https://img.shields.io/npm/v/@anthropic-ai/claude-code.svg?style=flat-square\n\nClaude Code is an agentic coding tool that lives in your terminal, understands your codebase, and helps you code faster by executing routine tasks, explaining complex code, and handling git workflows -- all through natural language commands. Use it in your terminal, IDE, or tag @claude on Github.\n\n**Learn more in the [official documentation](https://code.claude.com/docs/en/overview)**."
+        },
+        {
+          "lines": [
+            46,
+            50
+          ],
+          "text": "2. Navigate to your project directory and run `claude`.\n\n## Plugins\n\nThis repository includes several Claude Code plugins that extend functionality with custom commands and agents. See the [plugins directory](./plugins/README.md) for detailed documentation on available plugins."
+        }
+      ],
+      "scope": "源码快照，不自动代表当前执行二进制"
+    },
+    {
+      "id": "R-HERMES-ADAPTER",
+      "root": "B",
+      "path": "harness_baselines/meyo-orchestrator/harness_registry.py",
+      "sha256": "336aea7d8259df32058fe89390ed8cbcac94c4eba99775a87a6a00632cb384f1",
+      "uncommitted": false,
+      "excerpts": [
+        {
+          "lines": [
+            2520,
+            2524
+          ],
+          "text": "    with lock:\n        started[call_id]=time.monotonic()\n        meta={{\"_hermes_callback\":True,\"sid\":getattr(a,\"session_id\",None) or sid,\"ok\":None,\"ms\":None}}\n        emit({{\"type\":\"assistant\",\"message\":{{\"content\":[{{\"type\":\"tool_use\",\"id\":call_id,\"name\":name,\"input\":meta}}]}}}})\n        snapshot(\"tool_started\",{{\"call_id\":call_id,\"name\":name,\"ok\":None,\"ms\":None,\"source_ref\":{{\"kind\":\"hermes_session_tool\",\"session_id\":meta[\"sid\"],\"tool_call_id\":call_id}}}})"
+        },
+        {
+          "lines": [
+            2531,
+            2536
+          ],
+          "text": "        try:\n            parsed=json.loads(result) if isinstance(result,str) else result\n            if isinstance(parsed,dict):\n                ec=parsed.get(\"exit_code\")\n                if parsed.get(\"error\") or type(ec) is int and ec!=0:ok=False\n                elif type(ec) is int and native_error is not True:ok=True"
+        },
+        {
+          "lines": [
+            2569,
+            2573
+          ],
+          "text": "    before={{attr:getattr(a,attr,None) for attr in (*fields.values(),\"session_estimated_cost_usd\")}}\n    snapshot(\"started\")\n    r=a.run_conversation({_legion_prompt(_q, ctx)!r},conversation_history=history)\nexcept Exception as exc:\n    snapshot(\"native_exception\",exception_type=type(exc).__name__)"
+        }
+      ],
+      "scope": "源码快照，不自动代表当前执行二进制"
+    },
+    {
+      "id": "R-HERMES-UPSTREAM",
+      "root": "MAIN",
+      "path": "harness_baselines/hermes-agent/run_agent.py",
+      "sha256": "468b701bebf56a4735141ebc3ae43797a06e68ef03c35d01fc42324969b499e1",
+      "uncommitted": true,
+      "excerpts": [
+        {
+          "lines": [
+            412,
+            418
+          ],
+          "text": "class AIAgent:\n    \"\"\"\n    AI Agent with tool calling capabilities.\n\n    This class manages the conversation flow, tool execution, and response handling\n    for AI models that support function calling.\n    \"\"\""
+        },
+        {
+          "lines": [
+            555,
+            560
+          ],
+          "text": "            session_id=session_id,\n            tool_progress_callback=tool_progress_callback,\n            tool_start_callback=tool_start_callback,\n            tool_complete_callback=tool_complete_callback,\n            thinking_callback=thinking_callback,\n            reasoning_callback=reasoning_callback,"
+        }
+      ],
+      "scope": "源码快照，不自动代表当前执行二进制"
+    },
+    {
+      "id": "R-DSH-BRIDGE",
+      "root": "B",
+      "path": "harness_baselines/deepseek-harness/examples/headless-agent/legion-resume.ts",
+      "sha256": "9ec55fba23d5f1081639306b68e6a2707a6d45f6d2ddcc3ccf6281f2ed0e70f3",
+      "uncommitted": false,
+      "excerpts": [
+        {
+          "lines": [
+            43,
+            57
+          ],
+          "text": "}\ntry {\n  let resumed = false\n  let agent\n  // persistence backend 是路径事实源；不要猜它的编码目录名。先 inspect，存在才 resume，\n  // 不存在直接 create，避免“首轮先抛异常再创建”留下半初始化 agent。\n  try {\n    await (ctx as any).sessionPersistence.inspect(sessionId)\n    agent = (await ctx.agents.resume({ resumeSessionId: sessionId, agentOptions })).agent\n    resumed = true\n  } catch {\n    agent = (await ctx.agents.create({ sessionId, agentOptions })).agent\n  }\n  agent.followup(createUserMessage({ content: [{ type: 'text', text: task }], source: { kind: 'user' } }))\n  await waitForIdle(ctx, agent)"
+        }
+      ],
+      "scope": "源码快照，不自动代表当前执行二进制"
+    },
+    {
+      "id": "R-DSH-ADAPTER",
+      "root": "B",
+      "path": "harness_baselines/meyo-orchestrator/harness_registry.py",
+      "sha256": "336aea7d8259df32058fe89390ed8cbcac94c4eba99775a87a6a00632cb384f1",
+      "uncommitted": false,
+      "excerpts": [
+        {
+          "lines": [
+            2744,
+            2754
+          ],
+          "text": "        # 生产原生恢复：完整源码环境使用 DeepSeek 的 agents.resume + JSONL persistence bridge。\n        # 依据 examples/headless-agent/tests/resume.e2e.ts:40-62；每轮固定 session_id，进程退出后\n        # 下一轮从同一 persistence root 真恢复 event log。精简发布缺源码时才退旧 headless CLI。\n        _resume_bridge = _P(__file__).resolve().parents[1] / \"deepseek-harness\" / \"examples\" / \"headless-agent\" / \"legion-resume.ts\"\n        _checkpoint = (ctx.task_memory or {}).get(\"native_checkpoint\") or {}\n        _native_sid = str(_checkpoint.get(\"session_id\") or ctx.session_id or f\"legion-{qhash}\")\n        _persist_root = str(_P(ctx.memory_dir or _wd) / \"deepseek-sessions\")\n        _source = _resume_bridge.parents[2] if _resume_bridge.exists() else None\n        if _resume_bridge.exists() and _sh.which(\"pnpm\"):\n            _cmd = [\"pnpm\", \"exec\", \"tsx\", str(_resume_bridge), _wd, _persist_root,\n                    _native_sid, _legion_prompt(_prior_attempts_prelude(ctx.prior_attempts) + question, ctx)]"
+        }
+      ],
+      "scope": "源码快照，不自动代表当前执行二进制"
+    },
+    {
+      "id": "R-DA-WORKER",
+      "root": "B",
+      "path": "release/legion-service/deepagents_checkpoint.py",
+      "sha256": "b9cf344ec26ce91b1f2cccb7e1ea3c9175a9b57d67b624fde9d3141ba0b1df51",
+      "uncommitted": false,
+      "excerpts": [
+        {
+          "lines": [
+            206,
+            214
+          ],
+          "text": "    config = {\"configurable\": {\"thread_id\": thread_id}}\n    reference = {\"kind\": \"deepagents_langgraph_sqlite\", \"session_id\": thread_id,\n                 \"path\": str(path), \"workdir\": str(workdir), \"qhash\": request.get(\"qhash\")}\n    try:\n        with closing(sqlite3.connect(str(path), check_same_thread=False)) as connection:\n            saver = SqliteSaver(connection)\n            existing = saver.get_tuple(config)\n            if kind == \"deepagents_langgraph_sqlite\" and existing is None:\n                result[\"native_resume_error\"] = {\"stage\": \"checkpoint_load\"}"
+        },
+        {
+          "lines": [
+            276,
+            290
+          ],
+          "text": "            agent = create_deep_agent(\n                model=model, backend=backend, checkpointer=saver, tools=tools,\n                middleware=[TodoListMiddleware(), NativeHistoryProjection()])\n            previous = agent.get_state(config)\n            result[\"resumed_native\"] = existing is not None\n            if legacy and existing is None:\n                facts[\"legacy_messages_imported\"] = True\n            question = request[\"question\"]\n            question = (f\"Runtime filesystem: virtual / maps to {workdir}; \"\n                        \"execute uses this real working directory.\\n\" + question)\n            incoming = {\"messages\": ([] if existing else legacy) +\n                        [HumanMessage(content=question, id=str(uuid.uuid4()))]}\n            # Resume an unfinished graph only for the same parent request.\n            if previous.next and checkpoint.get(\"qhash\") == request.get(\"qhash\"):\n                incoming = None"
+        }
+      ],
+      "scope": "源码快照，不自动代表当前执行二进制"
+    },
+    {
+      "id": "R-DA-ADAPTER",
+      "root": "B",
+      "path": "harness_baselines/meyo-orchestrator/harness_registry.py",
+      "sha256": "336aea7d8259df32058fe89390ed8cbcac94c4eba99775a87a6a00632cb384f1",
+      "uncommitted": false,
+      "excerpts": [
+        {
+          "lines": [
+            2843,
+            2848
+          ],
+          "text": "    legion_tool = _legion_tool_path()\n    worker = _P(legion_tool).with_name(\"deepagents_checkpoint.py\")\n    if not worker.is_file():\n        return {\"status\": \"unavailable\", \"final\": \"\", \"error\": \"DeepAgents native worker 未打包\"}\n    request = {\n        \"qhash\": qhash, \"question\": _legion_prompt(_prior_attempts_prelude(ctx.prior_attempts) + question, ctx),"
+        },
+        {
+          "lines": [
+            2857,
+            2859
+          ],
+          "text": "    code = (f\"import sys,json;sys.path.insert(0,{str(worker.parent)!r});\"\n            \"import deepagents_checkpoint;\"\n            \"print(json.dumps(deepagents_checkpoint.run_native(json.load(sys.stdin)),ensure_ascii=False))\")"
+        }
+      ],
+      "scope": "源码快照，不自动代表当前执行二进制"
+    },
+    {
+      "id": "R-JCODE-ADAPTER",
+      "root": "B",
+      "path": "harness_baselines/meyo-orchestrator/harness_registry.py",
+      "sha256": "336aea7d8259df32058fe89390ed8cbcac94c4eba99775a87a6a00632cb384f1",
+      "uncommitted": false,
+      "excerpts": [
+        {
+          "lines": [
+            2265,
+            2278
+          ],
+          "text": "        _checkpoint = (ctx.task_memory or {}).get(\"native_checkpoint\") or {}\n        _resume_id = str(_checkpoint.get(\"session_id\") or \"\") if isinstance(_checkpoint, dict) else \"\"\n        cmd = [binp, \"run\", _legion_prompt(_prior_attempts_prelude(ctx.prior_attempts) + question, ctx),\n               \"--json\", \"--provider-profile\", \"meyo-aigc\", \"-m\", ctx.model]\n        if ctx.workdir:\n            cmd += [\"-C\", ctx.workdir]\n        if _resume_id:\n            cmd += [\"--resume\", _resume_id]\n        r = _run_task(cmd, _WALL_S, tag=\"jcode\")\n        final = \"\"\n        _native_sid = _resume_id\n        try:\n            obj = _json.loads(r.stdout)\n            _native_sid = str(obj.get(\"session_id\") or obj.get(\"sessionId\") or _native_sid)"
+        }
+      ],
+      "scope": "源码快照，不自动代表当前执行二进制"
+    },
+    {
+      "id": "R-JCODE-UPSTREAM",
+      "root": "LOCAL_JCODE",
+      "path": "crates/jcode-base/src/session/persistence.rs",
+      "sha256": "eb196ec60153f1b311902d7ee75ba3b3a85ab816859dc9b8cf089333c40e5f64",
+      "uncommitted": false,
+      "excerpts": [
+        {
+          "lines": [
+            188,
+            200
+          ],
+          "text": "    fn checkpoint_snapshot(&mut self, snapshot_path: &Path, journal_path: &Path) -> Result<()> {\n        let destructive_empty_checkpoint = self.messages.is_empty()\n            && self.persist_state.messages_len > 0\n            && snapshot_path.exists();\n        if destructive_empty_checkpoint {\n            self.guard_snapshot_shrink(snapshot_path, journal_path);\n            bail!(\n                \"refusing to replace non-empty persisted transcript for session {} with an empty checkpoint\",\n                self.id\n            );\n        }\n        self.guard_snapshot_shrink(snapshot_path, journal_path);\n        storage::write_json_fast(snapshot_path, self)?;"
+        },
+        {
+          "lines": [
+            300,
+            303
+          ],
+          "text": "    pub fn load(session_id: &str) -> Result<Self> {\n        let path = session_path(session_id)?;\n        Self::load_from_path(&path)\n    }"
+        }
+      ],
+      "scope": "源码快照，不自动代表当前执行二进制"
+    },
+    {
+      "id": "R-PENGUIN-ADAPTER",
+      "root": "B",
+      "path": "harness_baselines/meyo-orchestrator/harness_registry.py",
+      "sha256": "336aea7d8259df32058fe89390ed8cbcac94c4eba99775a87a6a00632cb384f1",
+      "uncommitted": false,
+      "excerpts": [
+        {
+          "lines": [
+            2188,
+            2201
+          ],
+          "text": "        _checkpoint = (ctx.task_memory or {}).get(\"native_checkpoint\") or {}\n        _resume_id = str(_checkpoint.get(\"session_id\") or \"\") if isinstance(_checkpoint, dict) else \"\"\n        _trace_root, _trace_offsets = _penguin_trace_offsets(_resume_id)\n        if _resume_id:\n            # 续跑:走 chat --resume(penguin 原生 session 恢复的唯一入口)·灌 prompt+/exit\n            cmd = [binp, \"chat\", \"--resume\", _resume_id, \"--approve\", \"allow-all\"]\n            r = _run_task(cmd, _WALL_S, input=prompt + \"\\n/exit\\n\", tag=\"penguin\")\n        else:\n            # 首轮:单发 run·prompt 作 -m arg·彻底避开交互 REPL 时序竞态\n            cmd = [binp, \"run\", \"-m\", prompt, \"--provider\", \"custom\", \"--model-id\", ctx.model,\n                   \"--approve\", \"allow-all\"]\n            if ctx.workdir:\n                cmd += [\"--workspace\", ctx.workdir]\n            r = _run_task(cmd, _WALL_S, tag=\"penguin\")   # 不灌 stdin(run 不需要)"
+        }
+      ],
+      "scope": "源码快照，不自动代表当前执行二进制"
+    },
+    {
+      "id": "R-PENGUIN-UPSTREAM",
+      "root": "MAIN",
+      "path": "harness_baselines/penguin-harness/packages/cli/src/commands/chat.ts",
+      "sha256": "d81cd72b333ddc9a322ab33adf4bc62bbf25a082ad5cec0114e1caedb9d61862",
+      "uncommitted": true,
+      "excerpts": [
+        {
+          "lines": [
+            115,
+            135
+          ],
+          "text": "      // --resume: resumes an existing Session. Workspace and\n      // Model follow the original Session and cannot be overridden; when omitted, resumes\n      // the current Agent's most recent Session. Annotated (not inferred) because /clear\n      // reassigns it mid-REPL, after the closures below have captured it.\n      let session: Session;\n      if (opts.resume !== undefined) {\n        if (opts.workspace || opts.modelId || opts.provider) {\n          out.write(`${t.error(t.resumeNoOverride())}\\n`);\n          process.exitCode = 1;\n          return;\n        }\n        const sessionId =\n          typeof opts.resume === \"string\" ? opts.resume : await agent.latestSessionId();\n        if (!sessionId) {\n          out.write(`${t.error(t.resumeNoSession())}\\n`);\n          process.exitCode = 1;\n          return;\n        }\n        session = await agent.resumeSession({ sessionId });\n      } else {\n        session = await agent.createSession({"
+        }
+      ],
+      "scope": "源码快照，不自动代表当前执行二进制"
+    },
+    {
+      "id": "R-PENGUIN-IDENTITY",
+      "root": "MAIN",
+      "path": "harness_baselines/penguin-harness/packages/cli/package.json",
+      "sha256": "10a8a0caba423f5d6e81eae55f07f290376fe444de5edbd45153ba91b4be69f3",
+      "uncommitted": true,
+      "excerpts": [
+        {
+          "lines": [
+            1,
+            7
+          ],
+          "text": "{\n  \"name\": \"@prismshadow/penguin-cli\",\n  \"version\": \"0.2.4\",\n  \"type\": \"module\",\n  \"description\": \"PenguinHarness CLI: interactive REPL and single-task runner over @prismshadow/penguin-core.\",\n  \"license\": \"Apache-2.0\",\n  \"repository\": {"
+        },
+        {
+          "lines": [
+            8,
+            11
+          ],
+          "text": "    \"type\": \"git\",\n    \"url\": \"git+https://github.com/Prism-Shadow/penguin-harness.git\",\n    \"directory\": \"packages/cli\"\n  },"
+        }
+      ],
+      "scope": "源码快照，不自动代表当前执行二进制"
+    },
+    {
+      "id": "R-PRIME-ALIAS",
+      "root": "B",
+      "path": "harness_baselines/meyo-orchestrator/harness_registry.py",
+      "sha256": "336aea7d8259df32058fe89390ed8cbcac94c4eba99775a87a6a00632cb384f1",
+      "uncommitted": false,
+      "excerpts": [
+        {
+          "lines": [
+            2303,
+            2306
+          ],
+          "text": "def _prime_adapter(qhash, question, gold=\"\", ctx=None):\n    \"\"\"旧 key 薄接官方 Prime Intellect；prime_message 费用由专属事件读取器提供。\"\"\"\n    ctx = ctx or HarnessCtx.from_env()\n    checkpoint = (ctx.task_memory or {}).get(\"native_checkpoint\") or {}"
+        },
+        {
+          "lines": [
+            2316,
+            2322
+          ],
+          "text": "        from external_adapters.prime_native import SESSION_FORMAT, prepare_resume, unwrap_result\n        prepare_resume(checkpoint)\n        item = next((x for x in registry.load_catalog() if x[\"key\"] == \"prime-intellect\"), {})\n        transports = item.get(\"transports\") or []\n        if len(transports) != 1 or transports[0].get(\"native_session_format\") != SESSION_FORMAT:\n            raise ValueError(\"prime_native_spec_not_registered: 请经 harness_onboard 持锁 upsert Prime spec\")\n        result = unwrap_result(_external_adapter(\"prime-intellect\")(qhash, question, gold, ctx))"
+        }
+      ],
+      "scope": "源码快照，不自动代表当前执行二进制"
+    },
+    {
+      "id": "R-PRIME-SESSION",
+      "root": "B",
+      "path": "release/legion-service/external_adapters/prime_native.py",
+      "sha256": "d2725b2eaf494008c5030dd353e6f70809958cbbd9bb37a46ed9b72f00d6584a",
+      "uncommitted": false,
+      "excerpts": [
+        {
+          "lines": [
+            16,
+            27
+          ],
+          "text": "SESSION_FORMAT = \"prime_jsonl_v3\"\n\n\nclass PrimeSessionError(ValueError):\n    pass\n\n\ndef read_session(path: str, expected_id: str = \"\") -> tuple[dict, bool]:\n    \"\"\"严格只读；native 的修复/新建行为不得掩盖坏 checkpoint。\"\"\"\n    file = Path(path)\n    if not file.is_absolute() or file.suffix != \".jsonl\" or file.is_symlink() or not file.is_file():\n        raise PrimeSessionError(\"prime_checkpoint_missing_or_unsafe\")"
+        },
+        {
+          "lines": [
+            92,
+            105
+          ],
+          "text": "def prepare_resume(checkpoint: dict) -> tuple[str, str]:\n    checkpoint = checkpoint_details(checkpoint)\n    if not checkpoint:\n        return \"\", \"\"\n    path = checkpoint[\"session_path\"]\n    header, used_kernel = read_session(path, checkpoint[\"session_id\"])\n    artifact_dir = Path(path).parent.parent / \"session-artifacts\" / header[\"id\"]\n    snapshot = artifact_dir / \"kernel-state.dill\"\n    manifest = artifact_dir / \"kernel-state.json\"\n    # 0.8 已有自动 snapshot/restore；不能假设换新进程就不需要迁移状态。\n    if checkpoint.get(\"runtime_revision\") != REVISION and (\n            snapshot.exists() or manifest.exists() or used_kernel):\n        raise PrimeSessionError(\"prime_legacy_kernel_resume_unverified: 保留旧会话及快照，未启动新版\")\n    if used_kernel and not snapshot.is_file():"
+        }
+      ],
+      "scope": "源码快照，不自动代表当前执行二进制"
+    },
+    {
+      "id": "R-PRIME-UPSTREAM",
+      "root": "LOCAL_PRIME",
+      "path": "packages/coding-agent/src/core/session-manager.ts",
+      "sha256": "6f3fa5a019ee48c8c26433aec0f420761ead8a4a7b8f141e318bd89eecadef67",
+      "uncommitted": false,
+      "excerpts": [
+        {
+          "lines": [
+            40,
+            44
+          ],
+          "text": "export const CURRENT_SESSION_VERSION = 3;\nconst SESSION_LIST_SEARCH_TEXT_MAX_CHARS = 64 * 1024;\nconst SESSION_LIST_PARSE_MAX_LINE_CHARS = 1024 * 1024;\nconst SESSION_LIST_LARGE_MESSAGE_PREVIEW_MAX_CHARS = 256;\nconst SESSION_STREAMING_LOAD_THRESHOLD_BYTES = 128 * 1024 * 1024;"
+        },
+        {
+          "lines": [
+            1433,
+            1445
+          ],
+          "text": "export class SessionManager {\n\tprivate sessionId: string = \"\";\n\tprivate sessionFile: string | undefined;\n\tprivate sessionDir: string;\n\tprivate cwd: string;\n\tprivate persist: boolean;\n\tprivate flushed: boolean = false;\n\tprivate fileEntries: FileEntry[] = [];\n\tprivate byId: Map<string, SessionEntry> = new Map();\n\tprivate labelsById: Map<string, string> = new Map();\n\tprivate labelTimestampsById: Map<string, string> = new Map();\n\tprivate leafId: string | null = null;\n\tprivate persistListeners = new Set<SessionPersistListener>();"
+        },
+        {
+          "lines": [
+            2290,
+            2304
+          ],
+          "text": "\tstatic create(cwd: string, sessionDir?: string): SessionManager {\n\t\tconst dir = sessionDir ?? getDefaultSessionDir(cwd);\n\t\treturn new SessionManager(cwd, dir, undefined, true);\n\t}\n\n\tstatic open(path: string, sessionDir?: string, cwdOverride?: string): SessionManager {\n\t\t// Only the header's cwd is needed to construct the manager; the constructor\n\t\t// (setSessionFile) performs the full parse. Read just the first line here\n\t\t// instead of parsing the entire file a second time — that double parse is a\n\t\t// needless O(n) cost on open and is noticeable for long sessions.\n\t\tlet cwd = cwdOverride;\n\t\tif (cwd === undefined) {\n\t\t\tlet header: Partial<SessionHeader> | undefined;\n\t\t\ttry {\n\t\t\t\theader = readSessionHeader(path);"
+        }
+      ],
+      "scope": "源码快照，不自动代表当前执行二进制"
+    },
+    {
+      "id": "R-OMNIGENT-ADAPTER",
+      "root": "B",
+      "path": "harness_baselines/meyo-orchestrator/harness_registry.py",
+      "sha256": "336aea7d8259df32058fe89390ed8cbcac94c4eba99775a87a6a00632cb384f1",
+      "uncommitted": false,
+      "excerpts": [
+        {
+          "lines": [
+            2937,
+            2950
+          ],
+          "text": "def _omnigent_adapter(qhash, question, gold=\"\", ctx=None):\n    \"\"\"显式 ctx 原样交给 backend；不能用丢参重试或默认模型冒充请求绑定。\"\"\"\n    _explicit_ctx = ctx is not None\n    ctx = ctx or HarnessCtx.from_env()\n    question = _prior_attempts_prelude(ctx.prior_attempts) + question\n    _checkpoint = (ctx.task_memory or {}).get(\"native_checkpoint\") or {}\n    _resume_id = str(_checkpoint.get(\"session_id\") or \"\") if isinstance(_checkpoint, dict) else \"\"\n    try:\n        import inspect as _inspect\n        import os as _os\n        _mh = _os.path.join(_os.path.dirname(_os.path.abspath(__file__)), \"meyo_harnesses\")\n        if _mh not in _sys.path:\n            _sys.path.insert(0, _mh)\n        from backends import omnigent_backend as _ob"
+        },
+        {
+          "lines": [
+            2971,
+            2985
+          ],
+          "text": "            _kwargs.update(appid=ctx.appid, gateway=ctx.gateway, native_checkpoint=_checkpoint)\n        _params = _inspect.signature(_ob.run).parameters\n        if not any(p.kind == p.VAR_KEYWORD for p in _params.values()):\n            _unsupported = set(_kwargs) - set(_params)\n            if _unsupported and _explicit_ctx:\n                return {\n                    \"final\": \"\", \"status\": \"error\", \"elapsed\": 0.0, \"resumed_native\": False,\n                    \"native_checkpoint\": _checkpoint or None,\n                    \"error\": \"当前 Omnigent backend 不支持完整请求绑定；未丢参执行\",\n                    \"error_envelope\": {\"category\": \"harness_runtime\", \"scope\": \"harness\",\n                                       \"retryable\": False, \"code\": \"backend_binding_unsupported\"},\n                }\n            # 仅老式无 ctx 调用兼容旧签名，执行一次；不捕获内部 TypeError 后重派任务。\n            _kwargs = {k: v for k, v in _kwargs.items() if k in _params}\n        return _ob.run(qhash, _legion_prompt(question, ctx), gold, **_kwargs)"
+        }
+      ],
+      "scope": "源码快照，不自动代表当前执行二进制"
+    },
+    {
+      "id": "R-OMNIGENT-BACKEND",
+      "root": "B",
+      "path": "harness_baselines/meyo-orchestrator/meyo_harnesses/backends/omnigent_backend.py",
+      "sha256": "8bd1fb8359ef781e4b361635927fc0c116a8cdf75a1449780e33284d076cf4b4",
+      "uncommitted": false,
+      "excerpts": [
+        {
+          "lines": [
+            54,
+            76
+          ],
+          "text": "def list_sub_harnesses() -> list[str]:\n    \"\"\"动态读 omnigent registry 的子harness清单(不硬编码·量大管饱的来源)。\n\n    军团纳入omnigent后·可经它代跑这些子家(cursor/kimi/goose/qwen…军团本来没有的)。\n    过滤 native/别名变体·只留干净可选名。依据:omnigent runtime/harnesses/__init__.py 动态registry。\"\"\"\n    try:\n        names = _native_info().get(\"sub_harnesses\", [])\n    except Exception:\n        return []\n    return _clean_sub_harnesses(names)\n\n\ndef _clean_sub_harnesses(names):\n    clean, seen = [], set()\n    for n in sorted(names):\n        if \"native\" in n:\n            continue\n        base = n.replace(\"-sdk\", \"\").replace(\"-code\", \"\").replace(\"-build\", \"\")\n        if base in seen:\n            continue\n        seen.add(base)\n        clean.append(n)\n    return clean"
+        },
+        {
+          "lines": [
+            245,
+            253
+          ],
+          "text": "        # 闭环由 omnigent cli `_materialize_harness_launcher_file(..., client_tools=tools)` 实现；\n        # 不设置无人读取的额外 env，避免把“写了配置”误当成“运行时已接通”。\n        cmd = [b, \"run\"]\n        if explicit:\n            cmd.append(str(native_path))\n        cmd += [\"--harness\", sub, \"--tools\", \"coding\"]\n        if resume_id:\n            cmd += [\"--resume\", resume_id]\n        if model:"
+        }
+      ],
+      "scope": "源码快照，不自动代表当前执行二进制"
+    },
+    {
+      "id": "R-OMNIGENT-UPSTREAM",
+      "root": "MAIN",
+      "path": "harness_baselines/ecosystem/omnigent/omnigent/runtime/harnesses/__init__.py",
+      "sha256": "b0432565d786e05df31159ab33569c4ffb60f8d6089fb18a54f0a1e924659a05",
+      "uncommitted": true,
+      "excerpts": [
+        {
+          "lines": [
+            1,
+            8
+          ],
+          "text": "\"\"\"\nHarness package — per-conversation subprocesses that implement a\nsubset of the Omnigent REST API.\n\nSee ``designs/SERVER_HARNESS_CONTRACT.md`` for the full contract.\nThe harness IS an HTTP service speaking the same Pydantic models AP\nserves to external clients (re-use ``omnigent.server.schemas`` —\nthere is no separate protocol module)."
+        },
+        {
+          "lines": [
+            27,
+            40
+          ],
+          "text": "from omnigent.harness_plugins import harness_modules\n\n# Harness-name -> fully-qualified module path, sourced from the harness\n# registry (built-ins + installed community plugins). Each module must\n# export ``create_app() -> FastAPI``; the runner imports the module, calls\n# the factory, and serves the result over a Unix socket. The historical\n# mutable-dict surface is preserved (tests inject fixture entries by dict\n# mutation), but the contents come from the dynamic registry, not a literal.\n\n# Keep the historical mutable dict surface while sourcing builtins and\n# community plugins from the dynamic registry.\n_HARNESS_MODULES = harness_modules()\n\n__all__ = [\"_HARNESS_MODULES\"]"
+        }
+      ],
+      "scope": "源码快照，不自动代表当前执行二进制"
+    },
+    {
+      "id": "R-OMNIGENT-IDENTITY",
+      "root": "MAIN",
+      "path": "harness_baselines/ecosystem/omnigent/pyproject.toml",
+      "sha256": "080206f20321603527b8c58f1097fe58273b05ed39ca4d77ece6397fc8a1eeac",
+      "uncommitted": true,
+      "excerpts": [
+        {
+          "lines": [
+            5,
+            15
+          ],
+          "text": "[project]\nname = \"omnigent\"\n# Keep in sync with omnigent/version.py's VERSION constant.\nversion = \"0.11.0.dev0\"\ndescription = \"Omnigent: declarative agent authoring and runtime framework\"\nreadme = \"README.md\"\nrequires-python = \">=3.12\"\nauthors = [\n    { name = \"Databricks, Inc.\" },\n]\nkeywords = [\"agents\", \"llm\", \"ai\", \"databricks\", \"cli\"]"
+        }
+      ],
+      "scope": "源码快照，不自动代表当前执行二进制"
+    },
+    {
+      "id": "R-ORCA-IDENTITY",
+      "root": "MAIN",
+      "path": "harness_baselines/ecosystem/orca/package.json",
+      "sha256": "3e5e8a45bae4b3bca83da4a3b66a6bcd57bb028cbfb5c7ed5fff8b1c2d11f354",
+      "uncommitted": true,
+      "excerpts": [
+        {
+          "lines": [
+            1,
+            11
+          ],
+          "text": "{\n  \"name\": \"orca\",\n  \"version\": \"1.4.178-rc.2\",\n  \"description\": \"Next-gen IDE for parallel agentic development\",\n  \"homepage\": \"https://github.com/stablyai/orca\",\n  \"author\": \"stablyai\",\n  \"bin\": {\n    \"orca\": \"./out/cli/index.js\",\n    \"orca-dev\": \"./config/scripts/orca-dev.mjs\"\n  },\n  \"main\": \"./out/main/index.js\","
+        }
+      ],
+      "scope": "源码快照，不自动代表当前执行二进制"
+    },
+    {
+      "id": "R-ROLE-POOL",
+      "root": "B",
+      "path": "release/legion-service/legion_core.py",
+      "sha256": "d3f0cd8057e71357cfe3449caccd7c09164ebf869a6dcae50079da64265a683d",
+      "uncommitted": true,
+      "excerpts": [
+        {
+          "lines": [
+            315,
+            322
+          ],
+          "text": "_NON_ANSWER_ROLES = (\"capability\", \"control-plane\", \"ui-platform\")\n\ndef _answer_keys_from_catalog(items):\n    # catalog 条目里只取答题家 key。单一词表·两处派单消费点(_harness_keys 占位/_aigc_ready warming 占位)统一走这里。\n    return {a.get(\"key\") for a in items\n            if a.get(\"key\")\n            and ((a.get(\"runtime\") or {}).get(\"execution_role\")\n                 or a.get(\"execution_role\") or \"agent\") not in _NON_ANSWER_ROLES}"
+        }
+      ],
+      "scope": "源码快照，不自动代表当前执行二进制"
+    },
+    {
+      "id": "R-EXTERNAL-READY",
+      "root": "B",
+      "path": "release/legion-service/external_agent_registry.py",
+      "sha256": "5250fcb3d12397047cf4ce3d4c9663147d237afa13f7d40274e24bf3a8de74ac",
+      "uncommitted": false,
+      "excerpts": [
+        {
+          "lines": [
+            535,
+            538
+          ],
+          "text": "    credentials = _credentials(item, env)\n    has_transport = bool(item.get(\"transports\"))\n    executable_role = item.get(\"execution_role\") not in (\"control-plane\", \"ui-platform\", \"capability\")\n    execution_ready = bool(revision_ok and available and credentials[\"ready\"] and has_transport and executable_role)"
+        },
+        {
+          "lines": [
+            982,
+            993
+          ],
+          "text": "def run(key: str, task: str, workdir: str = \"\", timeout_s: int = 900,\n        env: dict[str, str] | None = None, model: str = \"gpt-5.6-sol\",\n        session_id: str = \"external\", runtime_context: dict[str, Any] | None = None,\n        event_cb=None) -> dict:\n    item = next((x for x in load_catalog() if x[\"key\"] == key), None)\n    if not item:\n        return {\"status\": \"unknown_agent\", \"final\": \"\", \"error\": f\"unknown external agent:{key}\"}\n    state = _probe_one(item, env)\n    if not state[\"execution_ready\"]:\n        return {\"status\": \"cancelled\" if state[\"status\"] == \"cancelled\" else \"unavailable\",\n                \"final\": \"\", \"error\": state[\"status_detail\"] or state[\"status\"],\n                \"probe\": state}"
+        }
+      ],
+      "scope": "源码快照，不自动代表当前执行二进制"
+    },
+    {
+      "id": "O-PLAN_POOL",
+      "root": "B",
+      "path": "release/legion-service/legion_core.py",
+      "sha256": "d3f0cd8057e71357cfe3449caccd7c09164ebf869a6dcae50079da64265a683d",
+      "uncommitted": true,
+      "excerpts": [
+        {
+          "lines": [
+            748,
+            748
+          ],
+          "text": "pool = _harness_keys()"
+        }
+      ],
+      "scope": "上下文范围 729–770；当前源码与旧运行分开"
+    },
+    {
+      "id": "O-PLAN_CALL",
+      "root": "B",
+      "path": "release/legion-service/legion_core.py",
+      "sha256": "d3f0cd8057e71357cfe3449caccd7c09164ebf869a6dcae50079da64265a683d",
+      "uncommitted": true,
+      "excerpts": [
+        {
+          "lines": [
+            954,
+            954
+          ],
+          "text": "_parsed = _parse_planner_json(m.group(0))"
+        }
+      ],
+      "scope": "上下文范围 898–967；当前源码与旧运行分开"
+    },
+    {
+      "id": "O-POOL_FILTER",
+      "root": "B",
+      "path": "release/legion-service/legion_core.py",
+      "sha256": "d3f0cd8057e71357cfe3449caccd7c09164ebf869a6dcae50079da64265a683d",
+      "uncommitted": true,
+      "excerpts": [
+        {
+          "lines": [
+            321,
+            321
+          ],
+          "text": "and ((a.get(\"runtime\") or {}).get(\"execution_role\")"
+        }
+      ],
+      "scope": "上下文范围 317–322；当前源码与旧运行分开"
+    },
+    {
+      "id": "O-CAPTAIN_ORDER",
+      "root": "B",
+      "path": "release/legion-service/legion_core.py",
+      "sha256": "d3f0cd8057e71357cfe3449caccd7c09164ebf869a6dcae50079da64265a683d",
+      "uncommitted": true,
+      "excerpts": [
+        {
+          "lines": [
+            364,
+            364
+          ],
+          "text": "_pref_order = [\"cc\", \"hermes\", \"jcode\", \"deepseek\", \"penguin\", \"prime\", \"codex\", \"deepagents\", \"omnigent\"]"
+        }
+      ],
+      "scope": "上下文范围 342–390；当前源码与旧运行分开"
+    },
+    {
+      "id": "O-CAPTAIN_APPOINT",
+      "root": "B",
+      "path": "release/legion-service/legion_core.py",
+      "sha256": "d3f0cd8057e71357cfe3449caccd7c09164ebf869a6dcae50079da64265a683d",
+      "uncommitted": true,
+      "excerpts": [
+        {
+          "lines": [
+            409,
+            409
+          ],
+          "text": "return ranked[0] if ranked else \"\""
+        }
+      ],
+      "scope": "上下文范围 393–409；当前源码与旧运行分开"
+    },
+    {
+      "id": "O-ELECTION_LIMIT",
+      "root": "B",
+      "path": "release/legion-service/legion_core.py",
+      "sha256": "d3f0cd8057e71357cfe3449caccd7c09164ebf869a6dcae50079da64265a683d",
+      "uncommitted": true,
+      "excerpts": [
+        {
+          "lines": [
+            454,
+            454
+          ],
+          "text": "_candidate_cap = max(1, int(os.environ.get(\"LEGION_CAPTAIN_CANDIDATE_CAP\", \"3\")))"
+        }
+      ],
+      "scope": "上下文范围 423–455；当前源码与旧运行分开"
+    },
+    {
+      "id": "O-ELECTION_SCORE",
+      "root": "B",
+      "path": "release/legion-service/legion_core.py",
+      "sha256": "d3f0cd8057e71357cfe3449caccd7c09164ebf869a6dcae50079da64265a683d",
+      "uncommitted": true,
+      "excerpts": [
+        {
+          "lines": [
+            645,
+            645
+          ],
+          "text": "winner = max(eligible, key=_bid_strength)"
+        }
+      ],
+      "scope": "上下文范围 613–652；当前源码与旧运行分开"
+    },
+    {
+      "id": "O-DAG",
+      "root": "B",
+      "path": "release/legion-service/legion_core.py",
+      "sha256": "d3f0cd8057e71357cfe3449caccd7c09164ebf869a6dcae50079da64265a683d",
+      "uncommitted": true,
+      "excerpts": [
+        {
+          "lines": [
+            5215,
+            5215
+          ],
+          "text": "plan, orchestration_spec = compile_orchestration_plan(plan, mode)"
+        }
+      ],
+      "scope": "上下文范围 5204–5245；当前源码与旧运行分开"
+    },
+    {
+      "id": "O-BIND",
+      "root": "B",
+      "path": "release/legion-service/legion_core.py",
+      "sha256": "d3f0cd8057e71357cfe3449caccd7c09164ebf869a6dcae50079da64265a683d",
+      "uncommitted": true,
+      "excerpts": [
+        {
+          "lines": [
+            5308,
+            5308
+          ],
+          "text": "plan, assignment_decisions = _collaboration.bind_plan("
+        }
+      ],
+      "scope": "上下文范围 5276–5314；当前源码与旧运行分开"
+    },
+    {
+      "id": "O-FALLBACK",
+      "root": "B",
+      "path": "release/legion-service/legion_core.py",
+      "sha256": "d3f0cd8057e71357cfe3449caccd7c09164ebf869a6dcae50079da64265a683d",
+      "uncommitted": true,
+      "excerpts": [
+        {
+          "lines": [
+            5321,
+            5321
+          ],
+          "text": "fast_order = [\"codex\", \"hermes\", \"cc\", \"jcode\", \"penguin\"]"
+        }
+      ],
+      "scope": "上下文范围 5315–5339；当前源码与旧运行分开"
+    },
+    {
+      "id": "O-PEER_START",
+      "root": "B",
+      "path": "release/legion-service/legion_core.py",
+      "sha256": "d3f0cd8057e71357cfe3449caccd7c09164ebf869a6dcae50079da64265a683d",
+      "uncommitted": true,
+      "excerpts": [
+        {
+          "lines": [
+            5683,
+            5683
+          ],
+          "text": "request = initial_request or _pending_peer_request(result)"
+        }
+      ],
+      "scope": "上下文范围 5660–5717；当前源码与旧运行分开"
+    },
+    {
+      "id": "O-PEER_CONTINUE",
+      "root": "B",
+      "path": "release/legion-service/legion_core.py",
+      "sha256": "d3f0cd8057e71357cfe3449caccd7c09164ebf869a6dcae50079da64265a683d",
+      "uncommitted": true,
+      "excerpts": [
+        {
+          "lines": [
+            5815,
+            5815
+          ],
+          "text": "resumed = _run_one_with_gateway("
+        }
+      ],
+      "scope": "上下文范围 5781–5840；当前源码与旧运行分开"
+    },
+    {
+      "id": "O-PEER_RESULT",
+      "root": "B",
+      "path": "release/legion-service/legion_core.py",
+      "sha256": "d3f0cd8057e71357cfe3449caccd7c09164ebf869a6dcae50079da64265a683d",
+      "uncommitted": true,
+      "excerpts": [
+        {
+          "lines": [
+            5616,
+            5616
+          ],
+          "text": "result = dict(resumed)"
+        }
+      ],
+      "scope": "上下文范围 5614–5636；当前源码与旧运行分开"
+    },
+    {
+      "id": "O-FORK_CHOICE",
+      "root": "B",
+      "path": "release/legion-service/legion_core.py",
+      "sha256": "d3f0cd8057e71357cfe3449caccd7c09164ebf869a6dcae50079da64265a683d",
+      "uncommitted": true,
+      "excerpts": [
+        {
+          "lines": [
+            6029,
+            6029
+          ],
+          "text": "chosen = preferred or _pick_relay_harness(harness_key, set(), valid) or harness_key"
+        }
+      ],
+      "scope": "上下文范围 6019–6062；当前源码与旧运行分开"
+    },
+    {
+      "id": "O-FORK_COPY",
+      "root": "B",
+      "path": "release/legion-service/legion_core.py",
+      "sha256": "d3f0cd8057e71357cfe3449caccd7c09164ebf869a6dcae50079da64265a683d",
+      "uncommitted": true,
+      "excerpts": [
+        {
+          "lines": [
+            6046,
+            6046
+          ],
+          "text": "separated = revisions.begin_parallel("
+        }
+      ],
+      "scope": "上下文范围 6037–6062；当前源码与旧运行分开"
+    },
+    {
+      "id": "O-FORK_WRITE",
+      "root": "B",
+      "path": "release/legion-service/legion_core.py",
+      "sha256": "d3f0cd8057e71357cfe3449caccd7c09164ebf869a6dcae50079da64265a683d",
+      "uncommitted": true,
+      "excerpts": [
+        {
+          "lines": [
+            6130,
+            6130
+          ],
+          "text": "\"你在同一固定基线的独立工作副本中，当前目录是你的写面。\""
+        }
+      ],
+      "scope": "上下文范围 6117–6137；当前源码与旧运行分开"
+    },
+    {
+      "id": "O-FORK_THREADS",
+      "root": "B",
+      "path": "release/legion-service/legion_core.py",
+      "sha256": "d3f0cd8057e71357cfe3449caccd7c09164ebf869a6dcae50079da64265a683d",
+      "uncommitted": true,
+      "excerpts": [
+        {
+          "lines": [
+            6213,
+            6213
+          ],
+          "text": "th = threading.Thread(target=run_child, args=(row,), daemon=True)"
+        }
+      ],
+      "scope": "上下文范围 6205–6245；当前源码与旧运行分开"
+    },
+    {
+      "id": "O-FORK_INTEGRATE",
+      "root": "B",
+      "path": "release/legion-service/legion_core.py",
+      "sha256": "d3f0cd8057e71357cfe3449caccd7c09164ebf869a6dcae50079da64265a683d",
+      "uncommitted": true,
+      "excerpts": [
+        {
+          "lines": [
+            6254,
+            6254
+          ],
+          "text": "\"平台没有替你合并任何文件。请读取共同基线和各成员固定快照/差异、核查冲突和失败事实，\""
+        }
+      ],
+      "scope": "上下文范围 6240–6268；当前源码与旧运行分开"
+    },
+    {
+      "id": "O-CAPTAIN_HANDOFF",
+      "root": "B",
+      "path": "release/legion-service/legion_core.py",
+      "sha256": "d3f0cd8057e71357cfe3449caccd7c09164ebf869a6dcae50079da64265a683d",
+      "uncommitted": true,
+      "excerpts": [
+        {
+          "lines": [
+            7394,
+            7394
+          ],
+          "text": "\"project_context\": (_project_context.snapshot(team_id, f\"captain_handoff_{_to}\", packet=_project_packet)"
+        }
+      ],
+      "scope": "上下文范围 7340–7395；当前源码与旧运行分开"
+    },
+    {
+      "id": "O-OWNER_HANDOFF",
+      "root": "B",
+      "path": "release/legion-service/legion_core.py",
+      "sha256": "d3f0cd8057e71357cfe3449caccd7c09164ebf869a6dcae50079da64265a683d",
+      "uncommitted": true,
+      "excerpts": [
+        {
+          "lines": [
+            7537,
+            7537
+          ],
+          "text": "\"project_context\": (_project_context.snapshot(team_id, k, packet=_project_packet)"
+        }
+      ],
+      "scope": "上下文范围 7510–7546；当前源码与旧运行分开"
+    },
+    {
+      "id": "O-PARALLEL_WORKSPACES",
+      "root": "B",
+      "path": "release/legion-service/project_revisions.py",
+      "sha256": "c269663046d7382159103b45c00b462d039294a6baf9266035767a336fe7ef80",
+      "uncommitted": false,
+      "excerpts": [
+        {
+          "lines": [
+            1279,
+            1279
+          ],
+          "text": "cid, child_root = _new_workspace(container, frozen, manifest)"
+        }
+      ],
+      "scope": "上下文范围 1233–1310；当前源码与旧运行分开"
+    }
+  ],
+  "records": [
+    {
+      "id": "TAKEOVER",
+      "path": "dev/upgrade-b-2026-09-18/evidence/native-takeover/verification.json",
+      "sha256": "bdf69058222ac7337c9ddb51449c89fc68ea7f4f21bb8e822ee0462b6e480f07",
+      "scope": "原生工程接管的旧综合验收与边界",
+      "rawPublished": false
+    },
+    {
+      "id": "TAKEOVER_NATIVE",
+      "path": "dev/upgrade-b-2026-09-18/evidence/native-takeover/native-tool-proof.json",
+      "sha256": "d1ccc33a34369c703a5da14af85a0978a288f4590ab0115c58cc71fe3e4a34a9",
+      "scope": "归档原生会话模型、调用计数与实际工具条目；未读取活动原生库",
+      "rawPublished": false
+    },
+    {
+      "id": "TAKEOVER_DIFF",
+      "path": "dev/upgrade-b-2026-09-18/evidence/native-takeover/adopted-file-diff.json",
+      "sha256": "aa9a4bb63824e96be2a4fea30a09a173ddd33a0c38cc6cd9b74fa9666f319a01",
+      "scope": "同一项目的版本/文件差异记录",
+      "rawPublished": false
+    },
+    {
+      "id": "PEER",
+      "path": "dev/upgrade-b-2026-09-18/evidence/peer-consumption/verification.json",
+      "sha256": "0ac332b2cd7d7c9270ba04afb06f7406c9ee2a7082d1aeac47aafece4fc1a12b",
+      "scope": "请求→同伴→原请求者续作与旧作品验收",
+      "rawPublished": false
+    },
+    {
+      "id": "PEER_NATIVE",
+      "path": "dev/upgrade-b-2026-09-18/evidence/peer-consumption/native-consumption-proof.json",
+      "sha256": "0642f990f650e5dbfa6254e9cc487380b96a784a6405167e29da0d9f5fd4d98e",
+      "scope": "原始回复被输入的记录标记/输入哈希、原生续作事实与15个后续工具条目",
+      "rawPublished": false
+    },
+    {
+      "id": "PEER_DIFF",
+      "path": "dev/upgrade-b-2026-09-18/evidence/peer-consumption/actual-file-diff.json",
+      "sha256": "86b4412120fd9d6c1b9b56ff932560356c1d5cb86b8ec276156494921b7e9a43",
+      "scope": "修改原JS与保留原文件的差异记录",
+      "rawPublished": false
+    },
+    {
+      "id": "FORK",
+      "path": "dev/upgrade-b-2026-09-18/evidence/fork-integration/verification.json",
+      "sha256": "2f7c45492e59983a8c57f3aa54b07e54cc75a88eae3462b0a7fe26e4c634f1e4",
+      "scope": "两独立写面、同基线、重叠时段及部分集成；运行有超时",
+      "rawPublished": false
+    },
+    {
+      "id": "FORK_BROWSER",
+      "path": "dev/upgrade-b-2026-09-18/evidence/fork-integration/browser-acceptance.json",
+      "sha256": "58b1f1283b8cb0229599ce5c50a0b892ea743ff1b4f23633c51602c6a0a66210",
+      "scope": "旧作品浏览器验收归档，本轮不渲染",
+      "rawPublished": false
+    },
+    {
+      "id": "PREFLIGHT",
+      "path": "dev/upgrade-b-2026-09-18/evidence/peer-preflight-recovery/verification.json",
+      "sha256": "15a1afb701c100eed9fd35e45de6a9bba9d081701fc60527304d4b06db7299b9",
+      "scope": "原任务恢复、原请求者选择Hermes、读回结果；该记录父任务仍running",
+      "rawPublished": false
+    },
+    {
+      "id": "PREFLIGHT_CHOICE",
+      "path": "dev/upgrade-b-2026-09-18/evidence/peer-preflight-recovery/native-chose-hermes.json",
+      "sha256": "b85b2124a6c54494e91a2f3e400028eaaf1d51e5379e0c05111726563327c5b8",
+      "scope": "原生成员自己选择Hermes的协议记录",
+      "rawPublished": false
+    },
+    {
+      "id": "PREFLIGHT_RESULT",
+      "path": "dev/upgrade-b-2026-09-18/evidence/peer-preflight-recovery/hermes-result.json",
+      "sha256": "64ae80059398e2ef751d35ba57cdb04de8a58e75e75c301ff975f70b3416f52e",
+      "scope": "同行原生结果/工具轨迹归档",
+      "rawPublished": false
+    },
+    {
+      "id": "PREFLIGHT_BROWSER",
+      "path": "dev/upgrade-b-2026-09-18/evidence/peer-preflight-recovery/hermes-browser-result.json",
+      "sha256": "a44d0cf5a87a4b6477cbe830ba96984385b1fee5b695ac06be157f5726be8429",
+      "scope": "同行历史浏览器检查，仅限当时结果",
+      "rawPublished": false
+    },
+    {
+      "id": "BORROW",
+      "path": "dev/upgrade-b-2026-09-18/evidence/capability-borrow/verification.json",
+      "sha256": "60d48a0721a7fd0b0d7c9f04cc8a79b55b17a632ec100bd9bd04d6101cd01bf5",
+      "scope": "上下文传递通过但真正工具执行未闭环",
+      "rawPublished": false
+    },
+    {
+      "id": "BORROW_RAW",
+      "path": "dev/upgrade-b-2026-09-18/evidence/capability-borrow/native-sandbox-failure.json",
+      "sha256": "2554facf6ce4ae7c7aee7069b33e73be45e48c8048e91f1fc1b895764c20032d",
+      "scope": "已有原生错误摘录：sandbox_apply拒绝，原文件读取未证",
+      "rawPublished": false
+    },
+    {
+      "id": "EARLY_TEAM",
+      "path": "dev/boss-report-2026-09-23/auto-to-legion-20260926/source-review.md",
+      "sha256": "d7cb1671789700b53137b42035db5720a6161d9497e1cb82bb339ca66457c5c7",
+      "scope": "doc2783580070早期组队负例与完整最强单家反事实要求",
+      "rawPublished": false
+    },
+    {
+      "id": "ONBOARD",
+      "path": "dev/three-harness-onboard-evidence-2026-09-11.json",
+      "sha256": "58f9d190f386895aad0f3a0664cabafeb0fa5589692b3b574e19023a7f65cb0f",
+      "scope": "local; not production deployment",
+      "rawPublished": false
+    }
+  ],
+  "actualPlannerNote": "当前是混合机制：模型提出计划，候选/用户偏好/静态排序/运行条件参与；竞选按_bid_strength规则经max选取，不是全生态自由盲选，也不能照抄旧注释说首个完整提案必当选。",
+  "existingDriftNote": "旧DeepAgents声明为cold_replay，但当前worker已有create_deep_agent与SqliteSaver图checkpoint；JCode等在两树声明也不同。声明、实现、安装版本与真实运行要分别核。",
+  "preflightNote": "另有原Codex收到不可执行回执后自己改选Hermes的旧记录，但请求者在该记录中仍working/running；不当第四个作品完成例。",
+  "artifactLimit": "三份旧完整ZIP及部分fork子快照本轮未找回；只能引用保留的运行/差异/验收记录，不伪造当次版本下载或试玩链接。",
+  "sharedModelNote": "这些代表性协作记录同Astra，不能从不同Harness名字推出异构模型优势。",
+  "newMemberOrModelRuns": false,
+  "newInstallationOrDeployment": false,
+  "newBrowserVerification": false,
+  "rawCredentialsOrConfigPublished": false,
+  "rawPrivateTaskRecordsPublished": false,
+  "universalCollaborationWinProven": false
+}
