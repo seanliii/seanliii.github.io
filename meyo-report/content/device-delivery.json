@@ -1,0 +1,447 @@
+{
+  "title": "云电脑和云手机：真正做过什么，怎么做到？",
+  "checkedAt": "2026-09-29T11:38:21.704175+08:00",
+  "scope": "本次核到的有限旧演示、系统级验收和原物，不宣称穷尽历史任务或已经全面生产可用。",
+  "desktopGoal": "在持久工作区使用浏览器、IDE、Office和设计软件，交回可用文件；不是只展示远程屏幕。",
+  "mobileGoal": "在真实Android应用环境里完成操作、保留状态与结果；不把安装或截图当成全能生活助手。",
+  "overallDeviceGoalComplete": false,
+  "newDeviceOperations": false,
+  "newBusinessModelCalls": false,
+  "newBrowserVerification": false,
+  "rawPrivateTaskRecordsPublished": false,
+  "apkOrUnverifiedFontPublished": false,
+  "historicalImagesViewedAndPrivacyChecked": true,
+  "cases": [
+    {
+      "id": "desktop-geany",
+      "device": "desktop",
+      "title": "写并运行猜数字脚本",
+      "date": "2026-09-02旧演示",
+      "status": "有限桌面动作与原物",
+      "goal": "在受管云桌面里用Geany打开、保存Python猜数字程序，运行后留下画面和源码。",
+      "method": "旧画面对应Linux/XFCE桌面，Geany中打开guess_game.py，终端展示低／高／猜中与退出；没有把这次旧操作重新跑一遍。",
+      "result": "原截图与951字节脚本都在；屏幕可见三次尝试后猜中并正常退出。",
+      "limit": "完整工具trace不足，不能宣称逐键操作可重放、所有输入分支已测或商业用户成效；这是有限桌面演示。",
+      "image": "assets/device-desktop-geany.png",
+      "sourceRefs": [
+        "D-GEANY"
+      ],
+      "links": [
+        [
+          "downloads/device-guess-game.py",
+          "下载原Python脚本"
+        ]
+      ]
+    },
+    {
+      "id": "desktop-resonance",
+      "device": "desktop",
+      "title": "在桌面打开中文应用",
+      "date": "2026-09-05较后旧画面",
+      "status": "已见首屏，不算整体完成",
+      "goal": "把RESONANCE城市系统演示应用放进受管桌面，并实际打开查看，而不只生成一个HTML文件。",
+      "method": "旧记录有CUA打开、点击、截屏回执；较后图显示XFCE中的Chromium与中文应用，早期条款窗口不再当成功图。",
+      "result": "可以核到中文首屏与旧原物，证明发生过桌面打开；不是本轮新运行。",
+      "limit": "完整参数/导出等验收还含宿主file://证据，不能全部算云端。示范参数不是现实城市预测；字体再分发许可未核，不复制字体或伪造可玩深链。",
+      "image": "assets/device-desktop-resonance.png",
+      "sourceRefs": [
+        "D-RESONANCE"
+      ],
+      "links": []
+    },
+    {
+      "id": "desktop-design",
+      "device": "desktop",
+      "title": "在Inkscape查看设计图",
+      "date": "2026-09-04旧工程验收",
+      "status": "文件与软件画面相符",
+      "goal": "生成一张可编辑流程图，在真实图形软件中查看，并留存SVG和PNG作为交付物。",
+      "method": "留存SVG/PNG与旧清单摘要一致，旧截图可见Inkscape打开workflow.svg；不从截图推断所有内容都由鼠标逐项绘制。",
+      "result": "原SVG、PNG和Inkscape窗口画面可查看；这是一个有限图形交付例子。",
+      "limit": "同项目的Office图报文件不存在，测试记录平台为macOS；不能把这一项推广为四软件全流程完成或云端12测通过。",
+      "image": "assets/device-desktop-inkscape.png",
+      "sourceRefs": [
+        "D-MANIFEST",
+        "D-TESTS"
+      ],
+      "links": [
+        [
+          "downloads/device-workflow.svg",
+          "查看原SVG"
+        ],
+        [
+          "downloads/device-workflow.png",
+          "下载原设计图"
+        ]
+      ]
+    },
+    {
+      "id": "mobile-lifecycle",
+      "device": "mobile",
+      "title": "安装、启动并回滚Klooni",
+      "date": "2026-09-04旧系统级验收",
+      "status": "生命周期有原件支持",
+      "goal": "从可追溯的软件目录取得开源App，核包和版本，安装启动，再保留数据卸载并从快照回滚。",
+      "method": "旧F-Droid镜像目录→APK摘要与包名/版本核对→Redroid安装与Activity复检→卸载→原APK快照回滚；不是本轮运行安装器。",
+      "result": "4323项旧目录、0.8.6/860安装记录与快照均在；目录预期、安装APK和回滚APK摘要一致，旧屏幕可见Klooni主菜单。",
+      "limit": "这是开源App生命周期演练，不是游戏玩法、付款或真实账号流程通过。Redroid是Android容器，不冒充已验证的远程物理真机；不公开APK或安装令牌。",
+      "image": "assets/device-phone-klooni.png",
+      "sourceRefs": [
+        "M-LIFECYCLE",
+        "M-REVIEW"
+      ],
+      "links": []
+    },
+    {
+      "id": "mobile-alarm",
+      "device": "mobile",
+      "title": "创建测试闹钟并检查重启保留",
+      "date": "2026-09-04旧系统级验收",
+      "status": "旧状态与屏幕对应",
+      "goal": "创建07:35“起床喝水”测试闹钟，核对系统和界面状态，并在Android重启后确认仍保留。",
+      "method": "旧runner是android-alarm-intent，结合系统状态与前后截图记录结果；不是纯视觉MobileRun自主操作的新测评。",
+      "result": "旧档记录系统/UI双重核验与重启保留，现存图能看到对应时间和标签。",
+      "limit": "截图有两条07:35，不能宣称只创建一条或幂等已证；没有验证实际到点响铃、当前设备或长期可靠性。",
+      "image": "assets/device-phone-alarm.png",
+      "sourceRefs": [
+        "M-ALARM",
+        "M-REVIEW"
+      ],
+      "links": []
+    },
+    {
+      "id": "mobile-gallery",
+      "device": "mobile",
+      "title": "登记文件并在图库打开",
+      "date": "2026-09-04旧系统级验收",
+      "status": "测试图片可见",
+      "goal": "把无私人信息的测试图片放到Downloads，登记到MediaStore，再用系统图库打开预览。",
+      "method": "旧runner为adb-mediastore-gallery，任务记录文件、媒体库与图库前台事实；没有从现用手机读取相册。",
+      "result": "原截图显示MEYO LIFE PROOF测试图片；档案明确未分享、未删除。",
+      "limit": "这是文件与图库小任务，不是社交发图、真实客户照片管理、拍摄或相机硬件流程完成。",
+      "image": "assets/device-phone-gallery.png",
+      "sourceRefs": [
+        "M-GALLERY",
+        "M-REVIEW"
+      ],
+      "links": []
+    }
+  ],
+  "mechanisms": [
+    {
+      "title": "持久现场，不是临时遥控",
+      "explanation": "云电脑保存用户/项目/任务和文件，手机保存原目标、App、尝试、状态和结果；换人或重启后能定位原现场。代码存在与全部恢复成功分开。",
+      "codeRefs": [
+        "C1",
+        "C2"
+      ]
+    },
+    {
+      "title": "给原生执行者眼睛和手",
+      "explanation": "电脑通过绑定用户的MCP/命令/键鼠/截图入口工作；手机可用ADB、系统接口或MobileRun。工具退出成功不等于目标完成，也不要求每一步都用多成员。",
+      "codeRefs": [
+        "C3",
+        "C4"
+      ]
+    },
+    {
+      "title": "软件准备与授权有单独状态",
+      "explanation": "APK先核来源、摘要、包名和版本，再按确认安装和复检；账号/MFA等保留为待处理条件。确认应回到同一任务，不能丢上下文另开一单。",
+      "codeRefs": [
+        "C5",
+        "C6"
+      ]
+    },
+    {
+      "title": "把实际文件和业务状态带回来",
+      "explanation": "动作结果、来源、文件摘要、系统事实与屏幕回到任务；状态或runner提供的verification.ok仍需原物支撑。此次图片反证正说明不能只信一个pass。",
+      "codeRefs": [
+        "C7",
+        "C8"
+      ]
+    }
+  ],
+  "codeProofs": [
+    {
+      "id": "C1",
+      "path": "release/legion-service/desktop_workspace.py",
+      "startLine": 220,
+      "endLine": 256,
+      "sha256": "9de5a884594c42becd926ca454aa24c7e2507f68b70d5b46726466f3c69d1544",
+      "revision": "98e7690d0bdd91025c08e5aa442a01d7a8c9f5f6",
+      "scope": "本轮只读当前源码；不等于历史每次运行版本或当前线上验收。"
+    },
+    {
+      "id": "C2",
+      "path": "release/legion-service/mobile_tasks.py",
+      "startLine": 93,
+      "endLine": 116,
+      "sha256": "0aff6c64964752f7ce138d0b8530164e8119d180534bf5459a65dced4ffbb997",
+      "revision": "98e7690d0bdd91025c08e5aa442a01d7a8c9f5f6",
+      "scope": "本轮只读当前源码；不等于历史每次运行版本或当前线上验收。"
+    },
+    {
+      "id": "C3",
+      "path": "release/legion-service/desktop_fs.py",
+      "startLine": 829,
+      "endLine": 854,
+      "sha256": "68eabb27aa22a7b1d4492990dab7f6f4555ca9a69c3081cee3966eb210438ce8",
+      "revision": "98e7690d0bdd91025c08e5aa442a01d7a8c9f5f6",
+      "scope": "本轮只读当前源码；不等于历史每次运行版本或当前线上验收。"
+    },
+    {
+      "id": "C4",
+      "path": "release/legion-service/mobile_device.py",
+      "startLine": 373,
+      "endLine": 450,
+      "sha256": "4d4eead230fb94c4fa97e2da9e06f4e6ec932e612fa5c108b7bc1df070789b69",
+      "revision": "98e7690d0bdd91025c08e5aa442a01d7a8c9f5f6",
+      "scope": "本轮只读当前源码；不等于历史每次运行版本或当前线上验收。"
+    },
+    {
+      "id": "C5",
+      "path": "release/legion-service/mobile_apps.py",
+      "startLine": 323,
+      "endLine": 356,
+      "sha256": "b4cf557d8c3f1e8f72213a945ceb869e0aca311d0dba0302239f2b3978031faa",
+      "revision": "98e7690d0bdd91025c08e5aa442a01d7a8c9f5f6",
+      "scope": "本轮只读当前源码；不等于历史每次运行版本或当前线上验收。"
+    },
+    {
+      "id": "C6",
+      "path": "release/legion-service/mobile_tasks.py",
+      "startLine": 177,
+      "endLine": 242,
+      "sha256": "0aff6c64964752f7ce138d0b8530164e8119d180534bf5459a65dced4ffbb997",
+      "revision": "98e7690d0bdd91025c08e5aa442a01d7a8c9f5f6",
+      "scope": "本轮只读当前源码；不等于历史每次运行版本或当前线上验收。"
+    },
+    {
+      "id": "C7",
+      "path": "release/legion-service/mobile_tasks.py",
+      "startLine": 271,
+      "endLine": 300,
+      "sha256": "0aff6c64964752f7ce138d0b8530164e8119d180534bf5459a65dced4ffbb997",
+      "revision": "98e7690d0bdd91025c08e5aa442a01d7a8c9f5f6",
+      "scope": "本轮只读当前源码；不等于历史每次运行版本或当前线上验收。"
+    },
+    {
+      "id": "C8",
+      "path": "release/legion-service/desktop_production_matrix.py",
+      "startLine": 68,
+      "endLine": 105,
+      "sha256": "29f5fb478cb946cc78e738323cf8fb47f3a6f3bb8789a92ca53ff7c1d272a384",
+      "revision": "98e7690d0bdd91025c08e5aa442a01d7a8c9f5f6",
+      "scope": "本轮只读当前源码；不等于历史每次运行版本或当前线上验收。"
+    }
+  ],
+  "assets": [
+    {
+      "path": "assets/device-desktop-geany.png",
+      "sha256": "4961a296979ae9f8e132167c1601d653f75863265f49f6fddc3e94b3e8ad54aa",
+      "bytes": 127675,
+      "kind": "historical_screenshot",
+      "caption": "旧图：Geany打开猜数字脚本，终端可见低／高／猜中与正常退出；不是新设备测试。",
+      "visualPrivacyReviewed": true,
+      "originalBytesPreserved": true
+    },
+    {
+      "path": "assets/device-desktop-resonance.png",
+      "sha256": "796a304cad8db8ecfdf1e2aa2076975da33973a9f105c3da266a11208cf2b94e",
+      "bytes": 262348,
+      "kind": "historical_screenshot",
+      "caption": "较后旧图：受管Linux桌面的Chromium显示中文应用首屏；地址只属当时环境，不是公开试玩链接。",
+      "visualPrivacyReviewed": true,
+      "originalBytesPreserved": true
+    },
+    {
+      "path": "assets/device-desktop-inkscape.png",
+      "sha256": "eeccd947b184ce6cf39db24e78eea6cc34ddfd8af3cb649cc062de7699363d02",
+      "bytes": 83367,
+      "kind": "historical_screenshot",
+      "caption": "旧图：Inkscape中可见workflow.svg；只证明打开该设计图，不证明整个跨软件项目完成。",
+      "visualPrivacyReviewed": true,
+      "originalBytesPreserved": true
+    },
+    {
+      "path": "assets/device-desktop-office-blocked.png",
+      "sha256": "9b7c8fabf3e25ab9eae2880b8072f9fc82df0e61df13a0d43bc7bcb73270dea8",
+      "bytes": 100828,
+      "kind": "historical_screenshot",
+      "caption": "反例原图：LibreOffice提示frontier-report.odt does not exist，不能当成功打开的证据。",
+      "visualPrivacyReviewed": true,
+      "originalBytesPreserved": true
+    },
+    {
+      "path": "assets/device-desktop-browser-blocked.png",
+      "sha256": "dd67bec455f47444bf13d63285b9f6d6dbd3854eff79a926c2b00ae3e3905b1a",
+      "bytes": 45728,
+      "kind": "historical_screenshot",
+      "caption": "反例原图：仅有Chromium Terms of Service窗口，没有回执声称的IANA页面。",
+      "visualPrivacyReviewed": true,
+      "originalBytesPreserved": true
+    },
+    {
+      "path": "assets/device-phone-klooni.png",
+      "sha256": "1000fb90eba72d9f9a793baf6d0a96330837eadc7d1f0fdd6b729dcd900a1fb1",
+      "bytes": 29508,
+      "kind": "historical_screenshot",
+      "caption": "旧Android截图：Klooni主菜单；配合安装／回滚原件看，不作为完整玩法或真实账号业务证明。",
+      "visualPrivacyReviewed": true,
+      "originalBytesPreserved": true
+    },
+    {
+      "path": "assets/device-phone-alarm.png",
+      "sha256": "a47b088fb98bea70ad111a75f69ab4fb825e5763aefc2c871a10e4204b2e9b10",
+      "bytes": 87716,
+      "kind": "historical_screenshot",
+      "caption": "重启后旧图：07:35测试闹钟可见；画面有两条07:35，不证明只创建一条、幂等或实际响铃。",
+      "visualPrivacyReviewed": true,
+      "originalBytesPreserved": true
+    },
+    {
+      "path": "assets/device-phone-gallery.png",
+      "sha256": "01fa8a4b91949a73b6779d18ba05b75a6b0d2aae26836bf8f2bb019f6d430241",
+      "bytes": 16843,
+      "kind": "historical_screenshot",
+      "caption": "旧图：图库显示MEYO LIFE PROOF测试图片；没有分享、删除或处理私人照片。",
+      "visualPrivacyReviewed": true,
+      "originalBytesPreserved": true
+    },
+    {
+      "path": "downloads/device-guess-game.py",
+      "sha256": "ab846b6fc07f4b62a36ec8f5457c08248f8c4096351e64de10e8486658588766",
+      "bytes": 951,
+      "kind": "original_source",
+      "caption": "951字节的旧Python猜数字脚本；下载源码，不是网页在线游戏。",
+      "visualPrivacyReviewed": false,
+      "originalBytesPreserved": true
+    },
+    {
+      "path": "downloads/device-workflow.svg",
+      "sha256": "344e7d3cd174c130e455aec1c07a28dcfe09f974e082cc2d1d4ffa043b3f86da",
+      "bytes": 2308,
+      "kind": "original_design",
+      "caption": "原SVG设计文件，可查看源码；图中流程文字不是全链完成证书。",
+      "visualPrivacyReviewed": false,
+      "originalBytesPreserved": true
+    },
+    {
+      "path": "downloads/device-workflow.png",
+      "sha256": "e2fa133a8651270463378731c9a04c2a68fba416d0ec49ae52b8153b17f7b387",
+      "bytes": 93042,
+      "kind": "original_design",
+      "caption": "与旧清单摘要一致的设计图原文件。",
+      "visualPrivacyReviewed": false,
+      "originalBytesPreserved": true
+    }
+  ],
+  "sources": [
+    {
+      "id": "D-GEANY",
+      "name": "Geany演示脚本原文件",
+      "sha256": "ab846b6fc07f4b62a36ec8f5457c08248f8c4096351e64de10e8486658588766",
+      "scope": "配合旧屏幕，只支持一次有限运行；完整工具trace不足，不称所有分支均验证。",
+      "rawPublished": false
+    },
+    {
+      "id": "D-RESONANCE",
+      "name": "RESONANCE桌面打开记录的只读核查",
+      "sha256": "f2a186f4171343d50b6252c3068f12967f3718a5fa96cd44aae575ab05108cee",
+      "scope": "有受管CUA打开/点击/截屏旧回执；宿主完整交互不混称云端验收，顶层仍未整体完成。",
+      "rawPublished": false
+    },
+    {
+      "id": "D-MANIFEST",
+      "name": "跨软件工程原文件清单",
+      "sha256": "894e5337433aeffb68cb35ee97e98990d53089f107572c9c71a4f21612a13958",
+      "scope": "文件摘要一致证明原物保留；不证明Office、浏览器及全部云端流程完成。",
+      "rawPublished": false
+    },
+    {
+      "id": "D-TESTS",
+      "name": "IDE旧测试回执",
+      "sha256": "dbd45428895ef71fe72f8b398f759978c12cd816d3c3bdfae1109b311622aecc",
+      "scope": "12项通过记录的platform是macOS，不作为在云桌面跑12测的证据。",
+      "rawPublished": false
+    },
+    {
+      "id": "D-GUI-REPORT",
+      "name": "研究任务旧完成回执",
+      "sha256": "0113821fcf5f9476a8187a6864a03cc2c1cc07c2579065170b9efd818abe0f65",
+      "scope": "回执称完成，但所引截图为条款窗口；PDF/HTML存在，不自动支持所述GUI研究方法。",
+      "rawPublished": false
+    },
+    {
+      "id": "M-LIFECYCLE",
+      "name": "mobile-fdroid-klooni-lifecycle",
+      "sha256": "ed4bf70868506aa7205aaeaea3213e12a9aa620db67e562e4edf7dd88c4010de",
+      "scope": "旧持久任务与原件对照，不是当前设备或商业账号新验收；不公开原task JSON。",
+      "rawPublished": false
+    },
+    {
+      "id": "M-ALARM",
+      "name": "mobile-real-alarm-0735",
+      "sha256": "f7e9a26b5b5ab61b1893e893772e8e7b605d106b2152c9d691feaaac16538be8",
+      "scope": "旧持久任务与原件对照，不是当前设备或商业账号新验收；不公开原task JSON。",
+      "rawPublished": false
+    },
+    {
+      "id": "M-GALLERY",
+      "name": "mobile-real-files-gallery",
+      "sha256": "558086ce7a53ffbb2c759fdc866fa03bb0d5539d178b1058a33f7c367a7a6439",
+      "scope": "旧持久任务与原件对照，不是当前设备或商业账号新验收；不公开原task JSON。",
+      "rawPublished": false
+    },
+    {
+      "id": "M-CONFIRM",
+      "name": "mobile-confirm-resume-proof",
+      "sha256": "fc38df3a0d36e2f8761d036d59a7ee8fa3c1c46f7fe0a5fa0ce733a1d0a6dd82",
+      "scope": "旧持久任务与原件对照，不是当前设备或商业账号新验收；不公开原task JSON。",
+      "rawPublished": false
+    },
+    {
+      "id": "M-MAP",
+      "name": "mobile-browser-e2e",
+      "sha256": "2abcbf704944f833be7104623fc8fe69e18084cf06552edfbd58ac0a4476304c",
+      "scope": "旧持久任务与原件对照，不是当前设备或商业账号新验收；不公开原task JSON。",
+      "rawPublished": false
+    },
+    {
+      "id": "M-REVIEW",
+      "name": "手机原件与回执独立核查",
+      "sha256": "00ed4288a33ad3f96c0d5dc09088b8d4d4ebda352e8f53bd0062862b7c80144b",
+      "scope": "核了APK/目录/回滚摘要，但不公开APK、安装计划令牌或私有记录。",
+      "rawPublished": false
+    },
+    {
+      "id": "FIXTURE",
+      "name": "设备验收页面测试数据的来源",
+      "sha256": "1d252b02c5619579baeca319a640add3966a64e84a9f3becd3bdbc5132f00cda",
+      "scope": "170–176行直接填入done/saved=true，不是手机真的保存了一份报告。",
+      "rawPublished": false
+    }
+  ],
+  "notCompleted": [
+    {
+      "title": "确认恢复只作机制演练",
+      "detail": "旧档有两次尝试、七事件和确认决定，但action_performed=false；不能算真实账号/MFA/付款/发消息已完成。"
+    },
+    {
+      "title": "地图没有产出路线",
+      "detail": "所核mobile-browser-e2e仍ready、零次尝试；其他OsmAnd操作与安装不等于真实路线出现。"
+    },
+    {
+      "title": "电脑完整跨软件链仍缺证",
+      "detail": "Office图报does not exist，研究图仍为Terms of Service，12测试回执在macOS；有文件和部分软件动作，不等于全部云端流程完成。"
+    },
+    {
+      "title": "展示测试不能替代业务",
+      "detail": "device-business-proof在测试代码里直接写done/saved=true；TidyDeck是macOS原生作品，手机宽度截图是网页适配，都不冒充云设备新任务。"
+    },
+    {
+      "title": "真实账号、跨设备和长期运行",
+      "detail": "商业App、相机/扫码/硬件、电脑与手机整单接力、离开页面后的长期可靠性及世界级质量仍要独立举证；不由本页案例外推。"
+    }
+  ]
+}
