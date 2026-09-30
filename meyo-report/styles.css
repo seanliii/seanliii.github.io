@@ -86,6 +86,17 @@
 .device-capability-nav { display: flex; flex-wrap: wrap; gap: 10px; margin-block: 22px; }
 .device-capability-nav a { padding: 9px 13px; border: 1px solid var(--line); border-radius: var(--radius); font-size: 13px; }
 .device-access-intro, .device-access-note { color: var(--muted); font-size: 12px; }
+.device-goals-overview { padding-block: 22px; }
+.device-goals-overview > h4 { font-size: 22px; margin: 0 0 20px; }
+.device-goal-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-bottom: 22px; }
+.device-goal-grid > article { min-width: 0; border: 1px solid var(--line); border-radius: var(--radius); padding: 20px; }
+.device-goal-grid h4 { font-size: 20px; margin: 0 0 12px; }
+.device-goal-grid p { font-size: 13px; }
+.device-task-facts { display: grid; gap: 12px; margin: 20px 0; }
+.device-task-facts > div { display: grid; grid-template-columns: 58px minmax(0, 1fr); gap: 10px; }
+.device-task-facts dt { color: var(--muted); font-size: 12px; }
+.device-task-facts dd { margin: 0; font-size: 13px; line-height: 1.8; }
+@media (max-width: 760px) { .device-goal-grid { grid-template-columns: 1fr; } }
 .device-case .device-access-note { padding-block: 12px; border-top: 1px solid var(--line); }
 .device-physical-boundary { border-left: 3px solid var(--accent); padding: 18px 24px; margin-block: 25px; background: var(--surface); }
 .device-physical-boundary h4 { margin-top: 0; }

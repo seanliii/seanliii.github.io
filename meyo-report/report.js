@@ -2,9 +2,6 @@
   'use strict';
 
   const byId = (id) => document.getElementById(id);
-  const number = new Intl.NumberFormat('zh-CN', { maximumFractionDigits: 1 });
-  const integer = new Intl.NumberFormat('zh-CN', { maximumFractionDigits: 0 });
-  const wan = (yuan) => number.format(yuan / 10000);
   const setText = (id, text) => { const element = byId(id); if (element) element.textContent = text; };
 
   // 只展示已经保存的真实截图，不触发模型、游戏或联网操作。
@@ -87,54 +84,12 @@
   // 只标当前访问位置；不拿这个标签推断服务器健康或模型质量。
   const location = window.location;
   if (location && location.protocol === 'file:') {
-    setText('publication-mode', '本地副本 · 图解交互式项目分享');
+    setText('publication-mode', '本地副本 · AI项目作品集');
     setText('publication-description', '这不是线上网址。可在本地看已有文件；转发给别人请使用右侧的正式网页链接。');
   } else if (location && location.hostname === 'seanliii.github.io') {
-    setText('publication-mode', '公开分享页 · 点图解，再读详情');
+    setText('publication-mode', '项目作品集 · 看作品与实现');
     setText('publication-description', '点击节点了解Auto、实体关系、评测与作品阶段；完整原文按需展开。太阳系和3D对战固定地址不变，游戏版本与已知缺口也不变。');
   }
-
-  const form = byId('budget-form');
-  const updateBudget = () => {
-    try {
-      if (!window.MeyoBudget) throw new Error('预算计算文件未加载，请保留整个网页文件夹。');
-      const input = {
-        days: Number(form.elements.namedItem('days').value),
-        promotionWan: Number(form.elements.namedItem('promotion').value),
-        aiDaily: Number(form.elements.namedItem('aiDaily').value),
-        salaryDaily: 3000,
-        registrations: Number(form.elements.namedItem('registrations').value)
-      };
-      const result = window.MeyoBudget.calculateBudget(input);
-      setText('promotion-value', number.format(input.promotionWan) + '万元');
-      setText('ai-value', integer.format(input.aiDaily) + '元');
-      setText('budget-total', wan(result.totalYuan));
-      setText('budget-range', wan(result.totalMinYuan) + '—' + wan(result.totalMaxYuan) + '万元');
-      setText('cost-promotion', wan(result.promotionYuan) + '万元');
-      setText('cost-ai', wan(result.aiCostYuan) + '万元');
-      setText('cost-salary', wan(result.salaryCostYuan) + '万元');
-      for (const key of ['promotion', 'ai', 'salary']) {
-        byId('bar-' + key).style.width = (result.shares[key] * 100).toFixed(4) + '%';
-      }
-      setText('count-activated', number.format(result.activationCount));
-      setText('count-d7', number.format(result.d7Count));
-      setText('count-d30', number.format(result.d30Count));
-      setText('cost-per-activation', number.format(result.promotionPerActivation) + '元');
-      setText('total-per-activation', number.format(result.totalPerActivation) + '元');
-      byId('budget-error').hidden = true;
-      // 只提供本地可复核结果，不持久化、不发送任何表单或用户数据。
-      form.dataset.totalYuan = String(result.totalYuan);
-      form.dataset.activationCount = String(result.activationCount);
-    } catch (error) {
-      setText('budget-error', '无法完成计算：' + error.message);
-      byId('budget-error').hidden = false;
-    }
-  };
-  form.addEventListener('input', updateBudget);
-  form.addEventListener('change', updateBudget);
-  form.addEventListener('submit', (event) => event.preventDefault());
-  form.addEventListener('reset', () => window.setTimeout(updateBudget, 0));
-  updateBudget();
 
   const progress = byId('reading-progress');
   let scrollQueued = false;
@@ -186,7 +141,7 @@
   window.addEventListener('hashchange', () => revealAnswer(window.location && window.location.hash));
   revealAnswer(window.location && window.location.hash);
   if ('IntersectionObserver' in window) {
-    const chapters = document.querySelectorAll('#thinking-evolution, #value, #mechanism-evidence, #works, #validation, #investment');
+    const chapters = document.querySelectorAll('#thinking-evolution, #value, #mechanism-evidence, #works, #validation, #cloud-devices');
     const navigation = document.querySelectorAll('.main-nav a');
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
