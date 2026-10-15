@@ -89,3 +89,27 @@
   .latest-proof h3, .latest-proof p, .proof-facts small, .proof-facts strong { color: #202d2a; }
   .harness-layer-map, .access-grid { break-inside: avoid; }
 }
+
+/* 上下文协作：根本目标章节 */
+.context-collaboration { border-top: 1px solid var(--line); padding-top: 36px; }
+.context-collaboration .section-split { margin-bottom: 30px; }
+.context-pillars { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 22px; margin: 28px 0; }
+.context-pillars article { border-top: 1px solid var(--line); padding-top: 20px; min-width: 0; }
+.context-pillars .pillar-index { color: var(--accent); font-size: 12px; letter-spacing: 0.6px; }
+.context-pillars h3 { font-size: 19px; margin: 12px 0; line-height: 1.4; }
+.context-pillars p { font-size: 13px; line-height: 1.85; }
+.context-journey { margin: 10px 0 36px; padding: 24px; border-radius: 14px; border: 1px solid var(--line); background: var(--surface); }
+.journey-line { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; font-size: 15px; font-weight: 700; color: var(--ink); }
+.journey-line span { padding: 8px 14px; border-radius: 999px; border: 1px solid var(--line); background: var(--white); }
+.journey-line i { color: var(--accent); font-style: normal; }
+.context-journey p { margin: 16px 0 0; font-size: 13px; line-height: 1.85; }
+.context-sources { margin-top: 26px; }
+.context-sources .chapter-heading { margin-bottom: 20px; }
+@media (max-width: 900px) {
+  .context-pillars { grid-template-columns: 1fr; gap: 18px; }
+  .journey-line span { font-size: 13px; padding: 6px 10px; }
+}
+@media print {
+  .context-pillars { grid-template-columns: 1fr 1fr 1fr; }
+  .context-journey { break-inside: avoid; }
+}
