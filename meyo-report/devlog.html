@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light">
+<meta name="robots" content="noindex,nofollow">
+<title>开发日志｜Meyo 作品集</title>
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="styles.css?v=20261015">
+<style>
+.devlog-wrap { max-width: 1280px; margin: 0 auto; padding: 24px 20px 80px; }
+.devlog-head { display: flex; align-items: baseline; gap: 14px; flex-wrap: wrap; margin: 18px 0 6px; }
+.devlog-head h1 { font-size: 26px; margin: 0; }
+.devlog-head span { color: #666f68; font-size: 13px; }
+.devlog-note { color: #666f68; font-size: 12.5px; line-height: 1.7; max-width: 76ch; margin: 0 0 22px; }
+.devlog-layout { display: grid; grid-template-columns: 250px 1fr; gap: 26px; align-items: start; }
+.devlog-toc { position: sticky; top: 70px; border: 1px solid #d8dbd3; border-radius: 12px; background: #f0f0eb; padding: 14px; font-size: 13px; }
+.devlog-toc h2 { font-size: 13px; letter-spacing: 1px; text-transform: uppercase; color: #973b29; margin: 0 0 10px; }
+.devlog-toc .toc-group { margin-bottom: 14px; }
+.devlog-toc .toc-group > strong { display: block; margin-bottom: 6px; color: #202d2a; }
+.devlog-toc details { margin: 0; }
+.devlog-toc summary { cursor: pointer; color: #202d2a; font-weight: 600; padding: 2px 0; }
+.devlog-toc ul { list-style: none; margin: 6px 0 0; padding-left: 10px; }
+.devlog-toc li { margin: 4px 0; }
+.devlog-toc a { color: #4a5a54; text-decoration: none; display: block; padding: 2px 6px; border-radius: 6px; }
+.devlog-toc a:hover, .devlog-toc a.on { background: #fff; color: #973b29; }
+.devlog-list { min-width: 0; }
+.devlog-search { width: 100%; box-sizing: border-box; padding: 10px 14px; border: 1px solid #d8dbd3; border-radius: 10px; font: inherit; font-size: 14px; margin-bottom: 18px; background: #fff; }
+.devlog-item { border: 1px solid #d8dbd3; border-radius: 12px; background: #fff; margin-bottom: 14px; overflow: hidden; }
+.devlog-item summary { cursor: pointer; padding: 16px 18px; list-style: none; display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap; }
+.devlog-item summary::-webkit-details-marker { display: none; }
+.devlog-item summary .t { font-size: 15.5px; font-weight: 700; color: #202d2a; flex: 1; min-width: 200px; }
+.devlog-item summary .g { font-size: 11.5px; color: #973b29; border: 1px solid #e0c9c2; background: #faf3f0; border-radius: 999px; padding: 2px 9px; white-space: nowrap; }
+.devlog-item summary .id { font-size: 11.5px; color: #9aa49e; white-space: nowrap; }
+.devlog-item summary .arrow { color: #973b29; font-size: 12px; transition: transform .2s ease; }
+.devlog-item[open] summary .arrow { transform: rotate(90deg); }
+.devlog-body { padding: 4px 18px 22px; border-top: 1px solid #eee; font-size: 14.5px; line-height: 1.85; color: #202d2a; }
+.devlog-body h1, .devlog-body h2, .devlog-body h3, .devlog-body h4 { color: #202d2a; line-height: 1.35; margin: 1.2em 0 .5em; }
+.devlog-body h1 { font-size: 21px; } .devlog-body h2 { font-size: 18px; } .devlog-body h3 { font-size: 16px; }
+.devlog-body p { margin: .6em 0; }
+.devlog-body ul, .devlog-body ol { margin: .6em 0 .6em 1.4em; }
+.devlog-body code { background: #f0f0eb; padding: 1px 6px; border-radius: 4px; font-size: 13px; }
+.devlog-body pre { background: #202d2a; color: #e8e4d8; padding: 14px; border-radius: 8px; overflow-x: auto; font-size: 12.5px; line-height: 1.6; }
+.devlog-body pre code { background: none; color: inherit; padding: 0; }
+.devlog-body blockquote { border-left: 3px solid #b54c35; margin: .8em 0; padding: 2px 0 2px 14px; color: #5a6560; background: #faf8f3; border-radius: 0 8px 8px 0; }
+.devlog-body table { border-collapse: collapse; margin: .8em 0; width: 100%; font-size: 13px; }
+.devlog-body th, .devlog-body td { border: 1px solid #d8dbd3; padding: 7px 10px; text-align: left; }
+.devlog-body th { background: #f0f0eb; }
+.devlog-body hr { border: 0; border-top: 1px solid #d8dbd3; margin: 1.2em 0; }
+.devlog-body img { max-width: 100%; border-radius: 8px; }
+.devlog-body a { color: #973b29; }
+.devlog-body .src-link { font-size: 12px; color: #9aa49e; }
+@media (max-width: 860px) { .devlog-layout { grid-template-columns: 1fr; } .devlog-toc { position: static; } }
+</style>
+</head>
+<body>
+<header class="site-header">
+  <div class="header-inner wrap">
+    <a class="brand" href="index.html#top" aria-label="回到作品集">
+      <span class="brand-symbol" aria-hidden="true">m</span><span>Meyo<span class="brand-dot">.</span></span>
+    </a>
+    <nav class="main-nav" aria-label="返回">
+      <a href="index.html#top">← 回作品集</a>
+    </nav>
+    <span class="edition">开发日志 <span>／</span> 2026.10.15</span>
+  </div>
+</header>
+<main class="devlog-wrap">
+  <div class="devlog-head"><h1>开发日志</h1><span>52 篇原文 · 按时间倒序</span></div>
+  <p class="devlog-note">学城文档原文存档：<strong>个人周报</strong>（2765940918 全部子文档）、<strong>复盘与面试</strong>（2792333346 全部子文档）、<strong>个人年度总结</strong>（2402522859，密码保护原文）。全部文字原样复制，保留原文链接，仅作个人作品集存档。展开任意一篇即可阅读全文。</p>
+  <div class="devlog-layout">
+    <aside class="devlog-toc" id="toc" aria-label="目录"></aside>
+    <section class="devlog-list">
+      <input class="devlog-search" id="search" type="search" placeholder="搜索标题…" aria-label="搜索日志标题">
+      <div id="list"></div>
+    </section>
+  </div>
+</main>
+<footer class="site-footer wrap"><a class="brand" href="index.html#top">Meyo<span class="brand-dot">.</span></a><p>开发日志 · 原文存档</p><a href="index.html#top">回到作品集 ↗</a></footer>
+<script>
+// 简易 markdown 渲染（够用版：标题/列表/引用/代码/表格/链接/加粗）
+function esc(s){return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
+function renderMd(src){
+  const lines = src.split('\n');
+  let out = ''; let inCode = false; let codeBuf = []; let list = null; let inTable = false; let tableBuf = [];
+  const flushList = () => { if (list) { out += `</${list}>`; list = null; } };
+  const flushTable = () => {
+    if (tableBuf.length) {
+      let rows = tableBuf.map(r => {
+        const cells = r.slice(1,-1).split('|').map(c => c.trim());
+        const tag = r.trim().match(/^\|[\s:-]+\|$/) ? 'th' : 'td';
+        return `<tr>${cells.map(c => `<${tag}>${inline(c)}</${tag}>`).join('')}</tr>`;
+      });
+      out += `<table>${rows.join('')}</table>`; tableBuf = [];
+    }
+    inTable = false;
+  };
+  const inline = (t) => t
+    .replace(/`([^`]+)`/g, '<code>$1</code>')
+    .replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>')
+    .replace(/\[([^\]]+)\]\((https?:[^)\s]+)\)/g, '<a href="$2" target="_blank" rel="noopener noreferrer">$1</a>');
+  for (const raw of lines) {
+    const line = raw;
+    if (line.startsWith('```')) {
+      if (inCode) { out += `<pre><code>${esc(codeBuf.join('\n'))}</code></pre>`; codeBuf = []; inCode = false; }
+      else inCode = true;
+      continue;
+    }
+    if (inCode) { codeBuf.push(line); continue; }
+    if (inTable && line.trim().startsWith('|')) { tableBuf.push(line); continue; }
+    if (inTable && !line.trim().startsWith('|')) { flushTable(); }
+    if (line.trim().startsWith('|')) { inTable = true; tableBuf = [line]; continue; }
+    const h = line.match(/^(#{1,4})\s+(.*)$/);
+    if (h) { flushList(); flushTable(); out += `<h${h[1].length}>${inline(h[2])}</h${h[1].length}>`; continue; }
+    if (/^\s*[-*]\s+/.test(line)) { if (list !== 'ul') { flushList(); out += '<ul>'; list = 'ul'; } out += `<li>${inline(line.replace(/^\s*[-*]\s+/,''))}</li>`; continue; }
+    if (/^\s*\d+\.\s+/.test(line)) { if (list !== 'ol') { flushList(); out += '<ol>'; list = 'ol'; } out += `<li>${inline(line.replace(/^\s*\d+\.\s+/,''))}</li>`; continue; }
+    if (/^\s*>/.test(line)) { flushList(); out += `<blockquote>${inline(line.replace(/^\s*>\s?/,''))}</blockquote>`; continue; }
+    if (/^---+$/.test(line.trim())) { flushList(); flushTable(); out += '<hr>'; continue; }
+    if (!line.trim()) { flushList(); continue; }
+    flushList();
+    out += `<p>${inline(line)}</p>`;
+  }
+  flushList(); flushTable();
+  if (inCode) out += `<pre><code>${esc(codeBuf.join('\n'))}</code></pre>`;
+  return out;
+}
+(async () => {
+  const idx = await (await fetch('content/devlog/index.json')).json();
+  // 目录
+  const toc = document.getElementById('toc');
+  for (const g of idx.tree) {
+    const wrap = document.createElement('div'); wrap.className = 'toc-group';
+    wrap.innerHTML = `<strong>${esc(g.name)}</strong><p style="margin:0 0 6px;font-size:11.5px;color:#7d8781">${esc(g.note||'')}</p>`;
+    const ul = document.createElement('ul');
+    for (const c of g.children.slice().reverse()) {
+      const li = document.createElement('li');
+      const a = document.createElement('a');
+      a.href = '#' + c.file; a.textContent = c.title; a.title = c.title;
+      a.addEventListener('click', () => {
+        document.querySelectorAll('.devlog-toc a').forEach(x => x.classList.remove('on'));
+        a.classList.add('on');
+        const item = document.getElementById('item-' + c.file);
+        if (item) { item.open = true; item.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+      });
+      li.appendChild(a); ul.appendChild(li);
+    }
+    wrap.appendChild(ul); toc.appendChild(wrap);
+  }
+  // 列表（倒序 = docs 已按 id 降序）
+  const listEl = document.getElementById('list');
+  const all = idx.docs;
+  const render = (filter) => {
+    listEl.innerHTML = '';
+    let shown = 0;
+    for (const d of all) {
+      if (filter && !d.title.toLowerCase().includes(filter.toLowerCase())) continue;
+      shown++;
+      const det = document.createElement('details');
+      det.className = 'devlog-item'; det.id = 'item-' + d.file;
+      const sum = document.createElement('summary');
+      sum.innerHTML = `<span class="t">${esc(d.title)}</span><span class="g">${esc(d.groupName)}</span><span class="id">#${d.id}</span><span class="arrow">▶</span>`;
+      det.appendChild(sum);
+      const body = document.createElement('div'); body.className = 'devlog-body';
+      const ph = document.createElement('p'); ph.textContent = '加载中…';
+      body.appendChild(ph);
+      det.appendChild(body);
+      det.addEventListener('toggle', async () => {
+        if (!det.open) return;
+        if (body.dataset.loaded) return;
+        body.dataset.loaded = '1';
+        try {
+          const md = await (await fetch('content/devlog/' + d.group + '/' + d.file)).text();
+          body.innerHTML = renderMd(md);
+          const src = document.createElement('p');
+          src.className = 'src-link'; src.textContent = '原文：https://km.sankuai.com/collabpage/' + d.id + '（公司内网）';
+          body.appendChild(src);
+        } catch (e) {
+          body.textContent = '加载失败：' + e.message;
+        }
+      });
+      listEl.appendChild(det);
+    }
+    if (shown === 0) {
+      const empty = document.createElement('p');
+      empty.style.cssText = 'color:#9aa49e;padding:30px 0;text-align:center;';
+      empty.textContent = '没有标题匹配「' + filter + '」，试试其他关键词。';
+      listEl.appendChild(empty);
+    }
+  };
+  render(null);
+  document.getElementById('search').addEventListener('input', (e) => render(e.target.value.trim()));
+})();
+</script>
+</body>
+</html>
