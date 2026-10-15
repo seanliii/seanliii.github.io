@@ -1,0 +1,83 @@
+{
+  "updated": "2026-10-15",
+  "read_document_count": 7,
+  "all_requested_sources_integrated": false,
+  "documents": [
+    {
+      "source": "source-01",
+      "title": "Harness、Auto、军团与产品复盘",
+      "public_section": "#harness-understanding",
+      "scope": "历史观察与架构判断",
+      "read_characters": 74621,
+      "text_sha256": "f24412beb93d4492875de4460b882516f445713bb63f3c1e6d14b0e7da2c101d",
+      "source_tree": "root",
+      "full_text_footer_verified": true
+    },
+    {
+      "source": "source-02",
+      "title": "一个持续进化的作品：产品方案",
+      "public_section": "#harness-understanding-longform",
+      "scope": "产品设计方向",
+      "read_characters": 54185,
+      "text_sha256": "76087d8b1b9cf9177567bd41e212bf59d2e67bac81e4335510828bff9ce0f7aa",
+      "source_tree": "direct_child",
+      "full_text_footer_verified": true
+    },
+    {
+      "source": "source-03",
+      "title": "成熟作品、私有空间与AI续改：开工指令",
+      "public_section": "#current-priorities",
+      "scope": "计划与有限历史实验",
+      "read_characters": 16081,
+      "text_sha256": "246ff6b2254f67d6ad74e3cdb8915a12d518e43fc641db8cd6d423f412e6295f",
+      "source_tree": "direct_child",
+      "full_text_footer_verified": true
+    },
+    {
+      "source": "source-04",
+      "title": "AI原生协作社区",
+      "public_section": "#harness-understanding-longform",
+      "scope": "产品设计方向",
+      "read_characters": 4714,
+      "text_sha256": "a681f3fd6bbf0c386a8a005e59f81606d083e4f05800c30927ced1d0cba0f0ca",
+      "source_tree": "direct_child",
+      "full_text_footer_verified": true
+    },
+    {
+      "source": "source-05",
+      "title": "创作经济、复用与总成本",
+      "public_section": "#harness-understanding-longform",
+      "scope": "经济假设与验证口径",
+      "read_characters": 9401,
+      "text_sha256": "7ba312fd5f5a6c781a8f57db90427d3742aa68c4006ecea11c6aee73767520ae",
+      "source_tree": "direct_child",
+      "full_text_footer_verified": true
+    },
+    {
+      "source": "source-06",
+      "title": "社区与异构执行接口",
+      "public_section": "#harness-understanding-longform",
+      "scope": "接口规格与计划",
+      "read_characters": 32116,
+      "text_sha256": "10e2b6d477a80d889f21b42906ad1727e0143bdde7188414dbac94623853b7fe",
+      "source_tree": "direct_child",
+      "full_text_footer_verified": true
+    },
+    {
+      "source": "source-07",
+      "title": "用户定位与表达",
+      "public_section": "#harness-understanding-longform",
+      "scope": "候选产品表达",
+      "read_characters": 3644,
+      "text_sha256": "13b5b29d279e3e40b937600d42bd20e5c439deff46c790ef68d6d5ce43610481",
+      "source_tree": "direct_child",
+      "full_text_footer_verified": true
+    }
+  ],
+  "second_root": {
+    "title": "demo 10.13",
+    "status": "deleted_not_read",
+    "descendants": "not accessible, not claimed integrated"
+  },
+  "publication_policy": "Public synthesis only. Private original texts, internal URLs, credentials and personal information are excluded from this new material."
+}

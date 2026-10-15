@@ -1,0 +1,77 @@
+{
+  "updated": "2026-10-15",
+  "original_game_basis": "killian01/claude-of-legends",
+  "public_source": "https://github.com/seanliii/meyo-game",
+  "source_commit": "024ed8ae2f6208b414c816bf4dc7f7852c3f46a0",
+  "source_date": "2026-10-14T22:29:39+08:00",
+  "gameplay_build": "iyVsth2C",
+  "gameplay_date": "2026-10-13",
+  "batch_name": "10.12",
+  "ohmygame_source_reverted": true,
+  "ohmygame_ignored_build_not_reverted": true,
+  "latest_source_has_new_verified_gameplay": false,
+  "full_multiplayer_and_quality_accepted": false,
+  "screenshots": [
+    {
+      "file": "assets/moba-iy-gameplay-20261013.png",
+      "sha256": "64eb58903028f50b5d0fa597a50b1b2de9198749128c7986dde0cccb95601ede",
+      "bytes": 1007446,
+      "original_sha256": "64eb58903028f50b5d0fa597a50b1b2de9198749128c7986dde0cccb95601ede",
+      "image_processing": "original bytes",
+      "purpose": "实际对局全画面，建议作为最新已绑定构建的游戏画面",
+      "observed_at": "2026-10-13T21:56:33.953260+08:00",
+      "limits": [
+        "只有一个真实游客客户端加bots；不是完整自然胜负/多人验收。",
+        "不能把本图改标成024ed8a或OhMyGame改后截图。",
+        "验证到21:57:39.327515+08:00结束；本图精确抓取秒数未单独标出。"
+      ],
+      "use": "existing screenshot for commentary on this derivative; not a standalone asset pack"
+    },
+    {
+      "file": "assets/moba-central-before-20261013.jpg",
+      "sha256": "e4d9acfc2b5222c2fb78942a9e2c8a895b8dba2e97e2a8b95016df6daa9386d3",
+      "bytes": 391091,
+      "original_sha256": "a9e0825bf773ef239a6185093bc558237a9cc84e9e967b82961cf8ddc086ba69",
+      "image_processing": "full-frame resize to 1600px JPEG, original annotation retained",
+      "purpose": "用户提供的中央基地问题前图，保留红框",
+      "observed_at": "2026-10-13",
+      "limits": [
+        "用户图片来自旧橙树对照；不是反馈接收时刚拍摄的帧。",
+        "精确构建号/拍摄时刻未钉定，不强行标成Bhya或k5。"
+      ],
+      "use": "existing screenshot for commentary on this derivative; not a standalone asset pack"
+    },
+    {
+      "file": "assets/moba-central-after-20261013.png",
+      "sha256": "6b647a41f82a1b5e47c9a68e3dcdbeeb3d0885e66e7bfcd84f76109a1d92ee44",
+      "bytes": 985797,
+      "original_sha256": "6b647a41f82a1b5e47c9a68e3dcdbeeb3d0885e66e7bfcd84f76109a1d92ee44",
+      "image_processing": "original bytes",
+      "purpose": "原生成员中央基地改后画布图",
+      "observed_at": "2026-10-13T19:01:52.967970+08:00",
+      "limits": [
+        "这是成员画布截图，不是全HUD/完整玩法验收。",
+        "前后英雄、视角和取景不完全相同，只比较中央占位遮挡。",
+        "时间是该事实观察时间，非独立精确快门时间。"
+      ],
+      "use": "existing screenshot for commentary on this derivative; not a standalone asset pack"
+    },
+    {
+      "file": "assets/moba-ohmygame-landing-20261014.jpg",
+      "sha256": "8c5d5436f7645e47aafe861e71499ccbf363ce5d90faf9a630fa887e30ba9f07",
+      "bytes": 127079,
+      "original_sha256": "8c5d5436f7645e47aafe861e71499ccbf363ce5d90faf9a630fa887e30ba9f07",
+      "image_processing": "original bytes",
+      "purpose": "真实OhMyGame原生试玩首页；不是对局",
+      "observed_at": "2026-10-14T19:02:15.843000+08:00",
+      "limits": [
+        "截图在git revert之前；不是c9d4719回滚后新拍。",
+        "工具回执称1600x900，缓存位图尺寸以本文件头为准；两者分别记录。",
+        "不能证明按钮在正常用户浏览器里一定失效，也不能证明渲染改动好或坏。"
+      ],
+      "use": "existing screenshot for commentary on this derivative; not a standalone asset pack"
+    }
+  ],
+  "asset_credits": "https://github.com/seanliii/meyo-game/blob/main/CREDITS.md",
+  "licensing_scope": "Project source and individual media have distinct terms. Screenshots illustrate the described work; this update does not distribute new model, voice or game-asset archives."
+}
