@@ -88,7 +88,7 @@
     setText('publication-description', '这不是线上网址。可在本地看已有文件；转发给别人请使用右侧的正式网页链接。');
   } else if (location && location.hostname === 'seanliii.github.io') {
     setText('publication-mode', '项目作品集 · 看作品与实现');
-    setText('publication-description', '点击节点了解Auto、实体关系、评测与作品阶段；完整原文按需展开。太阳系和3D对战固定地址不变，游戏版本与已知缺口也不变。');
+    setText('publication-description', '点击节点了解Auto、实体关系、评测与作品阶段；完整原文按需展开。旧作品入口保留，MOBA最新源码、实战证据与候选回滚分开呈现。');
   }
 
   const progress = byId('reading-progress');
@@ -141,7 +141,7 @@
   window.addEventListener('hashchange', () => revealAnswer(window.location && window.location.hash));
   revealAnswer(window.location && window.location.hash);
   if ('IntersectionObserver' in window) {
-    const chapters = document.querySelectorAll('#thinking-evolution, #value, #mechanism-evidence, #works, #validation, #cloud-devices');
+    const chapters = document.querySelectorAll('#top, #harness-understanding, #thinking-evolution, #value, #mechanism-evidence, #works, #validation, #cloud-devices');
     const navigation = document.querySelectorAll('.main-nav a');
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
