@@ -273,6 +273,42 @@
     </div>
     <p class="section-note">脏锚门：path_working、unknown、none、占位词一律不当锚点；query 必须真的包含锚点 token 才发射，否则判为 hypothesis 丢弃。这解决“顺着错误实体越搜越远”的二次污染。</p>
 
+    <h3 style="font-size:15px;margin:34px 0 14px;">实体关系：七层，防的是同一件事——认错实体</h3>
+    <div class="table-wrap dense">
+      <table>
+        <thead><tr><th>层</th><th>真实文件</th><th>机制</th><th>在防什么</th></tr></thead>
+        <tbody>
+          <tr><td><b>采集</b></td><td>entity_memory_bank.py</td><td>工具结果落账当下抽实体，记出现次数与来源，存入会话实体库；带噪声词表与 HTML 清洗</td><td>事后从混杂日志抽不准</td></tr>
+          <tr><td><b>相关性</b></td><td>entity_relevance.py</td><td>BM25 粗排候选段落，LLM 只精排 top-K：段落与每条约束 0 到 1 匹配加因果判断；圈选顺序为关联度、覆盖率、频次</td><td>部分匹配但更有名的错实体被选上</td></tr>
+          <tr><td><b>约束与证据</b></td><td>identity_coverage.extract_claims 与 compute_coverage</td><td>把题面拆成 claim，逐条统计证据覆盖；支持 LLM 语义覆盖，失败退回规则</td><td>布尔覆盖把“提到过”当“满足”</td></tr>
+          <tr><td><b>四态判定</b></td><td>identity_coverage.classify_state</td><td>任一约束被证据矛盾直接 rejected；覆盖率大于等于 0.80 且多源才 confirmed；覆盖足但单源是 probable；0.40 到 0.80 是 probable；否则 candidate</td><td>锁错实体、单源冒充确证</td></tr>
+          <tr><td><b>软锁</b></td><td>identity_coverage._is_strictly_better</td><td>已确认候选不被抖动替换；只有覆盖率明显更高且覆盖约束数不减少才换；收尾软锁 probable 优先于元评论与空</td><td>收敛时把正确实体换掉</td></tr>
+          <tr><td><b>防漂移</b></td><td>entity_drift_lowconf_guard.py</td><td>比对最终答案断言的实体与已确证集合，漂出就告警并回退；同时检测低置信措辞与置信数值</td><td>中间确证被覆盖、自认没把握仍硬交</td></tr>
+          <tr><td><b>特征反查</b></td><td>feature_to_entity.py</td><td>数值与属性特征转结构化查询（MusicBrainz lucene、Wikidata SPARQL、Crossref 年份作者），无结构化源时用 LLM 做特征到实体联想</td><td>6 shots、BPM 194 这类特征无法用全文关键词反查</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="warnbox">
+      <h4>三个真实事故，直接催生了这些机制</h4>
+      <ul>
+        <li><b>实体在交接时丢失</b>：Arsenal 在工具证据中出现 48 次，最终推理出现 0 次，模型凭自身知识脑补。修法是落账当下采集实体，收敛时从结构化库选。</li>
+        <li><b>正确实体在收敛时被覆盖</b>：中间已多源确证母队是 Arsenal，收尾自述变成 on loan from Celtic，再由 Celtic 推出对手 Rennes，最终答错。修法是漂移检测加软锁：收敛不许用低置信新说法覆盖已确证实体。</li>
+        <li><b>自认低置信仍硬交</b>：模型自标 Confidence 20%、写明未能完全确认，墙钟到了仍交卷。修法是低置信检测：命中措辞或数值就先回退到已确证候选，或标注不确定度。</li>
+      </ul>
+    </div>
+
+    <h3 style="font-size:15px;margin:34px 0 14px;">关系枢轴：实体关系怎么变成下一跳</h3>
+    <div class="chips">
+      <span class="chip hot">identity · 作者/编辑/账号其他主页</span>
+      <span class="chip hot">site_archive · 同域归档/RSS/sitemap</span>
+      <span class="chip hot">citation · 精确标题/罕见短语转载</span>
+      <span class="chip hot">neighborhood · 同栏目/同日期/同榜单</span>
+      <span class="chip">显示名相似只算 candidate</span>
+      <span class="chip">互链或稳定账号 ID 才算 confirmed</span>
+    </div>
+    <p class="section-note">只有两类锚点能驱动多跳：已确证实体，或关系节点。实体库是会话级的，不跨任务共享；四态与覆盖率是证据判定，不是真值判定；软锁只防覆盖，不保证候选正确。</p>
+
     <div class="mech-grid">
       <div class="mech"><b>并发自适应</b><p>load 小于 8 全并发；8 到 15 降到 2 路；大于 15 串行 1 路。简单题只深爬 top 3。</p><code>MEYO_SWARM_MAX_LANES</code></div>
       <div class="mech"><b>搜索 DAG</b><p>七类节点：planner、fanout、dork、discovery、supervise、reflect、rescue；四种跳条件；支持并行与回环。</p><code>search_dag.py 548 行</code></div>
