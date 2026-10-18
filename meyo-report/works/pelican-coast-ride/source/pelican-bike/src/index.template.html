@@ -157,6 +157,22 @@
   }
   #pauseVeil.show { opacity: 1; visibility: visible; }
   #pauseVeil small { display: block; text-align: center; margin-top: 10px; font-size: 13px; color: var(--dim); letter-spacing: 1px; }
+  #resumeBtn {
+    display: block; margin: 20px auto 0; padding: 12px 28px;
+    border: 1px solid var(--line); border-radius: 12px; background: #ffd166;
+    color: #231d15; font: inherit; font-size: 16px; letter-spacing: 1px; cursor: pointer;
+  }
+  @media (max-width: 680px) {
+    #touchUI.show { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; padding: 0 12px; box-sizing: border-box; }
+    #touchUI .cluster { position: static; gap: 8px; }
+    #touchUI .left { grid-column: 1; grid-row: 2; justify-content: flex-start; }
+    #touchUI .right { grid-column: 2; grid-row: 2; justify-content: flex-end; }
+    #touchUI .mid { grid-column: 1 / -1; grid-row: 1; justify-content: center; transform: none; }
+    #touchUI button, #touchUI .mid button { width: 46px; height: 46px; flex: 0 0 46px; font-size: 18px; }
+    #topRight { top: 92px; right: 12px; }
+    #camName { bottom: calc(132px + env(safe-area-inset-bottom)); }
+    #keysHint { display: none; }
+  }
 
   #nogl {
     position: fixed; inset: 0; z-index: 30; display: none; align-items: center; justify-content: center;
@@ -214,7 +230,7 @@
   </div>
 </div>
 
-<div id="pauseVeil"><div>⏸ 已暂停<small>按 P 或 Esc 继续</small></div></div>
+<div id="pauseVeil"><div>⏸ 已暂停<small>点击按钮，或按 P / Esc 继续</small><button id="resumeBtn" type="button">继续骑行</button></div></div>
 
 <div id="startScreen">
   <svg class="logo" viewBox="0 0 340 190" fill="none" aria-hidden="true">

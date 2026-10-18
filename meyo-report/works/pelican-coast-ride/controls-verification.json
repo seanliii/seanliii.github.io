@@ -1,0 +1,52 @@
+{
+  "version": "20261018-controls",
+  "game_html_sha256": "0e01826cf724b81fcfa6efe33b83077fc9e320eaeb5197701107713ba35dc11a",
+  "checked_at": "2026-10-18T23:49:38.861876+08:00",
+  "surface": "local candidate browser with actual key/touch input; public deployment verified separately",
+  "desktop": {
+    "mute_button_works": true,
+    "quality_button_works": true,
+    "a_direction": true,
+    "d_direction": true,
+    "ArrowLeft_direction": true,
+    "ArrowRight_direction": true,
+    "w_accelerates": true,
+    "s_brakes": true,
+    "ArrowUp_accelerates": true,
+    "ArrowDown_brakes": true,
+    "single_jump_while_airborne": true,
+    "bell": true,
+    "four_camera_modes": true,
+    "holding_pause_does_not_toggle_back": true,
+    "pause_stops_progress": true,
+    "resume_progresses": true,
+    "blur_pauses": true,
+    "real_blur_observed": true,
+    "no_stuck_steering_after_blur": true,
+    "no_script_error": true
+  },
+  "mobile_emulation": {
+    "mute_button_works": true,
+    "quality_button_works": true,
+    "touch_controls_visible_and_unobstructed": true,
+    "mobile_stats_not_covered": true,
+    "tLeft_direction": true,
+    "tRight_direction": true,
+    "touch_jump": true,
+    "touch_bell": true,
+    "touch_camera": true,
+    "background_pauses": true,
+    "real_background_event_observed": true,
+    "touch_resume": true,
+    "no_script_error": true
+  },
+  "corrected_old_verifier": "Direction is checked against user intent, not just a changed number. Focus tests disable browser focus emulation and require actual blur evidence.",
+  "no_paid_model_requests": true,
+  "visual_review": "portrait rider now visible; artwork otherwise unchanged",
+  "not_claimed": [
+    "all physical phones",
+    "audio quality",
+    "long-play quality",
+    "autonomous Legion rework"
+  ]
+}
