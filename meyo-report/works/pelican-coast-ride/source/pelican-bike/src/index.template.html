@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, user-scalable=no">
+<title>鹈鹕骑自行车 · Pelican Coast Ride</title>
+<meta name="description" content="戴头盔墨镜、系红围巾的鹈鹕，在黄昏海岸公路上骑自行车抓鱼。全程序化生成的 Three.js 3D 骑行页：昼夜循环、布料围巾、跳鱼抓捕、芯片音乐。">
+<meta property="og:title" content="鹈鹕骑自行车 · Pelican Coast Ride">
+<meta property="og:description" content="戴头盔墨镜、系红围巾的鹈鹕在海岸公路上骑车抓鱼 — 全程序化 3D 网页，点开即玩。">
+<meta property="og:type" content="website">
+<meta property="og:image" content="poster.jpg">
+<meta name="theme-color" content="#1c2a52">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<style>
+  :root {
+    --ink: #f5f1e8; --dim: rgba(245,241,232,.62);
+    --card: rgba(16,22,38,.55); --line: rgba(245,241,232,.14);
+    --accent: #ffc300; --accent2: #ff8c42;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+  html, body { width: 100%; height: 100%; overflow: hidden; background: #101a33; }
+  body { font-family: "PingFang SC", "Microsoft YaHei", "Segoe UI", system-ui, sans-serif; color: var(--ink); }
+  #gl { position: fixed; inset: 0; width: 100%; height: 100%; display: block; touch-action: none; }
+
+  /* ---------- HUD ---------- */
+  #hud { position: fixed; inset: 0; pointer-events: none; z-index: 5; }
+  .panel {
+    background: var(--card); border: 1px solid var(--line);
+    border-radius: 14px; backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+  }
+  #stats {
+    position: absolute; top: max(14px, env(safe-area-inset-top)); left: 16px;
+    padding: 10px 16px; display: flex; gap: 18px; align-items: baseline;
+  }
+  #stats .big { font-size: 30px; font-weight: 800; letter-spacing: -1px; font-variant-numeric: tabular-nums; }
+  #stats .unit { font-size: 11px; color: var(--dim); margin-left: 2px; }
+  #stats .sep { width: 1px; height: 26px; background: var(--line); align-self: center; }
+  #stats .sub { font-size: 11px; color: var(--dim); }
+  #stats .v { font-size: 16px; font-weight: 700; font-variant-numeric: tabular-nums; }
+  #topRight {
+    position: absolute; top: max(14px, env(safe-area-inset-top)); right: 16px;
+    display: flex; gap: 8px; align-items: center; pointer-events: auto;
+  }
+  #topRight .pill {
+    padding: 7px 12px; font-size: 12px; color: var(--ink);
+    background: var(--card); border: 1px solid var(--line); border-radius: 999px;
+    backdrop-filter: blur(8px); cursor: pointer; user-select: none;
+  }
+  #best {
+    position: absolute; top: calc(max(14px, env(safe-area-inset-top)) + 64px); left: 16px;
+    font-size: 11px; color: var(--dim); padding: 3px 10px;
+  }
+  #camName {
+    position: absolute; bottom: max(18px, env(safe-area-inset-bottom)); left: 16px;
+    padding: 7px 14px; font-size: 12px; border-radius: 999px;
+    background: var(--card); border: 1px solid var(--line); backdrop-filter: blur(8px);
+  }
+  #keysHint {
+    position: absolute; bottom: max(18px, env(safe-area-inset-bottom)); right: 16px;
+    padding: 8px 14px; font-size: 11px; color: var(--dim); border-radius: 999px;
+    background: var(--card); border: 1px solid var(--line); backdrop-filter: blur(8px);
+  }
+  @media (max-width: 720px) { #keysHint { display: none; } #stats { gap: 10px; padding: 8px 12px; } #stats .big { font-size: 22px; } }
+
+  /* ---------- toast ---------- */
+  #toasts {
+    position: absolute; top: 22%; left: 50%; transform: translateX(-50%);
+    display: flex; flex-direction: column; gap: 8px; align-items: center;
+  }
+  .toast {
+    padding: 10px 22px; border-radius: 999px; font-size: 15px; font-weight: 600;
+    background: rgba(16,22,38,.78); border: 1px solid var(--line);
+    opacity: 0; transform: translateY(12px) scale(.94);
+    transition: all .35s cubic-bezier(.2,1.4,.4,1);
+    backdrop-filter: blur(10px); white-space: nowrap;
+  }
+  .toast.show { opacity: 1; transform: translateY(0) scale(1); }
+  .toast.ach { border-color: var(--accent); color: var(--accent); box-shadow: 0 0 24px rgba(255,195,0,.25); }
+  .toast.catch { border-color: #7fb8d8; color: #bfe6f5; }
+  .toast.auto { border-color: var(--accent2); color: var(--accent2); }
+
+  /* ---------- 启动页 ---------- */
+  #startScreen {
+    position: fixed; inset: 0; z-index: 20; display: flex; flex-direction: column;
+    align-items: center; justify-content: center; gap: 0;
+    background:
+      radial-gradient(120% 90% at 80% -10%, #f7b267 0%, transparent 46%),
+      radial-gradient(120% 100% at 10% 110%, #0a1024 0%, transparent 60%),
+      linear-gradient(168deg, #2a4a7a 0%, #d06a4e 52%, #f7b267 100%);
+    transition: opacity .8s ease, visibility .8s;
+  }
+  #startScreen.gone { opacity: 0; visibility: hidden; }
+  #startScreen .logo { width: min(340px, 74vw); margin-bottom: 6px; filter: drop-shadow(0 10px 30px rgba(20,10,0,.35)); }
+  #startScreen h1 {
+    font-size: clamp(30px, 6vw, 52px); letter-spacing: 4px; font-weight: 900;
+    color: #fffdf5; text-shadow: 0 3px 18px rgba(90,40,0,.4);
+  }
+  #startScreen .sub {
+    margin-top: 8px; font-size: clamp(12px, 2.4vw, 15px); letter-spacing: 6px;
+    color: rgba(255,253,245,.85); text-transform: uppercase;
+  }
+  #featureRow {
+    display: flex; gap: 10px; flex-wrap: wrap; justify-content: center;
+    margin: 22px 0 4px; max-width: 640px; padding: 0 20px;
+  }
+  #featureRow span {
+    font-size: 12px; padding: 6px 13px; border-radius: 999px;
+    background: rgba(255,253,245,.14); border: 1px solid rgba(255,253,245,.22); color: #fffdf5;
+    backdrop-filter: blur(6px);
+  }
+  #loadWrap { width: min(380px, 76vw); margin-top: 26px; }
+  #barTrack { height: 6px; border-radius: 3px; background: rgba(255,253,245,.18); overflow: hidden; }
+  #bar { height: 100%; width: 0%; border-radius: 3px; background: linear-gradient(90deg, #ffc300, #ff8c42); transition: width .3s ease; }
+  #loadLabel { margin-top: 10px; text-align: center; font-size: 13px; color: rgba(255,253,245,.85); }
+  #startBtn {
+    margin-top: 22px; padding: 15px 54px; font-size: 19px; font-weight: 800; letter-spacing: 2px;
+    color: #5a2e00; background: linear-gradient(135deg, #ffd76e, #ffb62e);
+    border: none; border-radius: 999px; cursor: pointer;
+    box-shadow: 0 8px 30px rgba(255,182,46,.45); opacity: .45; transform: scale(.96);
+    transition: all .3s cubic-bezier(.2,1.4,.4,1); font-family: inherit;
+  }
+  #startBtn.ready { opacity: 1; transform: scale(1); }
+  #startBtn.ready:hover { transform: scale(1.05); box-shadow: 0 12px 40px rgba(255,182,46,.6); }
+  #tipBox { margin-top: 18px; font-size: 13px; color: rgba(255,253,245,.75); min-height: 20px; transition: opacity .3s; }
+  #credit { position: absolute; bottom: max(16px, env(safe-area-inset-bottom)); font-size: 11px; color: rgba(255,253,245,.55); letter-spacing: 1px; }
+
+  /* ---------- 帮助 ---------- */
+  #help {
+    position: fixed; left: 16px; top: 50%; transform: translateY(-50%); z-index: 6;
+    padding: 16px 20px; max-width: 240px; font-size: 12px; line-height: 2;
+    transition: opacity .3s, transform .3s;
+  }
+  #help.hide { opacity: 0; transform: translateY(-50%) translateX(-12px); pointer-events: none; }
+  #help b { color: var(--accent); font-weight: 700; }
+  #help .t { font-size: 13px; font-weight: 800; margin-bottom: 6px; color: var(--ink); }
+
+  /* ---------- 触屏 ---------- */
+  #touchUI { position: fixed; inset: auto 0 max(14px, env(safe-area-inset-bottom)) 0; z-index: 7; display: none; pointer-events: none; }
+  #touchUI.show { display: block; }
+  #touchUI .cluster { position: absolute; bottom: 0; display: flex; gap: 10px; pointer-events: auto; }
+  #touchUI .left { left: 14px; }
+  #touchUI .right { right: 14px; }
+  #touchUI button {
+    width: 58px; height: 58px; border-radius: 50%; border: 1px solid var(--line);
+    background: var(--card); color: var(--ink); font-size: 22px;
+    backdrop-filter: blur(8px); touch-action: none; user-select: none;
+  }
+  #touchUI button:active { background: rgba(255,195,0,.35); }
+  #touchUI .mid { left: 50%; transform: translateX(-50%); bottom: 4px; }
+  #touchUI .mid button { width: 50px; height: 50px; font-size: 18px; }
+
+  /* ---------- 暂停 ---------- */
+  #pauseVeil {
+    position: fixed; inset: 0; z-index: 15; display: flex; align-items: center; justify-content: center;
+    background: rgba(8,12,24,.55); backdrop-filter: blur(6px);
+    opacity: 0; visibility: hidden; transition: all .3s; font-size: 22px; letter-spacing: 4px;
+  }
+  #pauseVeil.show { opacity: 1; visibility: visible; }
+  #pauseVeil small { display: block; text-align: center; margin-top: 10px; font-size: 13px; color: var(--dim); letter-spacing: 1px; }
+
+  #nogl {
+    position: fixed; inset: 0; z-index: 30; display: none; align-items: center; justify-content: center;
+    background: #101a33; text-align: center; padding: 30px; font-size: 15px; line-height: 2;
+  }
+</style>
+</head>
+<body>
+<canvas id="gl"></canvas>
+
+<div id="hud">
+  <div id="stats" class="panel">
+    <div><span class="big" id="speed">0</span><span class="unit">km/h</span></div>
+    <div class="sep"></div>
+    <div><div class="v"><span id="dist">0.00</span><span class="unit"> km</span></div><div class="sub">里程</div></div>
+    <div><div class="v">🐟 <span id="fish">0</span></div><div class="sub">抓鱼</div></div>
+    <div><div class="v"><span id="fps">60</span></div><div class="sub">FPS</div></div>
+  </div>
+  <div id="best" class="panel"></div>
+  <div id="topRight">
+    <span class="pill" id="qualityTag">画质·高</span>
+    <span class="pill" id="muteBtn" onclick="return false">🔊</span>
+    <span class="pill" onclick="document.getElementById('help').classList.toggle('hide')">？</span>
+  </div>
+  <div id="toasts"></div>
+  <div id="camName">尾随镜头</div>
+  <div id="keysHint">W加速 S刹车 A/D变道 空格跳 T炫技 B车铃 C镜头 H帮助 P暂停</div>
+</div>
+
+<div id="help" class="panel hide">
+  <div class="t">🚲 操作指南</div>
+  <b>W / ↑</b> 加速　<b>S / ↓</b> 刹车<br>
+  <b>A / D</b> 左右变道抓鱼<br>
+  <b>空格</b> 跳跃　<b>T</b> 抬头展翅炫技<br>
+  <b>B</b> 车铃　<b>C</b> 切换镜头(4种)<br>
+  <b>M</b> 静音　<b>H</b> 帮助　<b>P</b> 暂停<br>
+  路过跳鱼时保持同侧即可抓到。<br>
+  放手 20 秒进入自动驾驶。
+</div>
+
+<div id="touchUI">
+  <div class="cluster left">
+    <button id="tLeft">◀</button>
+    <button id="tRight">▶</button>
+  </div>
+  <div class="cluster mid">
+    <button id="tBell">🔔</button>
+    <button id="tCam">🎥</button>
+    <button id="tTrick">🪽</button>
+  </div>
+  <div class="cluster right">
+    <button id="tDown">▼</button>
+    <button id="tUp">▲</button>
+    <button id="tJump">⤒</button>
+  </div>
+</div>
+
+<div id="pauseVeil"><div>⏸ 已暂停<small>按 P 或 Esc 继续</small></div></div>
+
+<div id="startScreen">
+  <svg class="logo" viewBox="0 0 340 190" fill="none" aria-hidden="true">
+    <defs>
+      <linearGradient id="lgSky" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0" stop-color="#fff3dc"/><stop offset="1" stop-color="#ffd9a0"/>
+      </linearGradient>
+    </defs>
+    <circle cx="170" cy="96" r="86" fill="rgba(255,253,245,.16)"/>
+    <g stroke="#fffdf5" stroke-width="5" stroke-linecap="round">
+      <line x1="60" y1="168" x2="280" y2="168" opacity=".65"/>
+    </g>
+    <!-- 自行车 -->
+    <g stroke="#fffdf5" stroke-width="4.5" fill="none" stroke-linecap="round">
+      <circle cx="110" cy="140" r="24"/>
+      <circle cx="208" cy="140" r="24"/>
+      <path d="M110 140 L142 96 L196 96 L208 140 M142 96 L132 140 M132 140 L196 96" opacity=".95"/>
+      <path d="M142 96 L138 84 L126 84" />
+      <path d="M196 96 L200 82 L214 82" />
+    </g>
+    <!-- 鹈鹕 -->
+    <g>
+      <ellipse cx="138" cy="76" rx="30" ry="24" fill="#fffdf5"/>
+      <path d="M158 64 Q176 44 186 40" stroke="#fffdf5" stroke-width="15" stroke-linecap="round" fill="none"/>
+      <circle cx="192" cy="37" r="12" fill="#fffdf5"/>
+      <path d="M198 34 Q224 32 240 37 Q224 42 198 41 Z" fill="#ffb62e"/>
+      <path d="M198 41 Q214 44 226 46 Q216 52 202 47 Z" fill="#ffc862"/>
+      <path d="M183 30 a12 12 0 0 1 20 -2 l1 4 -22 2 Z" fill="#ffc300"/>
+      <circle cx="196" cy="34" r="2.6" fill="#1c1e22"/>
+      <path d="M148 88 Q150 112 134 124" stroke="#ff8c42" stroke-width="6" stroke-linecap="round" fill="none"/>
+      <path d="M128 88 Q128 116 138 130" stroke="#ff8c42" stroke-width="6" stroke-linecap="round" fill="none" opacity=".75"/>
+      <path d="M114 66 Q100 58 102 48 Q114 56 124 60 Z" fill="#f2ecd8"/>
+      <path d="M162 58 Q176 62 186 74" stroke="#d8382e" stroke-width="7" stroke-linecap="round" fill="none"/>
+      <path d="M186 74 Q196 86 192 100" stroke="#d8382e" stroke-width="6" stroke-linecap="round" fill="none"/>
+    </g>
+    <!-- 海鸥 -->
+    <path d="M64 52 q7 -7 14 0 q7 -7 14 0" stroke="#fffdf5" stroke-width="3" fill="none" stroke-linecap="round" opacity=".8"/>
+    <path d="M254 30 q6 -6 12 0 q6 -6 12 0" stroke="#fffdf5" stroke-width="3" fill="none" stroke-linecap="round" opacity=".6"/>
+  </svg>
+  <h1>鹈鹕骑自行车</h1>
+  <div class="sub">Pelican Coast Ride</div>
+  <div id="featureRow">
+    <span>🌊 海岸公路</span><span>🌅 昼夜循环</span><span>🧣 布料围巾</span>
+    <span>🐟 跳鱼抓捕</span><span>🎥 4 种镜头</span><span>🎵 合成音乐</span><span>🏆 15 个成就</span>
+  </div>
+  <div id="loadWrap">
+    <div id="barTrack"><div id="bar"></div></div>
+    <div id="loadLabel">正在热身…</div>
+  </div>
+  <button id="startBtn">加载中…</button>
+  <div id="tipBox"></div>
+  <div id="credit">全程序化生成 · Three.js · 零外部素材 · 源码里的每一片羽毛都是代码</div>
+</div>
+
+<div id="nogl"><div>😢 你的浏览器不支持 WebGL<br>请换用最新版 Chrome / Edge / Safari 打开</div></div>
+
+<script>/*__THREE_INLINE__*/</script>
+<script>/*__GAME_INLINE__*/</script>
+</body>
+</html>
