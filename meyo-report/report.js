@@ -88,7 +88,7 @@
     setText('publication-description', '这不是线上网址。可在本地看已有文件；转发给别人请使用右侧的正式网页链接。');
   } else if (location && location.hostname === 'seanliii.github.io') {
     setText('publication-mode', '项目作品集 · 看作品与实现');
-    setText('publication-description', '点击节点了解Auto、实体关系、评测与作品阶段；完整原文按需展开。旧作品入口保留，MOBA最新源码、实战证据与候选回滚分开呈现。');
+    setText('publication-description', '点击节点了解Auto、实体关系、评测与作品阶段；完整原文按需展开。新增鹈鹕骑车与完整源码包；MOBA源码、静态前台、旧实战截图分别标注。');
   }
 
   const progress = byId('reading-progress');

@@ -1,0 +1,29 @@
+{
+  "checked_at": "2026-10-18T22:02:40.141241+08:00",
+  "games": {
+    "pelican": {
+      "title": "Pelican Coast Ride",
+      "play": "https://seanliii.github.io/meyo-report/works/pelican-coast-ride/index.html",
+      "source": "https://github.com/seanliii/seanliii.github.io/tree/master/meyo-report/works/pelican-coast-ride",
+      "version": "2026-10-18 original member build",
+      "html_sha256": "4a90ade8ba628ac8858409db0377c7d3f7dd047d7d4e4eaba5d257468495cdb3",
+      "attribution": "Game implemented during Legion run; Three.js engine reused; not a copied whole reference game",
+      "jev_rework_included": false
+    },
+    "moba": {
+      "repository": "https://github.com/seanliii/meyo-game",
+      "main_commit": "9687111a7dd6ab35b92b455bbe63bc4d06e8cf06",
+      "main_commit_at": "2026-10-17T16:53:21+08:00",
+      "static_frontend": "https://seanliii.github.io/meyo-game/",
+      "pages_commit": "f63e0e15ea1165f2af0877a9619f60a39e0de86b",
+      "pages_status": "built; published file identity independently checked",
+      "current_main_ci": "pnpm check failed",
+      "static_frontend_is_multiplayer_acceptance": false,
+      "new_full_multiplayer_acceptance": false,
+      "screenshot_kept_at": "2026-10-13",
+      "upstream": "killian01/claude-of-legends; reuse and follow-up modifications, not built wholly from scratch"
+    }
+  },
+  "no_paid_model_requests": true,
+  "private_traces_published": false
+}
