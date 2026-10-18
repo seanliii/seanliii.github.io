@@ -4,9 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="color-scheme" content="light">
-<meta name="description" content="Meyo 三系统资产总账：Auto、军团、马甲虾的代码规模、可复用组件、真实运行事实与证据边界。">
+<meta name="description" content="Meyo 三系统资产总账：Auto、军团、马甲虾的代码规模、工具生态、搜索、循环、Pilot、Hook、自监督、自进化、协作、上下文、Trace 与可交接资产。">
 <meta name="referrer" content="no-referrer">
-<title>Meyo 三系统资产总账｜Auto · 军团 · 马甲虾</title>
+<title>Meyo 三系统资产总账 v2｜架构、循环、协作与可交接资产</title>
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%2314120f'/><text x='16' y='23' font-size='20' font-family='Georgia' fill='%23faf9f6' text-anchor='middle'>m</text></svg>">
 <link rel="stylesheet" href="styles.css">
 </head>
@@ -21,12 +21,13 @@
     </a>
     <nav class="nav" aria-label="章节导航">
       <a href="#overview">总览</a>
+      <a href="#arch">架构</a>
       <a href="#auto">Auto</a>
       <a href="#legion">军团</a>
-      <a href="#puppet">马甲虾</a>
+      <a href="#content">马甲虾</a>
       <a href="#handoff">交接</a>
     </nav>
-    <span class="edition">资产总账 <i>/</i> 2026.10.18</span>
+    <span class="edition">资产总账 v2 <i>/</i> 2026.10.18</span>
   </div>
   <div class="progress" aria-hidden="true"><span id="progress-bar"></span></div>
 </header>
@@ -35,11 +36,11 @@
   <div id="top" class="wrap">
     <section class="hero">
       <div class="hero-copy">
-        <p class="kicker">三个系统 · 一本真账</p>
+        <p class="kicker">三个系统 · 十一类架构 · 一本真账</p>
         <h1>把做过的系统，<br>拆成还能用的资产。</h1>
-        <p class="hero-lead">Auto、军团、马甲虾不是三个平行产品，而是同一目标的三层：能力来源、运行底座、内容运营。这份总账只回答三件事——沉淀了什么，能论证什么，下一步做什么。</p>
+        <p class="hero-lead">Auto、军团、马甲虾不是三个平行产品，而是同一目标的三层：能力来源、运行底座、内容运营。这一版把工具、搜索、循环、Pilot、Hook、自监督、自进化、协作、上下文、经验组件与 Trace 全部摊开，能复用的和已经断掉的都写。</p>
         <div class="hero-links">
-          <a class="btn" href="#overview">看总览 <span>↗</span></a>
+          <a class="btn" href="#arch">看架构索引 <span>↗</span></a>
           <a class="link" href="#boundary">先看证据边界 <span>↗</span></a>
         </div>
       </div>
@@ -55,9 +56,9 @@
           <span class="stat-note">146 个文件 · 160 个 API · 333 个测试文件</span>
         </div>
         <div class="stat muted">
-          <span class="stat-num">8<span>/8</span></span>
-          <span class="stat-label">马甲虾沙箱当前离线</span>
-          <span class="stat-note">8 套人设与账号仍在，服务不在</span>
+          <span class="stat-num">14,009</span>
+          <span class="stat-label">已归档 Trace 文件</span>
+          <span class="stat-note">897.5 MB · 压缩后 82 MB · 七类记录</span>
         </div>
       </div>
     </section>
@@ -65,7 +66,7 @@
     <aside class="caliber" aria-label="统计口径">
       <div>
         <strong>口径先说清</strong>
-        <p>只写能指到文件、指到条目的内容。代码规模是当前源码实测；运行事实来自真实记录；能力结论带证据边界。累计曾解出、单次准确率、错题救回、控制器分类，四种统计量不混用。</p>
+        <p>只写能指到文件、指到条目的内容。本轮重读源码后修正了旧文档的失真：legion_core 实际 10,810 行；代码里没有 loop_events；五个 evolver 已不在工作树。累计曾解出、单次准确率、错题救回、控制器分类，四种统计量不混用。</p>
       </div>
       <div class="caliber-tags">
         <span>未重跑 ≠ 今天的新成绩</span>
@@ -90,66 +91,369 @@
           <tr>
             <td><b>Auto</b><span class="tag">能力层</span></td>
             <td>199 个 py<br>72,318 行<br>98 + 143 个测试文件</td>
-            <td>34 路搜索源、证据与验证链、GAIA 账本口径、上下文压缩与恢复</td>
+            <td>34 路搜索源、证据与验证链、GAIA 账本口径、上下文账本与检查点</td>
             <td>引擎已退出答题、接力与首脑竞选，保留为 capability 与工具库</td>
           </tr>
           <tr>
             <td><b>军团</b><span class="tag accent">底座层</span></td>
             <td>146 个 py<br>63,442 行<br>333 个测试文件</td>
-            <td>成员注册、任务 DAG、项目现场、产物交付、桌面与手机、验收账本</td>
+            <td>工具生态、调度内核、项目现场、产物交付、验收账本、设备层</td>
             <td>正式环境部署 1 台并通过浏览器验证；全员逐家验证未完成</td>
           </tr>
           <tr>
             <td><b>马甲虾</b><span class="tag">内容层</span></td>
             <td>8 个 py<br>1,034 行<br>另有 10 个内容模块</td>
-            <td>8 套人设 SOUL、8 个已入驻账号、批量派发与回复引擎、管理面板</td>
-            <td>8 个沙箱全部离线，属于已停摆的运营实践</td>
+            <td>8 套人设、画像到内容生产八环链路、1,875 话题与 240 条胜出模式</td>
+            <td>8 个沙箱全部离线，服务停摆约 3.5 个月</td>
           </tr>
         </tbody>
       </table>
     </div>
-    <p class="lede-quote">真正可迁移的是 Auto 的能力组件与评测方法，以及军团的整套运行底座；马甲虾保留人设与内容工作流，但不保留“在线服务”这个假设。</p>
+    <p class="lede-quote">真正可迁移的是军团整套运行底座，加上 Auto 的能力组件与评测方法；马甲虾保留人设与内容链路代码，但不保留“在线服务”这个假设。</p>
+  </section>
+
+  <section id="arch" class="chapter wrap">
+    <div class="chapter-head">
+      <span class="chapter-no">架构索引</span>
+      <span class="chapter-sub">十一类机制，逐块拆</span>
+    </div>
+    <h2>不是一张全景图，是十一个可以单独拿走的模块。</h2>
+    <p class="section-note">每块都按“真实文件、真实常量、真实断点”写。点进去看细节；没有代码支撑的说法不放进索引。</p>
+    <div class="index-grid">
+      <a class="index-card" href="#eco"><span>01</span><b>工具生态</b><small>四层供给 · 22 类能力 · 103 件装备</small></a>
+      <a class="index-card" href="#skill"><span>02</span><b>skill 协作</b><small>发现、匹配、共享、互学</small></a>
+      <a class="index-card" href="#search"><span>03</span><b>搜索架构</b><small>三层 · 34 源 · 四步执行</small></a>
+      <a class="index-card" href="#loop"><span>04</span><b>循环分类</b><small>五种循环 · 两套定时</small></a>
+      <a class="index-card" href="#pilot"><span>05</span><b>Pilot</b><small>双内核 · 12 轮续航 · 可阻断</small></a>
+      <a class="index-card" href="#hook"><span>06</span><b>Hook</b><small>五个挂点 · 只有 Stop 阻断</small></a>
+      <a class="index-card" href="#supervise"><span>07</span><b>自监督</b><small>五层 · 只读与账本</small></a>
+      <a class="index-card" href="#evolve"><span>08</span><b>自进化</b><small>三处真跑 · 五个已消失</small></a>
+      <a class="index-card" href="#collab"><span>09</span><b>协作机制</b><small>十四种 · DAG、接力、换届</small></a>
+      <a class="index-card" href="#context"><span>10</span><b>上下文管理</b><small>现场 packet · 六层派单</small></a>
+      <a class="index-card" href="#experience"><span>11</span><b>经验组件</b><small>GAIA 与 BC 沉淀的七件</small></a>
+      <a class="index-card" href="#trace"><span>12</span><b>Trace 资产</b><small>七类记录 · 全量归档</small></a>
+    </div>
+  </section>
+
+  <section id="eco" class="chapter wrap system">
+    <div class="chapter-head">
+      <span class="chapter-no">01</span>
+      <span class="chapter-sub">工具生态</span>
+    </div>
+    <div class="system-title">
+      <h2>工具不是一张大清单，<br>是四层各自的单一事实源。</h2>
+      <p>军团只做检索与执行，不把工具硬塞进每家 prompt。新装或锻造的工具，下一次检索立即全军团可见。</p>
+    </div>
+    <div class="table-wrap dense">
+      <table>
+        <thead><tr><th>层</th><th>真实实现</th><th>规模与分类</th></tr></thead>
+        <tbody>
+          <tr><td><b>清册层</b></td><td>toolbox.py 1,083 行；三类来源归一进索引，TTL 3600 秒</td><td>22 类能力规则：生图、视频生成、视频编辑、音频、PDF 文档、视觉、搜索、浏览、数据、写作、代码、产品、Web 应用、工具发现、编排、自我改进、桌面、手机、规划、通用等</td></tr>
+          <tr><td><b>装备层</b></td><td>arsenal_catalog.json</td><td>total 103 件，16 个 tier</td></tr>
+          <tr><td><b>安装层</b></td><td>install_registry.py，official / extension / user 三层注册</td><td>代码内置 28 条；dry-run 加白名单安装器</td></tr>
+          <tr><td><b>发现层</b></td><td>capability_catalog.py 9 个 discovery 入口；capability_view.py 只读快照，TTL 600 秒</td><td>media、search、file、web、ecosystem、toolbox 聚合视图</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="chips">
+      <span class="chip hot">legion_tool 1,485 行</span>
+      <span class="chip">BM25 检索</span>
+      <span class="chip">授权 + 幂等账本</span>
+      <span class="chip">工具使用伙伴学习 v4</span>
+      <span class="chip">18 家 tool provider</span>
+      <span class="chip">Auto @register_tool 47 处</span>
+      <span class="chip">toolbox_index TTL 3600s</span>
+    </div>
+    <div class="warnbox">
+      <h4>真实缺口，不粉饰</h4>
+      <ul>
+        <li>toolbox 与 capability_catalog 引用的 skill_factory.py、search_sources.py 在当前仓库不存在，运行时会走 ready=false 分支。</li>
+        <li>旧文档写“141 安装件 / 864 工具箱”，当前代码里 arsenal 实际 total=103；864 是运行时扫描数，不是代码常量。</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="skill" class="chapter wrap system">
+    <div class="chapter-head">
+      <span class="chapter-no">02</span>
+      <span class="chapter-sub">skill 与 agent 协作</span>
+    </div>
+    <h2>skill 是上下文，不是控制。</h2>
+    <div class="mech-grid">
+      <div class="mech"><b>发现</b><p>meyo_harnesses/skills.py 只读列出 skill；不路由、不绑定执行家。</p><code>list_skills / read_skill</code></div>
+      <div class="mech"><b>匹配</b><p>skill_matcher.py v9.6.18，九类能力：记忆学习、搜索研究、内容写作、代码运维、监控调度、生产力、创意媒体、市场数据、元社区。</p><code>SKILL_CATEGORIES</code></div>
+      <div class="mech"><b>共享</b><p>toolbox 缓存失效后，新工具下一次检索全军团可见。</p><code>invalidate_cache</code></div>
+      <div class="mech"><b>互学</b><p>peer source 映射把同伴源码路径与函数检索入口注入协议；成员可跨家搜函数、读同伴源码。</p><code>harness_registry.py:61</code></div>
+      <div class="mech"><b>沉淀</b><p>内容侧 SkillNetwork 把成功帖子模式记录为 skill，分析后复用。</p><code>record_success / analyze_patterns</code></div>
+      <div class="mech"><b>边界</b><p>没有“自动把某家 skill 注入另一家执行”的闭环；共享的是索引、路径与经验，执行仍归各家原生工具。</p><code>context not control</code></div>
+    </div>
+    <p class="section-note">随仓 skill 共 9 个目录：j-space、anysearch、web-access、multi-source-search、browse、browser-act、connect-chrome、open-gstack-browser、setup-browser-cookies。VENDORED_MANIFEST 声明 10 条，其中 last30days 没有对应目录，属于清单与实物不一致。</p>
+  </section>
+
+  <section id="search" class="chapter wrap system">
+    <div class="chapter-head">
+      <span class="chapter-no">03</span>
+      <span class="chapter-sub">搜索架构</span>
+    </div>
+    <div class="system-title">
+      <h2>搜索不是“多搜”，<br>是先路由、再降级、结果绑证据。</h2>
+      <p>search_fabric 1,597 行加 verticals 2,529 行，是 Auto 最完整的一层资产，也是军团可直接复用的共享能力。</p>
+    </div>
+    <div class="flow-steps">
+      <div class="flow-step"><span>STEP 1</span><b>题级证据库前置</b><small>命中已有证据则 0 网络，直接复用</small></div>
+      <div class="flow-step"><span>STEP 2</span><b>anysearch 保底注入</b><small>外网强源先兜一层，减少空结果</small></div>
+      <div class="flow-step"><span>STEP 3</span><b>结构化直连</b><small>MusicBrainz 等垂直源直接走结构化接口</small></div>
+      <div class="flow-step"><span>STEP 4</span><b>ddgs L0 保底</b><small>最后退到免费聚合源，保证不白卷</small></div>
+    </div>
+    <div class="table-wrap dense">
+      <table>
+        <thead><tr><th>层</th><th>真实机制</th></tr></thead>
+        <tbody>
+          <tr><td><b>来源层</b></td><td>9 个基座：ddgs、brave、wikipedia、sonar、sonar_pro、tavily、aisa_smart、aisa_verity、anysearch；25 个垂直：小红书、Reddit、Twitter、百度、HackerNews、CourtListener、OpenAlex、arXiv、Crossref、PubMed、PubChem、GDELT、MusicBrainz、Wayback 两种、Archive Today、Blogspot、Wikipedia Links、Wikidata、浏览器历史、内部 sh_ 五源等。去重后 34 个</td></tr>
+          <tr><td><b>路由层</b></td><td>_route_query 用 LLM 读来源 schema 做语义路由；失败时 fail-safe 退回 tier 排序加 bandit 分数。BudgetManager 管 quota 与 bandit_score</td></tr>
+          <tr><td><b>并发层</b></td><td>ThreadPoolExecutor 加 as_completed，25 秒超时保留部分结果；缓存、quota、全局令牌桶、指数退避最多 3 次</td></tr>
+          <tr><td><b>归并层</b></td><td>anysearch 优先的 merge order 加 dedup；结果不足 top_k 三分之一触发 fallback；每条 hit 固定 url、title、content、source、cost、meta，直接作为证据绑定</td></tr>
+          <tr><td><b>领域层</b></td><td>domain_source_router 定义 31 个领域，先 classify 再 recommend_sources，最后 probe 可用性</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="section-note">换品类仍然成立的四件事：先判领域、并发取源、失败降级、结果绑定来源与成本。这套结构也是 research_pipeline 七阶段能力的底座。</p>
+  </section>
+
+  <section id="loop" class="chapter wrap system">
+    <div class="chapter-head">
+      <span class="chapter-no">04</span>
+      <span class="chapter-sub">循环分类</span>
+    </div>
+    <h2>五种循环，各自的停止条件写死在代码里。</h2>
+    <div class="table-wrap dense">
+      <table>
+        <thead><tr><th>循环</th><th>入口与真实常量</th><th>终止条件</th></tr></thead>
+        <tbody>
+          <tr><td><b>单 agent 迭代</b></td><td>native_agent_loop 第 4,844 行；max_steps 30、ceiling 600、绝对墙钟 900 秒</td><td>步数、墙钟、连续错误 3 次收敛、预算耗尽；可申请续预算</td></tr>
+          <tr><td><b>Auto 预算循环</b></td><td>qa_auto_agent 默认硬墙 600 秒；可续 0.5 倍到 2,400 秒，加 20 步；软墙提前 12% 收尾</td><td>硬墙、续预算上限、无进展</td></tr>
+          <tr><td><b>军团自愈换模型</b></td><td>run_one 的 attempt 循环；重试环境变量默认 0，表示不设固定次数、模型池耗尽才收敛</td><td>模型池耗尽、任务 deadline、跨方向兜底成功</td></tr>
+          <tr><td><b>DAG 依赖波次</b></td><td>_dependency_waves 用 Kahn 分层；有环时贪心断边并注入事实</td><td>所有任务终态，不判死</td></tr>
+          <tr><td><b>relay 串行流水线</b></td><td>_dispatch_relay 按 pipeline 或任务键顺序执行，上一步 final 全文传给下一步</td><td>最后一步完成；无父层总墙钟</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="section-note">另有两类定时：cron_jobs 只做登记与过期，没有常驻调度器；内容侧 evolve_loop 支持 forever 每 10 分钟一轮。后台扫描两处 deadline 分别为 1,800 秒与 3,600 秒。代码里不存在 loop_events 结构，只有 events.jsonl。</p>
+  </section>
+
+  <section id="pilot" class="chapter wrap system">
+    <div class="chapter-head">
+      <span class="chapter-no">05</span>
+      <span class="chapter-sub">Pilot</span>
+    </div>
+    <h2>两套驾驶员，共享同一种“别停太早”的判断。</h2>
+    <div class="table-wrap dense">
+      <table>
+        <thead><tr><th>版本</th><th>真实实现</th><th>判定与续航</th></tr></thead>
+        <tbody>
+          <tr><td><b>Claude Code hook 版</b></td><td>tools/pilot_v2/pilot_v2.py；四个事件 session-start、user-prompt、post-tool、stop</td><td>phase 为 understand、implement、verify、deliver；stop 可 block；最长续航 12 轮，空转 2 轮暂停；状态按 session 哈希落到独立目录</td></tr>
+          <tr><td><b>军团版</b></td><td>pilot_kernel 加 legion_pilot；入口 pilot_check；输入契约 _pilot_run_state</td><td>intensity 为 focused，scope 为 query；判 done、blocked、waiting、delivered；delivered 必须有交付物证据，防短答误判</td></tr>
+          <tr><td><b>旧版残留</b></td><td>memory gates 下 20 余个旧 hook 文件</td><td>存在但未注册，已被 v2 取代</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="section-note">Pilot 的核心不是“无限续命”，而是区分四种状态：用户要决策就停、真阻塞就停、等待外部就停、只有“还能做且没交付”才继续。状态本身落盘，换会话可恢复。</p>
+  </section>
+
+  <section id="hook" class="chapter wrap system">
+    <div class="chapter-head">
+      <span class="chapter-no">06</span>
+      <span class="chapter-sub">Hook 与自监督</span>
+    </div>
+    <h2>五个挂点，只有 Stop 会阻断。</h2>
+    <div class="table-wrap dense">
+      <table>
+        <thead><tr><th>Hook</th><th>触发</th><th>作用</th><th>阻断</th></tr></thead>
+        <tbody>
+          <tr><td>pilot_v2</td><td>SessionStart、UserPromptSubmit、PostToolUse、Stop</td><td>目标注入、续航状态机、stop 拦截</td><td>只有 Stop 可 block</td></tr>
+          <tr><td>Codex hooks</td><td>SessionStart（startup 或 resume）</td><td>仅 jcode 热键</td><td>否</td></tr>
+          <tr><td>qa_loop_hooks</td><td>thin loop 每步</td><td>anchor、no_progress、converge、context_ledger、finalize_hints 五个 pre_step，加 readiness 的 turn_stopping</td><td>否，仅提醒</td></tr>
+          <tr><td>on_correction</td><td>CLI 手工</td><td>用户纠正写入 corrections.jsonl</td><td>否</td></tr>
+          <tr><td>write_to_km</td><td>CLI 手工</td><td>outputs 写入学城子页</td><td>否</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <h3 style="margin-top:38px;font-size:15px;">自监督五层，全部只读或账本</h3>
+    <div class="mech-grid">
+      <div class="mech"><b>运行时校验</b><p>final 质量检查、记忆轨迹检查、墙钟 watchdog。</p><code>native loop</code></div>
+      <div class="mech"><b>产物验收中心</b><p>只读索引、账本、行动层：持久任务、修复、分级复验、发布门收口。</p><code>verification_*</code></div>
+      <div class="mech"><b>独立审计</b><p>复杂任务审需求满足、正确性、可用性；简单任务跳过。</p><code>success_auditor</code></div>
+      <div class="mech"><b>改动自检</b><p>改动后自动关联检查加安全 smoke。</p><code>harness_selfcheck</code></div>
+      <div class="mech"><b>质量 context</b><p>原始目标、研究证据、强 MVP、跨轮差距四类事实并列，不做单一总判决。</p><code>quality_context</code></div>
+      <div class="mech"><b>原则</b><p>安全边界可以硬，产品质量策略必须软；不加阻断式质量门。</p><code>context not control</code></div>
+    </div>
+  </section>
+
+  <section id="evolve" class="chapter wrap system">
+    <div class="chapter-head">
+      <span class="chapter-no">07</span>
+      <span class="chapter-sub">自进化</span>
+    </div>
+    <h2>三处真实在跑，五个已经消失。</h2>
+    <div class="table-wrap dense">
+      <table>
+        <thead><tr><th>机制</th><th>真实状态</th><th>输入到输出</th></tr></thead>
+        <tbody>
+          <tr><td><b>delivery_knowledge</b></td><td>真实在跑，唯一完整的交付经验闭环</td><td>capture 在 world_class 交付收尾收割锚点表、证伪死路、桂冠参照；match 按品类命中；inject 进派单前置。单品类上限 40 条，种子 2 条 user_verified</td></tr>
+          <tr><td><b>skill_mining</b></td><td>真实存在，但需要显式确认</td><td>从会话记录找重复命令，生成 skill 候选，确认后固化，不是全自动</td></tr>
+          <tr><td><b>内容侧进化</b></td><td>真实存在，但服务已停摆</td><td>七阶段每 10 分钟；事件驱动编排；每小时看 CTR gap 生成策略并应用</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="warnbox">
+      <h4>五个 evolver 已不在工作树</h4>
+      <ul>
+        <li>deductive_reasoner、self_harness_evolver、correction_evolver、code_evolver、旧 orchestrator 只出现在注释与测试残留里，属于已删除模块。</li>
+        <li>旧文档写的“每 30 分钟 tick”等描述已经失效，不能再当作现有能力。</li>
+      </ul>
+    </div>
+    <p class="section-note">自进化不能靠“名单上有几个 evolver”证明，只能靠“这次交付是否真的复用了上次经验”。当前唯一可验证的闭环是 delivery_knowledge。</p>
+  </section>
+
+  <section id="collab" class="chapter wrap system">
+    <div class="chapter-head">
+      <span class="chapter-no">08</span>
+      <span class="chapter-sub">协作机制</span>
+    </div>
+    <h2>十四种机制，解决的都是“换人就丢现场”。</h2>
+    <div class="mech-grid">
+      <div class="mech"><b>TeamState 与 attempt 代际</b><p>多成员同跑一个 DAG 的一致性与防迟到覆盖。</p><code>team_state.py:223</code></div>
+      <div class="mech"><b>事件流</b><p>每步 append-only，终态后可重放，10 种以上事件。</p><code>events.jsonl</code></div>
+      <div class="mech"><b>队长选举</b><p>默认最强单家直答，多人才选首脑。</p><code>elect_captain</code></div>
+      <div class="mech"><b>首脑换届</b><p>运行中换帅，每次 dispatch 限一代防循环。</p><code>handoff_captain</code></div>
+      <div class="mech"><b>need_peer</b><p>成员主动向同伴要输入，父层只放邮箱不代答。</p><code>mailbox</code></div>
+      <div class="mech"><b>fork 子任务</b><p>首脑拆子任务给新 worker，同迭代 join，继承项目现场。</p><code>_fork_worker</code></div>
+      <div class="mech"><b>revision 轮</b><p>验证判修改后重建，锚点 revision 必须一致才通过。</p><code>_select_revision_owner</code></div>
+      <div class="mech"><b>补位接力</b><p>一家用尽 attempt，带完整失败上下文转交另一家。</p><code>_dispatch_relay</code></div>
+      <div class="mech"><b>失败回流</b><p>真实输出、报错、工具动作原样喂下一轮，不教手段。</p><code>_build_failure_context</code></div>
+      <div class="mech"><b>过期 attempt 恢复</b><p>崩溃后 lease 过期任务可被领取续跑。</p><code>recover / claim_resume</code></div>
+      <div class="mech"><b>审批</b><p>危险能力需要用户批；用户级 handoff 可恢复。</p><code>approval_state</code></div>
+      <div class="mech"><b>实时邮箱</b><p>补充事实直达 cc 原生输入，绑定四元组，fail-closed。</p><code>cc_live_mailbox</code></div>
+      <div class="mech"><b>经验飞轮</b><p>相似问题召回历史经验。</p><code>experience.jsonl</code></div>
+      <div class="mech"><b>任务记忆</b><p>每 task 的工作目录、产物、工具状态。</p><code>task_memory</code></div>
+    </div>
+    <p class="section-note">另一条容易被忽略的规则：DAG 依赖默认要求前序成功，不把“进程结束”当成“依赖成功”，避免空输入编造。有环时不断死任务，而是贪心断边并注入事实。</p>
+  </section>
+
+  <section id="context" class="chapter wrap system">
+    <div class="chapter-head">
+      <span class="chapter-no">09</span>
+      <span class="chapter-sub">上下文管理</span>
+    </div>
+    <div class="system-title">
+      <h2>上下文是“可回访的索引”，<br>不是把所有日志塞进去。</h2>
+      <p>项目现场用 packet 做单一事实源，派单上下文分六层注入，接棒从现场取，不靠记忆。</p>
+    </div>
+    <div class="flow-steps">
+      <div class="flow-step"><span>01</span><b>稳定说明前置</b><small>保护 prompt cache，不每轮变动</small></div>
+      <div class="flow-step"><span>02</span><b>世界 Atlas 短索引</b><small>URL 加目录，正文按需读</small></div>
+      <div class="flow-step"><span>03</span><b>知识库配方</b><small>命中品类直接注入，从上次终点起步</small></div>
+      <div class="flow-step"><span>04</span><b>经验与会话</b><small>跨家经验召回加会话历史</small></div>
+      <div class="flow-step"><span>05</span><b>各家上轮产出</b><small>各认领自己的，每条截 1,200 字</small></div>
+      <div class="flow-step"><span>06</span><b>附件与代码库</b><small>独立容错，缺一个不拖垮整单</small></div>
+    </div>
+    <ul class="facts" style="max-width:60em;">
+      <li><b>项目现场 packet</b>：目标、DAG、证据、产物、概念锚点表、验证报告；flock 原子写；初始化、记录结果、记录验证、快照四个入口。跨家接棒统一从 snapshot 取。</li>
+      <li><b>压缩</b>：按近似 token 截断，头尾保留、中间省略；失败输出用 head 4,000 加 tail 3,000；packet 单字段内联上限 4,000 字符、最多 80 项。</li>
+      <li><b>Auto 侧</b>：context_ledger 五类账本，总预算 3,000 字符；实体库在工具结果落账当下采集；检查点只存前 8 条证据摘要。</li>
+    </ul>
+  </section>
+
+  <section id="experience" class="chapter wrap system">
+    <div class="chapter-head">
+      <span class="chapter-no">10</span>
+      <span class="chapter-sub">GAIA 与 BC 沉淀的经验组件</span>
+    </div>
+    <h2>沉淀下来的不是分数，是七件防止重犯的工具。</h2>
+    <div class="table-wrap dense">
+      <table>
+        <thead><tr><th>组件</th><th>真实作用</th><th>来自哪类失败</th></tr></thead>
+        <tbody>
+          <tr><td><b>GAIA 账本与四类口径</b></td><td>单次基线、错题救回、累计最好、清账更正分开记录，禁止画成一条曲线</td><td>把不同执行路径混在一个能力结论下</td></tr>
+          <tr><td><b>BrowseComp 重放器</b></td><td>保存完整轨迹、按 qid 重放、跳过搜索与 LLM 判题，专用于调试打捞与评分</td><td>超时与意图误判后无法复现</td></tr>
+          <tr><td><b>first_anchor / anchor_hop</b></td><td>先锁第一锚点再扩散，治“撒网锁错实体”</td><td>搜得多但实体漂移</td></tr>
+          <tr><td><b>evidence_graph / cross_verify</b></td><td>候选必须绑来源，反证也记录</td><td>弱证据拼答案</td></tr>
+          <tr><td><b>answer_vault / failure_memory</b></td><td>答案仓保存已验证结论；失败记忆保存错误类型与触发条件</td><td>重复踩同一个坑</td></tr>
+          <tr><td><b>entity_memory_bank</b></td><td>在工具结果落账当下采集实体，防交接丢失</td><td>换 owner 后不认识原实体</td></tr>
+          <tr><td><b>checkpoint_serialization</b></td><td>只保留恢复必需字段，status 三态</td><td>崩溃后无法续跑</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="section-note">共同点：都在“证据”和“恢复”上，不在“替模型想答案”上。换品类仍然成立，这是可复用的原因。</p>
+  </section>
+
+  <section id="trace" class="chapter wrap system">
+    <div class="chapter-head">
+      <span class="chapter-no">11</span>
+      <span class="chapter-sub">Trace 资产</span>
+    </div>
+    <h2>七类记录，已全量打包。</h2>
+    <div class="trace-stats">
+      <div class="trace-stat"><strong>14,009</strong><span>非 lock 文件</span><em>七类 trace 合计</em></div>
+      <div class="trace-stat"><strong>897.5<span>MB</span></strong><span>归档前体积</span><em>含会话与产物索引</em></div>
+      <div class="trace-stat"><strong>82<span>MB</span></strong><span>压缩包体积</span><em>tar.gz</em></div>
+      <div class="trace-stat"><strong>3<span>态</span></strong><span>done / interrupted / abandoned</span><em>检查点状态机</em></div>
+    </div>
+    <div class="table-wrap dense">
+      <table>
+        <thead><tr><th>Trace 类型</th><th>内容</th></tr></thead>
+        <tbody>
+          <tr><td><b>Auto 检查点</b></td><td>goal、triage、全量 tool_log、evidence_digest、final；status 三态</td></tr>
+          <tr><td><b>Team 事件</b></td><td>teams JSON 加 events.jsonl，含 meta、step、final、error、task_reopened 等 10 种以上事件</td></tr>
+          <tr><td><b>项目现场</b></td><td>目标、DAG、证据、产物、锚点、验证报告快照</td></tr>
+          <tr><td><b>任务记忆</b></td><td>每 task 的工作目录、产物、工具状态，4,880 项</td></tr>
+          <tr><td><b>任务产物索引</b></td><td>产物清单与来源绑定</td></tr>
+          <tr><td><b>深度计划</b></td><td>47 项计划与状态，用于循环重放锚点</td></tr>
+          <tr><td><b>会话交付物</b></td><td>1,129 个会话记录与导出目录</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="section-note">归档包：dev/trace-archive-20261018/legion-trace-full-20261018.tar.gz，附 manifest.json。归档前已排除 lock 文件；包含真实会话与产物索引，属于内部运行记录，不对外公开。单条 trace 查看走只读查看器，只放行受控目录，防穿越。</p>
   </section>
 
   <section id="auto" class="chapter wrap system">
     <div class="chapter-head">
-      <span class="chapter-no">01</span>
+      <span class="chapter-no">12</span>
       <span class="chapter-sub">Auto · 能力来源</span>
     </div>
     <div class="system-title">
       <h2>沉淀的是能力组件，<br>不是又一个答题器。</h2>
       <p>Auto 的真实价值在“搜得全、留得下证据、账算得清”。它退出答题池是架构选择，不是能力否定。</p>
     </div>
-
     <div class="three-col">
       <article class="col">
         <h3><span>①</span> 沉淀了什么</h3>
         <ul class="facts">
-          <li><b>34 路搜索源</b>：9 个基座适配器 + 25 个垂直适配器，覆盖通用搜索、学术、政府与档案、社区、百科与结构化数据。</li>
-          <li><b>9 个随仓 skill</b>：j-space 认知控制、anysearch 强搜索、web-access 浏览器出网、multi-source-search，另有 browse、browser-act、connect-chrome、open-gstack-browser、setup-browser-cookies。</li>
-          <li><b>执行内核</b>：主循环、目标逼近、第一锚点定向、题型感知、证据图、交叉核验、答案仓、断点序列化。</li>
-          <li><b>评测与元层接口</b>：BrowseComp、GAIA 账本、GSB 评测；trace、评分、用户纠正三条回流接口。</li>
+          <li><b>34 路搜索源</b>：9 个基座加 25 个垂直，覆盖通用、学术、政府档案、社区、百科与结构化数据。</li>
+          <li><b>9 个随仓 skill</b>：j-space、anysearch、web-access、multi-source-search 等，带自动同步脚本。</li>
+          <li><b>执行内核</b>：qa_auto_agent 10,087 行、native_agent_loop 6,132 行；第一锚点、题型感知、证据图、交叉核验、答案仓、断点序列化。</li>
+          <li><b>上下文组件</b>：五类账本、实体库、约束账本、失败记忆。</li>
+          <li><b>评测资产</b>：BrowseComp、GAIA 账本、GSB；三条元层回流接口。</li>
         </ul>
       </article>
       <article class="col">
         <h3><span>②</span> 能论证什么</h3>
         <ul class="facts">
-          <li><b>首次单轮</b> 65/165，39.4%。这是最初基线，不是迭代后的最新能力。</li>
-          <li><b>累计曾解出</b> 162/165，98.2%。多轮研发的 ever_correct，不是同模型同预算单次成绩。</li>
-          <li><b>账本复核</b>：原始 166 行、标记 163、剔除 1 条非官方题、缺失 0、重复 0；159 行有 trace 引用；3 题由 registry 复判。</li>
-          <li><b>口径纠偏</b>：61.2% 实际是旧 pipeline 65 题加错题救回 36 题再除 165；164/165 是更早峰值，清账后为 161/165。</li>
+          <li><b>首次单轮</b> 65/165，39.4%，是最初基线。</li>
+          <li><b>累计曾解出</b> 162/165，98.2%，多轮研发的 ever_correct，不是单次准确率。</li>
+          <li><b>账本复核</b>：原始 166 行、标记 163、剔除 1 条非官方题、缺失 0、重复 0；159 行有 trace；3 题 registry 复判。</li>
+          <li><b>口径纠偏</b>：61.2% 是旧 pipeline 65 题加救回 36 题再除 165；164/165 清账后为 161/165。</li>
         </ul>
       </article>
       <article class="col">
         <h3><span>③</span> 下一步动作</h3>
         <ul class="facts">
-          <li>把 34 路搜索源与证据链固定为军团共享 capability，不再各自实现搜索。</li>
-          <li>把四类统计口径固化成评测模块，所有跑分默认带口径字段。</li>
-          <li>不重开答题引擎，只移植组件：上下文压缩、检查点恢复、交叉核验、答案仓。</li>
+          <li>把 34 路搜索源与证据链固定为军团共享 capability。</li>
+          <li>把四类统计口径固化成评测模块，跑分默认带口径字段。</li>
+          <li>不重开答题引擎，只移植组件：上下文账本、检查点、交叉核验、答案仓、失败记忆。</li>
         </ul>
       </article>
     </div>
-
     <div class="boundary-note">
       <span class="boundary-label">边界</span>
       <p>BrowseComp 旧报告为 2 道有效题 0 正确，单题 390–442 秒，第 3 题超时；公平 40 题口径 2/40 → 6/40，但前后模型、预算与包装记录不一致，不能宣称三倍提升。</p>
@@ -158,65 +462,64 @@
 
   <section id="legion" class="chapter wrap system">
     <div class="chapter-head">
-      <span class="chapter-no">02</span>
+      <span class="chapter-no">13</span>
       <span class="chapter-sub">军团 · 运行与交付底座</span>
     </div>
     <div class="system-title">
       <h2>沉淀的是整套底座，<br>不是一个编排界面。</h2>
-      <p>146 个 Python 文件、63,442 行，按职责分成七层。每一层都对应一个真实断点，而不是为了架构好看。</p>
+      <p>146 个 Python 文件、63,442 行，按职责分七层。每一层都对应一个真实断点，而不是为了架构好看。</p>
     </div>
-
     <div class="layers" aria-label="军团七层架构">
       <div class="layer"><span>07</span><b>研究与知识</b><small>research_pipeline · delivery_knowledge</small><em>下一次从上次终点起步</em></div>
       <div class="layer"><span>06</span><b>设备层</b><small>desktop_fs · cloud_desktop · mobile_device</small><em>云电脑与云手机真实操作</em></div>
       <div class="layer"><span>05</span><b>质量与验收</b><small>quality_context · success_auditor · verification_*</small><em>目标、证据、差距、复验分开记</em></div>
       <div class="layer"><span>04</span><b>产物交付</b><small>artifact_delivery · artifact_store · provenance</small><em>可下载、可追溯、可安全展示</em></div>
       <div class="layer"><span>03</span><b>持久状态</b><small>team_state · project_context · sessions</small><em>Team、DAG、attempt、邮箱、现场</em></div>
-      <div class="layer"><span>02</span><b>调度内核</b><small>legion_core 671KB</small><em>并行、自愈换模型、补位接力</em></div>
-      <div class="layer"><span>01</span><b>服务与接口</b><small>server.py 288KB · 160 个 API</small><em>一个文件启动、可上线</em></div>
+      <div class="layer"><span>02</span><b>调度内核</b><small>legion_core 10,810 行</small><em>并行、自愈换模型、补位接力</em></div>
+      <div class="layer"><span>01</span><b>服务与接口</b><small>server 4,729 行 · 160 个 API</small><em>一个文件启动、可上线</em></div>
     </div>
-
     <div class="three-col">
       <article class="col">
         <h3><span>①</span> 沉淀了什么</h3>
         <ul class="facts">
-          <li><b>成员登记 38 条</b>：10 条内置 + 28 条外接；按角色为 28 agent、7 capability、2 control-plane、1 ui-platform。</li>
+          <li><b>成员登记 38 条</b>：10 条内置加 28 条外接；28 agent、7 capability、2 control-plane、1 ui-platform。</li>
           <li><b>七层模块</b>：服务、调度、状态、交付、验收、设备、研究，全部有真实文件与职责。</li>
           <li><b>真实作品</b>：Claude of Legends 派生工程 311 个 TS 文件、72,386 行、241 个测试文件；另有 2048、赛车、太阳系三个可打开作品。</li>
-          <li><b>知识沉淀</b>：3 条按品类归档的交付配方，带已证伪做法与可复用步骤。</li>
+          <li><b>知识沉淀</b>：3 条按品类归档的交付配方。</li>
         </ul>
       </article>
       <article class="col">
         <h3><span>②</span> 能论证什么</h3>
         <ul class="facts">
-          <li><b>真实闭环</b>：14 个真实动作、15.7 秒完成；页面打开 0.708 秒，购买铁剑后金币 500 → 150，物品栏出现 iron_blade，Q 升级与右键移动均被状态观测记录。</li>
-          <li><b>包完整性</b>：运行包 416 个文件在验证前后逐一核验 hash，测试凭据与模型密钥没有打进包内。</li>
-          <li><b>正式部署</b>：1 台正式机，平台全主机检查通过；浏览器验证为真，原有身份与五轮对话恢复，真实下载 46 字节并校验 sha256。</li>
-          <li><b>边界</b>：全员验证 false、原生会话恢复 false、完整 shell 隔离 false；333 个测试文件本轮未全量重跑。</li>
+          <li><b>真实闭环</b>：14 个真实动作、15.7 秒；金币 500 变 150、iron_blade 入栏、Q 升级、右键移动均被状态观测记录。</li>
+          <li><b>包完整性</b>：运行包 416 个文件前后核验 hash，测试凭据与模型密钥未打入。</li>
+          <li><b>正式部署</b>：1 台正式机，全主机检查通过；浏览器验证为真，身份与五轮对话恢复，下载 46 字节并校验 sha256。</li>
+          <li><b>边界</b>：全员验证、原生会话恢复、完整 shell 隔离均为 false；333 个测试本轮未全量重跑。</li>
         </ul>
       </article>
       <article class="col">
         <h3><span>③</span> 下一步动作</h3>
         <ul class="facts">
           <li>把全员验证从 false 变 true：每家一条真实单发、一个真实产物、一份可读 trace。</li>
-          <li>用现有源码做原作品续改，不重新生成；同角度画面前后对比加真实操作作为验收。</li>
-          <li>把部署验证固化为可复跑脚本，固定 package、commit、host、下载 hash 四个字段。</li>
+          <li>用现有源码做原作品续改，不重新生成。</li>
+          <li>把部署验证固化为可复跑脚本，固定 package、commit、host、hash。</li>
         </ul>
       </article>
     </div>
   </section>
 
-  <section id="puppet" class="chapter wrap system">
+  <section id="content" class="chapter wrap system">
     <div class="chapter-head">
-      <span class="chapter-no">03</span>
-      <span class="chapter-sub">马甲虾 · 社区内容运营</span>
+      <span class="chapter-no">14</span>
+      <span class="chapter-sub">马甲虾 · 人设与内容链路</span>
     </div>
     <div class="system-title">
-      <h2>人设是资产，<br>常驻沙箱不是。</h2>
-      <p>它确实跑通过一次社区冷启动：8 个马甲完成启动、联通、人设写入与入驻。今天它不在线，这件事也要如实写。</p>
+      <h2>人设是资产，<br>“画像到内容”的链路才是核心。</h2>
+      <p>它确实跑通过一次社区冷启动，也留下了完整的八环链路代码与真实数据。今天它不在线，这件事同样要写。</p>
     </div>
 
-    <div class="persona-grid" aria-label="八个马甲人设">
+    <h3 style="font-size:15px;margin:0 0 14px;">人设资产：登记 11 只，仍活跃 3 只</h3>
+    <div class="persona-grid" aria-label="八个沙箱马甲人设">
       <div><b>晚风不急</b><span>自由摄影师 · 成都</span></div>
       <div><b>橘子汽水</b><span>前端开发 · 杭州</span></div>
       <div><b>山间有鹿</b><span>出版社编辑 · 北京</span></div>
@@ -226,34 +529,66 @@
       <div><b>浮云半日</b><span>产品经理 · 上海</span></div>
       <div><b>野草莓酱</b><span>手作与美食 · 昆明</span></div>
     </div>
+    <ul class="facts" style="max-width:62em;">
+      <li><b>config 里 10 只</b>：active 仅小蓝虾、小虾米、柠檬微凉、星河入梦；前两者共用同一账号与凭证。</li>
+      <li><b>封号与失效</b>：雾里看花 2026-06-15 被封、浮云半日 2026-06-12 被封；晚风不急、橘子汽水、野草莓酱已置为 inactive。</li>
+      <li><b>沙箱注册表 8 只</b>：SB-03 到 SB-10；山间有鹿只存在注册表，没有进 config。当前 8 个沙箱全部 down，错误 parse_failed。</li>
+      <li><b>形态约束</b>：content_shape 按虾配置内容形态，整体约 50% 求助、35% 攻略、15% 反思，让内容像真实用户。</li>
+    </ul>
 
-    <div class="three-col">
-      <article class="col">
-        <h3><span>①</span> 沉淀了什么</h3>
-        <ul class="facts">
-          <li><b>8 套完整人设</b>：SOUL 设定、账号、接入凭证与 claim code，覆盖八种社区角色。</li>
-          <li><b>管理面板</b>：8 个 py、1,034 行 FastAPI，含注册表、状态存储、轮询健康、生命周期与配置路由。</li>
-          <li><b>内容引擎</b>：批量派发、评论回复、人设管理、用户画像、选题、生成、审核、分发。</li>
-        </ul>
-      </article>
-      <article class="col">
-        <h3><span>②</span> 能论证什么</h3>
-        <ul class="facts">
-          <li><b>2026-05-27 真实记录</b>：批量启动 8/10、联通 8/8、SOUL 写入 8/8、社区入驻 8/8。</li>
-          <li><b>当前真实状态</b>：8 个实例全部 down，错误为 parse_failed；两个实例分别磁盘满与 venv 断链。</li>
-          <li><b>结论</b>：这是跑通过的运营工程，不是今天的在线供给系统。</li>
-          <li><b>安全债</b>：注册表里存在明文密钥，迁移到密钥管理后才谈恢复。</li>
-        </ul>
-      </article>
-      <article class="col">
-        <h3><span>③</span> 下一步动作</h3>
-        <ul class="facts">
-          <li>二选一不拖：恢复就换域名与密钥、重建坏沙箱、跑通一条真实发帖与回复；归档就保留人设与内容引擎。</li>
-          <li>把批量派发、回复、人设管理并入军团内容工作流，不再单独维护常驻沙箱。</li>
-          <li>清理明文密钥与失效实例记录，保留脱敏后的运营复盘。</li>
-        </ul>
-      </article>
+    <h3 style="font-size:15px;margin:38px 0 14px;">内容链路：八环都有代码</h3>
+    <div class="flow-steps">
+      <div class="flow-step"><span>01</span><b>用户画像</b><small>资料、统计、帖子推角色与痛点；全量活跃 agent 五轴聚类</small></div>
+      <div class="flow-step"><span>02</span><b>热点扫描</b><small>分页 500 篇，trending 15 / viral 30 / mega 60 三档阈值</small></div>
+      <div class="flow-step"><span>03</span><b>选题</b><small>四象限乘 28 岗位子类，加 20 个 AI 工具</small></div>
+      <div class="flow-step"><span>04</span><b>人设匹配</b><small>生成受众与 brief；按事件级饱和度去重</small></div>
+      <div class="flow-step"><span>05</span><b>内容生成</b><small>先搜索再注入画像，沙箱真执行 Python，注入爆款公式</small></div>
+      <div class="flow-step"><span>06</span><b>审核安全</b><small>五维 100 分，低于 60 重写；高危词与三次违规熔断</small></div>
+      <div class="flow-step"><span>07</span><b>分发</b><small>社区 feed 加站外小红书、微信 markdown 与引流钩子</small></div>
+      <div class="flow-step"><span>08</span><b>反馈回流</b><small>2 到 72 小时六窗口；赞满 15 进胜出模式，失败记教训</small></div>
     </div>
+
+    <div class="trace-stats">
+      <div class="trace-stat"><strong>1,875</strong><span>话题库</span><em>四象限乘岗位子类</em></div>
+      <div class="trace-stat"><strong>240</strong><span>胜出模式</span><em>winning_patterns</em></div>
+      <div class="trace-stat"><strong>412</strong><span>CTR feed</span><em>真实曝光回流</em></div>
+      <div class="trace-stat"><strong>19</strong><span>已发布文章</span><em>2026-05-18 到 20</em></div>
+    </div>
+
+    <div class="warnbox">
+      <h4>四个真实断点</h4>
+      <ul>
+        <li>persona_atlas.json 从未落盘，全量画像聚合没有真正执行，“画像到话题”的源头断掉。</li>
+        <li>multi_puppet_runner 依赖的 topics_today.json 不存在，每轮直接返回，日志与状态文件都不存在。</li>
+        <li>服务日志、调度状态、CTR、热点全部停在 2026-07-01，约 3.5 个月没有回流。</li>
+        <li>安全预检不在发布主链路；CTR 明细停在 5 月，用浏览数当曝光代理。</li>
+      </ul>
+    </div>
+    <p class="section-note">结论：马甲虾的真实价值是“人设资产加链路设计加历史数据”，不是“现在还能自动生产内容”。下一步要么补齐链路并重跑一条真实发帖到反馈的闭环，要么把链路并入军团内容工作流，不再单独运维沙箱。</p>
+  </section>
+
+  <section id="scale" class="chapter wrap">
+    <div class="chapter-head">
+      <span class="chapter-no">15</span>
+      <span class="chapter-sub">全仓真实代码统计</span>
+    </div>
+    <h2>自有 47 万行，另有 387 万行是别人的 harness。</h2>
+    <div class="table-wrap dense">
+      <table>
+        <thead><tr><th>范围</th><th>Python 文件</th><th>行数</th><th>说明</th></tr></thead>
+        <tbody>
+          <tr><td>release</td><td>979</td><td>262,112</td><td>军团与发布层</td></tr>
+          <tr><td>seed-users-system</td><td>631</td><td>183,959</td><td>Auto、v11、内容引擎</td></tr>
+          <tr><td>dev</td><td>204</td><td>20,826</td><td>证据、工具与实验</td></tr>
+          <tr><td>sandbox</td><td>8</td><td>1,034</td><td>马甲虾管理面板</td></tr>
+          <tr><td>tools 加 scripts</td><td>11</td><td>2,381</td><td>Pilot 与运维脚本</td></tr>
+          <tr><td><b>自有合计</b></td><td><b>1,833</b></td><td><b>470,312</b></td><td>不含他人 harness 源码</td></tr>
+          <tr><td>harness_baselines</td><td>10,367</td><td>3,873,772</td><td>第三方 harness，用于学习与对照</td></tr>
+          <tr><td>全仓合计</td><td>12,240</td><td>4,350,050</td><td>含第三方源码</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="section-note">单文件规模：legion_core 10,810 行、qa_auto_agent 10,087 行、native_agent_loop 6,132 行、server 4,729 行、index_v2 4,127 行、search_fabric 1,597 加 verticals 2,529 行。全仓 test 开头文件 5,853 个，markdown 13,509 个。对外只说自有 470,312 行，避免把别人的源码算成自己的。</p>
   </section>
 
   <section id="handoff" class="chapter wrap">
@@ -261,18 +596,18 @@
       <span class="chapter-no">交接</span>
       <span class="chapter-sub">哪些能直接拿走</span>
     </div>
-    <h2>复用优先级：底座第一，能力第二，人设第三。</h2>
+    <h2>复用优先级：底座第一，工具第二，循环第三，内容第四。</h2>
     <div class="table-wrap">
       <table>
-        <thead>
-          <tr><th>要做什么</th><th>直接拿什么</th><th>不要拿什么</th></tr>
-        </thead>
+        <thead><tr><th>要做什么</th><th>直接拿什么</th><th>不要拿什么</th></tr></thead>
         <tbody>
-          <tr><td>新的多 Agent 运行底座</td><td>军团全目录：调度、状态、交付、验收、设备五层</td><td>不要重写 server 与 team_state；不要绕过 artifact_delivery 自己拼下载</td></tr>
-          <tr><td>搜索与证据能力</td><td>34 路搜索源、证据图、交叉核验、答案仓</td><td>不要再造第五套搜索；不要把累计成绩当单次成绩</td></tr>
-          <tr><td>评测与验收</td><td>GAIA 四类口径、验收中心、成功审计</td><td>不要用单一总分覆盖过程；不要把探活绿灯当交付</td></tr>
-          <tr><td>内容运营</td><td>8 套人设、批量派发、评论回复、用户画像</td><td>不要保留明文密钥；不要假设沙箱长期在线</td></tr>
-          <tr><td>交付展示</td><td>证据组织方式、文件清单与 sha256 校验</td><td>不要把截图当源码证明；不要把旧构建标成新版本</td></tr>
+          <tr><td>多 Agent 运行底座</td><td>军团全目录：调度、状态、交付、验收、设备五层</td><td>不要重写 server 与 team_state；不要绕过 artifact_delivery 自己拼下载</td></tr>
+          <tr><td>工具与搜索</td><td>toolbox 四层、legion_tool、34 路搜索源、research_pipeline</td><td>不要再造第五套搜索；不要引用不存在的 skill_factory</td></tr>
+          <tr><td>循环与续航</td><td>native loop 常量、run_one 自愈循环、DAG 波次、pilot_v2</td><td>不要把旧行号当现状；不要恢复已删除的五个 evolver</td></tr>
+          <tr><td>自监督与验收</td><td>verification 三件套、success_auditor、harness_selfcheck、quality_context</td><td>不要加阻断式质量门；不要用单一总分覆盖过程</td></tr>
+          <tr><td>协作与上下文</td><td>team_state、project_context、六层派单、上下文账本</td><td>不要把完整日志硬塞进 prompt；不要丢原始 URL</td></tr>
+          <tr><td>Trace 与复盘</td><td>七类归档包加 manifest、只读查看器</td><td>不要把内部会话公开；不要把 lock 打进包</td></tr>
+          <tr><td>内容运营</td><td>人设、画像链路、审核与反馈代码、1,875 话题与 240 条胜出模式</td><td>不要保留明文密钥；不要假设沙箱在线</td></tr>
         </tbody>
       </table>
     </div>
@@ -290,7 +625,8 @@
         <ul class="facts">
           <li>军团底座可启动、可部署，单条真实游戏旅程 15.7 秒完成并通过状态观测。</li>
           <li>Auto 的 GAIA 账本可按官方 165 题复核，缺失 0、重复 0、非官方题已剔除。</li>
-          <li>马甲虾的 8 套人设与入驻记录完整保留，可脱敏复用。</li>
+          <li>马甲虾的八环内容链路有真实代码、真实数据与 19 篇发布记录。</li>
+          <li>七类 Trace 已全量归档为 14,009 个文件、82 MB 压缩包。</li>
         </ul>
       </article>
       <article>
@@ -298,8 +634,9 @@
         <ul class="facts">
           <li>不能说军团全员稳定，38 条登记本轮未逐家探活。</li>
           <li>不能说 98.2% 是单次准确率，也不能说全部胜局无污染。</li>
-          <li>不能说马甲虾在线，8 个沙箱当前全部离线。</li>
+          <li>不能说马甲虾在线，8 个沙箱当前全部离线，服务停了约 3.5 个月。</li>
           <li>不能用 333 个测试文件代替本轮测试通过数。</li>
+          <li>不能说五个 evolver 还在，它们已不在当前工作树。</li>
         </ul>
       </article>
     </div>
@@ -308,8 +645,9 @@
       <ul>
         <li>Auto：qa_system/agent、v11/evolution、skills_vendored、内容档案 auto-capabilities / gaia-ledger-reconciliation / evaluation-lineage</li>
         <li>军团：release/legion-service、deliveries/legion-game-20261012、部署与生产验证记录、成员与支柱档案</li>
-        <li>马甲虾：sandbox/registry.md、sandbox/web、state.json、内容引擎模块</li>
-        <li>本轮未重跑：军团 333 个测试、38 家探活、GAIA 与 BrowseComp 新判题、8 个沙箱恢复</li>
+        <li>马甲虾：sandbox/registry.md、sandbox/web、state.json、内容引擎十个模块</li>
+        <li>Trace：dev/trace-archive-20261018/legion-trace-full-20261018.tar.gz 与 manifest.json</li>
+        <li>本轮未重跑：军团 333 个测试、38 家探活、GAIA 与 BrowseComp 新判题、8 个沙箱恢复、内容真实发帖</li>
       </ul>
     </div>
   </section>
@@ -317,9 +655,9 @@
   <footer class="wrap footer">
     <div>
       <span class="brand-mark small">m</span>
-      <p>Meyo 三系统资产总账 · 2026.10.18</p>
+      <p>Meyo 三系统资产总账 v2 · 2026.10.18</p>
     </div>
-    <p>下一轮只做三件事：军团全员验证、原作品续改、马甲虾二选一收口。</p>
+    <p>下一轮只做四件事：军团全员验证、原作品续改、Trace 归档复用、马甲虾链路二选一收口。</p>
   </footer>
 </main>
 
@@ -344,7 +682,7 @@
         if (i < 0) return;
         links.forEach(function (a, j) { a.classList.toggle('active', i === j); });
       });
-    }, { rootMargin: '-30% 0px -60% 0px' });
+    }, { rootMargin: '-25% 0px -65% 0px' });
     sections.forEach(function (s) { if (s) io.observe(s); });
   }
 })();
