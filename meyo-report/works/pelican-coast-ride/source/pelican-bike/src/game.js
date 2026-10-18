@@ -1207,8 +1207,11 @@ const CAM = {
     let tp = _camT1, tl = _camT2;
     const mode = S.camMode;
     if (mode === 0) {          // 尾随
-      tp.set(riderPos.x * 0.7 + 1.35 + curveOff * 0.4, 2.5 + sp * 0.35, riderPos.z + 5.6 - sp * 0.9);
-      tl.set(riderPos.x * 0.8, 1.15, riderPos.z - 6);
+      const portrait = camera.aspect < 0.85;
+      tp.set(portrait ? riderPos.x + 0.4 : riderPos.x * 0.7 + 1.35 + curveOff * 0.4,
+        2.5 + sp * 0.35, riderPos.z + (portrait ? 7 : 5.6) - sp * 0.9);
+      // 窄屏以骑手为取景中心，不沿用横屏看向前方六米的偏置。
+      tl.set(portrait ? riderPos.x : riderPos.x * 0.8, 1.15, riderPos.z - (portrait ? 0.8 : 6));
     } else if (mode === 1) {   // 侧面
       const side = Math.sin(t * 0.12) > 0 ? 1 : -1;
       tp.set(riderPos.x + side * (4.6 - sp * 1.0), 1.65 + Math.sin(t * 0.4) * 0.25, riderPos.z + 0.4);
@@ -1601,7 +1604,8 @@ function updateGameplay(dt, t) {
   S.rideTime += dt;
   if (S.dist > S.best) { S.best = S.dist; HUD.el.best.textContent = `最佳 ${(S.best / 1000).toFixed(2)} km`; }
   // 转向/变道
-  const steerIn = (INPUT.left ? 1 : 0) - (INPUT.right ? 1 : 0);
+  // 车道 +X 是骑手右侧；键盘和触屏共用这个方向约定。
+  const steerIn = (INPUT.right ? 1 : 0) - (INPUT.left ? 1 : 0);
   S.steer = damp(S.steer, S.autoPilot ? 0 : steerIn, 8, dt);
   S.lane = clamp(S.lane + S.steer * CFG.steerSpeed * dt * clamp(S.speed / 6, 0.35, 1), -CFG.laneLimit, CFG.laneLimit);
   if (S.autoPilot) S.lane = damp(S.lane, 1.3, 1.2, dt);
@@ -1695,7 +1699,7 @@ function setQuality(q) {
 function bindInput() {
   window.addEventListener('keydown', e => {
     if (e.code === 'Space') e.preventDefault();
-    if (KEYS[e.code]) return;
+    if (e.repeat || KEYS[e.code]) return;
     KEYS[e.code] = true;
     if (!S.started) return;
     if (e.code === 'Space' && S.grounded && !S.paused) {
@@ -1716,7 +1720,12 @@ function bindInput() {
     S.idleT = 0; if (S.autoPilot) { S.autoPilot = false; S.autoDist = 0; }
   });
   window.addEventListener('keyup', e => { KEYS[e.code] = false; });
-  document.addEventListener('visibilitychange', () => { if (document.hidden && S.started && !S.paused) togglePause(true); });
+  const releaseAndPause = () => {
+    clearHeldInput();
+    if (S.started && !S.paused) togglePause(true);
+  };
+  window.addEventListener('blur', releaseAndPause);
+  document.addEventListener('visibilitychange', () => { if (document.hidden) releaseAndPause(); });
   // 触屏
   const bindBtn = (id, key) => {
     const el = document.getElementById(id);
@@ -1729,8 +1738,9 @@ function bindInput() {
     el.addEventListener('mousedown', on); el.addEventListener('mouseup', off); el.addEventListener('mouseleave', off);
   };
   bindBtn('tUp', 'up'); bindBtn('tDown', 'down'); bindBtn('tLeft', 'left'); bindBtn('tRight', 'right');
-  if (HUD.el.muteBtn) HUD.el.muteBtn.addEventListener('click', () => { AudioEngine.setMuted(!S.muted); HUD.el.muteBtn.textContent = S.muted ? '🔇' : '🔊'; });
-  if (HUD.el.qualityTag) HUD.el.qualityTag.addEventListener('click', () => setQuality((S.quality + 2) % 3));
+  // bindInput 先于 HUD.init 执行，直接取已经存在的 DOM，不能检查尚未填充的 HUD.el。
+  document.getElementById('muteBtn').addEventListener('click', () => { AudioEngine.setMuted(!S.muted); HUD.el.muteBtn.textContent = S.muted ? '🔇' : '🔊'; });
+  document.getElementById('qualityTag').addEventListener('click', () => setQuality((S.quality + 2) % 3));
   const tapBtn = (id, fn) => {
     const el = document.getElementById(id);
     if (el) el.addEventListener('touchstart', (e) => { e.preventDefault(); fn(); }, { passive: false });
@@ -1740,10 +1750,21 @@ function bindInput() {
   tapBtn('tBell', () => { S.bellT = 0.3; S.bellCount++; AudioEngine.bell(); });
   tapBtn('tCam', () => CAM.next());
   tapBtn('tTrick', () => { if (S.trickT <= 0 && S.speed > 3) { S.trickT = 1.2; AudioEngine.trick(); ACH.check('trick'); } });
+  document.getElementById('resumeBtn').addEventListener('click', () => {
+    if (S.paused) togglePause();
+  });
+}
+
+function clearHeldInput() {
+  for (const key of Object.keys(KEYS)) delete KEYS[key];
+  for (const action of Object.keys(TOUCH)) TOUCH[action] = 0;
+  for (const action of Object.keys(INPUT)) INPUT[action] = 0;
+  S.steer = 0;
 }
 
 function togglePause(force) {
   S.paused = force === true ? true : !S.paused;
+  if (S.paused) clearHeldInput();
   HUD.el.pauseVeil.classList.toggle('show', S.paused);
 }
 

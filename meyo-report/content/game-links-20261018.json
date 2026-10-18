@@ -1,14 +1,16 @@
 {
-  "checked_at": "2026-10-18T22:02:40.141241+08:00",
+  "checked_at": "2026-10-18T23:44:48.512255+08:00",
   "games": {
     "pelican": {
       "title": "Pelican Coast Ride",
       "play": "https://seanliii.github.io/meyo-report/works/pelican-coast-ride/index.html",
       "source": "https://github.com/seanliii/seanliii.github.io/tree/master/meyo-report/works/pelican-coast-ride",
-      "version": "2026-10-18 original member build",
-      "html_sha256": "4a90ade8ba628ac8858409db0377c7d3f7dd047d7d4e4eaba5d257468495cdb3",
+      "version": "2026-10-18 controls fix by operator; original member build retained",
+      "html_sha256": "0e01826cf724b81fcfa6efe33b83077fc9e320eaeb5197701107713ba35dc11a",
       "attribution": "Game implemented during Legion run; Three.js engine reused; not a copied whole reference game",
-      "jev_rework_included": false
+      "jev_rework_included": false,
+      "source_archive": "https://seanliii.github.io/meyo-report/downloads/pelican-coast-ride-controls-20261018.zip",
+      "original_source_archive": "https://seanliii.github.io/meyo-report/downloads/pelican-coast-ride-20261018.zip"
     },
     "moba": {
       "repository": "https://github.com/seanliii/meyo-game",
