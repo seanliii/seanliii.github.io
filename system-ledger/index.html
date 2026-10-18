@@ -1,0 +1,353 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light">
+<meta name="description" content="Meyo 三系统资产总账：Auto、军团、马甲虾的代码规模、可复用组件、真实运行事实与证据边界。">
+<meta name="referrer" content="no-referrer">
+<title>Meyo 三系统资产总账｜Auto · 军团 · 马甲虾</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%2314120f'/><text x='16' y='23' font-size='20' font-family='Georgia' fill='%23faf9f6' text-anchor='middle'>m</text></svg>">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<a class="skip" href="#main">跳到正文</a>
+
+<header class="topbar">
+  <div class="wrap topbar-inner">
+    <a class="brand" href="#top">
+      <span class="brand-mark">m</span>
+      <span class="brand-name">Meyo<span>.</span></span>
+    </a>
+    <nav class="nav" aria-label="章节导航">
+      <a href="#overview">总览</a>
+      <a href="#auto">Auto</a>
+      <a href="#legion">军团</a>
+      <a href="#puppet">马甲虾</a>
+      <a href="#handoff">交接</a>
+    </nav>
+    <span class="edition">资产总账 <i>/</i> 2026.10.18</span>
+  </div>
+  <div class="progress" aria-hidden="true"><span id="progress-bar"></span></div>
+</header>
+
+<main id="main">
+  <div id="top" class="wrap">
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="kicker">三个系统 · 一本真账</p>
+        <h1>把做过的系统，<br>拆成还能用的资产。</h1>
+        <p class="hero-lead">Auto、军团、马甲虾不是三个平行产品，而是同一目标的三层：能力来源、运行底座、内容运营。这份总账只回答三件事——沉淀了什么，能论证什么，下一步做什么。</p>
+        <div class="hero-links">
+          <a class="btn" href="#overview">看总览 <span>↗</span></a>
+          <a class="link" href="#boundary">先看证据边界 <span>↗</span></a>
+        </div>
+      </div>
+      <div class="hero-stats" aria-label="三个关键数字">
+        <div class="stat">
+          <span class="stat-num">162<span>/165</span></span>
+          <span class="stat-label">GAIA 官方题累计曾解出</span>
+          <span class="stat-note">98.2% · 多轮研发累计，不是单次准确率</span>
+        </div>
+        <div class="stat">
+          <span class="stat-num">63,442</span>
+          <span class="stat-label">军团 Python 代码行数</span>
+          <span class="stat-note">146 个文件 · 160 个 API · 333 个测试文件</span>
+        </div>
+        <div class="stat muted">
+          <span class="stat-num">8<span>/8</span></span>
+          <span class="stat-label">马甲虾沙箱当前离线</span>
+          <span class="stat-note">8 套人设与账号仍在，服务不在</span>
+        </div>
+      </div>
+    </section>
+
+    <aside class="caliber" aria-label="统计口径">
+      <div>
+        <strong>口径先说清</strong>
+        <p>只写能指到文件、指到条目的内容。代码规模是当前源码实测；运行事实来自真实记录；能力结论带证据边界。累计曾解出、单次准确率、错题救回、控制器分类，四种统计量不混用。</p>
+      </div>
+      <div class="caliber-tags">
+        <span>未重跑 ≠ 今天的新成绩</span>
+        <span>登记入口 ≠ 当前在线</span>
+        <span>代码存在 ≠ 已上线</span>
+      </div>
+    </aside>
+  </div>
+
+  <section id="overview" class="chapter wrap">
+    <div class="chapter-head">
+      <span class="chapter-no">总览</span>
+      <span class="chapter-sub">三层各自的真实位置</span>
+    </div>
+    <h2>先认清哪一层，决定能不能复用。</h2>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>系统</th><th>代码规模（实测）</th><th>最值得复用的资产</th><th>当前真实状态</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><b>Auto</b><span class="tag">能力层</span></td>
+            <td>199 个 py<br>72,318 行<br>98 + 143 个测试文件</td>
+            <td>34 路搜索源、证据与验证链、GAIA 账本口径、上下文压缩与恢复</td>
+            <td>引擎已退出答题、接力与首脑竞选，保留为 capability 与工具库</td>
+          </tr>
+          <tr>
+            <td><b>军团</b><span class="tag accent">底座层</span></td>
+            <td>146 个 py<br>63,442 行<br>333 个测试文件</td>
+            <td>成员注册、任务 DAG、项目现场、产物交付、桌面与手机、验收账本</td>
+            <td>正式环境部署 1 台并通过浏览器验证；全员逐家验证未完成</td>
+          </tr>
+          <tr>
+            <td><b>马甲虾</b><span class="tag">内容层</span></td>
+            <td>8 个 py<br>1,034 行<br>另有 10 个内容模块</td>
+            <td>8 套人设 SOUL、8 个已入驻账号、批量派发与回复引擎、管理面板</td>
+            <td>8 个沙箱全部离线，属于已停摆的运营实践</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="lede-quote">真正可迁移的是 Auto 的能力组件与评测方法，以及军团的整套运行底座；马甲虾保留人设与内容工作流，但不保留“在线服务”这个假设。</p>
+  </section>
+
+  <section id="auto" class="chapter wrap system">
+    <div class="chapter-head">
+      <span class="chapter-no">01</span>
+      <span class="chapter-sub">Auto · 能力来源</span>
+    </div>
+    <div class="system-title">
+      <h2>沉淀的是能力组件，<br>不是又一个答题器。</h2>
+      <p>Auto 的真实价值在“搜得全、留得下证据、账算得清”。它退出答题池是架构选择，不是能力否定。</p>
+    </div>
+
+    <div class="three-col">
+      <article class="col">
+        <h3><span>①</span> 沉淀了什么</h3>
+        <ul class="facts">
+          <li><b>34 路搜索源</b>：9 个基座适配器 + 25 个垂直适配器，覆盖通用搜索、学术、政府与档案、社区、百科与结构化数据。</li>
+          <li><b>9 个随仓 skill</b>：j-space 认知控制、anysearch 强搜索、web-access 浏览器出网、multi-source-search，另有 browse、browser-act、connect-chrome、open-gstack-browser、setup-browser-cookies。</li>
+          <li><b>执行内核</b>：主循环、目标逼近、第一锚点定向、题型感知、证据图、交叉核验、答案仓、断点序列化。</li>
+          <li><b>评测与元层接口</b>：BrowseComp、GAIA 账本、GSB 评测；trace、评分、用户纠正三条回流接口。</li>
+        </ul>
+      </article>
+      <article class="col">
+        <h3><span>②</span> 能论证什么</h3>
+        <ul class="facts">
+          <li><b>首次单轮</b> 65/165，39.4%。这是最初基线，不是迭代后的最新能力。</li>
+          <li><b>累计曾解出</b> 162/165，98.2%。多轮研发的 ever_correct，不是同模型同预算单次成绩。</li>
+          <li><b>账本复核</b>：原始 166 行、标记 163、剔除 1 条非官方题、缺失 0、重复 0；159 行有 trace 引用；3 题由 registry 复判。</li>
+          <li><b>口径纠偏</b>：61.2% 实际是旧 pipeline 65 题加错题救回 36 题再除 165；164/165 是更早峰值，清账后为 161/165。</li>
+        </ul>
+      </article>
+      <article class="col">
+        <h3><span>③</span> 下一步动作</h3>
+        <ul class="facts">
+          <li>把 34 路搜索源与证据链固定为军团共享 capability，不再各自实现搜索。</li>
+          <li>把四类统计口径固化成评测模块，所有跑分默认带口径字段。</li>
+          <li>不重开答题引擎，只移植组件：上下文压缩、检查点恢复、交叉核验、答案仓。</li>
+        </ul>
+      </article>
+    </div>
+
+    <div class="boundary-note">
+      <span class="boundary-label">边界</span>
+      <p>BrowseComp 旧报告为 2 道有效题 0 正确，单题 390–442 秒，第 3 题超时；公平 40 题口径 2/40 → 6/40，但前后模型、预算与包装记录不一致，不能宣称三倍提升。</p>
+    </div>
+  </section>
+
+  <section id="legion" class="chapter wrap system">
+    <div class="chapter-head">
+      <span class="chapter-no">02</span>
+      <span class="chapter-sub">军团 · 运行与交付底座</span>
+    </div>
+    <div class="system-title">
+      <h2>沉淀的是整套底座，<br>不是一个编排界面。</h2>
+      <p>146 个 Python 文件、63,442 行，按职责分成七层。每一层都对应一个真实断点，而不是为了架构好看。</p>
+    </div>
+
+    <div class="layers" aria-label="军团七层架构">
+      <div class="layer"><span>07</span><b>研究与知识</b><small>research_pipeline · delivery_knowledge</small><em>下一次从上次终点起步</em></div>
+      <div class="layer"><span>06</span><b>设备层</b><small>desktop_fs · cloud_desktop · mobile_device</small><em>云电脑与云手机真实操作</em></div>
+      <div class="layer"><span>05</span><b>质量与验收</b><small>quality_context · success_auditor · verification_*</small><em>目标、证据、差距、复验分开记</em></div>
+      <div class="layer"><span>04</span><b>产物交付</b><small>artifact_delivery · artifact_store · provenance</small><em>可下载、可追溯、可安全展示</em></div>
+      <div class="layer"><span>03</span><b>持久状态</b><small>team_state · project_context · sessions</small><em>Team、DAG、attempt、邮箱、现场</em></div>
+      <div class="layer"><span>02</span><b>调度内核</b><small>legion_core 671KB</small><em>并行、自愈换模型、补位接力</em></div>
+      <div class="layer"><span>01</span><b>服务与接口</b><small>server.py 288KB · 160 个 API</small><em>一个文件启动、可上线</em></div>
+    </div>
+
+    <div class="three-col">
+      <article class="col">
+        <h3><span>①</span> 沉淀了什么</h3>
+        <ul class="facts">
+          <li><b>成员登记 38 条</b>：10 条内置 + 28 条外接；按角色为 28 agent、7 capability、2 control-plane、1 ui-platform。</li>
+          <li><b>七层模块</b>：服务、调度、状态、交付、验收、设备、研究，全部有真实文件与职责。</li>
+          <li><b>真实作品</b>：Claude of Legends 派生工程 311 个 TS 文件、72,386 行、241 个测试文件；另有 2048、赛车、太阳系三个可打开作品。</li>
+          <li><b>知识沉淀</b>：3 条按品类归档的交付配方，带已证伪做法与可复用步骤。</li>
+        </ul>
+      </article>
+      <article class="col">
+        <h3><span>②</span> 能论证什么</h3>
+        <ul class="facts">
+          <li><b>真实闭环</b>：14 个真实动作、15.7 秒完成；页面打开 0.708 秒，购买铁剑后金币 500 → 150，物品栏出现 iron_blade，Q 升级与右键移动均被状态观测记录。</li>
+          <li><b>包完整性</b>：运行包 416 个文件在验证前后逐一核验 hash，测试凭据与模型密钥没有打进包内。</li>
+          <li><b>正式部署</b>：1 台正式机，平台全主机检查通过；浏览器验证为真，原有身份与五轮对话恢复，真实下载 46 字节并校验 sha256。</li>
+          <li><b>边界</b>：全员验证 false、原生会话恢复 false、完整 shell 隔离 false；333 个测试文件本轮未全量重跑。</li>
+        </ul>
+      </article>
+      <article class="col">
+        <h3><span>③</span> 下一步动作</h3>
+        <ul class="facts">
+          <li>把全员验证从 false 变 true：每家一条真实单发、一个真实产物、一份可读 trace。</li>
+          <li>用现有源码做原作品续改，不重新生成；同角度画面前后对比加真实操作作为验收。</li>
+          <li>把部署验证固化为可复跑脚本，固定 package、commit、host、下载 hash 四个字段。</li>
+        </ul>
+      </article>
+    </div>
+  </section>
+
+  <section id="puppet" class="chapter wrap system">
+    <div class="chapter-head">
+      <span class="chapter-no">03</span>
+      <span class="chapter-sub">马甲虾 · 社区内容运营</span>
+    </div>
+    <div class="system-title">
+      <h2>人设是资产，<br>常驻沙箱不是。</h2>
+      <p>它确实跑通过一次社区冷启动：8 个马甲完成启动、联通、人设写入与入驻。今天它不在线，这件事也要如实写。</p>
+    </div>
+
+    <div class="persona-grid" aria-label="八个马甲人设">
+      <div><b>晚风不急</b><span>自由摄影师 · 成都</span></div>
+      <div><b>橘子汽水</b><span>前端开发 · 杭州</span></div>
+      <div><b>山间有鹿</b><span>出版社编辑 · 北京</span></div>
+      <div><b>雾里看花</b><span>行业分析师 · 上海</span></div>
+      <div><b>柠檬微凉</b><span>UI 设计师 · 深圳</span></div>
+      <div><b>星河入梦</b><span>后端工程师 · 北京</span></div>
+      <div><b>浮云半日</b><span>产品经理 · 上海</span></div>
+      <div><b>野草莓酱</b><span>手作与美食 · 昆明</span></div>
+    </div>
+
+    <div class="three-col">
+      <article class="col">
+        <h3><span>①</span> 沉淀了什么</h3>
+        <ul class="facts">
+          <li><b>8 套完整人设</b>：SOUL 设定、账号、接入凭证与 claim code，覆盖八种社区角色。</li>
+          <li><b>管理面板</b>：8 个 py、1,034 行 FastAPI，含注册表、状态存储、轮询健康、生命周期与配置路由。</li>
+          <li><b>内容引擎</b>：批量派发、评论回复、人设管理、用户画像、选题、生成、审核、分发。</li>
+        </ul>
+      </article>
+      <article class="col">
+        <h3><span>②</span> 能论证什么</h3>
+        <ul class="facts">
+          <li><b>2026-05-27 真实记录</b>：批量启动 8/10、联通 8/8、SOUL 写入 8/8、社区入驻 8/8。</li>
+          <li><b>当前真实状态</b>：8 个实例全部 down，错误为 parse_failed；两个实例分别磁盘满与 venv 断链。</li>
+          <li><b>结论</b>：这是跑通过的运营工程，不是今天的在线供给系统。</li>
+          <li><b>安全债</b>：注册表里存在明文密钥，迁移到密钥管理后才谈恢复。</li>
+        </ul>
+      </article>
+      <article class="col">
+        <h3><span>③</span> 下一步动作</h3>
+        <ul class="facts">
+          <li>二选一不拖：恢复就换域名与密钥、重建坏沙箱、跑通一条真实发帖与回复；归档就保留人设与内容引擎。</li>
+          <li>把批量派发、回复、人设管理并入军团内容工作流，不再单独维护常驻沙箱。</li>
+          <li>清理明文密钥与失效实例记录，保留脱敏后的运营复盘。</li>
+        </ul>
+      </article>
+    </div>
+  </section>
+
+  <section id="handoff" class="chapter wrap">
+    <div class="chapter-head">
+      <span class="chapter-no">交接</span>
+      <span class="chapter-sub">哪些能直接拿走</span>
+    </div>
+    <h2>复用优先级：底座第一，能力第二，人设第三。</h2>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>要做什么</th><th>直接拿什么</th><th>不要拿什么</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>新的多 Agent 运行底座</td><td>军团全目录：调度、状态、交付、验收、设备五层</td><td>不要重写 server 与 team_state；不要绕过 artifact_delivery 自己拼下载</td></tr>
+          <tr><td>搜索与证据能力</td><td>34 路搜索源、证据图、交叉核验、答案仓</td><td>不要再造第五套搜索；不要把累计成绩当单次成绩</td></tr>
+          <tr><td>评测与验收</td><td>GAIA 四类口径、验收中心、成功审计</td><td>不要用单一总分覆盖过程；不要把探活绿灯当交付</td></tr>
+          <tr><td>内容运营</td><td>8 套人设、批量派发、评论回复、用户画像</td><td>不要保留明文密钥；不要假设沙箱长期在线</td></tr>
+          <tr><td>交付展示</td><td>证据组织方式、文件清单与 sha256 校验</td><td>不要把截图当源码证明；不要把旧构建标成新版本</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section id="boundary" class="chapter wrap boundary">
+    <div class="chapter-head">
+      <span class="chapter-no">证据</span>
+      <span class="chapter-sub">可复核，也包含没做到的</span>
+    </div>
+    <h2>这份总账故意保留了“还不能说”的部分。</h2>
+    <div class="boundary-grid">
+      <article>
+        <h3>已经能说的</h3>
+        <ul class="facts">
+          <li>军团底座可启动、可部署，单条真实游戏旅程 15.7 秒完成并通过状态观测。</li>
+          <li>Auto 的 GAIA 账本可按官方 165 题复核，缺失 0、重复 0、非官方题已剔除。</li>
+          <li>马甲虾的 8 套人设与入驻记录完整保留，可脱敏复用。</li>
+        </ul>
+      </article>
+      <article>
+        <h3>还不能说的</h3>
+        <ul class="facts">
+          <li>不能说军团全员稳定，38 条登记本轮未逐家探活。</li>
+          <li>不能说 98.2% 是单次准确率，也不能说全部胜局无污染。</li>
+          <li>不能说马甲虾在线，8 个沙箱当前全部离线。</li>
+          <li>不能用 333 个测试文件代替本轮测试通过数。</li>
+        </ul>
+      </article>
+    </div>
+    <div class="index-list">
+      <p><b>可复核入口</b></p>
+      <ul>
+        <li>Auto：qa_system/agent、v11/evolution、skills_vendored、内容档案 auto-capabilities / gaia-ledger-reconciliation / evaluation-lineage</li>
+        <li>军团：release/legion-service、deliveries/legion-game-20261012、部署与生产验证记录、成员与支柱档案</li>
+        <li>马甲虾：sandbox/registry.md、sandbox/web、state.json、内容引擎模块</li>
+        <li>本轮未重跑：军团 333 个测试、38 家探活、GAIA 与 BrowseComp 新判题、8 个沙箱恢复</li>
+      </ul>
+    </div>
+  </section>
+
+  <footer class="wrap footer">
+    <div>
+      <span class="brand-mark small">m</span>
+      <p>Meyo 三系统资产总账 · 2026.10.18</p>
+    </div>
+    <p>下一轮只做三件事：军团全员验证、原作品续改、马甲虾二选一收口。</p>
+  </footer>
+</main>
+
+<script>
+(function () {
+  var bar = document.getElementById('progress-bar');
+  function onScroll() {
+    var h = document.documentElement;
+    var max = h.scrollHeight - h.clientHeight;
+    bar.style.transform = 'scaleX(' + (max > 0 ? h.scrollTop / max : 0) + ')';
+  }
+  document.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  var links = Array.prototype.slice.call(document.querySelectorAll('.nav a'));
+  var sections = links.map(function (a) { return document.querySelector(a.getAttribute('href')); });
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (!e.isIntersecting) return;
+        var i = sections.indexOf(e.target);
+        if (i < 0) return;
+        links.forEach(function (a, j) { a.classList.toggle('active', i === j); });
+      });
+    }, { rootMargin: '-30% 0px -60% 0px' });
+    sections.forEach(function (s) { if (s) io.observe(s); });
+  }
+})();
+</script>
+</body>
+</html>
