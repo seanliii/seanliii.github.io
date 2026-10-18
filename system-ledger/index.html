@@ -123,6 +123,7 @@
       <a class="index-card" href="#eco"><span>01</span><b>工具生态</b><small>四层供给 · 22 类能力 · 103 件装备</small></a>
       <a class="index-card" href="#skill"><span>02</span><b>skill 协作</b><small>发现、匹配、共享、互学</small></a>
       <a class="index-card" href="#search"><span>03</span><b>搜索架构</b><small>三层 · 34 源 · 四步执行</small></a>
+      <a class="index-card" href="#swarm"><span>03A</span><b>蜂群与多跳</b><small>五角色 · 跳间判决 · 四层顺藤</small></a>
       <a class="index-card" href="#loop"><span>04</span><b>循环分类</b><small>五种循环 · 两套定时</small></a>
       <a class="index-card" href="#pilot"><span>05</span><b>Pilot</b><small>双内核 · 12 轮续航 · 可阻断</small></a>
       <a class="index-card" href="#hook"><span>06</span><b>Hook</b><small>五个挂点 · 只有 Stop 阻断</small></a>
@@ -220,6 +221,76 @@
     <p class="section-note">换品类仍然成立的四件事：先判领域、并发取源、失败降级、结果绑定来源与成本。这套结构也是 research_pipeline 七阶段能力的底座。</p>
   </section>
 
+  <section id="swarm" class="chapter wrap system">
+    <div class="chapter-head">
+      <span class="chapter-no">03A</span>
+      <span class="chapter-sub">蜂群与多跳</span>
+    </div>
+    <div class="system-title">
+      <h2>不是多搜几轮，<br>是五个角色按跳收敛。</h2>
+      <p>蜂群解决“一个研究目标内的角色分工”，多跳解决“下一跳查什么”。两者都有固定角色、预算、停止条件与逐跳审计，不是自由群聊。</p>
+    </div>
+
+    <div class="flow-steps">
+      <div class="flow-step"><span>HOP 0</span><b>Planner 拆题</b><small>判复杂度：简单、多约束、歧义、多跳；拆 2 到 4 个可验证子问题</small></div>
+      <div class="flow-step"><span>HOP N</span><b>三路并行取证</b><small>Scout 找来源、Evidence 抽原文、Skeptic 找反证</small></div>
+      <div class="flow-step"><span>JUDGE</span><b>HopJudge 判缺口</b><small>够不够、缺什么、下一跳查什么；必须基于已发现线索</small></div>
+      <div class="flow-step"><span>STOP</span><b>三种收敛</b><small>证据足够、到 3 跳上限、连续两跳零新增</small></div>
+    </div>
+
+    <div class="table-wrap dense">
+      <table>
+        <thead><tr><th>角色</th><th>职责</th><th>关键约束</th></tr></thead>
+        <tbody>
+          <tr><td><b>Planner</b></td><td>选路由并拆子问题：simple、multi_constraint、ambiguous、multihop</td><td>每个子问题必须有 claim、query、acceptance；多约束题另出消歧问题</td></tr>
+          <tr><td><b>Scout</b></td><td>多源发现候选来源，优先一手资料</td><td>只发现，不下结论</td></tr>
+          <tr><td><b>Evidence</b></td><td>深读候选，抽取可引用原文</td><td>只读证据，不脑补</td></tr>
+          <tr><td><b>Skeptic</b></td><td>主动找反例、时效风险、相反结论</td><td>反证单独记录，不并入支持证据</td></tr>
+          <tr><td><b>Judge</b></td><td>合并支持与反证，给可追溯结论与未解决项</td><td>只能用给定证据，不能用自身知识补充</td></tr>
+          <tr><td><b>Coordinator</b></td><td>只编排、报进度、写总线</td><td>不产出研究结论；换模型不换角色</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="trace-stats">
+      <div class="trace-stat"><strong>3<span>跳</span></strong><span>默认上限</span><em>max_hops，可配置</em></div>
+      <div class="trace-stat"><strong>2<span>跳</span></strong><span>零新增收敛</span><em>防空转的硬判据</em></div>
+      <div class="trace-stat"><strong>3<span>路</span></strong><span>每跳并行 lane</span><em>Scout / Evidence / Skeptic</em></div>
+      <div class="trace-stat"><strong>0.80</strong><span>confirmed 覆盖率门</span><em>0.40 到 0.80 为 probable</em></div>
+    </div>
+
+    <h3 style="font-size:15px;margin:34px 0 14px;">多跳四层：从首搜到身份覆盖</h3>
+    <div class="table-wrap dense">
+      <table>
+        <thead><tr><th>层</th><th>真实文件</th><th>机制</th></tr></thead>
+        <tbody>
+          <tr><td><b>第一锚点</b></td><td>anchor_hop.extract_first_anchor_queries</td><td>不搜整句；优先引号短语、专名序列、罕见约束组合，先锚第一个中间实体</td></tr>
+          <tr><td><b>分阶段检索</b></td><td>staged_retrieval.py</td><td>Stage 1 用约 30% 预算搜最高特异度约束锁锚；Stage 2 到 3 用约 70% 顺藤补缺</td></tr>
+          <tr><td><b>锚点顺藤</b></td><td>anchor_hop.py</td><td>锚点乘缺口生成正向 query；五条铁律：确证锚点、复用闭包、grounding 自检、撒网才接管、每题最多 2 跳</td></tr>
+          <tr><td><b>身份覆盖</b></td><td>identity_coverage.py</td><td>四态 candidate、probable、confirmed、rejected；claim 覆盖率决定能不能交卷</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="section-note">脏锚门：path_working、unknown、none、占位词一律不当锚点；query 必须真的包含锚点 token 才发射，否则判为 hypothesis 丢弃。这解决“顺着错误实体越搜越远”的二次污染。</p>
+
+    <div class="mech-grid">
+      <div class="mech"><b>并发自适应</b><p>load 小于 8 全并发；8 到 15 降到 2 路；大于 15 串行 1 路。简单题只深爬 top 3。</p><code>MEYO_SWARM_MAX_LANES</code></div>
+      <div class="mech"><b>搜索 DAG</b><p>七类节点：planner、fanout、dork、discovery、supervise、reflect、rescue；四种跳条件；支持并行与回环。</p><code>search_dag.py 548 行</code></div>
+      <div class="mech"><b>搜索监督器</b><p>每次搜后判 is_sufficient、confidence、missing、next_action；四选一 stop、search_more、switch_source、dig_deeper。</p><code>search_supervisor.py 325 行</code></div>
+      <div class="mech"><b>三种控制的分工</b><p>DAG 管单次怎么编排，Supervisor 管一轮够不够，HopJudge 管跨跳要不要继续。</p><code>各管一段</code></div>
+      <div class="mech"><b>失败保守收敛</b><p>HopJudge 调用失败时直接判 sufficient，宁可单跳收口，不空转烧预算。</p><code>fail-safe</code></div>
+      <div class="mech"><b>逐跳留痕</b><p>hop_record 记录 queries、new_hits、total_hits、hop_judge、stop_reason，可直接验证多跳真的发生。</p><code>agent_comm</code></div>
+    </div>
+
+    <div class="warnbox">
+      <h4>哪些是代码里没有的</h4>
+      <ul>
+        <li>蜂群是 deep_research_swarm 的工程名，不是独立产品；没有常驻蜂群进程，也没有跨任务共享的蜂群记忆。</li>
+        <li>每次都是按单启动、按跳收敛、按 hop_record 留痕。说成“永久在线的智能群体”会超出代码事实。</li>
+      </ul>
+    </div>
+  </section>
+
   <section id="loop" class="chapter wrap system">
     <div class="chapter-head">
       <span class="chapter-no">04</span>
@@ -235,6 +306,7 @@
           <tr><td><b>军团自愈换模型</b></td><td>run_one 的 attempt 循环；重试环境变量默认 0，表示不设固定次数、模型池耗尽才收敛</td><td>模型池耗尽、任务 deadline、跨方向兜底成功</td></tr>
           <tr><td><b>DAG 依赖波次</b></td><td>_dependency_waves 用 Kahn 分层；有环时贪心断边并注入事实</td><td>所有任务终态，不判死</td></tr>
           <tr><td><b>relay 串行流水线</b></td><td>_dispatch_relay 按 pipeline 或任务键顺序执行，上一步 final 全文传给下一步</td><td>最后一步完成；无父层总墙钟</td></tr>
+          <tr><td><b>跳间判决循环</b></td><td>蜂群专用：每跳后问 HopJudge，只有“证据不够且有具体缺口”才继续</td><td>sufficient、max_hops 3、连续两跳零新增</td></tr>
         </tbody>
       </table>
     </div>
@@ -338,6 +410,8 @@
       <div class="mech"><b>任务记忆</b><p>每 task 的工作目录、产物、工具状态。</p><code>task_memory</code></div>
     </div>
     <p class="section-note">另一条容易被忽略的规则：DAG 依赖默认要求前序成功，不把“进程结束”当成“依赖成功”，避免空输入编造。有环时不断死任务，而是贪心断边并注入事实。</p>
+    <h3 style="font-size:15px;margin:34px 0 14px;">蜂群与军团的分工</h3>
+    <p class="section-note" style="margin-top:0;">蜂群解决“一个研究目标内的角色分工”：固定五角色、单目标、按跳收敛、逐跳留痕。军团解决“多个独立任务之间的编排”：按 DAG 波次、可换 owner、可接力、可换届。把两者混成一个“大群聊”，会同时丢掉审计和收敛——既说不清谁对结论负责，也说不清什么时候该停。</p>
   </section>
 
   <section id="context" class="chapter wrap system">
@@ -565,6 +639,8 @@
       </ul>
     </div>
     <p class="section-note">结论：马甲虾的真实价值是“人设资产加链路设计加历史数据”，不是“现在还能自动生产内容”。下一步要么补齐链路并重跑一条真实发帖到反馈的闭环，要么把链路并入军团内容工作流，不再单独运维沙箱。</p>
+    <h3 style="font-size:15px;margin:34px 0 14px;">内容蜂群：多虾并行，但不是同时上线</h3>
+    <p class="section-note" style="margin-top:0;">multi_puppet_runner 按 3 线程并行派发，选题做事件级饱和度去重，避免同一事件被多只虾重复写。8 只虾是角色池，不是 8 个同时在线；当前 8 个沙箱全离线，这套并行只存在于代码与历史记录里。与研究蜂群的区别：内容蜂群共享热点与选题池，不共享一条证据链；研究蜂群共享同一目标与证据，按跳收敛。</p>
   </section>
 
   <section id="scale" class="chapter wrap">
