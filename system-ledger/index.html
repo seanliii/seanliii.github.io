@@ -26,6 +26,7 @@
       <a href="#legion">军团</a>
       <a href="#content">马甲虾</a>
       <a href="#handoff">交接</a>
+      <a href="#next">下一步</a>
     </nav>
     <span class="edition">资产总账 v2 <i>/</i> 2026.10.18</span>
   </div>
@@ -564,13 +565,22 @@
         </tbody>
       </table>
     </div>
+    <h3 style="font-size:15px;margin:34px 0 14px;">总量口径：1,020 不是 trace 条数</h3>
+    <div class="trace-stats">
+      <div class="trace-stat"><strong>10,692</strong><span>Auto 工具步</span><em>1,020 个检查点，平均 10.5 步</em></div>
+      <div class="trace-stat"><strong>239,899</strong><span>军团事件</span><em>746 个 team，step 占 99.4%</em></div>
+      <div class="trace-stat"><strong>29,662</strong><span>循环事件</span><em>done 22.1 / running 56</em></div>
+      <div class="trace-stat"><strong>14,009</strong><span>归档文件</span><em>897.5 MB，压缩 82 MB</em></div>
+    </div>
+    <p class="section-note">1,020 是“多少个检查点”，不是“多少条 trace”。完整账本还包括 GAIA 165 题主账、BC 主账 21 题 110 attempts、会话交付 1,129 个、产物索引 2,107 条、任务记忆 5,504 个文件、项目现场 255 个、开发证据 4,893 个文件。</p>
+
     <h3 style="font-size:15px;margin:34px 0 14px;">四维分类：类型、场景、步数、效果</h3>
     <p class="section-note">只看“七类文件”不够。真实 trace 按四个维度交叉读：先定位问题，再进具体文件。以下分布来自 1,020 个真实 Auto 检查点。</p>
     <div class="table-wrap dense">
       <table>
         <thead><tr><th>维度</th><th>真实分布</th><th>回答什么</th></tr></thead>
         <tbody>
-          <tr><td><b>类型</b></td><td>执行轨迹 1,020；事件流 746 个 team / 239,899 条；评测账本 BC 4 题 8 attempts 加 GAIA 165 题主账；会话交付 1,128；产物索引 2,107；计划 47；项目现场 190</td><td>怎么走、谁协作、对错、用户拿到什么</td></tr>
+          <tr><td><b>类型</b></td><td>执行轨迹 1,020 个文件 / 10,692 步；事件流 746 个 team / 239,899 条；评测账本 BC 主账 21 题 110 attempts（v11 子账本 4 题 8）加 GAIA 165 题主账；会话交付 1,129；产物索引 2,107；计划 47；项目现场 255</td><td>怎么走、谁协作、对错、用户拿到什么</td></tr>
           <tr><td><b>场景</b></td><td>task_level：琐事 466 / 重型 374 / 标准 152；search_route：no_search 483 / heavy 442 / verify 67；intent：concept 656 / process 213 / decision 79 / methodology 44；backend：native 1,003 / deepagents 15</td><td>哪类任务最容易出问题</td></tr>
           <tr><td><b>步数</b></td><td>tool_log：0 步 298 / 1 到 5 步 344 / 6 到 15 步 147 / 16 到 40 步 168 / 40 步以上 63；done 中位 2 步，p90 20；非 done 中位 15 步</td><td>没启动、正常完成，还是空转</td></tr>
           <tr><td><b>效果</b></td><td>done 797（78.1%）/ running 212（20.8%）/ interrupted 11（1.1%）；空 final 177（17.4%）</td><td>交付是否真的发生</td></tr>
@@ -794,6 +804,62 @@
           <tr><td>协作与上下文</td><td>team_state、project_context、六层派单、上下文账本</td><td>不要把完整日志硬塞进 prompt；不要丢原始 URL</td></tr>
           <tr><td>Trace 与复盘</td><td>七类归档包加 manifest、只读查看器</td><td>不要把内部会话公开；不要把 lock 打进包</td></tr>
           <tr><td>内容运营</td><td>人设、画像链路、审核与反馈代码、1,875 话题与 240 条胜出模式</td><td>不要保留明文密钥；不要假设沙箱在线</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section id="next" class="chapter wrap system">
+    <div class="chapter-head">
+      <span class="chapter-no">16</span>
+      <span class="chapter-sub">下一步工作 · 四份现行方案</span>
+    </div>
+    <div class="system-title">
+      <h2>四份文档不是四条路线，<br>是一条链。</h2>
+      <p>完整方案定方向与阶段，AI 原生社区定关系语义，创作经济定供给与成本，开工指令定这一轮做什么。总账只回答：现在有什么、能证明什么、下一步先做哪件。</p>
+    </div>
+
+    <div class="table-wrap dense">
+      <table>
+        <thead><tr><th>文档</th><th>它定什么</th><th>我的理解</th></tr></thead>
+        <tbody>
+          <tr><td><b><a href="https://km.sankuai.com/collabpage/2793780459" target="_blank" rel="noopener">Meyo 完整优化方案</a></b></td><td>方向、S0 到 S4、多 Harness 主体定义、生态纳入</td><td>主线。总账里的军团底座与交付证据，对应 S0 与 S1 的“可用作品版本”。主体是多个完整 Harness，不是平台拆出的被动子 Agent。</td></tr>
+          <tr><td><b><a href="https://km.sankuai.com/collabpage/2787333297" target="_blank" rel="noopener">AI 原生社区</a></b></td><td>关系语义：目标到参与、行动到执行、版本到贡献、派生到来源、工具到使用</td><td>解释“为什么协作记录要可追溯”。team events、产物来源、版本记录就是这些关系的原始事实；先投影，不新建全量关系图平台。</td></tr>
+          <tr><td><b><a href="https://km.sankuai.com/collabpage/2787023932" target="_blank" rel="noopener">创作经济循环</a></b></td><td>先试玩、再私有云版本、再 AI 原项目续改；三种循环；成本口径</td><td>交付形态与成本口径。artifact_delivery、project_context、知识库支撑这条路径；成本按被接受且实际使用作品的完整成本计。</td></tr>
+          <tr><td><b><a href="https://km.sankuai.com/collabpage/2787603872" target="_blank" rel="noopener">下一次开工指令</a></b></td><td>PQ0 到 PQ5 纵切、AgentGit 补充、生态核查顺序</td><td>这一轮的执行单。真实缺口（重型空交付 31.3%）应先于新功能；文档更新不启动模型、不安装、不发布。</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3 style="font-size:15px;margin:34px 0 14px;">优先级：先修真实缺口，再做纵切，最后扩生态</h3>
+    <div class="mech-grid">
+      <div class="mech"><b>P0 修复重型空交付</b><p>重型空 final 117/374，31.3%；琐事只有 0.9%。先按四维读法逐单归因：0 步没启动、40 步空转，还是 running 未收尾；修完重放原旅程。</p><code>最大交付缺口</code></div>
+      <div class="mech"><b>P1 作品纵切 PQ0–PQ5</b><p>选一件有真实使用人的成熟作品，固定版本、真实操作、两用户领取隔离、原项目改一项、交付入口与恢复证据。</p><code>先交可用旅程</code></div>
+      <div class="mech"><b>P2 创作经济三循环</b><p>作品供给（许可/版本/运行包）、用户作品（试玩/私有/续改/使用）、平台能力（反馈/复用/验证/采用）。</p><code>先把一个作品做实</code></div>
+      <div class="mech"><b>P3 社区关系语义</b><p>目标到参与、行动到执行、版本到贡献、派生到来源、工具到使用；每条关系带来源事件、主体、版本、权限与时间。</p><code>先投影，不重造</code></div>
+      <div class="mech"><b>P4 生态平台接入</b><p>Omnigent 优先核查现有接线；Orca、Grok Bot、Multica 按许可与真实接口逐个验证。</p><code>登记不等于接通</code></div>
+      <div class="mech"><b>我的底线判断</b><p>社区、经济、生态都建立在“用户真的拿到并继续使用一个作品”上。底座能交付单件，但全员稳定与重型空交付未过，所以 P0/P1 优先。</p><code>先有作品，再谈协作</code></div>
+    </div>
+
+    <div class="warnbox">
+      <h4>三条执行约束</h4>
+      <ul>
+        <li>不要把“文档更新”当“执行开始”：四份文档都写明更新不启动模型、不安装、不发布。</li>
+        <li>不要把“登记入口”当“当前可用”：38 条成员登记、生态平台清单都不是在线证明。</li>
+        <li>成本口径跟交付口径一致：按被接受且实际使用作品的完整成本计，不用 token 少或帖子多替代价值。</li>
+      </ul>
+    </div>
+
+    <h3 style="font-size:15px;margin:34px 0 14px;">与总账章节的对应</h3>
+    <div class="table-wrap dense">
+      <table>
+        <thead><tr><th>下一步</th><th>已有的底座</th><th>还缺什么</th></tr></thead>
+        <tbody>
+          <tr><td><b>P0 重型空交付</b></td><td>trace 四维分类、失败回流、自愈循环</td><td>逐单归因与修复后的同题重放</td></tr>
+          <tr><td><b>P1 作品纵切</b></td><td>artifact_delivery、project_context、desktop 与 mobile、sessions</td><td>两用户隔离领取、原项目续改的真实旅程</td></tr>
+          <tr><td><b>P2 创作经济</b></td><td>delivery_knowledge、research_pipeline、成本字段</td><td>运行包标准与完整成本账</td></tr>
+          <tr><td><b>P3 社区关系</b></td><td>team_state、events、产物来源</td><td>关系投影与权限范围</td></tr>
+          <tr><td><b>P4 生态接入</b></td><td>38 条成员登记、external registry</td><td>逐家真实接口与许可</td></tr>
         </tbody>
       </table>
     </div>
