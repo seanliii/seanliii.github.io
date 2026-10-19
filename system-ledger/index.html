@@ -574,6 +574,36 @@
     </div>
     <p class="section-note">1,020 是“多少个检查点”，不是“多少条 trace”。完整账本还包括 GAIA 165 题主账、BC 主账 21 题 110 attempts、会话交付 1,129 个、产物索引 2,107 条、任务记忆 5,504 个文件、项目现场 255 个、开发证据 4,893 个文件。</p>
 
+    <h3 style="font-size:15px;margin:34px 0 14px;">按业务来源拆：GAIA、BC、交付物各有多少</h3>
+    <div class="table-wrap dense">
+      <table>
+        <thead><tr><th>来源</th><th>真实位置</th><th>真实数量</th><th>说明</th></tr></thead>
+        <tbody>
+          <tr><td><b>GAIA 主账</b></td><td>evidence/ledgers/gaia_ledger.jsonl</td><td>166 行；official 165；correct 164</td><td>官方题单口径</td></tr>
+          <tr><td><b>GAIA 逐题轨迹</b></td><td>evidence/gaia_correct</td><td>159 文件 / 4.69 MB</td><td>每题一份正确轨迹 ckpt</td></tr>
+          <tr><td><b>GAIA 错题语料</b></td><td>v11/.gaia_100miss_traces</td><td>5 文件 / 241 KB</td><td>100 道错题的重放样本</td></tr>
+          <tr><td><b>BC 主账</b></td><td>evidence/ledgers/bc_ledger.json</td><td>21 题 / 110 attempts</td><td>另有 v11 子账本 4 题 8</td></tr>
+          <tr><td><b>BC 逐题轨迹</b></td><td>attempts.trace_path</td><td>0 条</td><td>真实缺口：账本没记 trace 引用，回不到当时轨迹</td></tr>
+          <tr><td><b>Auto 检查点</b></td><td>~/.meyo/users</td><td>1,020 文件 / 10,692 步</td><td>每题一份 ckpt</td></tr>
+          <tr><td><b>军团事件</b></td><td>~/.meyo/legion/teams</td><td>746 team / 239,899 条</td><td>step 占 99.4%</td></tr>
+          <tr><td><b>交付物</b></td><td>../deliveries</td><td>23,586 文件 / 3.98 GB</td><td>9 份 file-manifest，单份 1,500 条以上</td></tr>
+          <tr><td><b>交付证据</b></td><td>evidence 与 evidence-player-finish</td><td>12 文件 / 11.6 MB</td><td>真实操作截图与验证记录</td></tr>
+          <tr><td><b>开发证据</b></td><td>dev</td><td>4,893 文件 / 211.9 MB</td><td>json 3,490、md 388、png 211、py 204、sql 182</td></tr>
+          <tr><td><b>内容运营</b></td><td>tracking 与 ctr_live</td><td>819 次记录 / 412 条 feed</td><td>内容侧回流数据</td></tr>
+          <tr><td><b>运行时归档</b></td><td>dev/trace-archive-20261018</td><td>14,009 文件 / 897.5 MB</td><td>只含运行时记录，不含交付物</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="section-note">按“所有 trace 资产”算，是 14,009 个归档 + 23,586 个交付物 + 172 个 evidence，合计约 37,767 个文件、约 4.9 GB。1,020 只是其中最核心的 Auto 检查点数；之前把它当“trace 总量”，口径错了。</p>
+
+    <div class="warnbox">
+      <h4>两个真实缺口</h4>
+      <ul>
+        <li><b>BC 账本没有 trace 引用</b>：110 次 attempts 里没有一条 trace_path；能看到对错与耗时，却回不到当时工具轨迹。修法：写账本时同步记路径，或用 qid 反查 users 检查点。</li>
+        <li><b>交付物 trace 没进运行时归档</b>：3.98 GB 交付物与 897.5 MB 运行时记录是两套账，不能混一个包；交付物应单独做 file-manifest 归档。</li>
+      </ul>
+    </div>
+
     <h3 style="font-size:15px;margin:34px 0 14px;">四维分类：类型、场景、步数、效果</h3>
     <p class="section-note">只看“七类文件”不够。真实 trace 按四个维度交叉读：先定位问题，再进具体文件。以下分布来自 1,020 个真实 Auto 检查点。</p>
     <div class="table-wrap dense">
