@@ -1,0 +1,229 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light">
+<meta name="description" content="Meyo 效果案例库：10 个真实测试案例，涵盖交互网页与小游戏，附提示词、实测视频与能力边界。">
+<meta name="referrer" content="no-referrer">
+<title>Meyo 效果案例库｜10 个真实测试案例</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%2314120f'/><text x='16' y='23' font-size='20' font-family='Georgia' fill='%23faf9f6' text-anchor='middle'>m</text></svg>">
+<link rel="stylesheet" href="../styles.css">
+<link rel="stylesheet" href="cases.css">
+</head>
+<body>
+<a class="skip" href="#main">跳到正文</a>
+
+<header class="topbar">
+  <div class="wrap topbar-inner">
+    <a class="brand" href="../">
+      <span class="brand-mark">m</span>
+      <span class="brand-name">Meyo<span>.</span></span>
+    </a>
+    <nav class="nav" aria-label="导航">
+      <a href="../">资产总账</a>
+      <a href="./" class="active">效果案例</a>
+      <a href="#web">交互网页</a>
+      <a href="#game">小游戏</a>
+      <a href="#boundary">边界</a>
+    </nav>
+    <span class="edition">案例库 <i>/</i> 2026.10.19</span>
+  </div>
+</header>
+
+<main id="main">
+  <div class="wrap case-hero">
+    <p class="kicker">真实测试 · 不是概念稿</p>
+    <h1>10 个案例，<br>看清现在能稳定做什么。</h1>
+    <p class="hero-lead">这些是 Meyo 在一轮真实测试里跑出来的效果，包含交互网页、2D 小游戏、3D 与视频尝试。每个案例保留原始提示词、实测视频和当时的结论；做得好的与没做好的都放在一起。</p>
+    <div class="case-stats">
+      <div><strong>10</strong><span>个真实案例</span></div>
+      <div><strong>7</strong><span>交互网页</span></div>
+      <div><strong>3</strong><span>小游戏</span></div>
+      <div><strong>2D 稳 / 3D 难</strong><span>当前能力边界</span></div>
+    </div>
+  </div>
+
+  <section class="wrap case-block">
+    <div class="chapter-head">
+      <span class="chapter-no">判断</span>
+      <span class="chapter-sub">什么内容值得做、值得传播</span>
+    </div>
+    <div class="mech-grid">
+      <div class="mech"><b>产品能力强</b><p>刚推出的、没见过的、超出预期的、耳目一新的。新模型能力、建模、视觉展现、简单操作出好效果。</p></div>
+      <div class="mech"><b>猎奇与话题</b><p>奶龙跑酷、牛马按时下班模拟器、班主任模拟器，或接入实时热点与流行梗。</p></div>
+      <div class="mech"><b>Show up</b><p>案例能让用户展示自己很厉害、做的东西很好、见多识广、有认同感。测试结果、年度总结、自己做成功的案例。</p></div>
+      <div class="mech"><b>联络与共情</b><p>文物交互网页、AI 自制生日网页、AI 模拟演员过去的角色给演员打电话。</p></div>
+      <div class="mech"><b>适合 Meyo 的场景</b><p>优势场景或解决痛点，带来 wow 感；比竞品交付质量更高，而不是硬拼通用建模能力。</p></div>
+      <div class="mech"><b>更快获得传播</b><p>简单场景里做话题性内容，强情绪、工具、社交展示、不复杂但视觉效果好的东西。</p></div>
+    </div>
+  </section>
+
+  <section id="web" class="wrap case-block">
+    <div class="chapter-head">
+      <span class="chapter-no">01</span>
+      <span class="chapter-sub">交互网页 · 7 个</span>
+    </div>
+    <h2>2D 效果大部分能复刻，3D 与空间类仍然困难。</h2>
+    <p class="section-note">下列视频均为真实产物录屏，已转成浏览器可播放的 mp4。提示词保留当时版本，包含人工修改后的最终输入。</p>
+
+    <div class="case-grid">
+      <article class="case-card">
+        <video src="./media/floating-island.mp4" controls preload="metadata" playsinline></video>
+        <div class="case-body">
+          <div class="case-top"><span class="case-tag">3D 小岛主页</span><span class="case-result good">可复刻</span></div>
+          <h3>浮空岛个人主页</h3>
+          <p>参考“用 GPT6 搓一个 3D 小岛个人主页”，做出一座可浏览的浮空岛主页。</p>
+          <details><summary>提示词与说明</summary><p>原始测试未保留完整提示词；案例用于验证 3D 场景型个人主页的可复刻程度。</p></details>
+        </div>
+      </article>
+
+      <article class="case-card">
+        <video src="./media/camera-teardown.mp4" controls preload="metadata" playsinline></video>
+        <div class="case-body">
+          <div class="case-top"><span class="case-tag">拆解交互</span><span class="case-result good">可复刻</span></div>
+          <h3>相机拆解交互网页</h3>
+          <p>把一台相机拆成数百个可交互部件，按系统分类切换，点选弹出讲解，滑条控制整体炸开与复原。</p>
+          <details><summary>提示词</summary><p>参考开源项目 Human Atlas（人体解剖站）的实现方式，做一个「拆解相机」交互网页：把目标对象（一台相机）拆成数百个可交互部件，按系统分类切换，点选部件即弹出讲解，滑条控制整体炸开与复原。最后生成一个可交互网页。</p></details>
+        </div>
+      </article>
+
+      <article class="case-card">
+        <video src="./media/museum.mp4" controls preload="metadata" playsinline></video>
+        <div class="case-body">
+          <div class="case-top"><span class="case-tag">线上博物馆</span><span class="case-result good">可复刻</span></div>
+          <h3>线上博物馆</h3>
+          <p>参考“人人都可以手搓一个属于自己的线上博物馆”，生成可浏览的线上展馆。</p>
+          <details><summary>提示词与说明</summary><p>原始测试未保留完整提示词；案例用于验证展馆类多页交互的完成度。</p></details>
+        </div>
+      </article>
+
+      <article class="case-card">
+        <video src="./media/gameboy-portfolio.mp4" controls preload="metadata" playsinline></video>
+        <div class="case-body">
+          <div class="case-top"><span class="case-tag">不到 50 字</span><span class="case-result good">可复刻</span></div>
+          <h3>Gameboy 掌机作品集</h3>
+          <p>用不到 50 个字的提示词做出一个看起来完全像 Gameboy 的网站作品集，按键可浏览介绍。</p>
+          <details><summary>提示词</summary><p>制作一个看起来像 Gameboy（游戏男孩）的网站作品集，它应该看起来完全像一台 Gameboy，甚至连屏幕也要像，整体感觉要像一台真实的 Gameboy 掌机。文本展示内容为个人介绍，通过按键按钮可以展示和浏览介绍，人物信息自行设定样本。需保持屏幕文字清晰可见，按键键位准确，互不重叠，无横向溢出，模仿真实按键效果。</p></details>
+        </div>
+      </article>
+
+      <article class="case-card">
+        <video src="./media/birthday-page.mp4" controls preload="metadata" playsinline></video>
+        <div class="case-body">
+          <div class="case-top"><span class="case-tag">情绪价值</span><span class="case-result good">可复刻</span></div>
+          <h3>给朋友定制的生日网页</h3>
+          <p>为朋友定制的生日网页，属于“联络与共情”方向的典型案例。</p>
+          <details><summary>提示词与说明</summary><p>提示词经过多轮人工修改，完整修改过程保留在内部测试记录中；此处展示最终效果。</p></details>
+        </div>
+      </article>
+
+      <article class="case-card">
+        <video src="./media/knowledge-3d.mp4" controls preload="metadata" playsinline></video>
+        <div class="case-body">
+          <div class="case-top"><span class="case-tag">知识可视化</span><span class="case-result mid">部分可复刻</span></div>
+          <h3>知识点拆成 3D 交互动画</h3>
+          <p>把一个知识点拆成三维动画演示，用交互动画网页讲清结构关系。</p>
+          <details><summary>提示词与说明</summary><p>原始测试未保留完整提示词；3D 表现仍在打磨，复杂空间关系会出现穿模与布局问题。</p></details>
+        </div>
+      </article>
+
+      <article class="case-card">
+        <video src="./media/portfolio-site.mp4" controls preload="metadata" playsinline></video>
+        <div class="case-body">
+          <div class="case-top"><span class="case-tag">个人主页</span><span class="case-result good">可复刻</span></div>
+          <h3>个人作品集网站</h3>
+          <p>完整的个人作品集网站，用于验证从一句话到可浏览作品的完整链路。</p>
+          <details><summary>提示词与说明</summary><p>原始测试未保留完整提示词；可作为个人主页类需求的基线参照。</p></details>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section id="game" class="wrap case-block">
+    <div class="chapter-head">
+      <span class="chapter-no">02</span>
+      <span class="chapter-sub">小游戏 · 3 个</span>
+    </div>
+    <h2>2D 游戏很方便，3D 建构仍然困难。</h2>
+    <p class="section-note">一个对话框就能完成玩法设计、美术素材生成与最终可玩的游戏；3D 场景会出现穿模、混乱，调试成本明显更高。</p>
+
+    <div class="case-grid">
+      <article class="case-card">
+        <video src="./media/puzzle-game.mp4" controls preload="metadata" playsinline></video>
+        <div class="case-body">
+          <div class="case-top"><span class="case-tag">锈湖风格</span><span class="case-result good">2D 可玩</span></div>
+          <h3>单机解密小游戏</h3>
+          <p>参考锈湖风格，在房间内找线索、解谜，模型自行设计故事、生成美术素材并拼贴进游戏框架。</p>
+          <details><summary>提示词</summary><p>请帮我做一个解密小游戏，这个游戏为单机解密风格，设计和玩法可以参照锈湖（附件图片），用户需要在房间内找线索，然后进行解密。你可以设计一个完整的故事，引导用户解密。自行校准各个按键的位置，不要错位，同时相关物品可以参考真实物品进行设计，可以自行搜索一些素材，尽量环境逼真一些。请基于这个游戏目前的框架，并以游戏美术总监的角色，为这个游戏列全美术清单，按优先级分组，每项写清楚：用途、尺寸、数量、风格锚点，并附一条可直接投喂生图的完整提示词，并调用生图工具，完成游戏美术素材设计，符合该游戏风格。把制作好的素材，拼贴到原有的游戏框架中，让游戏画面整体看起来精美、流畅、符合氛围。请完成基础检查，确定美术素材没有错位、或者有其他 bug，有问题的话就自行修复，然后给我一个最终版可玩的游戏。</p></details>
+        </div>
+      </article>
+
+      <article class="case-card">
+        <video src="./media/parkour-1.0.mp4" controls preload="metadata" playsinline></video>
+        <div class="case-body">
+          <div class="case-top"><span class="case-tag">截图复刻</span><span class="case-result good">2D 可玩</span></div>
+          <h3>跑酷复刻 1.0</h3>
+          <p>只给一张跑酷游戏截图和一句话提示词，生成一个可玩的跑酷游戏；有音效，录屏收录不到。</p>
+          <details><summary>提示词</summary><p>这是一张跑酷游戏截图，请参考这个风格，生成一个可以玩的跑酷游戏。</p></details>
+        </div>
+      </article>
+
+      <article class="case-card">
+        <video src="./media/parkour-blender.mp4" controls preload="metadata" playsinline></video>
+        <div class="case-body">
+          <div class="case-top"><span class="case-tag">3D 尝试</span><span class="case-result mid">仍在打磨</span></div>
+          <h3>跑酷接入 Blender</h3>
+          <p>三跑道、铁轨形态、火车头、高低栏杆与金币；人物与火车头参考原图做 3D 建模。画面可跑，但仍有穿模与质感问题。</p>
+          <details><summary>提示词</summary><p>我希望做一款跑酷小游戏，参考附件截图，三根跑道，人物可以在三根跑道内切换，跑道可以模拟铁轨形态，障碍物有火车头（人物可以通过跳跃跳上火车头），栏杆（高栏杆可以从下面滑过去，低栏杆只能从上面跳过去），同时跑道上可以有金币，人物经过就能获取金币，人物建模和火车头参考我给的图片，进行 3D 建模，需要画面流畅自然。</p></details>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section id="boundary" class="wrap case-block">
+    <div class="chapter-head">
+      <span class="chapter-no">结论</span>
+      <span class="chapter-sub">做得好的，与还没做好的</span>
+    </div>
+    <div class="boundary-grid">
+      <article>
+        <h3>已经比较稳的</h3>
+        <ul class="facts">
+          <li>2D 交互网页大部分能复刻，版式、按键、页面切换基本可控。</li>
+          <li>2D 游戏：一个对话框完成玩法、素材生成与可玩产出，多模态协作顺畅。</li>
+          <li>生图速度快、成功率相对高，可控性比通用聊天产品更强。</li>
+          <li>参考截图能理解基本玩法；同等条件下，竞品只给截图容易出现乱码。</li>
+        </ul>
+      </article>
+      <article>
+        <h3>还需要继续打磨</h3>
+        <ul class="facts">
+          <li>3D 与空间类网页困难，复杂结构会出现穿模、布局混乱。</li>
+          <li>3D 建模大多只能做简单多边形，曲线建模效果不好，调试成本高。</li>
+          <li>视频类：白模构建弱、直接视频生成弱、复杂特效剪辑难；大文件口播工程不好做。</li>
+          <li>整体仍偏慢、失败率不低，长难任务存在未完成就交付。</li>
+          <li>同提示词能否稳定复现、强制调用工具是否一定成功，仍需验证。</li>
+        </ul>
+      </article>
+    </div>
+    <div class="warnbox">
+      <h4>读这些案例时请注意</h4>
+      <ul>
+        <li>效果受提示词与制作流程影响很大；简单提示词不能稳定做出高精度成果，需要反复测。</li>
+        <li>视频是真实产物录屏，但不等于同提示词每次都能复现同样效果。</li>
+        <li>3D 与视频案例保留在这里，是为了说明当前边界，不作为“已经稳定”的证据。</li>
+      </ul>
+    </div>
+  </section>
+
+  <footer class="wrap footer">
+    <div>
+      <span class="brand-mark small">m</span>
+      <p>Meyo 效果案例库 · 2026.10.19</p>
+    </div>
+    <p>案例来自内部真实测试；提示词与结论按当时版本保留。</p>
+  </footer>
+</main>
+</body>
+</html>
